@@ -2,7 +2,7 @@
 
 ##しないといけないこと
 <ul>
-	<li>バリデーション</li>
+	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	<li>シードデータ</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>kaminari</li>
