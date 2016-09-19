@@ -6,7 +6,6 @@
 	<li>factory-girls-rails</li>
 	<li>バリデーション</li>
 	<li>シードデータ</li>
-	<li>rails g migration add_name_to_user name:string</li>
 	<li>before_action :authenticate, only: 何たらかんたら<li>
 	<li>kaminari</li>
 	<li>figaroで環境変数の定義</li>
@@ -18,6 +17,7 @@
 	<li>Turbolinksの削除</li>
 	<li>nav-collapseのリストは表示されない...</li>
 	<li>tinymceのブランチ（gemを使うこと）</li>
+	<li>urlにユーザ名が現れること</li>
 </ul>
 
 

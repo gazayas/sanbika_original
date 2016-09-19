@@ -17,15 +17,19 @@ gem 'bootstrap-sass'
 gem 'kaminari'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
-  gem 'pry' # :testだけでいいか
+	gem 'rspec'
+	gem 'factory_girl_rails'
+	gem 'byebug', platform: :mri
+ 	gem 'pry'
+ 	gem 'better_errors'
+ 	gem 'binding_of_caller'
 end
 
 group :development do
-  gem 'web-console'
-  gem 'listen', '~> 3.0.5'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+ 	gem 'web-console'
+  	gem 'listen', '~> 3.0.5'
+  	gem 'spring'
+  	gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
