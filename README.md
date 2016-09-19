@@ -8,7 +8,6 @@
 	<li>シードデータ</li>
 	<li>rails g migration add_name_to_user name:string</li>
 	<li>before_action :authenticate, only: 何たらかんたら<li>
-	<li>bootstrap</li>
 	<li>kaminari</li>
 	<li>figaroで環境変数の定義</li>
 	<li>key_change：今回はgemじゃなくてjsだけでいい</li>
