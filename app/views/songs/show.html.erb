@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Title yomikata:</strong>
+  <%= @song.title_yomikata %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist %>
+</p>
+
+<p>
+  <strong>Artist yomikata:</strong>
+  <%= @song.artist_yomikata %>
+</p>
+
+<p>
+  <strong>Key:</strong>
+  <%= @song.key %>
+</p>
+
+<p>
+  <strong>Song body:</strong>
+  <%= @song.song_body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @song.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
