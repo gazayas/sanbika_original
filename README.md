@@ -2,7 +2,6 @@
 
 ##しないといけないこと
 <ul>
-	<li>factory-girls-rails</li>
 	<li>バリデーション</li>
 	<li>シードデータ</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
