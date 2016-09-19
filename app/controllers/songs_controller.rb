@@ -14,7 +14,7 @@ class SongsController < ApplicationController
 
   # GET /songs/new
   def new
-    @song = Song.new
+    @song = current_user.songs.build
   end
 
   # GET /songs/1/edit
@@ -24,7 +24,7 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-    @song = Song.new(song_params)
+    @song = current_user.songs.build(song_params)
 
     respond_to do |format|
       if @song.save
