@@ -24,7 +24,7 @@
               <li><%= link_to '<span class="glyphicon glyphicon-new-window"></span> ログアウト'.html_safe, destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to '<span class="glyphicon glyphicon-user"></span> ログイン'.html_safe, new_user_session_path %></li>
-              <li><%= link_to '<span class="glyphicon glyphicon-pencil"></span> アカウント登録'.html_safe, '/sign_up' %></li>
+              <li><%= link_to '<span class="glyphicon glyphicon-pencil"></span> アカウント登録'.html_safe, new_user_registration_path %></li>
             <% end %>
             <!-- li><%# link_to "<span class=\"glyphicon glyphicon-info-sign\"></span> 情報".html_safe,
               {controller: "home",action: "info"} %></li-->

@@ -16,6 +16,7 @@
 	<li>ロケールの実装</li>
 	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に）</li>
 	<li>Turbolinksの削除</li>
+	<li>nav-collapseのリストは表示されない...</li>
 	<li>tinymceのブランチ（gemを使うこと）</li>
 </ul>
 
