@@ -6,7 +6,7 @@
 	<li>factory-girls-rails</li>
 	<li>バリデーション</li>
 	<li>シードデータ</li>
-	<li>before_action :authenticate, only: 何たらかんたら<li>
+	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>kaminari</li>
 	<li>figaroで環境変数の定義</li>
 	<li>key_change：今回はgemじゃなくてjsだけでいい</li>
