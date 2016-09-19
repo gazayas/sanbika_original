@@ -2,7 +2,6 @@
 
 ##しないといけないこと
 <ul>
-	<li>テスト（RSpec）</li>
 	<li>factory-girls-rails</li>
 	<li>バリデーション</li>
 	<li>シードデータ</li>
