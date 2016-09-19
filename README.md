@@ -16,8 +16,9 @@
 	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に）</li>
 	<li>Turbolinksの削除</li>
 	<li>nav-collapseのリストは表示されない...</li>
-	<li>tinymceのブランチ（gemを使うこと）</li>
 	<li>urlにユーザ名が現れること</li>
+	<li>registrations_controller.rbにすべての必要なメソッドが実装してあるか確認すること（:name属性をUserモデルに追加したから）</li>
+	<li>tinymceのブランチ（gemを使うこと）</li>
 </ul>
 
 
