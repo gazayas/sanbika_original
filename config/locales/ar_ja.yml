@@ -1,0 +1,25 @@
+# devise.ja.ymlがある？あればそれを使った方がいいと思う（Userモデルに対して）
+# エラーの実装も考えないといけない
+
+ja:
+  errors:
+    messages:
+      not_saved: 保存されませんでした
+  activerecord:
+    models:
+      user: ユーザ
+      song: 賛美歌チャート
+    attributes:
+      user:
+        name: 名前
+        email: メール
+        password: パスワード
+        remember_me: 保存する
+        password_confirmation: パスワード確認
+        current_password: 現在のパスワード
+      song:
+        title: タイトル
+        title_yomikata: タイトルの読み方
+        artist: 作者の名前
+        artist_yomikata: 作者の名前の読み方
+        song_body: 賛美歌チャート

@@ -4,18 +4,19 @@
 <ul>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	<li>シードデータ</li>
+	<li>navbarの下にある空白の修正</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>kaminari</li>
 	<li>figaroで環境変数の定義</li>
 	<li>key_change：今回はgemじゃなくてjsだけでいい</li>
-	<li>メーラー</li>	
+	<li>メーラー</li>
 	<li>carrierwaveで画像追加ができるように</li>
-	<li>ロケールの実装</li>
 	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に）</li>
 	<li>Turbolinksの削除</li>
 	<li>nav-collapseのリストは表示されない...</li>
 	<li>urlにユーザ名が現れること</li>
 	<li>registrations_controller.rbにすべての必要なメソッドが実装してあるか確認すること（:name属性をUserモデルに追加したから）</li>
+	<li>mailerの日本語はまだ終わってない</li>
 	<li>tinymceのブランチ（gemを使うこと）</li>
 </ul>
 
