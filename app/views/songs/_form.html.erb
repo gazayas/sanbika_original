@@ -1,4 +1,4 @@
-<%= form_for([current_user, song]) do |f| %><!-- current_userでいいのかな -->
+<%= form_for([@user, song]) do |f| %><!-- current_userでいいのかな -->
   <% if song.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>

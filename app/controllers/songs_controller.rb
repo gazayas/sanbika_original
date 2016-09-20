@@ -4,7 +4,9 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    @user = User.find(params[:user_id])
+    @songs = @user.songs.all
+    # @songs = Song.all これは、また別のベージにする
   end
 
   # GET /songs/1
@@ -14,11 +16,14 @@ class SongsController < ApplicationController
 
   # GET /songs/new
   def new
-    @song = current_user.songs.build
+    @user = User.find(params[:user_id])
+    @song = @user.songs.build
   end
 
   # GET /songs/1/edit
   def edit
+    @user = User.find(params[:user_id])
+    @songs = @user.songs.all
   end
 
   # POST /songs

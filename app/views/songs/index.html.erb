@@ -26,9 +26,9 @@
         <td><%= song.key %></td>
         <td><%= song.song_body %></td>
         <td><%= song.user_id %></td>
-        <td><%= link_to 'Show', song %></td>
-        <td><%= link_to 'Edit', edit_song_path(song) %></td>
-        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_song_path(@user, song) %></td>
+        <td><%= link_to 'Edit', edit_user_song_path(@user, song) %></td>
+        <td><%= link_to 'Destroy', user_song_path(@user, song), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

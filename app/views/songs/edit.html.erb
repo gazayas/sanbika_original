@@ -2,5 +2,5 @@
 
 <%= render 'form', song: @song %>
 
-<%= link_to 'Show', @song %> |
-<%= link_to 'Back', songs_path %>
+<%= link_to 'Show', user_song_path(@user, @song) %> |
+<%= link_to 'Back', user_songs_path(@user, @songs) %>
