@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  get 'users/index' => 'users#index'
-  get 'users/:id(.:format)' => 'users#show'
+  resources :users do
+    resources :songs
+  end
 
   # URLにユーザ名が表示されるように
-  match '/:name' => 'users#show', via: :get
+  # match '/:name' => 'users#show', via: :get
 
-  resources :songs
+
 
 
 

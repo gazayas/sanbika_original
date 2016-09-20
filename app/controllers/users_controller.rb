@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_name(params[:name])
+    @user = User.find(params[:id])
+    @song = @user.songs.build # 合ってるかな
+    @songs = @user.songs.all
   end
 
 end

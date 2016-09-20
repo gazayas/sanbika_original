@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse navHeaderCollapse">
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
-              <!-- li><%# link_to '<span class="glyphicon glyphicon-home"></span>'.html_safe + " #{current_user.email}さん", current_user %></li-->
+              <li><%= link_to '<span class="glyphicon glyphicon-home"></span>'.html_safe + " #{current_user.name}さん", current_user %></li>
               <li><%= link_to '<span class="glyphicon glyphicon-new-window"></span> ログアウト'.html_safe, destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to '<span class="glyphicon glyphicon-user"></span> ログイン'.html_safe, new_user_session_path %></li>
@@ -33,7 +33,7 @@
       </div>
     </nav>
 
-    <br/><br/><br/><br/><!-- これをCSSで修正すること -->
+    <br/><br/><!-- これをCSSで修正すること -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
