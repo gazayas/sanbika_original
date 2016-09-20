@@ -1,5 +1,5 @@
-<p><%= @name %>さん、ようこそ！</p><!-- 前は@emailでした -->
+<p><%= @resource.email %>, hello</p>
 
-<p>下記のリンクでアカウントを確認することができます：</p>
+<p>Confirm your account with the link below</p>
 
-<p><%= link_to 'アカウントの確認', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'account confirmation', confirmation_url(@resource, confirmation_token: @token) %></p>

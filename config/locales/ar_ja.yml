@@ -1,10 +1,13 @@
-# devise.ja.ymlがある？あればそれを使った方がいいと思う（Userモデルに対して）
 # エラーの実装も考えないといけない
 
 ja:
   errors:
     messages:
       not_saved: 保存されませんでした
+  devise:
+    registrations:
+      user:
+        signed_up_but_unconfirmed: "アカウントの登録はできましたが、メールのでアカウントの確認はまだできていません"
   activerecord:
     models:
       user: ユーザ
