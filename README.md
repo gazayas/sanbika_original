@@ -4,7 +4,6 @@
 <ul>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	<li>urlにユーザ名が現れること</li>
-	<li>Turbolinksの削除</li>
 	<li>views/songのテンプレートを全部実装すること</li>
 	<li>key_change.js</li>
 	<li>シードデータ</li>
