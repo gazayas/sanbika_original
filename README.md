@@ -3,7 +3,6 @@
 ##しないといけないこと
 <ul>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
-	<li>urlにユーザ名が現れること</li>
 	<li>ユーザのview</li>
 	<li>views/songのテンプレートを全部実装すること</li>
 	<li>key_change.js</li>
