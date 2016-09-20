@@ -18,6 +18,7 @@
 	<li>nav-collapseのリストは表示されない...</li>
 	<li>registrations_controller.rbにすべての必要なメソッドが実装してあるか確認すること（:name属性をUserモデルに追加したから）</li>
 	<li>mailerの日本語はまだ終わってない</li>
+	<li>文字のバリデーションがちょっとおかしい。Deviseで６文字が書いてあるけど、実際には５文字です</li>
 </ul>
 
 
