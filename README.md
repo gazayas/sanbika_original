@@ -3,8 +3,8 @@
 ##しないといけないこと
 <ul>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
+	<li>gem nihonjinを使ってtitle_yomikataにはカタカナがあればそれをひらがなにする。また空白があればそれを消す。それをモデルに入れる</li>
 	<li>key_change.js</li>
-	<li>賛美歌チャートだけの一覧ぺージ（ユーザごとにではなくて、全部を１つのpathに）</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>tinymceのブランチ（gemを使うこと）</li>
 	<li>kaminari</li>
@@ -16,6 +16,7 @@
 	<li>mailerの日本語</li>
 	<li>文字のバリデーションがちょっとおかしい。Deviseで６文字が書いてあるけど、実際には５文字です</li>
 	<li>ユーザのdestroyはdeviseのどこにあるかな...</li>
+	<li>今のシードデータではログインできない</li>
 	<li>検索機能</li>
 </ul>
 

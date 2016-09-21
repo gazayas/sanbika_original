@@ -1,0 +1,4 @@
+<% @songs.each do |song| %>
+  <% user = User.find(song[:user_id]) %>
+  <p><%= link_to(song.title, user_song_path(user, song)) %>　<%= song.artist %></p>
+<% end %>

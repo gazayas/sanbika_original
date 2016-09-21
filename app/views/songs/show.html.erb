@@ -1,39 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
   <%= @song.title %>
 </p>
 
 <p>
-  <strong>Title yomikata:</strong>
-  <%= @song.title_yomikata %>
-</p>
-
-<p>
-  <strong>Artist:</strong>
+  <strong><%= t('activerecord.attributes.song.artist') %></strong>
   <%= @song.artist %>
 </p>
 
 <p>
-  <strong>Artist yomikata:</strong>
-  <%= @song.artist_yomikata %>
-</p>
-
-<p>
-  <strong>Key:</strong>
   <%= @song.key %>
 </p>
 
-<p>
-  <strong>Song body:</strong>
+<div id="song_body">
   <%= @song.song_body %>
-</p>
+</div>
 
 <p>
-  <strong>User:</strong>
-  <%= @song.user_id %>
+  <strong>讃美歌チャートの作成者：</strong>
+  <%= @user.name %>
 </p>
 
-<%= link_to 'Edit', edit_user_song_path(@song) %> |
-<%= link_to 'Back', user_songs_path %>
+<% if @user == current_user %>
+  <%= link_to '編集', edit_user_song_path(@song) %> |
+  <%= link_to '戻る', user_songs_path %>
+  <%= link_to '削除', user_song_path, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+<% end %>
