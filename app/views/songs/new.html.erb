@@ -1,5 +1,8 @@
-<h1>新しい讃美歌チャート</h1>
-
-<%= render 'form', song: @song %>
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    <h1>新しい讃美歌チャート</h1>
+  </div>
+  <%= render 'form', song: @song %>
+</div>
 
 <%= link_to '戻る', user_songs_path %>

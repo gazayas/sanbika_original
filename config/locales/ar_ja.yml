@@ -21,8 +21,8 @@ ja:
         password_confirmation: パスワード確認
         current_password: 現在のパスワード
       song:
-        title: タイトル
-        title_yomikata: タイトルの読み方
+        title: 曲名
+        title_yomikata: 曲名の読み方
         artist: 作者
         artist_yomikata: 作者の名前の読み方
         song_body: 賛美歌チャート

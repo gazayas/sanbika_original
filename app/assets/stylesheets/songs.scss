@@ -1,3 +1,23 @@
 // Place all the styles related to the Songs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* index */
+
+/* show */
+
+/* _form */ /* 別のstylesheetとかぶってるやつをapplication.scssに書くこと */
+.panel {
+  text-align: center;
+  table {
+    margin: 0px auto;
+  }
+  #song_key, #key_text {
+    float: left;
+  }
+}
+
+/* new */
+
+/* edit */
