@@ -2,30 +2,38 @@
 
 <h1>讃美歌チャート</h1>
 
-<table>
+<% if @user == current_user %>
+  <div id="new_song">
+    <%= link_to '新規作成', new_user_song_path([@user, @song]), class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
+
+<% if !@songs.empty? %>
+<table id="song_index" >
+
   <thead>
     <tr>
       <th><%= t('activerecord.attributes.song.title') %></th>
       <th><%= t('activerecord.attributes.song.artist') %></th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @songs.each do |song| %>
-      <tr>
-        <td><%= song.title %></td>
-        <td><%= song.artist %></td>
-        <td><%= link_to '表示', user_song_path(@user, song) %></td>
-        <td><%= link_to '編集', edit_user_song_path(@user, song) %></td>
-        <td><%= link_to '削除', user_song_path(@user, song), method: :delete, data: { confirm: '削除してよろしいですか？' } %></td>
-      </tr>
-    <% end %>
+      <% @songs.each do |song| %>
+        <tr>
+          <td class="song_title"><%= link_to song.title, user_song_path(@user, song), class: 'btn btn-primary btn-lg btn-block' %></td>
+          <td class="song_artist"><%= song.artist %></td>
+          <% if current_user == @user %>
+            <td class="functions"><%= link_to '編集', edit_user_song_path(@user, song), class: 'btn btn-primary btn-lg btn-block' %></td>
+            <td class="functions"><%= link_to '削除', user_song_path(@user, song), method: :delete,
+              data: { confirm: '削除してよろしいですか？' }, class: 'btn btn-primary btn-lg btn-block' %></td>
+          <% end %>
+        </tr>
+      <% end %>
   </tbody>
 </table>
+<% else %>
+  <h3 id="no_songs">讃美歌チャートはありません</h3>
+<% end %>
 
 <br>
-
-<% if @user == current_user %>
-  <%= link_to '新しい讃美歌チャート', new_user_song_path([@user, @song]) %>
-<% end %>

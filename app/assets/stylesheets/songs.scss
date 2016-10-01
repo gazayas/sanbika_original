@@ -4,6 +4,47 @@
 
 
 /* index */
+#new_song {
+  text-align: center;
+}
+h1 {
+  text-align: center;
+}
+#song_index {
+    margin: 20px auto;
+    width: 90%;
+    border: 2px solid #D3D3D3;
+    font-size: 30px;
+    text-align: center;
+    th {
+      border: 2px solid #D3D3D3;
+      text-align: center;
+    }
+    td {
+      border-left: 2px solid #D3D3D3;
+      border-right: 2px solid #D3D3D3;
+      margin: 7px;
+      padding: 7px;
+      font-size: 30px;
+    }
+    .song_title, .song_artist {
+      width: 50%;
+    }
+    .song_artist {
+      font-size: 15px;
+    }
+    .functions {
+      border-top: 2px solid #D3D3D3;
+      border-bottom: 2px solid #D3D3D3;
+      border-left: 0px solid #D3D3D3;
+      border-right: 0px solid #D3D3D3;
+    }
+}
+
+#no_songs {
+  text-align: center;
+}
+
 
 /* show */
 

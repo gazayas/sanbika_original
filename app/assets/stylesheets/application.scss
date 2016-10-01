@@ -25,3 +25,8 @@
        image-url("bootstrap/glyphicons-halflings-regular.ttf") format("truetype"),
        image-url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg")
 }
+
+/* primary-btnは白じゃなかったので次の行を追加しました */
+.btn:visited {
+  color: #FFF;
+}
