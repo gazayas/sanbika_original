@@ -2,8 +2,8 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%# f.label :name %><!-- これがほしいけど、deviseでどうやればいいかちょっと分からない -->
+    <%# f.text_field :name %>
   </div>
   <% now = Time.zone.now %>
 
