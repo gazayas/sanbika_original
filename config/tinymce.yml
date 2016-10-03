@@ -1,0 +1,13 @@
+toolbar:
+  - italic
+menubar: false
+selector: 'textarea'
+height: 275
+forced_root_block : ""
+setup :
+  function(ed) {
+    ed.on('init', function()
+    {
+        this.getDoc().body.style.fontSize = '16px';
+    });
+  }
