@@ -2,7 +2,6 @@
 
 ##しないといけないこと
 <ul>
-	<li>tinymceのブランチ（gemを使うこと）</li>
 	<li>navbarの下にある空白の修正</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	<li>gem nihonjinを使ってtitle_yomikataにはカタカナがあればそれをひらがなにする。また空白があればそれを消す。それをモデルに入れる</li>
