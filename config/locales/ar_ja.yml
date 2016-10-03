@@ -22,7 +22,8 @@ ja:
         current_password: 現在のパスワード
       song:
         title: 曲名
-        title_yomikata: 曲名の読み方
+        title_yomikata: 曲名の読み方（ひらがな）
         artist: 作者
-        artist_yomikata: 作者の名前の読み方
+        artist_yomikata: 作者の名前の読み方（ひらがな）
+        key: キー
         song_body: 賛美歌チャート

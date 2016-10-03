@@ -40,7 +40,7 @@
     </tr>
     <tr>
       <td>
-        <div id="key_text">キー</div>
+        <div id="key_text"><%= t('activerecord.attributes.song.key') %></div>
         <%= f.select(:key, options_for_select(["foo", "bar"]), #(notes[0], :selected => selected_key),
         class: 'form-control', size: col_size) %>
       </td>
@@ -51,7 +51,7 @@
 
   <div class="song_body">
     <%= f.text_area :song_body, class: 'form-control',
-    placeholder: t('activerecord.attributes.song.title_yomikata') %>
+    placeholder: t('activerecord.attributes.song.song_body') %>
   </div>
 
   <%= f.submit class: 'btn btn-primary', value: '保存' %>
