@@ -23,11 +23,6 @@
         <tr>
           <td class="song_title"><%= link_to song.title, user_song_path(@user, song), class: 'btn btn-primary btn-lg btn-block' %></td>
           <td class="song_artist"><%= song.artist %></td>
-          <% if current_user == @user %>
-            <td class="functions"><%= link_to '編集', edit_user_song_path(@user, song), class: 'btn btn-primary btn-lg btn-block' %></td>
-            <td class="functions"><%= link_to '削除', user_song_path(@user, song), method: :delete,
-              data: { confirm: '削除してよろしいですか？' }, class: 'btn btn-primary btn-lg btn-block' %></td>
-          <% end %>
         </tr>
       <% end %>
   </tbody>

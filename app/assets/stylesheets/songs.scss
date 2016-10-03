@@ -33,12 +33,6 @@ h1 {
     .song_artist {
       font-size: 15px;
     }
-    .functions {
-      border-top: 2px solid #D3D3D3;
-      border-bottom: 2px solid #D3D3D3;
-      border-left: 0px solid #D3D3D3;
-      border-right: 0px solid #D3D3D3;
-    }
 }
 
 #no_songs {
@@ -62,6 +56,10 @@ h1 {
   }
 }
 
-/* new */
+.song_body {
+  margin: 10px;
+}
 
-/* edit */
+#save_button {
+  margin: 10px;
+}
