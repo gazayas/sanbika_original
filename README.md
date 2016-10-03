@@ -2,25 +2,29 @@
 
 ##しないといけないこと
 <ul>
+	<li>tinymceのブランチ（gemを使うこと）</li>
+	<li>navbarの下にある空白の修正</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	<li>gem nihonjinを使ってtitle_yomikataにはカタカナがあればそれをひらがなにする。また空白があればそれを消す。それをモデルに入れる</li>
-	<li>key_change.js</li>
-	<li>before_action :authenticate, only: 何たらかんたら</li>
-	<li>tinymceのブランチ（gemを使うこと）</li>
-	<li>kaminari</li>
-	<li>navbarの下にある空白の修正</li>
-	<li>carrierwaveで画像追加ができるように</li>
 	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に）</li>
+
 	<li>nav-collapseのリストは表示されない...</li>
-	<li>registrations_controller.rbにすべての必要なメソッドが実装してあるか確認すること（:name属性をUserモデルに追加したから）</li>
-	<li>メールじゃなくてユーザ名でログインできるように（sessions_controller.rbで）</li>
+	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>mailerの日本語</li>
-	<li>「あ」のボタンをクリックしたら、song_yomikata =~ /^あ/ の讃美歌チャートのリストを表示すること</li>
-	<li>文字のバリデーションがちょっとおかしい。Deviseで６文字が書いてあるけど、実際には５文字です</li>
+	<li>kaminari</li>
+	<li>key_change.jsの適切な適用</li>
 	<li>ユーザのdestroyはdeviseのどこにあるかな...</li>
+	<li>文字のバリデーションがちょっとおかしい。Deviseで６文字が書いてあるけど、実際には５文字です</li>
+	<li>賛美歌の漢字が合ってるかどうか、ボタンなどを確認すること</li>
+
+
+	<li>「あ」のボタンをクリックしたら、song_yomikata =~ /^あ/ の讃美歌チャートのリストを表示すること</li>
+	<li>メールじゃなくてユーザ名でログインできるように（sessions_controller.rbで）</li>	
+	<li>registrations_controller.rbにすべての必要なメソッドが実装してあるか確認すること（:name属性をUserモデルに追加したから）</li>
+	<li>carrierwaveで画像追加ができるように</li>
 	<li>今のシードデータではログインできない</li>
-	<li>讃美歌の漢字が合ってるかどうか。ボタンなどを確認すること</li>
 	<li>検索機能</li>
+	
 </ul>
 
 
