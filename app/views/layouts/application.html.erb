@@ -33,9 +33,12 @@
       </div>
     </nav>
 
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div id="main_container" class="container">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>      
+      <% elsif alert %>    
+        <p class="alert"><%= alert %></p>
+      <% end %>
 
       <%= yield %>
     </div>
