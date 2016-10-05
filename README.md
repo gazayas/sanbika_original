@@ -5,6 +5,7 @@
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	<li>gem nihonjinを使ってtitle_yomikataにはカタカナがあればそれをひらがなにする。また空白があればそれを消す。それをモデルに入れる</li>
 	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に）</li>
+	<li>songs/show.html.erbのsong_bodyの表示を変えること(().htmlsafeを使わないとダメかな)</li>
 
 	<li>nav-collapseのリストは表示されない...</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
