@@ -5,23 +5,29 @@
 
   $(document).ready(function() {
 
-    var change_these = [];
+    var chord_span = [];
 
     $("#song_body").find("em").each(function () {
       $(this).replaceWith('<span class="chords">' + this.innerHTML + '</span>');
-      change_these.push(this.innerHTML);
+      chord_span.push(this.innerHTML);
     });
-
-    for(var i = 0; i < change_these.length; i++) {
-      change_these[i] = change_these[i].replace(/&nbsp;/g, " ");
-      change_these[i] = jQuery.trim(change_these[i]);
-      change_these[i] = change_these[i].replace(/\s+/g, " ");
-      change_these[i] = change_these[i].replace(/　+/g, " "); // 日本語の空白も消す
-      change_these[i] = change_these[i].split(" ");
-      console.log(change_these[i]);
-      // あんまり綺麗じゃないけど、とりあえずこんな感じで！(^o^)/
+    for(var i = 0; i < chord_span.length; i++) {
+      chord_span[i] = chord_span[i].replace(/&nbsp;/g, " "); // &nbsp; がないように
+      chord_span[i] = chord_span[i].split(" ");
     }
-
+    var new_str = "";
+    for (var x = 0; x < chord_span.length; x++) {
+      for (var i = 0; i < chord_span[x].length; i++) {
+        if (chord_span[x][i] == "") {
+          chord_span[x][i] = " ";
+          console.log(chord_span[x][i]);
+        } else {
+          chord_span[x][i] = '<span class=""' + chord_span[x][i]; // まだ </span> で閉じる
+          // ここで繰り返しの分を入れて、[i + n] != " " || [i + n] != nil で次の要素を確認して、</span>で閉じること 
+        }
+      }
+    }
+    
   });
 
 </script>
