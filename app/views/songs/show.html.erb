@@ -11,21 +11,38 @@
       $(this).replaceWith('<span class="chords">' + this.innerHTML + '</span>');
       chord_span.push(this.innerHTML);
     });
+
     for(var i = 0; i < chord_span.length; i++) {
       chord_span[i] = chord_span[i].replace(/&nbsp;/g, " "); // &nbsp; がないように
       chord_span[i] = chord_span[i].split(" ");
     }
-    var new_str = "";
-    for (var x = 0; x < chord_span.length; x++) {
-      for (var i = 0; i < chord_span[x].length; i++) {
-        if (chord_span[x][i] == "") {
-          chord_span[x][i] = " ";
-          console.log(chord_span[x][i]);
-        } else {
-          chord_span[x][i] = '<span class=""' + chord_span[x][i]; // まだ </span> で閉じる
-          // ここで繰り返しの分を入れて、[i + n] != " " || [i + n] != nil で次の要素を確認して、</span>で閉じること 
+
+    var new_innerHTML = [];
+    
+    for(var i = 0; i < chord_span.length; i++) {
+
+      var new_str = "";
+
+      for(var x = 0; x < chord_span[i].length; x++) {
+        if(chord_span[i][x] == "") {
+          chord_span[i][x] = " ";
+          // console.log(chord_span[i][x]);
         }
+        if(chord_span[i][x] != " ") {
+          // jQueryでwrap()?
+          chord_span[i][x] = '<span class="chord" name="' + chord_span[i][x] + '">' + chord_span[i][x] + '</span>';
+        }
+        new_str += chord_span[i][x];
       }
+      new_innerHTML.push(new_str);
+      // console.log(new_innerHTML[i]);
+    }
+
+    var chords = document.getElementsByClassName('chords');
+
+    for(var i = 0; i < chords.length; i++) {
+      // console.log(chords[i].innerHTML);
+      chords[i].innerHTML = new_innerHTML[i];
     }
     
   });
