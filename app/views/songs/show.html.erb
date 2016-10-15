@@ -74,6 +74,10 @@
   <%= @song.artist %>
 </p>
 
+<%= select_tag(:key_box, 
+      options_for_select(sharp_notes, selected: @song.key),
+      onchange: 'change("' +  @song.key + '", false);') %>
+
 <p>
   <%= @song.key %>
 </p>

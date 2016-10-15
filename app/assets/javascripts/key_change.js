@@ -23,18 +23,18 @@ function check_sharp(note) {
 
 function check_flat(note) {
   if (/b/.test(note) || /♭/.test(note)) {
-  return true;
+    return true;
   } else {
-  return false;
+    return false;
   }
 }
 
 // 「b」か「#」がnoteに入っていれば、「♭」か「♯」に変換する
 function replace_mark(note) {
   if (check_sharp(note)) {
-    note = note.replace(/#/, "♯");
+    note = note.replace(/#/g, "♯");
   } else if (check_flat(note)) {
-    note = note.replace(/b/, "♭");
+    note = note.replace(/b/g, "♭");
   }
   return note;
 }
@@ -49,29 +49,38 @@ function position_of(note) {
 }
 
 // 主要のメソッド
-function change(old_key, new_key, chords_node_list, array_option) {
-
+function change(old_key, array_option, slash_chords_option) {
   // chords_node_listはたまに(slash chordの場合)node_listじゃなくて配列なのでchords_listに変えた方がいいかな
   // console.log(old_key + " " + new_key + " " + chords_node_list + " " + array_option);
+
+  var new_key = document.getElementById('key_box').value;
+  if (slash_chords_option) {     
+    var chords_html_list = slash_chords_option;
+  } else {
+    var chords_html_list = document.getElementsByClassName('chord');
+  }
+
   var chords = [];
 
   var key_up = true;
   var difference = 0;
   var new_chords = [];
 
+
   if (array_option == false) {
-    for (var i = 0; i < chords_node_list.length; i++) {
-      chords.push(chords_node_list[i].getAttribute('name'));
+    for (var i = 0; i < chords_html_list.length; i++) {
+      chords.push(chords_html_list[i].getAttribute('name'));
     }
   } else {
-    chords = chords_node_list;
+    chords = chords_html_list;
     // console.log(chords);
   }
-
+  
   // 「b」か「#」が入っていれば、「♭」か「♯」に変換する
   old_key = replace_mark(old_key);
   new_key = replace_mark(new_key);
   for (var i = 0; i < chords.length; i++) {
+    // console.log(chords[i]);
     chords[i] = replace_mark(chords[i]);
   }
 
@@ -90,13 +99,13 @@ function change(old_key, new_key, chords_node_list, array_option) {
     difference = new_key_pos - old_key_pos;
   } else {
     var original_chords = [];
-    console.log(chords_node_list);
-    for (i = 0; i < chords_node_list.length; i++) {
-      // chords_node_list[i]は文字列の場合なら、slash chordになっていることが分かるから、
-      // その場合は何もしなくて、chords_node_list本当にnodeである場合のみoriginal_chordsを実装する。
+    console.log(chords_html_list);
+    for (i = 0; i < chords_html_list.length; i++) {
+      // chords_html_list[i]は文字列の場合なら、slash chordになっていることが分かるから、
+      // その場合は何もしなくて、chords_html_listは本当にnodeである場合のみoriginal_chordsを実装する。
       // slash chordを使ったらこのfor文の直接前にあるconsole.log();の出力を見てください
-      if (typeof chords_node_list[i] != 'string') {
-        chords_node_list[i].innerHTML = chords_node_list[i].getAttribute('name');
+      if (typeof chords_html_list[i] != 'string') {
+        chords_html_list[i].innerHTML = chords_html_list[i].getAttribute('name');
       }
     }
   }
@@ -108,12 +117,12 @@ function change(old_key, new_key, chords_node_list, array_option) {
       slash_chord_array = chords[i].split("/");
 
       array_option = true;
-      var new_array = change(old_key, new_key, slash_chord_array, array_option);
+      var new_array = change(old_key, array_option, slash_chord_array);
       array_option = false;
 
       chords[i] = new_array[0] + "/" + new_array[1];
       new_chords.push(chords[i]);
-      chords_node_list[i].innerHTML = new_chords[i];
+      chords_html_list[i].innerHTML = new_chords[i];
     } else {
 
     var addition = "";
@@ -203,7 +212,7 @@ function change(old_key, new_key, chords_node_list, array_option) {
       new_chords.push(SHARP_NOTES[new_position] + addition);
     }
     if (array_option == false) {
-    chords_node_list[i].innerHTML = new_chords[i];
+    chords_html_list[i].innerHTML = new_chords[i];
     }
   } // array_optionの終わり
   } // 大きなfor文の終わり
