@@ -1,8 +1,13 @@
 class Song < ApplicationRecord
 
+	belongs_to :user
+
   require 'nkf'
 
-	belongs_to :user
+  validates :song_title, presence: true, length: { maximum: 50 }
+  validates :song_yomikata, presence: true, length: { maximum: 70 }
+  # artist と artist_yomikata はなくてもいいii
+  validates :song_body, presence: true, length: { maximum: 7000000 }
 
   # index.html.erbとかで並べる時に次のメソッドが使える
   def self.hiragana_to_katakana(str)
