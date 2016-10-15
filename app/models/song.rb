@@ -4,8 +4,8 @@ class Song < ApplicationRecord
 
   require 'nkf'
 
-  validates :song_title, presence: true, length: { maximum: 50 }
-  validates :song_yomikata, presence: true, length: { maximum: 70 }
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :title_yomikata, presence: true, length: { maximum: 70 }
   # artist と artist_yomikata はなくてもいいii
   validates :song_body, presence: true, length: { maximum: 7000000 }
 
