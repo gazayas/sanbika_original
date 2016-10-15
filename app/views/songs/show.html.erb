@@ -14,7 +14,15 @@
 
     for(var i = 0; i < chord_span.length; i++) {
       chord_span[i] = chord_span[i].replace(/&nbsp;/g, " "); // &nbsp; がないように
+      chord_span[i] = chord_span[i].replace(/　/g, "  "); // 日本語を入力しないように説明に入れること
       chord_span[i] = chord_span[i].split(" ");
+      console.log(chord_span[i]);
+    }
+
+    for(var i = 0; i < chord_span.length; i++) {
+      for(var x = 0; x < chord_span[i].length; x++) {
+
+      }
     }
 
     var new_innerHTML = [];
@@ -31,8 +39,15 @@
         if(chord_span[i][x] != " ") {
           // jQueryでwrap()?
           chord_span[i][x] = '<span class="chord" name="' + chord_span[i][x] + '">' + chord_span[i][x] + '</span>';
+          chord_span[i].splice((x + 1), 0, " ");
         }
         new_str += chord_span[i][x];
+      }
+
+      // 最後のchord_span[i][x]は空白だったらもう１つ空白が追加されてしまう
+      // chord_span[i].pop()がしたかったけどなんか上手く動かないから次のif文を入れた
+      if (/\s$/.test(new_str)) {
+        new_str = new_str.replace(/\s$/, "");
       }
       new_innerHTML.push(new_str);
       // console.log(new_innerHTML[i]);
@@ -41,9 +56,9 @@
     var chords = document.getElementsByClassName('chords');
 
     for(var i = 0; i < chords.length; i++) {
-      // console.log(chords[i].innerHTML);
       chords[i].innerHTML = new_innerHTML[i];
-    }
+      // console.log(chords[i].innerHTML);   
+ }
     
   });
 

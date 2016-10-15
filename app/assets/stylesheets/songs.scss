@@ -41,6 +41,9 @@ h1 {
 
 
 /* show */
+#song_body {
+  white-space: pre-wrap;
+}
 
 /* _form */ /* 別のstylesheetとかぶってるやつをapplication.scssに書くこと */
 .panel {
