@@ -1,7 +1,6 @@
 <script>
   // これを assets/javascripts/ の中に入れたい
   // application.js に = をつけて挿入必要があるかどうか、今のところは分からない
-  // アセットを precompile してから確認すること
 
   $(document).ready(function() {
 
@@ -37,7 +36,7 @@
           // console.log(chord_span[i][x]);
         }
         if(chord_span[i][x] != " ") {
-          // jQueryでwrap()?
+          // jQueryでwrap(), そしてnameの定義?
           chord_span[i][x] = '<span class="chord" name="' + chord_span[i][x] + '">' + chord_span[i][x] + '</span>';
           chord_span[i].splice((x + 1), 0, " ");
         }
