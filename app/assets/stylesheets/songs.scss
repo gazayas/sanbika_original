@@ -33,6 +33,9 @@ h1 {
     .song_artist {
       font-size: 15px;
     }
+    #song_index {
+      margin: 20px 0px 0px 0px auto;
+    }
 }
 
 #no_songs {
@@ -43,6 +46,11 @@ h1 {
 /* show */
 #song_body {
   white-space: pre-wrap;
+  margin: 10px auto;
+  padding: 0px 30px;
+  text-align: left;
+  border: 1px gray solid;
+  width: 75%;
 }
 
 /* _form */ /* 別のstylesheetとかぶってるやつをapplication.scssに書くこと */

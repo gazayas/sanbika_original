@@ -15,7 +15,7 @@
       chord_span[i] = chord_span[i].replace(/&nbsp;/g, " "); // &nbsp; がないように
       chord_span[i] = chord_span[i].replace(/　/g, "  "); // 日本語を入力しないように説明に入れること
       chord_span[i] = chord_span[i].split(" ");
-      console.log(chord_span[i]);
+      // console.log(chord_span[i]);
     }
 
     for(var i = 0; i < chord_span.length; i++) {
@@ -48,6 +48,9 @@
       if (/\s$/.test(new_str)) {
         new_str = new_str.replace(/\s$/, "");
       }
+      new_str = replace_mark(new_str); /* loose programming, but it works.
+        Might change it in the future (replace_mark() is only intended for one note, not a whole string.
+        The loose part is the function itself. Changed an if...else if to 2 ifs, as well as made the regexp global) */
       new_innerHTML.push(new_str);
       // console.log(new_innerHTML[i]);
     }
@@ -63,17 +66,17 @@
 
 </script>
 
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    <h1><%= @song.title %></h1>
+  </div>
 
-<p>
-  <%= @song.title %>
-</p>
+  <% unless @song.artist == nil || @song.artist == "" %>
+    <strong><%= t('activerecord.attributes.song.artist') %></strong>
+    <%= @song.artist %><br/>
+  <% end %>
 
-<p>
-  <strong><%= t('activerecord.attributes.song.artist') %></strong>
-  <%= @song.artist %>
-</p>
-
+<strong><%= t('activerecord.attributes.song.key') %></strong>
 <%= select_tag(:key_box, 
       options_for_select(sharp_notes, selected: @song.key),
       onchange: 'change("' +  @song.key + '", false);') %>

@@ -8,27 +8,54 @@
   </div>
 <% end %>
 
+<% artist_exists = false %> <!-- これをヘルパーメソッドにした方がいいかもしれない -->
+<% @songs.each do |song| %>
+  <% if song.artist == nil || song.artist == "" %>
+    <% next %>
+  <% else %>
+    <% artist_exists = true %>
+    <% break %>
+  <% end %>
+<% end %>
+
+<% if !artist_exists %>
+    <style>
+      #song_index {
+        width: 50%;
+      }
+    </style>
+<% end %>
+
 <% if !@songs.empty? %>
-<table id="song_index" >
 
-  <thead>
-    <tr>
-      <th><%= t('activerecord.attributes.song.title') %></th>
-      <th><%= t('activerecord.attributes.song.artist') %></th>
-    </tr>
-  </thead>
+  <table id="song_index" >
+    <thead>
+      <tr>
+        <th><%= t('activerecord.attributes.song.title') %></th>
+        <% @songs.each do |song| %>
+          <% unless song.artist == nil || song.artist == "" %>
+            <th><%= t('activerecord.attributes.song.artist') %></th>
+          <% end %>
+        <% end %>
+      </tr>
+    </thead>
 
-  <tbody>
-      <% @songs.each do |song| %>
-        <tr>
-          <td class="song_title"><%= link_to song.title, user_song_path(@user, song), class: 'btn btn-primary btn-lg btn-block' %></td>
-          <td class="song_artist"><%= song.artist %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>
+    <tbody>
+        <% @songs.each do |song| %>
+          <tr>
+            <td class="song_title">
+              <%= link_to song.title, user_song_path(@user, song), class: 'btn btn-primary btn-lg btn-block' %>
+            </td>
+            <% unless song.artist == nil || song.artist == "" %>
+              <td class="song_artist"><%= song.artist %></td>
+            <% end %>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+
 <% else %>
   <h3 id="no_songs">讃美歌チャートはありません</h3>
 <% end %>
 
-<br>
+

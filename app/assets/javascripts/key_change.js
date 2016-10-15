@@ -33,7 +33,8 @@ function check_flat(note) {
 function replace_mark(note) {
   if (check_sharp(note)) {
     note = note.replace(/#/g, "♯");
-  } else if (check_flat(note)) {
+  }
+  if (check_flat(note)) {
     note = note.replace(/b/g, "♭");
   }
   return note;
