@@ -13,6 +13,7 @@
 	<li>文字のバリデーションがちょっとおかしい。Deviseで６文字が書いてあるけど、実際には５文字です</li>
 	<li>賛美歌の漢字が合ってるかどうか、ボタンなどを確認すること</li>
 	<li>key_change.jsとshow.html.erbのコードのリファクトリング</li>
+	<li>Song.rbのrequire 'nkf'は正しい場所にあるかどうか試すこと</li>
 
 	<li>「あ」のボタンをクリックしたら、song_yomikata =~ /^あ/ の讃美歌チャートのリストを表示すること</li>
 	<li>メールじゃなくてユーザ名でログインできるように（sessions_controller.rbで）</li>	
