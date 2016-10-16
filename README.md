@@ -1,8 +1,7 @@
 #賛美歌
 
-##しないといけないこと
 <ul>
-	<li>最低限のcssができたらdeploy</li>
+	<li>もうすぐdeployしたい</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	
