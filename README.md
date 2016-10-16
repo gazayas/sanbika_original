@@ -2,7 +2,7 @@
 
 ##しないといけないこと
 <ul>
-	<li>最低限のcss</li>
+	<li>最低限のcssができたらdeploy</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	
