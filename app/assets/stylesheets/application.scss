@@ -34,3 +34,12 @@
 #main_container {
   margin-top: 70px;
 }
+
+/* すべてのチャートの一覧とすべてのユーザの一覧 */ 
+#songs_index, #users_index {
+  margin: 10px;
+  .btn {
+    margin: 10px 0px;
+    width: 70%;
+  }
+}
