@@ -81,7 +81,7 @@
 
 <p>
   <strong>讃美歌チャートの作成者：</strong>
-  <%= @user.name %>
+  <%= link_to @user.name, @user_path %>
 </p>
 
 <% if @user == current_user %>
