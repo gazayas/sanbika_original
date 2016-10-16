@@ -19,6 +19,7 @@
 	
 	<li>key_change.jsとshow.html.erbのコードのリファクトリング</li>
 	<li>「あ」のボタンをクリックしたら、song_yomikata =~ /^あ/ の讃美歌チャートのリストを表示すること</li>
+	<li>show.html.erbで作者の名前をhoverすると読み方が表示されること（今のところは、読み方が見える機能はない）</li>
 	<li>メールじゃなくてユーザ名でログインできるように（sessions_controller.rbで）</li>	
 	<li>registrations_controller.rbにすべての必要なメソッドが実装してあるか確認すること（:name属性をUserモデルに追加したから）</li>
   <li>jsのテストを作る？capybaraがあるらしいけどもういいかな。パーフェクトrorの7章を参照に</li>

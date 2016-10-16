@@ -54,9 +54,15 @@
         class: 'form-control', size: col_size) %>
       </td>
     </tr>
+
   </table>
 
-  <div class="explanation">ここに、讃美歌チャートの作り方の説明を書くこと</div>
+  <div class="explanation">
+    <li>イタリック（斜体字）されたコードは転調の対象となります</li>
+    <li>シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます</li>
+    <li>「D/F♯」というようなスラッシュコードもサポートされています</li>
+  </div>
+  
 
   <div class="song_body"><!-- id に変えた方がいいかな -->
     <%= f.text_area :song_body, class: 'tinymce', rows: 80, cols: 120 %>
