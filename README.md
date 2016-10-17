@@ -14,7 +14,8 @@
 	<li>ユーザのdestroyはdeviseのどこにあるかな...</li>
 	<li>賛美歌の漢字が合ってるかどうか、ボタンなどを確認すること</li>
 	<li>nihonjinってgemをのnkfのメソッドを実装したらSong.rbのメソッドを消すことができる</li>
-	<li>tinymceのイタリックのボタンを「♪」に変えられたらそうしたい</li>
+	<li>tinymceのイタリックのボタンを「♪」に変えられたらそうしたい
+	<a href="https://www.tinymce.com/docs/demo/custom-toolbar-button/">（リング）</a></li>
 	
 	<li>key_change.jsとshow.html.erbのコードのリファクトリング</li>
 	<li>「あ」のボタンをクリックしたら、song_yomikata =~ /^あ/ の讃美歌チャートのリストを表示すること</li>
