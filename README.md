@@ -2,7 +2,6 @@
 
 ###最重要
 <ul>
-	<li>もうすぐdeployしたい</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 </ul>
