@@ -93,7 +93,7 @@ config.action_mailer.smtp_settings = {
   :user_name => ENV["email_hidden"],
   :password => ENV["password_hidden"],
   :authentication => :plain,
-  :domain => 'gmail.com'
+  :domain => 'gmail.com',
   :enable_starttls_auto => true,
   :openssl_verify_mode => 'none'
 }
