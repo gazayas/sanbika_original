@@ -4,6 +4,7 @@
 <ul>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
+	<li>印刷用のテンプレートを作ること</li>
 </ul>
 
 ###重要
