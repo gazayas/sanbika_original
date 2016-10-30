@@ -32,11 +32,6 @@
     <thead>
       <tr>
         <th><%= t('activerecord.attributes.song.title') %></th>
-        <% @songs.each do |song| %>
-          <% unless song.artist == nil || song.artist == "" %>
-            <th><%= t('activerecord.attributes.song.artist') %></th>
-          <% end %>
-        <% end %>
       </tr>
     </thead>
 
@@ -46,9 +41,6 @@
             <td class="song_title">
               <%= link_to song.title, user_song_path(@user, song), class: 'btn btn-primary btn-lg btn-block' %>
             </td>
-            <% unless song.artist == nil || song.artist == "" %>
-              <td class="song_artist"><%= song.artist %></td>
-            <% end %>
           </tr>
         <% end %>
     </tbody>

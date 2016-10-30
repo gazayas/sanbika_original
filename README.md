@@ -10,7 +10,7 @@
 ###重要
 <ul>
 	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に）</li>
-	<li>user/#/songs/index.html.erbを変えること（作者の欄を消すこと）</li>
+	<li>user/#/songs/index.html.erbを変えること。表示が気になる。ボタンでなくていい</li>
 	<li>文字のバリデーションがちょっとおかしい。Deviseで６文字が書いてあるけど、実際には５文字です</li>
 	<li>nav-collapseのリストは表示されない...</li>
 	<li>kaminari</li>
