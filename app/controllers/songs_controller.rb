@@ -58,6 +58,12 @@ class SongsController < ApplicationController
     end
   end
 
+  def print
+    @user = User.find(params[:user_id])
+    @song = Song.find(params[:id])
+    render layout: 'print'
+  end
+
   private
     def set_song
       @song = Song.find(params[:id])

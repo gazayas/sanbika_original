@@ -1,4 +1,13 @@
-<script>
+<!DOCTYPE>
+<html>
+  <head>
+    <title>賛美歌</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  
+    <script>
   // これを assets/javascripts/ の中に入れたい
   // application.js に = をつけて挿入必要があるかどうか、今のところは分からない
 
@@ -6,7 +15,7 @@
 
     var chord_span = [];
 
-    $("#song_body").find("em").each(function () {
+    $("#print_song_body").find("em").each(function () {
       $(this).replaceWith('<span class="chords">' + this.innerHTML + '</span>');
       chord_span.push(this.innerHTML);
     });
@@ -59,35 +68,21 @@
   });
 
 </script>
+  </head>
 
-<div class="panel panel-default">
-  <div class="panel panel-heading">
+  <body>
+
     <h1><%= @song.title %></h1>
-  </div>
+    <h5 id="print_key">キー：
+      <%= select_tag(:key_box, 
+          options_for_select(sharp_notes, selected: @song.key),
+          onchange: 'change("' +  @song.key + '", false);')
+      %>
+    </h5>
 
-  <% unless @song.artist == nil || @song.artist == "" %>
-    <strong><%= t('activerecord.attributes.song.artist') %></strong>
-    <%= @song.artist %><br/>
-  <% end %>
+    <div id="print_song_body">
+      <%= simple_format(@song.song_body) %>
+    </div>
 
-<strong><%= t('activerecord.attributes.song.key') %></strong>
-<%= select_tag(:key_box, 
-      options_for_select(sharp_notes, selected: @song.key),
-      onchange: 'change("' +  @song.key + '", false);') %>
-
-<div id="song_body">
-  <%= simple_format(@song.song_body) %>
-</div>
-
-<%= link_to '印刷', print_user_song_path %>
-
-<p>
-  <strong>讃美歌チャートの作成者：</strong>
-  <%= link_to @user.name, @user %>
-</p>
-
-<% if @user == current_user %>
-  <%= link_to '編集', edit_user_song_path(@song) %> |
-  <%= link_to '戻る', user_songs_path %>
-  <%= link_to '削除', user_song_path, method: :delete, data: { confirm: "本当に削除しますか？" } %>
-<% end %>
+  </body>
+</html>

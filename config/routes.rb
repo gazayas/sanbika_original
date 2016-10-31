@@ -9,18 +9,14 @@ Rails.application.routes.draw do
     sessions: 'sessions'
   }
   resources :users do
-    resources :songs
+    resources :songs do
+      member do
+        get :print
+      end
+    end
   end
 
   # URLにユーザ名が表示されるように
   # match '/:name' => 'users#show', via: :get
-
-
-
-
-
-
-
-
 
 end
