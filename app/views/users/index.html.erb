@@ -5,6 +5,9 @@
         <%# unless !user.confirmed_at %>
           <div class="col-sm-4 space">
             <%= link_to(user.name, user_path(user), class: 'btn btn-primary btn-lg outline') %>
+            <%# if current_user.name == 'gazayas' %>
+            <%# link_to '削除', user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            <%# end %>
           </div>
         <%# end %>
       <% end %>

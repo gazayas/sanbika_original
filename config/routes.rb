@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/users/'
+
   # URLにユーザ名が表示されるように
   # match '/:name' => 'users#show', via: :get
 
