@@ -2,7 +2,6 @@
 
 ###最重要
 <ul>
-	<li>またメールの問題が発生した...googleがブロックされて...smtpの設定は大丈夫だけど</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	<li>印刷用のテンプレートを作ること</li>
