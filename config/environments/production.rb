@@ -92,10 +92,8 @@ config.action_mailer.smtp_settings = {
   :port => 587,
   :user_name => ENV["email_hidden"],
   :password => ENV["password_hidden"],
-  :authentication => nil,
-  :domain => 'gmail.com',
-  :enable_starttls_auto => true,
-  :openssl_verify_mode => 'none'
+  :authentication => :plain,
+  :enable_starttls_auto => true
 }
 
   # Do not dump schema after migrations.
