@@ -22,6 +22,7 @@
 	<li>nihonjinってgemをのnkfのメソッドを実装したらSong.rbのメソッドを消すことができる</li>
 	<li>tinymceのイタリックのボタンを「♪」に変えられたらそうしたい
 	<a href="https://www.tinymce.com/docs/demo/custom-toolbar-button/">（リンク）</a></li>
+	<li>ApplicationHelperの#adminを変えて、モデルの方にadmin属性を追加すること</li>
 </ul>
 
 ###後でやっていい
