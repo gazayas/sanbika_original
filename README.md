@@ -2,7 +2,7 @@
 
 ###最重要
 <ul>
-        <li>またメールの問題が発生した...googleがブロックされて...smtpの設定は大丈夫だけど</li>
+	<li>またメールの問題が発生した...googleがブロックされて...smtpの設定は大丈夫だけど</li>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
 	<li>印刷用のテンプレートを作ること</li>
@@ -10,7 +10,7 @@
 
 ###重要
 <ul>
-        <li>has_many, dependent: :destroy がUser.rbで抜いてたんで別のモデルも適切な定義があるかどうか確認すること<\li>
+	<li>has_many, dependent: :destroy がUser.rbで抜いてたんで別のモデルも適切な定義があるかどうか確認すること<\li>
 	<li>songs/show.html.erbやprintのテンプレートの文字の大きさが気になる</li>
 	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に）</li>
 	<li>user/#/songs/index.html.erbを変えること。表示が気になる。ボタンでなくていい</li>

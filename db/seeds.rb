@@ -1,15 +1,16 @@
+=begin
 song_params = [
   [
     title: '賛美しよう',
     title_yomikata: 'さんびしよう',
     key: 'C',
-    song_body: '*C*   *Am*   *F*   *Cb*　賛美歌の歌詞はここに入ります'
+    song_body: '<em>C   Am   F   Cb</em><br/>賛美歌の歌詞はここに入ります'
   ],
   [
-    title: '愛である',
-    title_yomikata: 'あいである',
+    title: 'タイトルです',
+    title_yomikata: 'たいとるです',
     key: 'C',
-    song_body: '*C*   *Am*   *F*   *Cb*　賛美歌の歌詞はここに入ります'
+    song_body: '<em>C   Am   F   Cb</em><br/>賛美歌の歌詞はここに入ります'
   ]
 ]
 
@@ -29,3 +30,4 @@ song_params = [
   user.confirmed_at = Time.zone.now
   user
 end
+=end
