@@ -2,7 +2,9 @@ module ApplicationHelper
 
   # これじゃなくてモデルにadminのboolを追加したい
   def admin
-    current_user.name == 'gazayas'
+    if current_user
+      current_user.name == 'gazayas'
+    end
   end
 
 end
