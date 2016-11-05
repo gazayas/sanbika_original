@@ -4,11 +4,11 @@
 <ul>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
-	<li>印刷用のテンプレートを作ること</li>
 </ul>
 
 ###重要
 <ul>
+	<li>アカウント登録で「名前」じゃなくて「ユーザー名」を実装すること</li>
 	<li>has_many, dependent: :destroy がUser.rbで抜いてたんで別のモデルも適切な定義があるかどうか確認すること<\li>
 	<li>songs/show.html.erbやprintのテンプレートの文字の大きさが気になる</li>
 	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に）</li>
