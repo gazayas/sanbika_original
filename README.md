@@ -16,7 +16,6 @@
 	<li>user/#/songs/index.html.erbを変えること。表示が気になる。ボタンでなくていい</li>
 	<li>文字のバリデーションがちょっとおかしい。Deviseで６文字が書いてあるけど、実際には５文字です</li>
 	<li>nav-collapseのリストは表示されない...</li>
-	<li>kaminari</li>
 	<li>ユーザのdestroyはdeviseのどこにあるかな...</li>
 	<li>賛美歌の漢字が合ってるかどうか、ボタンなどを確認すること</li>
 	<li>nihonjinってgemをのnkfのメソッドを実装したらSong.rbのメソッドを消すことができる</li>
