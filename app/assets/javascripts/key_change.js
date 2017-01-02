@@ -32,7 +32,7 @@ function check_flat(note) {
 // 「b」か「#」がnoteに入っていれば、「♭」か「♯」に変換する
 function replace_mark(note) {
   if (check_sharp(note)) {
-    note = note.replace(/#/g, "♯");
+    note = note.replace(/#/g, "♯"); // gは要らないと思う
   }
   if (check_flat(note)) {
     note = note.replace(/b/g, "♭");
@@ -76,6 +76,18 @@ function change(old_key, array_option, slash_chords_option) {
     chords = chords_html_list;
     // console.log(chords);
   }
+
+
+
+  /* 重要！！！
+   *
+   * <br>がフォームの方から入ってしまうので、ここの段階で対応しないといけない。
+   * 多分<br>があるところを「*」と代えて、メソッドの処理が終わったら、
+   * また置き換えるようにする。
+   * どちらにしても対応しないわけにはいかない
+   */
+
+
   
   // 「b」か「#」が入っていれば、「♭」か「♯」に変換する
   old_key = replace_mark(old_key);

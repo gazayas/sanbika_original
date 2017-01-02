@@ -4,10 +4,13 @@
 <ul>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
+	<li>テストをしっかりと書くこと。should_matchersの導入</li>
+	<li>carrierwaveをgemfileに入れて画像が投稿できるようにすること</li>
 </ul>
 
 ###重要
 <ul>
+	<li>devise_create_users.rbのマイグレーションで39行目（confirmation_token）はコメントアウトされてる。それって大丈夫？</li>
 	<li>新しいチャートで歌詞を特別に認識するためのボタンを作ること</li>
 	<li>アカウント登録で「名前」じゃなくて「ユーザー名」を実装すること</li>
 	<li>has_many, dependent: :destroy がUser.rbで抜いてたんで別のモデルも適切な定義があるかどうか確認すること<\li>
@@ -31,8 +34,8 @@
 	<li>show.html.erbで作者の名前をhoverすると読み方が表示されること（今のところは、読み方が見える機能はない）</li>
 	<li>メールじゃなくてユーザ名でログインできるように（sessions_controller.rbで）</li>
 	<li>registrations_controller.rbにすべての必要なメソッドが実装してあるか確認すること（:name属性をUserモデルに追加したから）</li>
-  <li>jsのテストを作る？capybaraがあるらしいけどもういいかな。パーフェクトrorの7章を参照に</li>
-	<li>carrierwaveで画像追加ができるように</li>
+  	<li>jsのテストを作る？capybaraがあるらしいけどもういいかな。パーフェクトrorの7章を参照に</li>
 	<li>今のシードデータではログインできない</li>
 	<li>検索機能</li>
 </ul>
+

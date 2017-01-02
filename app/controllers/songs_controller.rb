@@ -27,7 +27,7 @@ class SongsController < ApplicationController
 
     respond_to do |format|
       if @song.save
-        format.html { redirect_to ([@user, @song]), notice: '讃美歌は作成されました' }
+        format.html { redirect_to ([@user, @song]), notice: '讃美歌チャートは作成されました' }
         format.json { render :show, status: :created, location: @song }
       else
         format.html { render :new }

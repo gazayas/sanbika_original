@@ -6,3 +6,4 @@ class HomeController < ApplicationController
     @songs = Song.all
   end
 end
+

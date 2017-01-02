@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
     end
 
     context '不正な:nameのため、登録できないこと' do
-      # パスワードがかぶってることをテストするテストも書けばいいかも
+      # パスワードがかぶってることのテストがいるのかな
       it ':nameは短い' do
         user.name = "name"
         expect(user).to be_invalid
@@ -55,3 +55,4 @@ RSpec.describe User, type: :model do
   end
 
 end
+
