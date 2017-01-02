@@ -41,7 +41,7 @@ function replace_mark(note) {
 }
 
 function position_of(note) {
-  var position = "";
+  var position = ""; // これは？？ww何のために書いたんだろう
   if (check_flat(note)) {
     return FLAT_NOTES.indexOf(note);
   } else {
@@ -55,7 +55,7 @@ function change(old_key, array_option, slash_chords_option) {
   // console.log(old_key + " " + new_key + " " + chords_node_list + " " + array_option);
 
   var new_key = document.getElementById('key_box').value;
-  if (slash_chords_option) {     
+  if (slash_chords_option) {
     var chords_html_list = slash_chords_option;
   } else {
     var chords_html_list = document.getElementsByClassName('chord');
@@ -88,7 +88,7 @@ function change(old_key, array_option, slash_chords_option) {
    */
 
 
-  
+
   // 「b」か「#」が入っていれば、「♭」か「♯」に変換する
   old_key = replace_mark(old_key);
   new_key = replace_mark(new_key);

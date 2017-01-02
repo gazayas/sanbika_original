@@ -1,6 +1,4 @@
 <script>
-  // これを assets/javascripts/ の中に入れたい
-  // application.js に = をつけて挿入必要があるかどうか、今のところは分からない
 
   $(document).ready(function() {
 
@@ -14,13 +12,17 @@
     for(var i = 0; i < chord_span.length; i++) {
       chord_span[i] = chord_span[i].replace(/&nbsp;/g, " "); // &nbsp; がないように
       chord_span[i] = chord_span[i].replace(/　/g, "  "); // 日本語を入力しないように説明に入れること
+      chord_span[i] = chord_span[i].replace(/<br>/, " <br> ");
+      chord_span[i] = chord_span[i].replace(/<br \/>/g, " <br/> ");
       chord_span[i] = chord_span[i].split(" ");
     }
 
-    // console.log(chord_span);
+    console.log(chord_span);
+
+
 
     var new_innerHTML = [];
-    
+
     for(var i = 0; i < chord_span.length; i++) {
 
       var new_str = "";
@@ -30,10 +32,13 @@
           chord_span[i][x] = " ";
           // console.log(chord_span[i][x]);
         }
-        if(chord_span[i][x] != " ") {
+        if(chord_span[i][x] != " " && chord_span[i][x] != "<br>") {
           // jQueryでwrap(), そしてnameの定義?
           chord_span[i][x] = '<span class="chord" name="' + chord_span[i][x] + '">' + chord_span[i][x] + '</span>';
           chord_span[i].splice((x + 1), 0, " ");
+        }
+        if(chord_span[i][x] == "<br>" || chord_span[i][x] == "<br />"){
+          chord_span[i][x] = chord_span[i][x].replace(/<br>/, "*");
         }
         new_str += chord_span[i][x];
       }
@@ -43,9 +48,20 @@
       if (/\s$/.test(new_str)) {
         new_str = new_str.replace(/\s$/, "");
       }
+      console.log(new_str);
+      if (/♭r/.test(new_str)) {
+        new_str = new_str.replace(/♭r/g, "br");
+      } else if(/<♭r\/>/) {
+        new_str = new_str.replace(/<♭r\/>/, "<br/>");
+      } else if(/<♭r \/>/) {
+        new_str = new_str.replace(/<♭r \/>/, "<br />");
+      }
       new_str = replace_mark(new_str); /* loose programming, but it works.
         Might change it in the future (replace_mark() is only intended for one note, not a whole string.
         The loose part is the function itself. Changed an if...else if to 2 ifs, as well as made the regexp global) */
+        if (/\*/.test(new_str)) {
+          new_str = new_str.replace(/\*/, "<br>");
+        }
       new_innerHTML.push(new_str);
       // console.log(new_innerHTML[i]);
     }
@@ -54,9 +70,9 @@
 
     for(var i = 0; i < chords.length; i++) {
       chords[i].innerHTML = new_innerHTML[i];
-      // console.log(chords[i].innerHTML);   
+      // console.log(chords[i].innerHTML);
  }
-    
+
   });
 
 </script>
@@ -72,7 +88,7 @@
   <% end %>
 
 <strong><%= t('activerecord.attributes.song.key') %></strong>
-<%= select_tag(:key_box, 
+<%= select_tag(:key_box,
       options_for_select(sharp_notes, selected: @song.key),
       onchange: 'change("' +  @song.key + '", false);') %>
 
