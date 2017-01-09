@@ -7,6 +7,7 @@
 	<li>before_action :authenticate, only: 何たらかんたら（大丈夫だと思うけど）</li>
 	<li>バリデーションを再度確認</li>
 	<li>carrierwaveをgemfileに入れて画像が投稿できるようにすること</li>
+  <li>これ以上進む前に、コードとテストをキレイにすること</li>
 </ul>
 
 ###重要
