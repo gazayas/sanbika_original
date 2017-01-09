@@ -12,14 +12,12 @@
 	<li>devise_create_users.rbのマイグレーションで39行目（confirmation_token）はコメントアウトされてる。それって大丈夫？</li>
 	<li>アカウント登録で「名前」じゃなくて「ユーザー名」を実装すること</li>
 	<li>has_many, dependent: :destroy がUser.rbで抜いてたんで別のモデルも適切な定義があるかどうか確認すること<\li>
-	<li>songs/show.html.erbやprintのテンプレートの文字の大きさが気になる</li>
-	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に）</li>
+	<li>エラーぺージの実装（パーフェクトror２２２ぺージを参考に。publicダイレクトリを見ればいい）</li>
 	<li>user/#/songs/index.html.erbを変えること。表示が気になる。ボタンでなくていい</li>
 	<li>文字のバリデーションがちょっとおかしい。Deviseで６文字が書いてあるけど、実際には５文字です</li>
 	<li>nav-collapseのリストは表示されない...</li>
 	<li>ユーザのdestroyはdeviseのどこにあるかな...</li>
 	<li>賛美歌の漢字が合ってるかどうか、ボタンなどを確認すること</li>
-	<li>nihonjinってgemをのnkfのメソッドを実装したらSong.rbのメソッドを消すことができる</li>
 	<li>tinymceのイタリックのボタンを「♪」に変えられたらそうしたい
 	<a href="https://www.tinymce.com/docs/demo/custom-toolbar-button/">（リンク）</a></li>
 	<li>ApplicationHelperの#adminを変えて、モデルの方にadmin属性を追加すること</li>

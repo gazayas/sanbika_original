@@ -1,14 +1,22 @@
 class Song < ApplicationRecord
 
 	belongs_to :user
-
-  require 'nkf'
+	before_save :all_characters_to_hiragana
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :title_yomikata, presence: true, length: { maximum: 70 }
-  # artist と artist_yomikata はなくてもいいii
   validates :song_body, presence: true, length: { maximum: 7000000 }
 
+	private
+
+	def all_characters_to_hiragana
+		moji = Nihonjin::Moji.new
+		self.title_yomikata  = moji.hiragana(str)
+		self.artist_yomikata = moji.hiragana(str)
+		self
+	end
+
+=begin
   # index.html.erbとかで並べる時に次のメソッドが使える
   def self.hiragana_to_katakana(str)
     str = NKF.nkf('-h2 -w', str)
@@ -22,5 +30,6 @@ class Song < ApplicationRecord
     str = NKF.nkf('-Z1 -w', str)
     str = str.gsub(/\s/, "")
   end
+=end
 
 end

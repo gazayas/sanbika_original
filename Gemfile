@@ -16,6 +16,8 @@ gem 'figaro'
 gem 'bootstrap-sass'
 gem 'kaminari'
 
+gem 'nihonjin'
+
 group :development, :test do
 	gem 'rspec-rails' # 普通にrpsecをしたらダメだった
 	gem 'factory_girl_rails'
