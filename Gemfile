@@ -19,6 +19,7 @@ gem 'kaminari'
 group :development, :test do
 	gem 'rspec-rails' # 普通にrpsecをしたらダメだった
 	gem 'factory_girl_rails'
+	gem 'shoulda-matchers', '~> 3.1'
 	gem 'byebug', platform: :mri
  	gem 'pry'
  	gem 'better_errors'

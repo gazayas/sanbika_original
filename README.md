@@ -4,7 +4,6 @@
 <ul>
 	<li>before_action :authenticate, only: 何たらかんたら</li>
 	<li>バリデーション（uniquenessをテストするテストもあればいいかもしれない...）</li>
-	<li>テストをしっかりと書くこと。should_matchersの導入</li>
 	<li>carrierwaveをgemfileに入れて画像が投稿できるようにすること</li>
 </ul>
 
@@ -38,4 +37,3 @@
 	<li>今のシードデータではログインできない</li>
 	<li>検索機能</li>
 </ul>
-
