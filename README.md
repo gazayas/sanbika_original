@@ -10,7 +10,6 @@
 ###重要
 <ul>
 	<li>devise_create_users.rbのマイグレーションで39行目（confirmation_token）はコメントアウトされてる。それって大丈夫？</li>
-	<li>新しいチャートで歌詞を特別に認識するためのボタンを作ること</li>
 	<li>アカウント登録で「名前」じゃなくて「ユーザー名」を実装すること</li>
 	<li>has_many, dependent: :destroy がUser.rbで抜いてたんで別のモデルも適切な定義があるかどうか確認すること<\li>
 	<li>songs/show.html.erbやprintのテンプレートの文字の大きさが気になる</li>
