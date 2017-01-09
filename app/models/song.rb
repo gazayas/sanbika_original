@@ -1,35 +1,29 @@
 class Song < ApplicationRecord
 
 	belongs_to :user
-	before_save :all_characters_to_hiragana
+	before_save :prep_yomikata
+	before_update :prep_yomikata
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :title_yomikata, presence: true, length: { maximum: 70 }
+	validates :artist, length: { maximum: 70 } # , presence: true
+	validates :artist_yomikata, length: { maximum: 70 } # , presence: true
   validates :song_body, presence: true, length: { maximum: 7000000 }
 
 	private
 
-	def all_characters_to_hiragana
+	def prep_yomikata
 		moji = Nihonjin::Moji.new
-		self.title_yomikata  = moji.hiragana(str)
-		self.artist_yomikata = moji.hiragana(str)
+
+		prep = Proc.new do |str|
+			str = moji.hiragana(str)
+			str = moji.kiru(str)
+		end
+
+		self.title_yomikata = prep.call(self.title_yomikata)
+		self.artist_yomikata = prep.call(self.artist_yomikata)
+
 		self
 	end
-
-=begin
-  # index.html.erbとかで並べる時に次のメソッドが使える
-  def self.hiragana_to_katakana(str)
-    str = NKF.nkf('-h2 -w', str)
-  end
-
-  def self.katakana_to_hiragana(str)
-    str = NKF.nkf('-h3 -w', str)
-  end
-
-  def self.no_space(str)
-    str = NKF.nkf('-Z1 -w', str)
-    str = str.gsub(/\s/, "")
-  end
-=end
 
 end

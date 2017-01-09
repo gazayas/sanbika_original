@@ -43,7 +43,7 @@
     </tr>
     <tr>
       <td>
-        <%= f.text_field :artist, class: 'form-control',
+        <%= f.text_field :artist_yomikata, class: 'form-control',
         placeholder: t('activerecord.attributes.song.artist_yomikata'), size: col_size %>
       </td>
     </tr>
@@ -62,7 +62,7 @@
     <li>シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます</li>
     <li>「D/F♯」というようなスラッシュコードもサポートされています</li>
   </div>
-  
+
 
   <div class="song_body"><!-- id に変えた方がいいかな -->
     <%= f.text_area :song_body, class: 'tinymce', rows: 80, cols: 120 %>
@@ -70,5 +70,5 @@
   </div>
 
   <%= f.submit class: 'btn btn-primary', value: '保存', id: 'save_button' %>
-  
+
 <% end %>
