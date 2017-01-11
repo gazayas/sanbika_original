@@ -1,4 +1,6 @@
-<a href="http://www.sanbika.herokuapp.com/" target="_blank">#賛美歌</a>
+#賛美歌
+
+http://www.sanbika.herokuapp.com/
 
 以下はIssuesに入るべきなのですが、色々解決しながら、issuesに投稿したりreadmeから消したりするつもりです
 
