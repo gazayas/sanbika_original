@@ -1,6 +1,6 @@
 #賛美歌
 
-http://www.sanbika.herokuapp.com/
+https://sanbika.herokuapp.com/
 
 以下はIssuesに入るべきなのですが、色々解決しながら、issuesに投稿したりreadmeから消したりするつもりです
 
