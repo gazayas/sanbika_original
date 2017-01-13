@@ -32,7 +32,6 @@ https://sanbika.herokuapp.com/
 
 ###後でやっていい
 <ul>
-	<li>key_change.jsとshow.html.erbのコードのリファクトリング</li>
 	<li>「あ」のボタンをクリックしたら、song_yomikata =~ /^あ/ の讃美歌チャートのリストを表示すること</li>
 	<li>show.html.erbで作者の名前をhoverすると読み方が表示されること（今のところは、読み方が見える機能はない）</li>
 	<li>registrations_controller.rbにすべての必要なメソッドが実装してあるか確認すること（:name属性をUserモデルに追加したから）</li>
