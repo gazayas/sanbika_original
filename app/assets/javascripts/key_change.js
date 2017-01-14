@@ -7,9 +7,9 @@ const FLAT_NOTES = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭"
 function trigger() {
   var old_key = document.getElementById("original_key").innerHTML;
   var chords_node_list = document.getElementsByClassName("chord");
-  var array_option = false;
+  var slash_chords = false; // これは要らない。もしchords_node_listが要らなくなったらnilにした方がいいと思う
 
-  change(old_key, chords_node_list, array_option);
+  change(old_key, chords_node_list, slash_chords);
 }
 
 function check_sharp(note) {
@@ -48,13 +48,12 @@ function position_of(note) {
 }
 
 // 主要のメソッド
-function change(old_key, array_option, slash_chords_option) {
+function change(old_key, array_option, slash_chords) {
   // chords_node_listはたまに(slash chordの場合)node_listじゃなくて配列なのでchords_listに変えた方がいいかな
-  // console.log(old_key + " " +  + " " + chords_node_list + " " + array_option);
 
   var new_key = document.getElementById('key_box').value;
-  if (slash_chords_option) {
-    var chords_html_list = slash_chords_option;
+  if (slash_chords) {
+    var chords_html_list = slash_chords;
   } else {
     var chords_html_list = document.getElementsByClassName('chord');
   }
@@ -83,12 +82,8 @@ function change(old_key, array_option, slash_chords_option) {
     chords[i] = replace_mark(chords[i]);
   }
 
-  // console.log(position_of(old_key) + "   " + position_of(new_key));
-
   var old_key_pos = position_of(old_key) + 1;
   var new_key_pos = position_of(new_key) + 1;
-
-  // console.log(old_key_pos + "   " + new_key_pos);
 
   if (old_key_pos > new_key_pos) {
     key_up = false;
@@ -109,7 +104,6 @@ function change(old_key, array_option, slash_chords_option) {
     }
   }
 
-  // console.log(difference);
   for (i = 0; i < chords.length; i++) {
 
     if (/\//.test(chords[i])) {
@@ -190,14 +184,12 @@ function change(old_key, array_option, slash_chords_option) {
     var old_position = position_of(chords[i]) + 1;
     var new_position = 0; // 最初は定義するだけ
 
-    if (key_up == true) {
-        // console.log("new_position = " + old_position + " + " + difference);
+    if (key_up) {
         new_position = old_position + difference;
-        // console.log(new_position);
         if (new_position > 12) {
           new_position -= 12;
         }
-     } else { // key_up == false の場合
+     } else {
         new_position = old_position - difference;
         if (new_position < 1) {
           new_position += 12;
