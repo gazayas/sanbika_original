@@ -1,4 +1,3 @@
-// 音符の定義
 const SHARP_NOTES = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯"];
 const FLAT_NOTES = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭"];
 
@@ -18,7 +17,7 @@ function check_flat(note) {
   }
 }
 
-// 「b」か「#」がnoteに入っていれば、「♭」か「♯」に変換する
+// 「b」が「♭」に、「#」が「♯」に変換されます
 function replace_mark(note) {
   if (check_sharp(note)) {
     note = note.replace(/#/g, "♯"); // gは要らないと思う
@@ -37,8 +36,7 @@ function position_of(note) {
   }
 }
 
-// 主要のメソッド
-function change(old_key, slash_chords) {
+function key_change(old_key, slash_chords) {
   // chords_node_listはたまに(slash chordの場合)node_listじゃなくて配列なのでchords_listに変えた方がいいかな
 
   var new_key = document.getElementById('key_box').value;
@@ -96,7 +94,7 @@ function change(old_key, slash_chords) {
     if (/\//.test(chords[i])) {
       slash_chord_array = chords[i].split("/");
 
-      var new_array = change(old_key, slash_chord_array);
+      var new_array = key_change(old_key, slash_chord_array);
 
       chords[i] = new_array[0] + "/" + new_array[1];
       new_chords.push(chords[i]);
