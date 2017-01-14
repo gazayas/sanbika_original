@@ -76,18 +76,6 @@ function change(old_key, array_option, slash_chords_option) {
     // console.log(chords);
   }
 
-
-
-  /* 重要！！！
-   *
-   * <br>がフォームの方から入ってしまうので、ここの段階で対応しないといけない。
-   * 多分<br>があるところを「*」と代えて、メソッドの処理が終わったら、
-   * また置き換えるようにする。
-   * どちらにしても対応しないわけにはいかない
-   */
-
-
-
   // 「b」か「#」が入っていれば、「♭」か「♯」に変換する
   old_key = replace_mark(old_key);
   new_key = replace_mark(new_key);
