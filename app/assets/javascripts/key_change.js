@@ -4,12 +4,10 @@ const FLAT_NOTES = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭"
 
 // chordがslash chord（D/F♯みたいなやつ）の場合は、再起で新しい変数を定義してそれを返すから、
 // change()を呼ぶ時に引数を渡すようにした
-function trigger() {
+function trigger() { // このメソッドの名前を変えたい
   var old_key = document.getElementById("original_key").innerHTML;
   var chords_node_list = document.getElementsByClassName("chord");
-  var slash_chords = false; // これは要らない。もしchords_node_listが要らなくなったらnilにした方がいいと思う
-
-  change(old_key, chords_node_list, slash_chords);
+  change(old_key, chords_node_list);
 }
 
 function check_sharp(note) {
@@ -48,7 +46,7 @@ function position_of(note) {
 }
 
 // 主要のメソッド
-function change(old_key, slash_chords, array_option) {
+function change(old_key, slash_chords) {
   // chords_node_listはたまに(slash chordの場合)node_listじゃなくて配列なのでchords_listに変えた方がいいかな
 
   var new_key = document.getElementById('key_box').value;
@@ -65,20 +63,18 @@ function change(old_key, slash_chords, array_option) {
   var new_chords = [];
 
 
-  if (!array_option) {
+  if (!slash_chords) {
     for (var i = 0; i < chords_html_list.length; i++) {
       chords.push(chords_html_list[i].getAttribute('name'));
     }
   } else {
     chords = chords_html_list;
-    // console.log(chords);
   }
 
   // 「b」か「#」が入っていれば、「♭」か「♯」に変換する
   old_key = replace_mark(old_key);
   new_key = replace_mark(new_key);
   for (var i = 0; i < chords.length; i++) {
-    // console.log(chords[i]);
     chords[i] = replace_mark(chords[i]);
   }
 
@@ -109,9 +105,7 @@ function change(old_key, slash_chords, array_option) {
     if (/\//.test(chords[i])) {
       slash_chord_array = chords[i].split("/");
 
-      array_option = true;
-      var new_array = change(old_key, slash_chord_array, array_option);
-      array_option = false;
+      var new_array = change(old_key, slash_chord_array);
 
       chords[i] = new_array[0] + "/" + new_array[1];
       new_chords.push(chords[i]);
@@ -202,12 +196,12 @@ function change(old_key, slash_chords, array_option) {
     } else {
       new_chords.push(SHARP_NOTES[new_position] + addition);
     }
-    if (array_option == false) {
+    if (!slash_chords) {
     chords_html_list[i].innerHTML = new_chords[i];
     }
-  } // array_optionの終わり
+  } // slash_chordsがnullじゃない場合の終わり？
   } // 大きなfor文の終わり
-  if (array_option) {
+  if (slash_chords) {
     return new_chords;
   }
 }
