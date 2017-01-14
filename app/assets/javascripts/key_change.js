@@ -41,7 +41,6 @@ function replace_mark(note) {
 }
 
 function position_of(note) {
-  var position = ""; // これは？？ww何のために書いたんだろう
   if (check_flat(note)) {
     return FLAT_NOTES.indexOf(note);
   } else {
