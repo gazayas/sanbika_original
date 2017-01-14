@@ -48,7 +48,7 @@ function position_of(note) {
 }
 
 // 主要のメソッド
-function change(old_key, array_option, slash_chords) {
+function change(old_key, slash_chords, array_option) {
   // chords_node_listはたまに(slash chordの場合)node_listじゃなくて配列なのでchords_listに変えた方がいいかな
 
   var new_key = document.getElementById('key_box').value;
@@ -110,7 +110,7 @@ function change(old_key, array_option, slash_chords) {
       slash_chord_array = chords[i].split("/");
 
       array_option = true;
-      var new_array = change(old_key, array_option, slash_chord_array);
+      var new_array = change(old_key, slash_chord_array, array_option);
       array_option = false;
 
       chords[i] = new_array[0] + "/" + new_array[1];
