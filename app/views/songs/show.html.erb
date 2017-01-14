@@ -90,7 +90,7 @@
 <strong><%= t('activerecord.attributes.song.key') %></strong>
 <%= select_tag(:key_box,
       options_for_select(sharp_notes, selected: @song.key),
-      onchange: 'change("' +  @song.key + '", null, false);') %>
+      onchange: 'change("' +  @song.key + '", null);') %>
 
 <div id="song_body">
   <%= simple_format(@song.song_body) %>

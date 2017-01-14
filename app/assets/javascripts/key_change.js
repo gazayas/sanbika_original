@@ -2,14 +2,6 @@
 const SHARP_NOTES = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯"];
 const FLAT_NOTES = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭"];
 
-// chordがslash chord（D/F♯みたいなやつ）の場合は、再起で新しい変数を定義してそれを返すから、
-// change()を呼ぶ時に引数を渡すようにした
-function trigger() { // このメソッドの名前を変えたい
-  var old_key = document.getElementById("original_key").innerHTML;
-  var chords_node_list = document.getElementsByClassName("chord");
-  change(old_key, chords_node_list);
-}
-
 function check_sharp(note) {
   if (/#/.test(note) || /♯/.test(note)) {
   return true;
@@ -51,24 +43,23 @@ function change(old_key, slash_chords) {
 
   var new_key = document.getElementById('key_box').value;
   if (slash_chords) {
-    var chords_html_list = slash_chords;
+    var chords_html = slash_chords;
   } else {
-    var chords_html_list = document.getElementsByClassName('chord');
+    var chords_html = document.getElementsByClassName('chord');
   }
 
-  var chords = [];
-
-  var key_up = true;
+  var key_up;
   var difference = 0;
+  var chords = [];
   var new_chords = [];
 
 
-  if (!slash_chords) {
-    for (var i = 0; i < chords_html_list.length; i++) {
-      chords.push(chords_html_list[i].getAttribute('name'));
-    }
+  if (slash_chords) {
+    chords = chords_html;
   } else {
-    chords = chords_html_list;
+    for (var i = 0; i < chords_html.length; i++) {
+      chords.push(chords_html[i].getAttribute('name'));
+    }
   }
 
   // 「b」か「#」が入っていれば、「♭」か「♯」に変換する
@@ -89,13 +80,13 @@ function change(old_key, slash_chords) {
     difference = new_key_pos - old_key_pos;
   } else {
     var original_chords = [];
-    console.log(chords_html_list);
-    for (i = 0; i < chords_html_list.length; i++) {
-      // chords_html_list[i]は文字列の場合なら、slash chordになっていることが分かるから、
-      // その場合は何もしなくて、chords_html_listは本当にnodeである場合のみoriginal_chordsを実装する。
+    // console.log(chords_html);
+    for (i = 0; i < chords_html.length; i++) {
+      // chords_html[i]は文字列の場合なら、slash chordになっていることが分かるから、
+      // その場合は何もしなくて、chords_htmlは本当にnodeである場合のみoriginal_chordsを実装する。
       // slash chordを使ったらこのfor文の直接前にあるconsole.log();の出力を見てください
-      if (typeof chords_html_list[i] != 'string') {
-        chords_html_list[i].innerHTML = chords_html_list[i].getAttribute('name');
+      if (typeof chords_html[i] != 'string') {
+        chords_html[i].innerHTML = chords_html[i].getAttribute('name');
       }
     }
   }
@@ -109,7 +100,7 @@ function change(old_key, slash_chords) {
 
       chords[i] = new_array[0] + "/" + new_array[1];
       new_chords.push(chords[i]);
-      chords_html_list[i].innerHTML = new_chords[i];
+      chords_html[i].innerHTML = new_chords[i];
     } else {
 
     var addition = "";
@@ -197,7 +188,7 @@ function change(old_key, slash_chords) {
       new_chords.push(SHARP_NOTES[new_position] + addition);
     }
     if (!slash_chords) {
-    chords_html_list[i].innerHTML = new_chords[i];
+    chords_html[i].innerHTML = new_chords[i];
     }
   } // slash_chordsがnullじゃない場合の終わり？
   } // 大きなfor文の終わり
