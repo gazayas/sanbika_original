@@ -6,11 +6,10 @@ const FLAT_NOTES = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭"
 // change()を呼ぶ時に引数を渡すようにした
 function trigger() {
   var old_key = document.getElementById("original_key").innerHTML;
-  var new_key = document.getElementById("key_select").value;
   var chords_node_list = document.getElementsByClassName("chord");
   var array_option = false;
 
-  change(old_key, new_key, chords_node_list, array_option);
+  change(old_key, chords_node_list, array_option);
 }
 
 function check_sharp(note) {
@@ -51,7 +50,7 @@ function position_of(note) {
 // 主要のメソッド
 function change(old_key, array_option, slash_chords_option) {
   // chords_node_listはたまに(slash chordの場合)node_listじゃなくて配列なのでchords_listに変えた方がいいかな
-  // console.log(old_key + " " + new_key + " " + chords_node_list + " " + array_option);
+  // console.log(old_key + " " +  + " " + chords_node_list + " " + array_option);
 
   var new_key = document.getElementById('key_box').value;
   if (slash_chords_option) {
@@ -67,7 +66,7 @@ function change(old_key, array_option, slash_chords_option) {
   var new_chords = [];
 
 
-  if (array_option == false) {
+  if (!array_option) {
     for (var i = 0; i < chords_html_list.length; i++) {
       chords.push(chords_html_list[i].getAttribute('name'));
     }
