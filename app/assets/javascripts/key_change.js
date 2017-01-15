@@ -43,23 +43,23 @@ function key_change(old_key, slash_chords) {
   var new_key = document.getElementById('key_box').value;
   var key_up;
   var difference;
-  var chords = [];
+  var chord_strings = [];
   var new_chords = [];
 
   if (slash_chords) {
     var chords_html = slash_chords;
-    chords = chords_html;
+    chord_strings = chords_html;
   } else {
     var chords_html = document.getElementsByClassName('chord');
     for (var i = 0; i < chords_html.length; i++) {
-      chords.push(chords_html[i].getAttribute('name'));
+      chord_strings.push(chords_html[i].getAttribute('name'));
     }
   }
 
   old_key = replace_mark(old_key);
   new_key = replace_mark(new_key);
-  for (var i = 0; i < chords.length; i++) {
-    chords[i] = replace_mark(chords[i]);
+  for (var i = 0; i < chord_strings.length; i++) {
+    chord_strings[i] = replace_mark(chord_strings[i]);
   }
 
   var old_key_pos = position_of(old_key) + 1;
@@ -75,27 +75,27 @@ function key_change(old_key, slash_chords) {
     difference = 0;
   }
 
-  for (i = 0; i < chords.length; i++) {
+  for (i = 0; i < chord_strings.length; i++) {
 
-    if (/\//.test(chords[i])) {
-      slash_chord_array = chords[i].split("/");
+    if (/\//.test(chord_strings[i])) {
+      slash_chord_array = chord_strings[i].split("/");
       var new_array = key_change(old_key, slash_chord_array);
-      chords[i] = new_array[0] + "/" + new_array[1];
-      new_chords.push(chords[i]);
+      chord_strings[i] = new_array[0] + "/" + new_array[1];
+      new_chords.push(chord_strings[i]);
       chords_html[i].innerHTML = new_chords[i];
     } else {
 
       var addition = "";
       for (var n = 0; n < ADDITIONS.length; n++) {
         var stuff = new RegExp(ADDITIONS[n]);
-        if (stuff.test(chords[i])) {
+        if (stuff.test(chord_strings[i])) {
           addition = ADDITIONS[n];
-          chords[i] = chords[i].replace(stuff, "");
+          chord_strings[i] = chord_strings[i].replace(stuff, "");
           break;
         }
       }
 
-      var old_position = position_of(chords[i]) + 1;
+      var old_position = position_of(chord_strings[i]) + 1;
       var new_position = 0;
 
       if (key_up) {
@@ -111,7 +111,7 @@ function key_change(old_key, slash_chords) {
       }
       --new_position;
 
-      if (check_flat(chords[i])) {
+      if (check_flat(chord_strings[i])) {
         new_chords.push(FLAT_NOTES[new_position] + addition);
       } else {
         new_chords.push(SHARP_NOTES[new_position] + addition);
