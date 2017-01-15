@@ -98,65 +98,13 @@ function key_change(old_key, slash_chords) {
 
       var addition = "";
 
-      switch(true) {
-        // chordをnameの属性から取得したので、正規表現で「dim7」などを除いて新しいchordのための計算する
-        case /dim7/.test(chords[i]):
-          addition = "dim7";
-          chords[i] = chords[i].replace(/dim7/, "");
+      for (var n = 0; n < ADDITIONS.length; n++) {
+        var stuff = new RegExp(ADDITIONS[n]);
+        if (stuff.test(chords[i])) {
+          addition = ADDITIONS[n];
+          chords[i] = chords[i].replace(stuff, "");
           break;
-        case /dim/.test(chords[i]):
-          addition = "dim";
-          chords[i] = chords[i].replace(/dim/, "");
-          break;
-        case /2/.test(chords[i]):
-          addition = "2";
-          chords[i] = chords[i].replace(/2/, "");
-          break;
-        case /sus4/.test(chords[i]):
-          addition = "sus4";
-          chords[i] = chords[i].replace(/sus4/, "");
-          break;
-        case /sus/.test(chords[i]):
-          addition = "sus";
-          chords[i] = chords[i].replace(/sus/, "");
-          break;
-        case /maj7/.test(chords[i]):
-          addition = "maj7";
-          chords[i] = chords[i].replace(/maj7/, "");
-          break;
-        case /maj/.test(chords[i]):
-          addition = "maj";
-          chords[i] = chords[i].replace(/maj/, "");
-          break;
-        case /m7/.test(chords[i]):
-          addition = "m7";
-          chords[i] = chords[i].replace(/m7/, "");
-          break;
-        case /m/.test(chords[i]):
-          addition = "m";
-          chords[i] = chords[i].replace(/m/, "");
-          break;
-        case /7/.test(chords[i]):
-          addition = "7";
-          chords[i] = chords[i].replace(/7/, "");
-          break;
-        case /6/.test(chords[i]):
-          addition = "6";
-          chords[i] = chords[i].replace(/6/, "");
-          break;
-        case /9/.test(chords[i]):
-          addition = "9";
-          chords[i] = chords[i].replace(/9/, "");
-          break;
-        case /aug/.test(chords[i]):
-          addition = "aug";
-          chords[i] = chords[i].replace(/aug/, "");
-          break;
-        case /11/.test(chords[i]):
-          addition = "11";
-          chords[i] = chords[i].replace(/11/, "");
-        default:
-          break;
+        }
       }
 
       var old_position = position_of(chords[i]) + 1;
