@@ -1,5 +1,7 @@
 const SHARP_NOTES = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯"];
 const FLAT_NOTES = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭"];
+const ADDITIONS = ["add2", "add9", "dim7", "dim", "sus4", "sus", "maj7", "maj", "m7",
+                   "m", "aug", "2", "6", "7", "9", "11"];
 
 function check_sharp(note) {
   if (/#/.test(note) || /♯/.test(note)) {
@@ -40,7 +42,7 @@ function key_change(old_key, slash_chords) {
 
   var new_key = document.getElementById('key_box').value;
   var key_up;
-  var difference = 0;
+  var difference;
   var chords = [];
   var new_chords = [];
 
@@ -70,26 +72,25 @@ function key_change(old_key, slash_chords) {
     key_up = true;
     difference = new_key_pos - old_key_pos;
   } else {
+    difference = 0;
+    /* このブロック自体は要らないかもしれない
     var original_chords = [];
-    // console.log(chords_html);
     for (i = 0; i < chords_html.length; i++) {
-      /* chords_html[i]は文字列の場合なら、slash chordになっていることが分かるから、
-       * その場合は何もしなくて、chords_htmlは本当にnodeである場合のみoriginal_chordsを実装する。
-       * slash chordを使ったらこのfor文の直接前にあるconsole.log();の出力を見てください
-       */
+      //chords_html[i]は文字列の場合なら、slash chordになっていることが分かるから、
+      //その場合は何もしなくて、chords_htmlは本当にnodeである場合のみoriginal_chordsを実装する。
+      //slash chordを使ったらこのfor文の直接前にあるconsole.log();の出力を見てください
       if (typeof chords_html[i] != 'string') {
         chords_html[i].innerHTML = chords_html[i].getAttribute('name');
       }
     }
+    */
   }
 
   for (i = 0; i < chords.length; i++) {
 
     if (/\//.test(chords[i])) {
       slash_chord_array = chords[i].split("/");
-
       var new_array = key_change(old_key, slash_chord_array);
-
       chords[i] = new_array[0] + "/" + new_array[1];
       new_chords.push(chords[i]);
       chords_html[i].innerHTML = new_chords[i];
@@ -180,7 +181,7 @@ function key_change(old_key, slash_chords) {
         new_chords.push(SHARP_NOTES[new_position] + addition);
       }
       if (!slash_chords) {
-      chords_html[i].innerHTML = new_chords[i];
+        chords_html[i].innerHTML = new_chords[i];
       }
     }
   }
