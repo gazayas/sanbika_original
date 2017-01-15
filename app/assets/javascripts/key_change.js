@@ -73,17 +73,6 @@ function key_change(old_key, slash_chords) {
     difference = new_key_pos - old_key_pos;
   } else {
     difference = 0;
-    /* このブロック自体は要らないかもしれない
-    var original_chords = [];
-    for (i = 0; i < chords_html.length; i++) {
-      //chords_html[i]は文字列の場合なら、slash chordになっていることが分かるから、
-      //その場合は何もしなくて、chords_htmlは本当にnodeである場合のみoriginal_chordsを実装する。
-      //slash chordを使ったらこのfor文の直接前にあるconsole.log();の出力を見てください
-      if (typeof chords_html[i] != 'string') {
-        chords_html[i].innerHTML = chords_html[i].getAttribute('name');
-      }
-    }
-    */
   }
 
   for (i = 0; i < chords.length; i++) {
