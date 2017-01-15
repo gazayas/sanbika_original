@@ -87,10 +87,10 @@ function key_change(old_key, slash_chords) {
 
       var addition = "";
       for (var n = 0; n < ADDITIONS.length; n++) {
-        var stuff = new RegExp(ADDITIONS[n]);
-        if (stuff.test(chord_strings[i])) {
+        var regexp = new RegExp(ADDITIONS[n]);
+        if (regexp.test(chord_strings[i])) {
           addition = ADDITIONS[n];
-          chord_strings[i] = chord_strings[i].replace(stuff, "");
+          chord_strings[i] = chord_strings[i].replace(regexp, "");
           break;
         }
       }
