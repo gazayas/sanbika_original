@@ -86,7 +86,6 @@ function key_change(old_key, slash_chords) {
     } else {
 
       var addition = "";
-
       for (var n = 0; n < ADDITIONS.length; n++) {
         var stuff = new RegExp(ADDITIONS[n]);
         if (stuff.test(chords[i])) {
