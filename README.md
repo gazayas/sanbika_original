@@ -38,4 +38,5 @@ https://sanbika.herokuapp.com/
   	<li>jsのテストを作る？capybaraがあるらしいけどもういいかな。パーフェクトrorの7章を参照に</li>
 	<li>今のシードデータではログインできない</li>
 	<li>検索機能</li>
+  <li>cancancan</li>
 </ul>
