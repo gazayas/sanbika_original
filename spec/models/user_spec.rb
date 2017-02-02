@@ -4,6 +4,13 @@ RSpec.describe User, type: :model do
 
   subject { user }
 
+  describe '他モデルとの関連' do
+    let(:user) { FactoryGirl.create(:user) }
+    it { is_expected.to have_many(:songs) }
+  end
+
+
+
   describe '有効なユーザ' do
     let(:user) { FactoryGirl.create(:user) }
 

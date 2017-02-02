@@ -29,7 +29,9 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
 
+  # ファクトリガールとShouldaMatchersの設定
   config.include FactoryGirl::Syntax::Methods
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 
   #FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
 
