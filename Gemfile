@@ -22,6 +22,7 @@ group :development, :test do
 	gem 'rspec-rails' # 普通にrpsecをしたらダメだった
 	gem 'factory_girl_rails'
 	gem 'shoulda-matchers', '~> 3.1'
+  gem 'database_cleaner'
 	gem 'byebug', platform: :mri
  	gem 'pry'
  	gem 'better_errors'

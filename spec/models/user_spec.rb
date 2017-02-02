@@ -2,57 +2,55 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let(:user) { FactoryGirl.create(:user) }
+  subject { user }
 
-  describe '登録' do
+  describe '有効なユーザ' do
+    let(:user) { FactoryGirl.create(:user) }
 
-    context '有効なユーザ' do
-      it 'うまく登録できること' do
-        expect(user).to be_valid
-      end
+    context 'UserのFactoryをそのまま作成する場合' do
+      it { is_expected.to be_valid }
     end
-
-    context '不正な:nameのため、登録できないこと' do
-      # パスワードがかぶってることのテストがいるのかな
-      it ':nameは短い' do
-        user.name = "name"
-        expect(user).to be_invalid
-      end
-      it ':nameは長い' do
-        short_name = String.new
-        41.times do
-          short_name += "1"
-        end
-        user.name = short_name
-        expect(user).to be_invalid
-      end
-    end
-
-    context '不正な:passwordのため、登録できないこと' do
-      it ':passwordは短い' do
-        # encrypted_passwordもあるので新しいuserが作られた時に（つまり、FactoryGirl.create()を呼ぶ時）、
-        # 不正なパスワードのテストをした方が？？
-        user.password = "1"
-        expect(user).to be_invalid
-      end
-      it ':passwordは長い' do
-        long_password = String.new
-        101.times do
-          long_password += "1"
-        end
-        user.password = long_password
-        expect(user).to be_invalid
-      end
-    end
-
-    context '不正な:emailのため、登録できない' do
-      it ':emailには「@」は入っていません' do
-        user.email = "this_is_not_an_email_gmail.com"
-        expect(user).to be_invalid
-      end
-    end
-    
   end
 
-end
+  describe '無効のパラメーター' do
 
+    describe '.name' do
+      let(:user) { FactoryGirl.build(:user, name: name) }
+
+      context '.nameは短い' do
+        let(:name) { "name" }
+        it { is_expected.to be_invalid }
+      end
+
+      context '.nameは長い' do
+        let(:name) { "a" * 41 }
+        it { is_expected.to be_invalid }
+      end
+    end
+
+    describe '.password' do
+      let(:user) { FactoryGirl.build(:user, password: password) }
+
+      context '.passwordは短い' do
+        let(:password) { "pass" }
+        it { is_expected.to be_invalid }
+      end
+
+      context '.passwordは長い' do
+        let(:password) { "A" * 101 }
+        it { is_expected.to be_invalid }
+      end
+    end
+
+    describe '.email' do
+      let(:user) { FactoryGirl.build(:user, email: email) }
+
+      context '「＠」は抜いている場合' do
+        let(:email) { "not_valid.com" }
+        it { is_expected.to be_invalid }
+      end
+    end
+
+  end # '無効のパラメーター'の終わり'
+
+end
