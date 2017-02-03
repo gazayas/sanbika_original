@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
 
 
 
-  describe '有効なユーザ' do
+  describe '有効のパラメーター' do
     let(:user) { FactoryGirl.create(:user) }
 
     context 'UserのFactoryをそのまま作成する場合' do
@@ -21,35 +21,35 @@ RSpec.describe User, type: :model do
 
   describe '無効のパラメーター' do
 
-    describe '.name' do
+    describe 'name' do
       let(:user) { FactoryGirl.build(:user, name: name) }
 
-      context '.nameは短い' do
+      context 'nameは短い' do
         let(:name) { "name" }
         it { is_expected.to be_invalid }
       end
 
-      context '.nameは長い' do
+      context 'nameは長い' do
         let(:name) { "a" * 41 }
         it { is_expected.to be_invalid }
       end
     end
 
-    describe '.password' do
+    describe 'password' do
       let(:user) { FactoryGirl.build(:user, password: password) }
 
-      context '.passwordは短い' do
+      context 'passwordは短い' do
         let(:password) { "pass" }
         it { is_expected.to be_invalid }
       end
 
-      context '.passwordは長い' do
+      context 'passwordは長い' do
         let(:password) { "A" * 101 }
         it { is_expected.to be_invalid }
       end
     end
 
-    describe '.email' do
+    describe 'email' do
       let(:user) { FactoryGirl.build(:user, email: email) }
 
       context '「＠」は抜いている場合' do

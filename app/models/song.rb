@@ -6,8 +6,9 @@ class Song < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :title_yomikata, presence: true, length: { maximum: 70 }
-	validates :artist, length: { maximum: 70 } # , presence: true
+	validates :artist, length: { maximum: 50 } # , presence: true
 	validates :artist_yomikata, length: { maximum: 70 } # , presence: true
+	validates :key, presence: true, length: { maximum: 2 }
   validates :song_body, presence: true, length: { maximum: 7000000 }
 
 	private
