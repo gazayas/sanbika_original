@@ -91,4 +91,18 @@ RSpec.describe Song, type: :model do
     end
   end
 
+  describe 'song_body' do
+    let(:song) { FactoryGirl.build(:song, user: user, song_body: song_body) }
+
+    context '書いてない場合' do
+      let(:song_body) { '' }
+      it { is_expected.to be_invalid }
+    end
+
+    context '長すぎている場合' do
+      let(:song_body) { 'a' * 7_000_001 }
+      it { is_expected.to be_invalid }
+    end
+  end
+
 end

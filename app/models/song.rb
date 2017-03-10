@@ -1,15 +1,16 @@
 class Song < ApplicationRecord
 
-	belongs_to :user
 	before_save :prep_yomikata
 	before_update :prep_yomikata
+
+	belongs_to :user
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :title_yomikata, presence: true, length: { maximum: 70 }
 	validates :artist, length: { maximum: 50 } # , presence: true
 	validates :artist_yomikata, length: { maximum: 70 } # , presence: true
 	validates :key, presence: true, length: { maximum: 2 }
-  validates :song_body, presence: true, length: { maximum: 7000000 }
+  validates :song_body, presence: true, length: { maximum: 7_000_000 }
 
 	private
 
