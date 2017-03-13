@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @songs = @user.songs.all
   end
 
+  # deviseに#newと#createを任せた
+
   def edit
     @user = User.find(params[:id])
   end

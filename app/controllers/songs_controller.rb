@@ -4,7 +4,7 @@ class SongsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @songs = @user.songs.all
-    # @songs = Song.all これは、また別のベージにする
+    # Todo: 普通は @songs = Song.all だけど、これはどうするかな。
   end
 
   def show

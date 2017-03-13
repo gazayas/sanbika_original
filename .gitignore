@@ -19,4 +19,10 @@
 # Ignore application configuration
 /config/application.yml
 
+# Ignore config/secrets
+/config/secrets.yml
+
+# Ignore Ruby version
 /.ruby-version/
+
+

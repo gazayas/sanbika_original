@@ -14,7 +14,7 @@
       <div class="container">
         <%= link_to "賛美歌", home_index_path, class: 'navbar-brand' %>
         <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-          <span class="icon-bar"></span><!-- これか「♪」でもいいかな -->
+          <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
@@ -27,8 +27,10 @@
               <li><%= link_to '<span class="glyphicon glyphicon-user"></span> ログイン'.html_safe, new_user_session_path %></li>
               <li><%= link_to '<span class="glyphicon glyphicon-pencil"></span> アカウント登録'.html_safe, new_user_registration_path %></li>
             <% end %>
-            <!-- li><%# link_to "<span class=\"glyphicon glyphicon-info-sign\"></span> 情報".html_safe,
-              {controller: "home",action: "info"} %></li-->
+            <!-- TODO: 情報のページが欲しい
+            <li><%# link_to "<span class=\"glyphicon glyphicon-info-sign\"></span> 情報".html_safe,
+              {controller: "home",action: "info"} %></li
+            -->
           </ul>
         </div>
       </div>

@@ -25,7 +25,7 @@ class Song < ApplicationRecord
 		self.title_yomikata = prep.call(self.title_yomikata)
 		self.artist_yomikata = prep.call(self.artist_yomikata)
 
-		self # これはいるかな
+		self
 	end
 
 end
