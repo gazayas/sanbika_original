@@ -1,7 +1,10 @@
 <% if current_user == @user %>
   <p><%= @user.name %>さん、お帰りなさい</p>
+  <%= link_to "プロファイル編集", edit_user_path(@user) %><br/>
 <% else %>
   <p><%= @user.name %>さんのページへようこそ</p>
 <% end %>
+
+<%= image_tag(@user.user_image)  %>
 
 <%= link_to @user.name + 'さんの賛美歌チャートの一覧', user_songs_path([@user, @songs]) %><br/>

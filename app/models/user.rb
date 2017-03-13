@@ -6,9 +6,13 @@ class User < ApplicationRecord
 
   has_many :songs, dependent: :destroy
 
+  # carrierwaveで画像
+  mount_uploader :user_image, UserImageUploader
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, uniqueness: true, length: { minimum: 5, maximum: 40 }
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, length: { minimum: 5, maximum: 100 }
+  # validates :user_image
 end

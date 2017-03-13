@@ -1,1 +1,29 @@
-new.html.erbはいらないけど、これで写真などを変えるための昨日を加えることができる
+<p>画像の追加</p>
+
+<%= form_for(@user) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %>次の問題のため、保存できませんでした：</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <% if @user.user_image? %>
+      <div class="thumbnail">
+        <%= image_tag @user.user_image.url %>
+      </div>
+    <% end %>
+    <%= f.file_field :user_image %>
+    <%= f.hidden_field :user_image_cache %>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary', value: '保存', id: 'save_button' %>
+
+<% end %>
