@@ -1,5 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
+	protected
+	def update_resource(resource, params)
+		resource.update_without_password(params)
+	end
+
 	# http://jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html
 
 	private

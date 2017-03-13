@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   get 'home/songs' => 'home#songs'
   root to: 'home#index'
 
-  devise_for :users, :controllers => {
+  devise_for :users, controllers: { 
     registrations: 'registrations',
     sessions: 'sessions'
   }
+
   resources :users do
     resources :songs do
       member do
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # URLにユーザ名が表示されるように
+  # Todo: URLにユーザ名が表示されるように（これをIssuesに入れること）
   # match '/:name' => 'users#show', via: :get
 
 end
