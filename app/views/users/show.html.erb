@@ -5,6 +5,6 @@
   <p><%= @user.name %>さんのページへようこそ</p>
 <% end %>
 
-<%= image_tag(@user.user_image)  %>
+<%= image_tag(@user.user_image)  %><br/>
 
 <%= link_to @user.name + 'さんの賛美歌チャートの一覧', user_songs_path([@user, @songs]) %><br/>

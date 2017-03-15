@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'tinymce-rails'
 gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 
 gem 'devise'
 gem 'figaro'
