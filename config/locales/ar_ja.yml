@@ -14,7 +14,7 @@ ja:
       song: 賛美歌チャート
     attributes:
       user:
-        name: 名前
+        name: ユーザー名
         email: メール
         password: パスワード
         remember_me: 保存する
