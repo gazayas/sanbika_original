@@ -13,5 +13,5 @@ before_script:
   - psql -c 'create database sanbika_test' -U postgres
 
 script:
-  - rails db:migrate
+  - rake db:migrate
   - bundle exec rspec spec
