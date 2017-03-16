@@ -15,4 +15,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   # validates :password # initializers/devise.rbでは長さのバリデーションを変えることができます
   # validates :user_image
+
+  def email_required?
+    false
+  end
 end
