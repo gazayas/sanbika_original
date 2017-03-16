@@ -1,4 +1,4 @@
-#賛美歌
+<h1>賛美歌</h1>
 
 
 https://sanbika.herokuapp.com/
