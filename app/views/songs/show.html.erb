@@ -36,8 +36,8 @@
           console.log(chord_span[i]);
           chord_span[i].splice((x + 1), 0, " ");
         }
-        if(chord_span[i][x] == "<br/>" || chord_span[i][x] == "<br />"){
-          chord_span[i][x] = chord_span[i][x].replace(/<br\/>/, "*");
+        if(chord_span[i][x] == "<br/>"){
+          chord_span[i][x] = chord_span[i][x].replace("<br/>", "*");
         }
         new_str += chord_span[i][x];
       }
