@@ -10,10 +10,13 @@
     });
 
     for(var i = 0; i < chord_span.length; i++) {
-      chord_span[i] = chord_span[i].replace(/&nbsp;/g, " "); // &nbsp; がないように
-      chord_span[i] = chord_span[i].replace(/　/g, "  "); // 日本語を入力しないように説明に入れること
-      chord_span[i] = chord_span[i].replace(/<br>/, " <br> ");
-      chord_span[i] = chord_span[i].replace(/<br \/>/g, " <br/> ");
+      // &nbsp;がtinymceに表示されてしまうので、普通の空白と入れ替えます
+      chord_span[i] = chord_span[i].replace(/&nbsp;/g, " ");
+      // 全角の空白を半角の空白と入れ替えます(でないと、splitの動作がうまく行けない)
+      chord_span[i] = chord_span[i].replace(/　/g, "  ");
+      // <br/>を統一し、前後に空白を置きます
+      chord_span[i] = chord_span[i].replace(/<br\s?\/?>/, " <br/> ");
+
       chord_span[i] = chord_span[i].split(" ");
     }
 
@@ -27,13 +30,14 @@
         if(chord_span[i][x] == "") {
           chord_span[i][x] = " ";
         }
-        if(chord_span[i][x] != " " && chord_span[i][x] != "<br>") {
+        if(chord_span[i][x] != " " && chord_span[i][x] != "<br/>") {
           // jQueryでwrap(), そしてnameの定義?
           chord_span[i][x] = '<span class="chord" name="' + chord_span[i][x] + '">' + chord_span[i][x] + '</span>';
+          console.log(chord_span[i]);
           chord_span[i].splice((x + 1), 0, " ");
         }
-        if(chord_span[i][x] == "<br>" || chord_span[i][x] == "<br />"){
-          chord_span[i][x] = chord_span[i][x].replace(/<br>/, "*");
+        if(chord_span[i][x] == "<br/>" || chord_span[i][x] == "<br />"){
+          chord_span[i][x] = chord_span[i][x].replace(/<br\/>/, "*");
         }
         new_str += chord_span[i][x];
       }
@@ -43,30 +47,23 @@
       if (/\s$/.test(new_str)) {
         new_str = new_str.replace(/\s$/, "");
       }
-      console.log(new_str);
       if (/♭r/.test(new_str)) {
-        new_str = new_str.replace(/♭r/g, "br");
-      } else if(/<♭r\/>/) {
-        new_str = new_str.replace(/<♭r\/>/, "<br/>");
-      } else if(/<♭r \/>/) {
-        new_str = new_str.replace(/<♭r \/>/, "<br />");
+        new_str = new_str.replace(/<♭r\s?\/?>/, "<br/>");
       }
       new_str = replace_mark(new_str); /* loose programming, but it works.
         Might change it in the future (replace_mark() is only intended for one note, not a whole string.
         The loose part is the function itself. Changed an if...else if to 2 ifs, as well as made the regexp global) */
-        if (/\*/.test(new_str)) {
-          new_str = new_str.replace(/\*/, "<br>");
-        }
+      if (/\*/.test(new_str)) {
+        new_str = new_str.replace(/\*/, "<br>");
+      }
       new_innerHTML.push(new_str);
-      // console.log(new_innerHTML[i]);
     }
 
     var chords = document.getElementsByClassName('chords');
 
     for(var i = 0; i < chords.length; i++) {
       chords[i].innerHTML = new_innerHTML[i];
-      // console.log(chords[i].innerHTML);
- }
+    }
 
   });
 
