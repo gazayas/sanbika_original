@@ -1,5 +1,15 @@
 <script>
 
+  function replace_marks(str) {
+    if (check_sharp(str)) {
+      str = str.replace(/#/g, "♯");
+    }
+    if (check_flat(str)) {
+      str = str.replace(/b/g, "♭");
+    }
+    return str;
+  }
+
   $(document).ready(function() {
 
     var chord_span = [];
@@ -27,15 +37,17 @@
       var new_str = "";
 
       for(var x = 0; x < chord_span[i].length; x++) {
+        // chord_span[i].split(" "); で空白がなくなるので、また入れておきます
         if(chord_span[i][x] == "") {
           chord_span[i][x] = " ";
         }
+        // chordの場合, spanで包む
         if(chord_span[i][x] != " " && chord_span[i][x] != "<br/>") {
-          // jQueryでwrap(), そしてnameの定義?
           chord_span[i][x] = '<span class="chord" name="' + chord_span[i][x] + '">' + chord_span[i][x] + '</span>';
-          console.log(chord_span[i]);
+          // また空白は多分なくなったので、spanの実装をしてから後尾の方につけます
           chord_span[i].splice((x + 1), 0, " ");
         }
+        // 「b」が入ってしまうと、replace_marksで♭になってしまうので一時的に「*」と入れ替えます
         if(chord_span[i][x] == "<br/>"){
           chord_span[i][x] = chord_span[i][x].replace("<br/>", "*");
         }
@@ -43,16 +55,13 @@
       }
 
       // 最後のchord_span[i][x]は空白だったらもう１つ空白が追加されてしまう
-      // chord_span[i].pop()がしたかったけどなんか上手く動かないから次のif文を入れた
+      // new_str.pop()にするなら、配列にしないとダメなので、この方がいいかな。
       if (/\s$/.test(new_str)) {
         new_str = new_str.replace(/\s$/, "");
       }
-      if (/♭r/.test(new_str)) {
-        new_str = new_str.replace(/<♭r\s?\/?>/, "<br/>");
-      }
-      new_str = replace_mark(new_str); /* loose programming, but it works.
-        Might change it in the future (replace_mark() is only intended for one note, not a whole string.
-        The loose part is the function itself. Changed an if...else if to 2 ifs, as well as made the regexp global) */
+      
+      new_str = replace_marks(new_str);
+
       if (/\*/.test(new_str)) {
         new_str = new_str.replace(/\*/, "<br>");
       }

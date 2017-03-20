@@ -22,10 +22,10 @@ function check_flat(note) {
 // 「b」が「♭」に、「#」が「♯」に変換されます
 function replace_mark(note) {
   if (check_sharp(note)) {
-    note = note.replace(/#/g, "♯"); // gは要らないと思うけど、show.html.erbで使われている
+    note = note.replace(/#/, "♯");
   }
   if (check_flat(note)) {
-    note = note.replace(/b/g, "♭");
+    note = note.replace(/b/, "♭");
   }
   return note;
 }
