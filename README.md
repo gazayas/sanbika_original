@@ -7,4 +7,4 @@ https://sanbika.herokuapp.com/
 
 ##賛美歌の転調を簡単に行うことができます
 
-![key change](https://media.giphy.com/media/3ohzdCRtzRTKeUs5Bm/giphy.gif)
+![key change](https://media.giphy.com/media/3oKIPd5nkRqjM23kNa/giphy.gif)
