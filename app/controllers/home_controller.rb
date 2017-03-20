@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   end
 
   def songs
-    @songs = Song.all
+    @songs = Song.page(params[:page]).per(25)
   end
 end
 

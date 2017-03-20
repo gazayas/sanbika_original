@@ -18,7 +18,7 @@ gem 'mini_magick'
 gem 'devise'
 gem 'figaro'
 gem 'bootstrap-sass'
-gem 'kaminari'
+gem 'kaminari', '~> 0.17.0'
 
 gem 'nihonjin'
 
