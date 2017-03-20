@@ -1,14 +1,10 @@
 <h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%# f.label :name %><!-- これがほしいけど、deviseでどうやればいいかちょっと分からない -->
-    <%# f.text_field :name %>
-  </div>
   <% now = Time.zone.now %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name %><br/>
     <%= f.text_field :name %>
   </div>
 

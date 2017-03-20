@@ -2,50 +2,27 @@
 
 <h1>讃美歌チャート</h1>
 
+<br/>
+
 <% if @user == current_user %>
   <div id="new_song">
-    <%= link_to '新規作成', new_user_song_path([@user, @song]), class: 'btn btn-primary btn-lg' %>
+    <%= link_to '新規作成', new_user_song_path(@user, @song), class: 'btn btn-primary btn-lg' %>
   </div>
 <% end %>
 
-<% artist_exists = false %> <!-- これをヘルパーメソッドにした方がいいかもしれない -->
-<% @songs.each do |song| %>
-  <% if song.artist == nil || song.artist == "" %>
-    <% next %>
-  <% else %>
-    <% artist_exists = true %>
-    <% break %>
-  <% end %>
-<% end %>
-
-<% if !artist_exists %>
-    <style>
-      #song_index {
-        width: 50%;
-      }
-    </style>
-<% end %>
+<br/>
 
 <% if !@songs.empty? %>
-
-  <table id="song_index" >
-    <thead>
-      <tr>
-        <th><%= t('activerecord.attributes.song.title') %></th>
-      </tr>
-    </thead>
-
-    <tbody>
-        <% @songs.each do |song| %>
-          <tr>
-            <td class="song_title">
-              <%= link_to song.title, user_song_path(@user, song), class: 'btn btn-primary btn-lg btn-block' %>
-            </td>
-          </tr>
-        <% end %>
-    </tbody>
-  </table>
-
+  <div class="panel panel-default" id="song_list">
+    <div class="panel panel-heading">
+      <h1>賛美歌の一覧</h1>
+    </div>
+    <ul class="list-item-group">
+      <% @songs.each do |song| %>
+        <li class="list-item-group"><%= link_to song.title, user_song_path(@user, song) %></li>
+      <% end %>
+    </ul>
+  </div>
 <% else %>
   <h3 id="no_songs">讃美歌チャートはありません</h3>
 <% end %>

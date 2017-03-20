@@ -1,16 +1,17 @@
 <% if @users != nil %>
-  <div id="users_index" class="container-fluid bg-3 text-center">
-    <div class="row">
-      <% @users.each do |user| %>
-        <%# if user.confirmed_at %>
-          <div class="col-sm-4 space">
-            <%= link_to(user.name, user_path(user), class: 'btn btn-primary btn-lg outline') %>
-            <% if admin %>
-              <%= link_to '削除', user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-            <% end %>
-          </div>
-        <%# end %>
-      <% end %>
+  <div id="users_index" class="panel panel-default">
+    <div class="panel panel-heading">
+      <h1>ユーザの一覧</h1>
     </div>
+    <ul class="list-group">
+      <% @users.each do |user| %>
+        <li class="list-group-item"><%# if user.confirmed? の人だけにするかな %>
+          <%= link_to(user.name, user_path(user)) %>
+          <% if admin %>
+            <%= link_to '削除', user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
