@@ -13,13 +13,13 @@
 <br/>
 
 <% if !@songs.empty? %>
-  <div class="panel panel-default" id="song_list">
+  <div class="panel panel-default">
     <div class="panel panel-heading">
       <h1>賛美歌の一覧</h1>
     </div>
-    <ul class="list-item-group">
+    <ul class="list-group" id="song_list">
       <% @songs.each do |song| %>
-        <li class="list-item-group"><%= link_to song.title, user_song_path(@user, song) %></li>
+        <li class="list-group-item"><%= link_to song.title, user_song_path(@user, song) %></li>
       <% end %>
     </ul>
   </div>
