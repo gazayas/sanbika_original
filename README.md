@@ -5,6 +5,6 @@ https://sanbika.herokuapp.com/
 
 [![Build Status](https://travis-ci.org/gazayas/sanbika.png?branch=master)](https://travis-ci.org/gazayas/sanbika)
 
-<h2>賛美歌の転調を簡単に行うことができます</h2>g
+<h2>賛美歌の転調を簡単に行うことができます</h2>
 
-<iframe src="//giphy.com/embed/3oKIPd5nkRqjM23kNa" width="480" height="239" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sanbika-3oKIPd5nkRqjM23kNa">via GIPHY</a></p>
+![](https://media.giphy.com/media/3oKIPd5nkRqjM23kNa/giphy.gif)
