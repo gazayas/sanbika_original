@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'home/songs' => 'home#songs'
   root to: 'home#index'
 
-  devise_for :users, controllers: { 
+  devise_for :users, controllers: {
     registrations: 'registrations',
     sessions: 'sessions'
   }
