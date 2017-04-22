@@ -1,0 +1,8 @@
+{
+  "name": "sanbika",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "jest": "^19.0.2"
+  }
+}
