@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>讃美歌チャート</h1>
+
+<br/>
+
+<% if @user == current_user %>
+  <div id="new_song">
+    <%= link_to '新規作成', new_user_song_path(@user, @song), class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
+
+<br/>
+
+<% if !@songs.empty? %>
+  <div class="panel panel-default">
+    <div class="panel panel-heading">
+      <h1>賛美歌の一覧</h1>
+    </div>
+    <ul class="list-group" id="song_list">
+      <% @songs.each do |song| %>
+        <li class="list-group-item"><%= link_to song.title, user_song_path(@user, song) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <h3 id="no_songs">讃美歌チャートはありません</h3>
+<% end %>
+
