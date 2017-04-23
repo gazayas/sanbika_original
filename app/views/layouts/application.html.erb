@@ -38,7 +38,9 @@
 
     <div id="main_container" class="container">
       <% if notice %>
-        <p class="alert alert-success"><%= notice %></p><!-- 前は class="notice" でした -->
+        <p class="alert alert-success alert-dismissable" data-dismiss="alert" aria-label="close">
+          <%= notice %>
+        </p><!-- 前は class="notice" でした -->
       <% elsif alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>

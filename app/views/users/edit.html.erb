@@ -3,7 +3,7 @@
 <%= form_for(@user) do |f| %>
 
   <% if @user.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation"><!-- class="alert alert-danger" -->
       <h2><%= pluralize(@user.errors.count, "error") %>次の問題のため、保存できませんでした：</h2>
 
       <ul>

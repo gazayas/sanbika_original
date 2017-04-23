@@ -1,5 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
 
+	# 要らないですかね。tokenをメールで私たら問題はないと思います。
+	# またmailerについてはMichael Hartlさんが書いたe-bookを見てみたらいいかもしれません。
+	# before_action :authenticate_current_user, only: [:edit]
+
 	protected
 	def update_resource(resource, params)
 		resource.update_without_password(params)
