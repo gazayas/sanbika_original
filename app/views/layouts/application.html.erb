@@ -38,9 +38,9 @@
 
     <div id="main_container" class="container">
       <% if notice %>
-        <p class="notice"><%= notice %></p>
+        <p class="alert alert-success"><%= notice %></p><!-- 前は class="notice" でした -->
       <% elsif alert %>
-        <p class="alert"><%= alert %></p>
+        <p class="alert alert-danger"><%= alert %></p>
       <% end %>
 
       <%= yield %>
