@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_current_user
     if params[:user_id]
-      # songsコントローラの場合
+      # その他関連付けられているモデルのコントローラの場合
       @user = User.find(params[:user_id])
     else
       # userコントローラの場合
