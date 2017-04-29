@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'home/index'
   get 'home/songs' => 'home#songs'
   root to: 'home#index'
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
     sessions: 'sessions'
   }
 
+  # resources :users, param: :name, path: '/' do
   resources :users do
     resources :songs do
       member do
@@ -16,8 +16,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  # Todo: URLにユーザ名が表示されるように（これをIssuesに入れること）
-  # match '/:name' => 'users#show', via: :get
-
 end

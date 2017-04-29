@@ -5,4 +5,4 @@
   <%= render 'form', song: @song %>
 </div>
 
-<%= link_to '賛美歌の一覧', user_songs_path %>
+<%= link_to @user.name + 'さんのページに戻る', user_songs_path %>
