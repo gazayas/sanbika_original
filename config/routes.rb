@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     sessions: 'sessions'
   }
 
+  # http://blog.takady.net/blog/2015/11/29/rails-routing-with-username-instead-of-id/
   # resources :users, param: :name, path: '/' do
   resources :users do
     resources :songs do
