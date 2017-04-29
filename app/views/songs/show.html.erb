@@ -106,6 +106,6 @@
 
 <% if @user == current_user %>
   <%= link_to '編集', edit_user_song_path(@user, @song) %> |
-  <%= link_to '戻る', user_songs_path %>
+  <%= link_to '戻る', user_path(@user) %>
   <%= link_to '削除', user_song_path, method: :delete, data: { confirm: "本当に削除しますか？" } %>
 <% end %>
