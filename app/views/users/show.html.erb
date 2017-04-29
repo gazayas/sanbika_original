@@ -1,16 +1,20 @@
-<%= image_tag(@user.user_image)  %><br/>
-
-<br/><br/>
-
-<div id="songs" class="panel panel-default">
-  <div class="panel panel-heading">
-    <h1><%= @user.name %>さんの賛美歌チャート</h1>
-    <% if current_user == @user %>
-      <%= link_to '新規賛美歌チャート', new_user_song_path(@user), class: 'btn btn-primary btn-lg' %><br/>
-    <% end %>
+<div id="user_container">
+  <div id="left_side">
+    <%= image_tag(@user.user_image)  %><br/>
+    <h2><%= @user.name %></h2>
+    <%= link_to 'プロファイルの編集', edit_user_path(@user) if current_user == @user %>
   </div>
 
-  <% @songs.each do |song| %>
-    <%= link_to song.title, user_song_path(@user, song) %><br/>
-  <% end %>
+  <div id="right_side" class="panel panel-default">
+    <div class="panel panel-heading">
+      <h1><%= @user.name %>さんの賛美歌チャート</h1>
+      <% if current_user == @user %>
+        <%= link_to '新規賛美歌チャート', new_user_song_path(@user), class: 'btn btn-primary btn-lg' %><br/>
+      <% end %>
+    </div>
+
+    <% @songs.each do |song| %>
+      <%= link_to song.title, user_song_path(@user, song) %><br/>
+    <% end %>
+  </div>
 </div>

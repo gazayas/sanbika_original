@@ -20,6 +20,7 @@
           <span class="icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse navHeaderCollapse">
+          <!-- TODO: ここに search bar を入れたいです -->
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
               <li><%= link_to '<span class="glyphicon glyphicon-home"></span>'.html_safe + " #{current_user.name}さん", current_user %></li>
