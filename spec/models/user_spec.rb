@@ -26,6 +26,11 @@ RSpec.describe User, type: :model do
     describe 'name' do
       let(:user) { FactoryGirl.build(:user, name: name) }
 
+      context '"_"が入っているとvalidであること' do
+        let(:name) { "random_user_example" }
+        it { is_expected.to be_valid }
+      end
+
       context 'nameは短い' do
         let(:name) { "name" }
         it { is_expected.to be_invalid }
@@ -33,6 +38,21 @@ RSpec.describe User, type: :model do
 
       context 'nameは長い' do
         let(:name) { "a" * 41 }
+        it { is_expected.to be_invalid }
+      end
+
+      context 'nameには日本語が入っています' do
+        let(:name) { "不正な文字です" }
+        it { is_expected.to be_invalid }
+      end
+
+      context 'nameにはその他の不正の文字が入っています' do
+        let(:name) { ".()$#!=~" }
+        it { is_expected.to be_invalid }
+      end
+
+      context 'nameには数字だけが入っています' do
+        let(:name) { "123456789" }
         it { is_expected.to be_invalid }
       end
     end
