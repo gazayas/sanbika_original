@@ -13,10 +13,12 @@
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-user"></span>
           </div>
-          <%= f.text_field :name, class: 'form-control', placeholder: 'ユーザー名', autofocus: true %>
+          <%= f.text_field :name, class: 'form-control',
+                                  placeholder: 'ユーザー名（英数字しか使用できません）',
+                                  autofocus: true %>
         </div>
       </div>
-    
+
       <div class="field">
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
           <div class="input-group-addon">
@@ -25,7 +27,7 @@
           <%= f.email_field :email, class: 'form-control', placeholder: 'メール' %>
         </div>
       </div>
-    
+
       <div class="field">
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
           <div class="input-group-addon">
