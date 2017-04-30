@@ -26,11 +26,6 @@ RSpec.describe User, type: :model do
     describe 'name' do
       let(:user) { FactoryGirl.build(:user, name: name) }
 
-      context '"_"が入っているとvalidであること' do
-        let(:name) { "random_user_example" }
-        it { is_expected.to be_valid }
-      end
-
       context 'nameは短い' do
         let(:name) { "name" }
         it { is_expected.to be_invalid }
@@ -122,7 +117,7 @@ RSpec.describe User, type: :model do
       #   expect(uploader).to have_permissions(0600)
       # end
 
-      
+
     end
 
   end
