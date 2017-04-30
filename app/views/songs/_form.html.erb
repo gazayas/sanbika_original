@@ -10,18 +10,6 @@
     <% key = "C" %>
   <% end %>
 
-  <% if song.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(song.errors.count, "error") %>次の問題のため、保存できませんでした：</h2>
-
-      <ul>
-      <% song.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <table id="song_form">
     <tr>
       <td>

@@ -1,3 +1,10 @@
+<!-- エラーの部分はedit.html.erbの方とかぶっているのでpartialを書いた方がいいかもしれない -->
+<% if @song.errors.any? %>
+  <% @song.errors.full_messages.each do |message| %>
+    <div class="alert alert-danger"><%= message %></div>
+  <% end %>
+<% end %>
+
 <div class="panel panel-default">
   <div class="panel panel-heading">
     <h1>新しい讃美歌チャート</h1>
