@@ -1,11 +1,11 @@
 class Song < ApplicationRecord
-
 	before_save :prep_yomikata
 	before_update :prep_yomikata
 
 	belongs_to :user
 
 	# youtube.comから「共有」の「埋め込むコード」の方を使うこと
+	# 最後の方にある「\(\A\z)」というのは、空の文字列を入れてもいいと言う意味です
 	VIDEO_REGEXP = /(\A<iframe\s+width=.*height=.*src=.*youtube\.com.*frameborder=.*><\/iframe>\z)|(\A\z)/
 
   validates :title, presence: true, length: { maximum: 50 }
@@ -31,5 +31,4 @@ class Song < ApplicationRecord
 
 		self
 	end
-
 end
