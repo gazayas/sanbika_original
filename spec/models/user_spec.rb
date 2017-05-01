@@ -11,8 +11,6 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:songs) }
   end
 
-
-
   describe '有効のパラメーター' do
     let(:user) { FactoryGirl.create(:user) }
 
@@ -22,7 +20,6 @@ RSpec.describe User, type: :model do
   end
 
   describe '無効のパラメーター' do
-
     describe 'name' do
       let(:user) { FactoryGirl.build(:user, name: name) }
 
@@ -116,10 +113,6 @@ RSpec.describe User, type: :model do
       # it "makes the image readable only to the owner and not executable" do
       #   expect(uploader).to have_permissions(0600)
       # end
-
-
     end
-
   end
-
 end

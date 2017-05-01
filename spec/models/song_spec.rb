@@ -9,7 +9,7 @@ RSpec.describe Song, type: :model do
   describe '他モデルとの関連' do
     it { is_expected.to belong_to(:user) }
   end
-  
+
   describe '有効のパラメーター' do
     it 'ユーザと一致すること' do
       expect(song.user_id).to eq user.id
@@ -105,4 +105,12 @@ RSpec.describe Song, type: :model do
     end
   end
 
+  describe 'video' do
+    let(:song) { FactoryGirl.build(:song, user: user, video: video) }
+
+    context '正しくない形式' do
+      let(:video) { 'https://youtu.be/itdgtFALCpo' }
+      it { is_expected.to be_invalid }
+    end
+  end
 end

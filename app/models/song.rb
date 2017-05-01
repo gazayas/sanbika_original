@@ -5,12 +5,16 @@ class Song < ApplicationRecord
 
 	belongs_to :user
 
+	# youtube.comから「共有」の「埋め込むコード」の方を使うこと
+	VIDEO_REGEXP = /\A<iframe\s+width=.*height=.*src=.*youtube\.com.*frameborder=.*><\/iframe>\z/
+
   validates :title, presence: true, length: { maximum: 50 }
   validates :title_yomikata, presence: true, length: { maximum: 70 }
-	validates :artist, length: { maximum: 50 } # , presence: true
-	validates :artist_yomikata, length: { maximum: 70 } # , presence: true
+	validates :artist, length: { maximum: 50 }
+	validates :artist_yomikata, length: { maximum: 70 }
 	validates :key, presence: true, length: { maximum: 2 }
   validates :song_body, presence: true, length: { maximum: 7_000_000 }
+	validates :video, length: { maximum: 300 }, format: { with: VIDEO_REGEXP }
 
 	private
 
