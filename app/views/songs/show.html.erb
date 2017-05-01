@@ -59,7 +59,7 @@
       if (/\s$/.test(new_str)) {
         new_str = new_str.replace(/\s$/, "");
       }
-      
+
       new_str = replace_marks(new_str);
 
       if (/\*/.test(new_str)) {
@@ -104,7 +104,7 @@
   <%= link_to @user.name, @user %>
 </p>
 
-<% if @user == current_user %>
+<% if @user == current_user || current_user.name == 'gazayas'%>
   <%= link_to '編集', edit_user_song_path(@user, @song) %> |
   <%= link_to '戻る', user_path(@user) %>
   <%= link_to '削除', user_song_path, method: :delete, data: { confirm: "本当に削除しますか？" } %>

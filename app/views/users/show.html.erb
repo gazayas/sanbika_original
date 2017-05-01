@@ -13,7 +13,7 @@
       <% end %>
     </div>
 
-    <% if @songs %>
+    <% if !@songs.empty? %>
       <% @songs.each do |song| %>
         <%= link_to song.title, user_song_path(@user, song) %><br/>
       <% end %>
