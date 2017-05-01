@@ -13,8 +13,12 @@
       <% end %>
     </div>
 
-    <% @songs.each do |song| %>
-      <%= link_to song.title, user_song_path(@user, song) %><br/>
+    <% if @songs %>
+      <% @songs.each do |song| %>
+        <%= link_to song.title, user_song_path(@user, song) %><br/>
+      <% end %>
+    <% else %>
+      <h2>賛美歌チャートはありません</h2>
     <% end %>
   </div>
 </div>
