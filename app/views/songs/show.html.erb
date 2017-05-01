@@ -97,6 +97,10 @@
   <%= simple_format(@song.song_body) %>
 </div>
 
+<% if !@song.video.empty? %>
+  <div class="video"><%= @song.video.html_safe %></div>
+<% end %>
+
 <%= link_to '印刷', print_user_song_path %>
 
 <p>

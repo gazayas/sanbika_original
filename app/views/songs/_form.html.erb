@@ -10,17 +10,17 @@
     <% key = "C" %>
   <% end %>
 
-  <table id="song_form">
+  <table class="song_form">
     <tr>
       <td>
         <%= f.text_field :title, class: 'form-control',
-        placeholder: t('activerecord.attributes.song.title'), autofocus: true, size: col_size %>
+        placeholder: t('activerecord.attributes.song.title') + '（必須）', autofocus: true, size: col_size %>
       </td>
     </tr>
     <tr>
       <td>
         <%= f.text_field :title_yomikata, class: 'form-control',
-        placeholder: t('activerecord.attributes.song.title_yomikata'), size: col_size %>
+        placeholder: t('activerecord.attributes.song.title_yomikata') + '（必須）', size: col_size %>
       </td>
     </tr>
     <tr>
@@ -42,7 +42,6 @@
         class: 'form-control', size: col_size) %>
       </td>
     </tr>
-
   </table>
 
   <div class="explanation">
@@ -56,6 +55,16 @@
     <%= f.text_area :song_body, class: 'tinymce', rows: 80, cols: 120 %>
     <%= tinymce %>
   </div>
+
+  <table class="song_form">
+    <tr>
+      <td>
+        Youtubeの動画の追加：「共有」の「埋め込むコード」を貼ってください（必須ではありません）
+        <%= f.text_field :video, class: 'form-control',
+        placeholder: t('activerecord.attributes.song.video'), size: col_size %>
+      </td>
+    </tr>
+  </table>
 
   <%= f.submit class: 'btn btn-primary', value: '保存', id: 'save_button' %>
 

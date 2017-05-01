@@ -6,7 +6,7 @@ class Song < ApplicationRecord
 	belongs_to :user
 
 	# youtube.comから「共有」の「埋め込むコード」の方を使うこと
-	VIDEO_REGEXP = /\A<iframe\s+width=.*height=.*src=.*youtube\.com.*frameborder=.*><\/iframe>\z/
+	VIDEO_REGEXP = /(\A<iframe\s+width=.*height=.*src=.*youtube\.com.*frameborder=.*><\/iframe>\z)|(\A\z)/
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :title_yomikata, presence: true, length: { maximum: 70 }
