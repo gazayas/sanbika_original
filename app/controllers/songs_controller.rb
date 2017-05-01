@@ -56,7 +56,7 @@ class SongsController < ApplicationController
     @user = User.find(@song[:user_id])
     @song.destroy
     respond_to do |format|
-      format.html { redirect_to user_songs_path(@user), notice: '讃美歌チャートは削除されました' }
+      format.html { redirect_to user_path(@user), notice: '讃美歌チャートは削除されました' }
       format.json { head :no_content }
     end
   end
