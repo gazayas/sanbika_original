@@ -74,13 +74,25 @@
       chords[i].innerHTML = new_innerHTML[i];
     }
 
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    // content_tagではdata-toggleなどを定義できないのでjsの方でしています
+    document.getElementById('song_title').setAttribute('data-toggle', 'tooltip');
+    document.getElementById('song_title').setAttribute('data-placement', 'bottom');
+
   });
 
 </script>
 
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+  Tooltip on top
+</button>
+
 <div class="panel panel-default">
   <div class="panel panel-heading">
-    <h1><%= @song.title %></h1>
+    <%= content_tag(:h1, @song.title, id: 'song_title', title: @song.title_yomikata) %>
   </div>
 
   <% unless @song.artist == nil || @song.artist == "" %>
