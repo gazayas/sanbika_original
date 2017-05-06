@@ -74,10 +74,10 @@
       chords[i].innerHTML = new_innerHTML[i];
     }
 
+    // song.title_yomikataをtooltipとして表示します
     $(function () {
       $('[data-toggle="tooltip"]').tooltip();
     });
-
     // content_tagではdata-toggleなどを定義できないのでjsの方でしています
     document.getElementById('song_title').setAttribute('data-toggle', 'tooltip');
     document.getElementById('song_title').setAttribute('data-placement', 'bottom');
