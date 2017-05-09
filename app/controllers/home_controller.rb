@@ -6,4 +6,3 @@ class HomeController < ApplicationController
     @songs = Song.page(params[:page]).per(25)
   end
 end
-

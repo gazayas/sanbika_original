@@ -19,6 +19,7 @@ gem 'devise'
 gem 'figaro'
 gem 'bootstrap-sass'
 gem 'kaminari', '~> 0.17.0'
+gem 'friendly_id', '~> 5.1.0'
 
 gem 'nihonjin'
 

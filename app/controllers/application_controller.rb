@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   def authenticate_current_user
     if params[:user_id]
       # その他関連付けられているモデルのコントローラの場合
-      @user = User.find(params[:user_id])
+      @user = User.friendly.find(params[:user_id])
     else
       # userコントローラの場合
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
     end
 
     # これをunless current_user == @user || current_user.admin にしたい

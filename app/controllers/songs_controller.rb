@@ -3,18 +3,18 @@ class SongsController < ApplicationController
   before_action :authenticate_current_user, except: [:index, :show, :print]
 
   def index
-    @user = User.find(params[:user_id])
+    @user = User.friendly.find(params[:user_id])
     @songs = @user.songs.all
     # TODO: 普通は @songs = Song.all だけど、これはどうするかな。
     # songsだけのindexページがいいかもしれない
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @user = User.friendly.find(params[:user_id])
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @user = User.friendly.find(params[:user_id])
     @song = @user.songs.build
   end
 
@@ -24,7 +24,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = User.friendly.find(params[:user_id])
     @song = @user.songs.build(song_params)
 
     respond_to do |format|
@@ -62,7 +62,7 @@ class SongsController < ApplicationController
   end
 
   def print
-    @user = User.find(params[:user_id])
+    @user = User.friendly.find(params[:user_id])
     @song = Song.find(params[:id])
     render layout: 'print'
   end
