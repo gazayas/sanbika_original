@@ -22,7 +22,7 @@ song_params = [
     name:  name,
     email: email,
     password:              password,
-    password_confirmation: password,
+    password_confirmation: password
     )
   2.times do |n|
     user.songs.create!(song_params[n])
