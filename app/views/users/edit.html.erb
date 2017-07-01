@@ -3,14 +3,14 @@
 <%= form_for(@user) do |f| %>
 
   <% if @user.errors.any? %>
-    <div id="error_explanation"><!-- class="alert alert-danger" -->
-      <h2><%= pluralize(@user.errors.count, "error") %>次の問題のため、保存できませんでした：</h2>
+    <div id="image_error" class="panel panel-default">
+      <div class="panel panel-heading">
+        <h2><%= pluralize(@user.errors.count, "つの問題が発生しました") %></h2><!-- この文字列をlocalesに入れた方が言い -->
+      </div>
 
-      <ul>
       <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <p class="alert alert-danger image_error_details"><%= message %></p>
       <% end %>
-      </ul>
     </div>
   <% end %>
 
@@ -27,3 +27,4 @@
   <%= f.submit class: 'btn btn-primary', value: '保存', id: 'save_button' %>
 
 <% end %>
+
