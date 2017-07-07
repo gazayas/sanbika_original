@@ -82,6 +82,8 @@
     document.getElementById('song_title').setAttribute('data-toggle', 'tooltip');
     document.getElementById('song_title').setAttribute('data-placement', 'bottom');
 
+    // iframeにクラスをつける
+    $('iframe').addClass('embed-responsive-item');
   });
 
 </script>
@@ -106,7 +108,9 @@
 </div>
 
 <% if @song.video && !@song.video.empty? %>
-  <div class="video"><%= @song.video.html_safe %></div>
+  <div id="song_video_container">
+    <div class="embed-responsive embed-responsive-16by9"><%= @song.video.html_safe %></div>
+  </div>
 <% end %>
 
 <%= link_to '印刷', print_user_song_path %>
