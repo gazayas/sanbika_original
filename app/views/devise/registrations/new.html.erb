@@ -1,61 +1,62 @@
 <%= devise_error_messages! %>
 
-<div id="registration_panel" class="panel panel-default">
-  <div class="panel panel-heading">
-    <h2>アカウントの登録</h2>
+<div class="container col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+  <div id="registration_panel" class="panel panel-default">
+    <div class="panel panel-heading">
+      <h2>アカウントの登録</h2>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <div class="input_fields">
+        <div class="field">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-user"></span>
+            </div>
+            <%= f.text_field :name, class: 'form-control',
+                                    placeholder: 'ユーザー名（英数字のみ）',
+                                    autofocus: true %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-envelope"></span>
+            </div>
+            <%= f.email_field :email, class: 'form-control', placeholder: 'メール' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-lock"></span>
+            </div>
+            <% password_placeholder = 'パスワード' %>
+            <% if @minimum_password_length %>
+              <% password_placeholder += '（' + @minimum_password_length.to_s + '字以上）' %>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: password_placeholder %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-lock"></span>
+            </div>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'パスワード確認' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登録する", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-    <div class="input_fields">
-      <div class="field">
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-user"></span>
-          </div>
-          <%= f.text_field :name, class: 'form-control',
-                                  placeholder: 'ユーザー名（英数字しか使用できません）',
-                                  autofocus: true %>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-envelope"></span>
-          </div>
-          <%= f.email_field :email, class: 'form-control', placeholder: 'メール' %>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-lock"></span>
-          </div>
-          <% password_placeholder = 'パスワード' %>
-          <% if @minimum_password_length %>
-            <% password_placeholder += '（' + @minimum_password_length.to_s + '字以上）' %>
-          <% end %>
-          <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: password_placeholder %>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-lock"></span>
-          </div>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'パスワード確認' %>
-        </div>
-      </div>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "登録する", class: 'btn btn-primary' %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
-
 </div>

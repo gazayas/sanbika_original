@@ -2,14 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#registration_panel {
-  width: 70%;
+#registration_panel, #login_panel {
   margin: 0px auto;
   text-align: center;
 }
 
 .input_fields {
-  width: 60%;
   margin: 0px auto; 
   text-align: center;
 }
