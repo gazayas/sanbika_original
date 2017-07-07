@@ -22,13 +22,21 @@ h1 {
 
 
 /* show */
-#song_body {
+#song_body, #print_song_body {
   white-space: pre-wrap;
   margin: 10px auto;
   padding: 0px 30px;
   text-align: left;
   border: 1px gray solid;
-  width: 75%;
+  width: 85%;
+
+  p {
+    font-size: 22px;
+  }
+
+  .chord {
+    line-height: 34px;
+  }
 }
 
 /* _form */ /* 別のstylesheetとかぶってるやつをapplication.scssに書くこと */
@@ -67,16 +75,6 @@ h1 {
 }
 
 /* print */
-
-#print_song_body {
-  
-  white-space: pre-wrap;
-
-  margin: 0px auto;
-  width: 70%;
-  border: 1px gray solid;
-  padding: 0px 15px;
-}
 
 #print_key {
   text-align: center;

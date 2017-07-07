@@ -90,7 +90,7 @@
 
 <div class="panel panel-default">
   <div class="panel panel-heading">
-    <%= content_tag(:h1, @song.title, id: 'song_title', title: @song.title_yomikata) %>
+    <%= content_tag(:h2, @song.title, id: 'song_title', title: @song.title_yomikata) %>
   </div>
 
   <% unless @song.artist == nil || @song.artist == "" %>
