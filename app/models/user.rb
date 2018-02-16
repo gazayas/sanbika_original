@@ -12,7 +12,7 @@ class User < ApplicationRecord
   # carrierwaveで画像
   mount_uploader :user_image, UserImageUploader
 
-  # ユーザ名では数字だけが使えないです
+  # ユーザ名では英数字しか使えないようにする
   USER_NAME_REGEX = /(?!\A\d+\z)\A[a-zA-Z0-9]+\z/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
