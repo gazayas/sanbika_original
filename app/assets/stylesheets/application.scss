@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require home
+ *= require songs
+ *= require users
  */
 
  @import "bootstrap-sprockets";
@@ -26,28 +29,20 @@
        image-url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg")
 }
 
-/* primary-btnは白じゃなかったので次の行を追加しました */
-.btn:visited {
+/*------------------------------------------------------*/
+
+/* home#index */
+
+.btn-primary:visited {
   color: #FFF;
 }
 
-#main_container {
-  margin-top: 70px;
-}
-
-/* すべてのチャートの一覧とすべてのユーザの一覧 */
 #songs_index, #users_index {
   margin: 10px;
   .btn {
     margin: 10px 0px;
     width: 70%;
   }
-}
-
-.pagination {
-  width: 100%;
-  margin: 20px 0px 20px 0px auto;
-  text-align: center;
 }
 
 .alert {
