@@ -1,17 +1,19 @@
-<% if @songs != nil %>
-  <div class="panel panel-default" id="songs_index">
-    <div class="panel panel-heading">
-      <h1>賛美歌の一覧</h1>
+<div class="container-fluid">
+  <% if @songs != nil %>
+    <div class="panel panel-default" id="songs_index">
+      <div class="panel panel-heading">
+        <h1>賛美歌の一覧</h1>
+      </div>
+      <ul class="list-group">
+        <% @songs.each do |song| %>
+          <% user = User.find(song[:user_id]) %>
+          <li class="list-group-item"><%= link_to(song.title, user_song_path(user, song)) %></li>
+        <% end %>
+      </ul>
     </div>
-    <ul class="list-group">
-      <% @songs.each do |song| %>
-        <% user = User.find(song[:user_id]) %>
-        <li class="list-group-item"><%= link_to(song.title, user_song_path(user, song)) %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% end %>
 
-<div class="pagination">
-  <%= paginate @songs %>
+  <div class="pagination_container">
+    <%= paginate @songs %>
+  </div>
 </div>
