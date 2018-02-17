@@ -38,6 +38,8 @@ function position_of(note) {
   }
 }
 
+// TODO: old_keyの変わりにoriginal_keyを書いてください
+// songs/show.html.erbではその歌の@song.keyをすーっと参照するから
 function key_change(old_key, slash_chords) {
 
   var new_key = document.getElementById('key_box').value;
@@ -45,6 +47,9 @@ function key_change(old_key, slash_chords) {
   var difference;
   var chord_strings = [];
   var new_chords = [];
+
+  console.log(old_key);
+  console.log(new_key);
 
   if (slash_chords) {
     var chords_html = slash_chords;

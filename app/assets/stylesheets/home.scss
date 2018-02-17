@@ -16,6 +16,22 @@ header.masthead {
   background-size: contain;*/
 }
 
+#example_chart > .panel > .panel-body {
+  text-align: left;
+}
+
+.chords {
+  font-size: 20px;
+}
+
+.lyrics {
+  font-size: 24px;
+}
+
+.chords, .lyrics {
+  display: block;
+}
+
 /* songs */
 #songs_index {
   text-align: left;

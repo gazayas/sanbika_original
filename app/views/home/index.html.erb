@@ -10,3 +10,48 @@
 
 </header>
 
+<!-- TODO: スタイルとかは気になるけど、一応こんな感じのレイアウトで行きたい -->
+<div id="example_chart" class="container-fluid">
+  <h1>変調は簡単に行えます</h1>
+  <div class="panel panel-default">
+    <div class="panel panel-heading">
+      <h1>主の足元に</h1>
+      <% keys = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯"] %>
+      <select id="key_box" onchange="key_change('A', null);">
+        <% keys.each do |key| %>
+          <option value="<%= key %>"><%= key %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="panel panel-body">
+      <!-- FIXME: Deployしてからこういうやり方じゃなくて、自分のアカウントからチャートを呼び出して簡単に実装した方が楽かつ分かりやすい -->
+      <div class="chords">
+        <% 9.times do %>&nbsp;<% end %>
+        <span class="chord" name="A">A</span>
+        <% 5.times do %>&nbsp;<% end %>
+        <span class="chord" name="D">D</span>
+        <% 4.times do %>&nbsp;<% end %>
+        <span class="chord" name="G">G</span>
+        <% 11.times do %>&nbsp;<% end %>
+        <span class="chord" name="D/F♯">D/F♯</span>
+      </div>
+      <div class="lyrics">
+        こころ砕き 栄光脱ぎ捨て
+      </div>
+
+      <div class="chords">
+        <% 9.times do %>&nbsp;<% end %>
+        <span class="chord" name="G">G</span>
+        <% 11.times do %>&nbsp;<% end %>
+        <span class="chord" name="D/F♯">D/F♯</span>
+        <% 3.times do %>&nbsp;<% end %>
+        <span class="chord" name="Em">Em</span>
+        <% 2.times do %>&nbsp;<% end %>
+        <span class="chord" name "A7">A7</span>
+      </div>
+      <div class="lyrics">
+        ただあなたを求めます
+      </div>    
+    </div>
+  </div>
+</div>
