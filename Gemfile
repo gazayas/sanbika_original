@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby "2.3.3"
-
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
@@ -10,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'tinymce-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
@@ -20,14 +18,16 @@ gem 'figaro'
 gem 'bootstrap-sass'
 gem 'kaminari', '~> 0.17.0'
 gem 'friendly_id', '~> 5.1.0'
+#gem 'database_cleaner', '~> 1.6.0'
+gem 'rake', '~> 11.2.2'
 
 gem 'nihonjin'
 
+
 group :development, :test do
 	gem 'rspec-rails'
-	gem 'factory_girl_rails'
+	gem 'factory_girl_rails' # TODO: FactoryBot
 	gem 'shoulda-matchers', '~> 3.1'
-  gem 'database_cleaner'
 	gem 'byebug', platform: :mri
  	gem 'pry'
  	gem 'better_errors'
@@ -44,3 +44,4 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
