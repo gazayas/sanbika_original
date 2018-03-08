@@ -48,6 +48,7 @@
   }
 }
 
+/* Flash notice */
 .alert {
   -webkit-transition: opacity 1s ease-out;
   -moz-transition: opacity 1s ease-out;
@@ -57,11 +58,11 @@
 
 .alert:hover {
   -webkit-filter: brightness(90%);
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 /* 外してしまうと、エラーのform-controlのinputが短くなってしまう */

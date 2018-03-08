@@ -3,7 +3,7 @@
 
 https://sanbika.herokuapp.com/
 
-[![Build Status](https://travis-ci.org/gazayas/sanbika.png?branch=master)](https://travis-ci.org/gazayas/sanbika)
+<!-- [![Build Status](https://travis-ci.org/gazayas/sanbika.png?branch=master)](https://travis-ci.org/gazayas/sanbika) -->
 
 <h2>賛美歌の転調を簡単に行うことができます</h2>
 

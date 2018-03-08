@@ -1,15 +1,16 @@
 <header id="sanbikaHeader" class="masthead">
   <div class="container">
     <div class="jumbotron" style="text-align: center; color: black; background-color: rgba(220, 220, 220, 0.9); margin-top: 100px;">
-      <h1>sanbika.jpへようこそ</h1><br/>
-      <p>(詩篇の最後の節)</p><br/>
-      <%= link_to '賛美歌チャートの一覧', home_songs_path, class: 'btn btn-primary'%>　｜　
+      <h1>sanbikaへようこそ</h1><br/>
+      <p>
+        息のあるすべてのものに主をほめたたえさせよ。主をほめたたえよ。
+        <i class="text-muted">詩篇150:6</i>
+      </p><br/>
+      <%= link_to 'チャートの一覧', home_songs_path, class: 'btn btn-primary'%>　|　
       <%= link_to 'ユーザの一覧', users_path, class: 'btn btn-primary' %>
     </div>
   </div>
 </header>
-
-<span class="fab fa-twitter"></span>
 
 <div id="features_header">
   <div class="row">
@@ -56,15 +57,26 @@
       %>
     </div>
     <div id="song_body" class="panel panel-body">
-      <!-- TODO: songs/show.html.erbと同じスタイル -->
       <%= simple_format(example_song[:song_body]) %>
     </div>
   </div>
 </div>
 
-<footer class="footer">
+<% footer_links = Hash.new %>
+<% footer_links = { %>
+  <% facebook: "#", %>
+  <% twitter: "https://www.twitter.com/sanbika_jp", %>
+  <% github: "https://www.github.com/gazayas/sanbika" %>
+<% } %>
+<footer id="main_footer" class="footer" style="background-color: #222;">
   <div class="container">
-    <p class="text-muted">Place sticky footer content here.</p>
+    <div id="fontawesome_wrapper">
+      <% footer_links.each do |key, value| %>
+        <%= link_to value, class: "footer_link", target: "_blank" do %>
+          <i class="fab fa-<%= key.to_s %> fa-2x"></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </footer>
 

@@ -82,6 +82,26 @@ header.masthead {
   }
 }
 
+#main_footer {
+  padding: 20px 0px;
+  
+  #fontawesome_wrapper {
+    display: inline;
+    float: right;    
+    a {
+      color: gray;
+      text-decoration: none;
+    }
+    a:hover {
+      color: white;
+    }
+  }
+  
+  .footer_link{
+    padding: 0px 10px;
+  }
+}
+
 
 /* songs */
 #songs_index {
