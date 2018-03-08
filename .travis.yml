@@ -15,10 +15,12 @@ env:
 before_install:
   - gem update --system
   - gem --version
+  - bundle update
+  - bundle install
 
 before_script:
   - psql -c 'create database sanbika_test' -U postgres
   - bundle exec rake db:migrate
 
+# TODO: Brakemanの追加
 script: bundle exec rspec spec
-

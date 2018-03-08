@@ -45,9 +45,10 @@
   </table>
 
   <div class="explanation">
-    <li>イタリック（斜体字）されたコードは転調の対象となります</li>
-    <li>シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます</li>
-    <li>「D/F♯」というようなスラッシュコードもサポートされています</li>
+    作曲者の名前を冒頭で書いてください。<br/>
+    イタリック（斜体字）されたコードは転調の対象となります。<br/>
+    シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます。<br/>
+    「D/F♯」というようなスラッシュコードもサポートされています。
   </div>
 
 
@@ -59,7 +60,7 @@
   <table class="song_form">
     <tr>
       <td>
-        Youtubeの動画の追加：「共有」の「埋め込むコード」を貼ってください（必須ではありません）
+        Youtubeのリンク（必須ではありません）
         <%= f.text_field :video, class: 'form-control',
         placeholder: t('activerecord.attributes.song.video'), size: col_size %>
       </td>
