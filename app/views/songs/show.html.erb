@@ -27,12 +27,15 @@
 
 <%= link_to '印刷', print_user_song_path %>
 
+<!-- TODO: keyの問題が解決できてないためにコメントアウトしてます -->
+<%# link_to 'pdf', print_user_song_path(format: "pdf") %>
+
 <p>
   <strong>讃美歌チャートの作成者：</strong>
   <%= link_to @user.name, @user %>
 </p>
 
-<% if current_user && (@user == current_user || current_user.name == 'gazayas') %><%# TODO: adminに変更 %>
+<% if current_user && (@user == current_user || current_user.admin) %>
   <%= link_to '編集', edit_user_song_path(@user, @song) %> |
   <%= link_to '戻る', user_path(@user) %>
   <%= link_to '削除', user_song_path, method: :delete, data: { confirm: "本当に削除しますか？" } %>

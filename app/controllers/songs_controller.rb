@@ -64,7 +64,27 @@ class SongsController < ApplicationController
   def print
     @user = User.friendly.find(params[:user_id])
     @song = Song.find(params[:id])
-    render layout: 'print'
+
+    # この記事を参考にしました：http://ruby-rails.hatenadiary.com/entry/20140908/1410176894
+    is_pdf = false
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        is_pdf = true
+        html = render_to_string template: "songs/print"
+        pdf = PDFKit.new(html, encoding: "UTF-8")
+
+        send_data pdf.to_pdf,
+          filename: "#{@song.id}.pdf",
+          type: "application/pdf",
+          disposition: "inline"
+      end
+    end
+
+    if !is_pdf
+      render layout: 'print'
+    end
   end
 
   private

@@ -1,0 +1,15 @@
+<!-- TODO: 選択されたキーをここに渡してkey_changeを行う事 -->
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    <%= content_tag(:h2, @song.title, id: 'song_title', title: @song.title_yomikata) %>
+  </div>
+
+  <% unless @song.artist == nil || @song.artist == "" %>
+    <strong><%= t('activerecord.attributes.song.artist') %></strong>
+    <%= @song.artist %><br/>
+  <% end %>
+</div>
+
+<div id="song_body">
+  <%= simple_format(@song.song_body) %>
+</div>
