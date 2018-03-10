@@ -10,8 +10,7 @@ class ApplicationController < ActionController::Base
       @user = User.friendly.find(params[:id])
     end
 
-    # これをunless current_user == @user || current_user.admin にしたい
-    unless current_user == @user || current_user.name == 'gazayas'
+    unless current_user == @user || current_user.admin
       redirect_to user_path(@user), notice: '他人の情報を編集できません'
     end
   end
