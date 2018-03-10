@@ -1,0 +1,11 @@
+<% if model_instance.errors.any? %>
+  <% model_instance.errors.full_messages.each do |message| %>
+    <!-- TODO: スタイルがapplication.html.erbの通知と一致してない -->
+    <div class="container">
+      <div class="alert alert-danger alert-dismissable" data-dismiss="alert" aria-label="close">
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <%= message %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
+      </div>
+    </div>
+  <% end %>
+<% end %>

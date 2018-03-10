@@ -54,10 +54,13 @@
     <div id="notice_container" class="container">
       <% if notice %>
         <p class="alert alert-success alert-dismissable" data-dismiss="alert" aria-label="close">
-          <%= notice %>
+          <%= notice %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
         </p><!-- 前は class="notice" でした。RailsのデフォルトのCSSかな-->
       <% elsif alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+        <p class="alert alert-danger">
+          <span class="glyphicon glyphicon-warning-sign"></span>
+          <%= alert %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
+        </p>
       <% end %>
     </div>
 

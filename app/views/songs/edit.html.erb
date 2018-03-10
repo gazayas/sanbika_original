@@ -1,9 +1,5 @@
-<!-- エラーの部分はnew.html.erbの方とかぶっているのでpartialを書いた方がいいかもしれない -->
-<% if @song.errors.any? %>
-  <% @song.errors.full_messages.each do |message| %>
-    <div class="alert alert-danger"><%= message %></div>
-  <% end %>
-<% end %>
+<!-- 変数名をmodel_instanceとして定義し、部分テンプレートで使う -->
+<%= render partial: "shared/error_partial", locals: { model_instance: @song } %>
 
 <div class="panel panel-default">
   <div class="panel panel-heading">
