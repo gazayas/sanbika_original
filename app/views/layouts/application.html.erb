@@ -57,7 +57,7 @@
           <%= notice %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
         </p><!-- 前は class="notice" でした。RailsのデフォルトのCSSかな-->
       <% elsif alert %>
-        <p class="alert alert-danger">
+        <p class="alert alert-danger alert-dismissable" data-dismiss="alert" aria-label="close">
           <span class="glyphicon glyphicon-warning-sign"></span>
           <%= alert %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
         </p>
