@@ -21,7 +21,10 @@
 
 <% if @song.video && !@song.video.empty? %>
   <div id="song_video_container">
-    <div class="embed-responsive embed-responsive-16by9"><%= @song.video.html_safe %></div>
+    <div class="embed-responsive embed-responsive-16by9">
+      <%# TODO: 脆弱性のあるコード。そもそもvideoに入れる文字列自体の形式を変えよう。 %>
+      <%= @song.video.html_safe %>
+    </div>
   </div>
 <% end %>
 
