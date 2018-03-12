@@ -1,6 +1,32 @@
 <%= tinymce_assets %>
 <% col_size = "50" %>
 
+<!-- TODO: <em></em>をつけるだけ。消してくれない -->
+<!-- Italicのiconを変えれたらいいけど -->
+<!-- script>
+tinymce.init({
+  toolbar: 'music_button',
+  menubar: false,
+  selector: 'textarea',
+  height: 275,
+  forced_root_block: "",
+  setup: function(ed) {
+    ed.on('init', function() {
+      this.getDoc().body.style.fontSize = '16px';
+    });
+    ed.addButton('music_button', {
+      text: '♪',
+      icon: false,
+      onclick: function () {
+        ed.focus();
+        console.log(ed.selection.getContent());
+        ed.selection.setContent('<em>' + ed.selection.getContent() + '</em>');
+      }
+    });
+  }
+});
+</script -->
+
 <%= form_for([@user, song]) do |f| %>
 
   <%# selectedの値の定義 %>
