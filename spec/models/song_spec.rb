@@ -108,8 +108,23 @@ RSpec.describe Song, type: :model do
   describe 'video' do
     let(:song) { FactoryGirl.build(:song, user: user, video: video) }
 
-    context '正しくない形式' do
+    context 'httpで正しい形式' do
+      let(:video) { 'http://youtu.be/itdgtFALCpo' }
+      it { is_expected.to be_valid }
+    end
+
+    context 'httpsで正しい形式' do
       let(:video) { 'https://youtu.be/itdgtFALCpo' }
+      it { is_expected.to be_valid }
+    end
+
+    context '普通のyoutubeのリンクで正しい形式' do
+      let(:video) { 'https://www.youtube.com/watch?v=itdgtFALCpo&feature=youtu.be' }
+      it { is_expected.to be_valid }
+    end
+
+    context '正しくない形式' do
+      let(:video) { 'https://google.com/' }
       it { is_expected.to be_invalid }
     end
   end

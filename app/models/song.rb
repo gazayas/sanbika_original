@@ -4,8 +4,8 @@ class Song < ApplicationRecord
 
 	belongs_to :user
 
-	# TODO: HopeのレポジトリにJSONもっといいコードが書いてあるからそれを使ってください
-	VIDEO_REGEXP = /(\A<iframe\s+width=.*height=.*src=.*youtube\.com.*frameborder=.*><\/iframe>\z)|(\A\z)/
+	# TODO: Hopeのレポジトリにも実装する事
+	VIDEO_REGEXP = /\A(http)?(s)?(:\/\/)?(www\.youtube\.com\/watch\?v=)|(youtu\.be\/)(.*)\z/
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :title_yomikata, presence: true, length: { maximum: 70 }

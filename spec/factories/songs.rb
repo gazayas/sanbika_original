@@ -6,6 +6,6 @@ FactoryGirl.define do
     artist_yomikata 'かしゅ'
     key 'C'
     song_body '歌詞はここに入ります'
-    video '<iframe width="560" height="315" src="https://www.youtube.com/embed/itdgtFALCpo?ecver=1" frameborder="0" allowfullscreen></iframe>'
+    video 'https://youtu.be/itdgtFALCpo'
   end
 end

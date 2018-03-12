@@ -19,11 +19,19 @@
   <%= simple_format(@song.song_body) %>
 </div>
 
+
 <% if @song.video && !@song.video.empty? %>
+  <% video_id = @song.video.gsub(/(.*)(watch\?v=)/, "") %>
+  
   <div id="song_video_container">
-    <div class="embed-responsive embed-responsive-16by9">
-      <%# TODO: 脆弱性のあるコード。そもそもvideoに入れる文字列自体の形式を変えよう。 %>
-      <%= @song.video.html_safe %>
+    <div class="embed-responsive embed-responsive-16by9">    
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/<%= video_id %>"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 <% end %>

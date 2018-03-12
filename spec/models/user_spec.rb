@@ -32,21 +32,6 @@ RSpec.describe User, type: :model do
         let(:name) { "a" * 41 }
         it { is_expected.to be_invalid }
       end
-
-      context 'nameには日本語が入っています' do
-        let(:name) { "不正な文字です" }
-        it { is_expected.to be_invalid }
-      end
-
-      context 'nameにはその他の不正の文字が入っています' do
-        let(:name) { ".()$#!=~" }
-        it { is_expected.to be_invalid }
-      end
-
-      context 'nameには数字だけが入っています' do
-        let(:name) { "123456789" }
-        it { is_expected.to be_invalid }
-      end
     end
 
     describe 'password' do
