@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Song, type: :model do
 
   subject { song }
-  let(:user) { FactoryGirl.create(:user) }
-  let(:song) { FactoryGirl.create(:song, user: user) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:song) { FactoryBot.create(:song, user: user) }
 
   describe '他モデルとの関連' do
     it { is_expected.to belong_to(:user) }
@@ -20,7 +20,7 @@ RSpec.describe Song, type: :model do
 
   describe '無効のパラメーター' do
     describe 'title' do
-      let(:song) { FactoryGirl.build(:song, user: user, title: title) }
+      let(:song) { FactoryBot.build(:song, user: user, title: title) }
 
       context '書いてない場合' do # これをshared_contextにする？
         let(:title) { '' }
@@ -34,7 +34,7 @@ RSpec.describe Song, type: :model do
     end
 
     describe 'title_yomikata' do
-      let(:song) { FactoryGirl.build(:song, user: user, title_yomikata: title_yomikata) }
+      let(:song) { FactoryBot.build(:song, user: user, title_yomikata: title_yomikata) }
 
       context '書いてない場合' do
         let(:title_yomikata) { '' }
@@ -48,7 +48,7 @@ RSpec.describe Song, type: :model do
     end
 
     describe 'artist' do
-      let(:song) { FactoryGirl.build(:song, user: user, artist: artist) }
+      let(:song) { FactoryBot.build(:song, user: user, artist: artist) }
 
       context '書いてなくても大丈夫' do
         let(:artist) { '' }
@@ -62,7 +62,7 @@ RSpec.describe Song, type: :model do
     end
 
     describe 'artist_yomikata' do
-      let(:song) { FactoryGirl.build(:song, user: user, artist_yomikata: artist_yomikata) }
+      let(:song) { FactoryBot.build(:song, user: user, artist_yomikata: artist_yomikata) }
 
       context '書いてなくても大丈夫' do
         let(:artist_yomikata) { '' }
@@ -77,7 +77,7 @@ RSpec.describe Song, type: :model do
 
     # <select>で決まるからこのテストはあんまりいらないけど、念のために書いています。
     describe 'key' do
-      let(:song) { FactoryGirl.build(:song, user: user, key: key) }
+      let(:song) { FactoryBot.build(:song, user: user, key: key) }
 
       context 'ない場合' do
         let(:key) { '' }
@@ -92,7 +92,7 @@ RSpec.describe Song, type: :model do
   end
 
   describe 'song_body' do
-    let(:song) { FactoryGirl.build(:song, user: user, song_body: song_body) }
+    let(:song) { FactoryBot.build(:song, user: user, song_body: song_body) }
 
     context '書いてない場合' do
       let(:song_body) { '' }
@@ -106,7 +106,7 @@ RSpec.describe Song, type: :model do
   end
 
   describe 'video' do
-    let(:song) { FactoryGirl.build(:song, user: user, video: video) }
+    let(:song) { FactoryBot.build(:song, user: user, video: video) }
 
     context 'httpで正しい形式' do
       let(:video) { 'http://youtu.be/itdgtFALCpo' }

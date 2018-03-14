@@ -28,7 +28,7 @@ gem 'wkhtmltopdf'
 
 group :development, :test do
 	gem 'rspec-rails'
-	gem 'factory_girl_rails' # TODO: FactoryBot
+	gem 'factory_bot_rails'
 	gem 'shoulda-matchers', '~> 3.1'
 	gem 'byebug', platform: :mri
  	gem 'pry'

@@ -7,12 +7,12 @@ RSpec.describe User, type: :model do
   subject { user }
 
   describe '他モデルとの関連' do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
     it { is_expected.to have_many(:songs) }
   end
 
   describe '有効のパラメーター' do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
 
     context 'UserのFactoryをそのまま作成する場合' do
       it { is_expected.to be_valid }
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
 
   describe '無効のパラメーター' do
     describe 'name' do
-      let(:user) { FactoryGirl.build(:user, name: name) }
+      let(:user) { FactoryBot.build(:user, name: name) }
 
       context 'nameは短い' do
         let(:name) { "name" }
@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
     end
 
     describe 'password' do
-      let(:user) { FactoryGirl.build(:user, password: password) }
+      let(:user) { FactoryBot.build(:user, password: password) }
 
       context 'passwordは短い' do
         let(:password) { "pass" }
@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
     end
 
     describe 'email' do
-      let(:user) { FactoryGirl.build(:user, email: email) }
+      let(:user) { FactoryBot.build(:user, email: email) }
 
       context '「＠」は抜いている場合' do
         let(:email) { "not_valid.com" }
@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
     end
 
     describe 'user_image' do
-      let(:user) { FactoryGirl.build(:user) }
+      let(:user) { FactoryBot.build(:user) }
       let(:uploader) { UserImageUploader.new(user, :avatar) }
 
       before do
