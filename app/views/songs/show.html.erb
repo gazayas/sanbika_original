@@ -15,8 +15,9 @@
       onchange: 'key_change("' +  @song.key + '", null);')
 %>
 
+<!-- Windowsの場合は\rも入るらしいからそれも考えておかないと -->
 <div id="song_body">
-  <%= simple_format(@song.song_body) %>
+  <%= @song.song_body %>
 </div>
 
 
