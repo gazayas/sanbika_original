@@ -11,6 +11,10 @@ class SongsController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:user_id])
+
+    if @song.video && !@song.video.empty?
+      @video_id = @song.video.gsub(/(.*)(watch\?v=)/, "")
+    end
   end
 
   def new
