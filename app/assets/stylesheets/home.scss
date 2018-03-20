@@ -16,6 +16,13 @@ header.masthead {
   background-size: contain;*/
 }
 
+@media screen and (max-width: 500px) {
+  .jumbotron {
+    margin-top: 5% !important;
+  }
+}
+
+
 #features_header {
   width: 100%;
   background-color: #428bca; /* TODO: bootstrap_blueという変数を作ってそこに入れてください */
