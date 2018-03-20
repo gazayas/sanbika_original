@@ -9,7 +9,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
-gem 'tinymce-rails'
+gem 'tinymce-rails', '~> 4.4.1'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 
