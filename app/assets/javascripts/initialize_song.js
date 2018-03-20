@@ -11,63 +11,34 @@ function replace_marks(str) {
 }
 
 $(document).ready(function() {
+  var song_body_html = document.getElementById('song_body');
+  var song_body = song_body_html.innerHTML.split("\n");
+  var chord_regexp = /([A-G])([a-u]|#|♭|♯)*(\/)?([A-G])?([a-u]?|#|♭|♯)*/g
 
-  var chord_span = [];
-
-  $("#song_body").find("em").each(function () {
-    $(this).replaceWith('<span class="chords">' + this.innerHTML + '</span>');
-    chord_span.push(this.innerHTML);
-  });
-
-  for(var i = 0; i < chord_span.length; i++) {
-    // &nbsp;がtinymceに表示されてしまうので、普通の空白と入れ替えます
-    chord_span[i] = chord_span[i].replace(/&nbsp;/g, " ");
-    // 全角の空白を半角の空白と入れ替えます(でないと、splitの動作がうまく行けない)
-    chord_span[i] = chord_span[i].replace(/　/g, "  ");
-    // <br/>を統一し、前後に空白を置きます
-    chord_span[i] = chord_span[i].replace(/<br\s?\/?>/, " <br/> ");
-
-    chord_span[i] = chord_span[i].split(" ");
+  // もし変調の対象となってしまってるけどそうなってほしくない場合（行の最後に*を書く
+  // 特に英語のチャートを書く場合はこうなるじゃないかと思う
+  // TODO: 例えばその行にたくさんの小文字が入ってたら、それは歌詞かもしれない
+  for(var i = 0; i < song_body.length; i++) {
+    // とりあえずこれだけでいい。開発を進むうちにこの正規表現を変えてもいいかもしれない
+    if ((chord_regexp).test(song_body[i]) == !(/\*$/).test(song_body[i])) {
+      var chord_span = song_body[i].replace(
+        chord_regexp,
+        '<span class="chord" name="$1$2$3$4$5">' + '$1$2$3$4$5' + '</span>'
+        );
+      song_body[i] = chord_span;
+    } else if(/\*$/) {
+      song_body[i] = song_body[i].replace(/\*$/, "");
+    }
+    song_body[i] += "\n";
   }
 
-  var new_innerHTML = [];
+  song_body_html.innerHTML = song_body.join("");
 
-  for(var i = 0; i < chord_span.length; i++) {
-
-    var new_str = "";
-
-    for(var x = 0; x < chord_span[i].length; x++) {
-      // chord_span[i].split(" "); で空白がなくなるので、また入れておきます
-      if(chord_span[i][x] == "") {
-        chord_span[i][x] = " ";
-      }
-      // chordの場合, spanで包む
-      if(chord_span[i][x] != " " && chord_span[i][x] != "<br/>") {
-        chord_span[i][x] = '<span class="chord" name="' + chord_span[i][x] + '">' + chord_span[i][x] + '</span>';
-        // また空白は多分なくなったので、spanの実装をしてから後尾の方につけます
-        chord_span[i].splice((x + 1), 0, " ");
-      }
-      // 「b」が入ってしまうと、replace_marksで♭になってしまうので一時的に「*」と入れ替えます
-      if(chord_span[i][x] == "<br/>"){
-        chord_span[i][x] = chord_span[i][x].replace("<br/>", "*");
-      }
-      new_str += chord_span[i][x];
-    }
-
-    // 最後のchord_span[i][x]は空白だったらもう１つ空白が追加されてしまう
-    // new_str.pop()にするなら、配列にしないとダメなので、この方がいいかな。
-    if (/\s$/.test(new_str)) {
-      new_str = new_str.replace(/\s$/, "");
-    }
-
-    new_str = replace_marks(new_str);
-
-    if (/\*/.test(new_str)) {
-      new_str = new_str.replace(/\*/, "<br>");
-    }
-    new_innerHTML.push(new_str);
+  var chord_spans = document.getElementsByClassName("chord");
+  for (i = 0; i < chord_spans.length; i++) {
+    chord_spans[i].innerHTML = replace_marks(chord_spans[i].innerHTML);
   }
-
+/*
   var chords = document.getElementsByClassName('chords');
 
   for(var i = 0; i < chords.length; i++) {
@@ -84,4 +55,5 @@ $(document).ready(function() {
 
   // iframeにクラスをつける
   $('iframe').addClass('embed-responsive-item');
+  */
 });
