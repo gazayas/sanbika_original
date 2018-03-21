@@ -1,5 +1,6 @@
 /* songs/show.html.erbで使います */
 
+// TODO: sharp_or_flat_is_present_in(str)
 function replace_marks(str) {
   if (check_sharp(str)) {
     str = str.replace(/#/g, "♯");
@@ -10,43 +11,65 @@ function replace_marks(str) {
   return str;
 }
 
+function change_whitespace_of(str) {
+  str = str.replace(/&nbsp;/g, " ");
+  str = str.replace(/　/g, " "); // 全角を半角に
+  return str;
+}
+
+
+// TODO: Refactoring
+
 $(document).ready(function() {
-  var song_body_html = document.getElementById('song_body');
-  var song_body = song_body_html.innerHTML.split("\n");
-  var chord_regexp = /([A-G])([a-u]|#|♭|♯*?)(\/)?([A-G])?([a-u]|#|♭|♯*?)/g
+  // <br>で区切る
+  // 適切な正規表現を使ってコードが入ってるかどうか確認する
+    // 先頭には[A-G]がない場合、その行全体は歌詞だと判る
+  // 入ってたら、replace_marksして、<span class="chord"></span>で包む
+  // nameを与える
+  // joinして実装する
 
-  // TODO: If there is an A but it's part of a sentence, do this check:
-  // Split the line. If it has a bunch of empty strings like this ["", "", ""],
-  // handle it as a chord span
+  var song_body_tag = document.getElementById("song_body");
+  song_body_tag.innerHTML = song_body_tag.innerHTML.replace(/<\/?p>/g, ""); // 厄介だな
 
-  // もし変調の対象となってしまってるけどそうなってほしくない場合（行の最後に*を書く
-  // 特に英語のチャートを書く場合はこうなるじゃないかと思う
+  // tinymceは最初の方に改行の\nを入れてしまうからそれを消す
+  song_body_tag.innerHTML = song_body_tag.innerHTML.replace(/\r?\n/, "");
+
+  var song_body = song_body_tag.innerHTML.split("<br>");
+  var regexp = /^[A-G]{1,1}/; //{1,1}をつけた方が確率を上げるかな
+  var chord_regexp = /^[A-G].*/;
+
   for(var i = 0; i < song_body.length; i++) {
-    // とりあえずこれだけでいい。開発を進むうちにこの正規表現を変えてもいいかもしれない
-    if ((chord_regexp).test(song_body[i]) == !(/\*$/).test(song_body[i])) {
-      var chord_span = song_body[i].replace(
-        chord_regexp,
-        '<span class="chord" name="$1$2$3$4$5">' + '$1$2$3$4$5' + '</span>'
-        );
-      song_body[i] = chord_span;
-    } else if(/\*$/) {
-      song_body[i] = song_body[i].replace(/\*$/, "");
+    var has_chords;
+
+    song_body[i] = change_whitespace_of(song_body[i]);
+    var str_ary = song_body[i].split(" ");
+
+    for(var x = 0; x < str_ary.length; x++) {
+      if(str_ary[x] == "" || str_ary[x] == " ") {
+        // 空白だったらcontinue
+      } else if(!regexp.test(str_ary[x])) {
+        // falseが一回でもあったらbreak
+        has_chords = false
+        x = str_ary.length;
+      } else {
+        has_chords = true;
+      }
     }
-    song_body[i] += "\n";
+
+    if(has_chords) {
+      for(x = 0; x < str_ary.length; x++) {
+        if(chord_regexp.test(str_ary[x])) {
+          console.log(RegExp.input);
+          str_ary[x] = '<span class="chord" name="' + replace_marks(RegExp.input) + '">' + replace_marks(RegExp.input) + '</span>';
+        }
+      }
+    }
+    song_body[i] = str_ary.join(" ");
   }
 
-  song_body_html.innerHTML = song_body.join("");
-
-  var chord_spans = document.getElementsByClassName("chord");
-  for (i = 0; i < chord_spans.length; i++) {
-    chord_spans[i].innerHTML = replace_marks(chord_spans[i].innerHTML);
-  }
-/*
-  var chords = document.getElementsByClassName('chords');
-
-  for(var i = 0; i < chords.length; i++) {
-    chords[i].innerHTML = new_innerHTML[i];
-  }
+  // joinして実装
+  song_body = song_body.join("<br/>");
+  song_body_tag.innerHTML = "<p>" + song_body + "</p>";
 
   // song.title_yomikataをtooltipとして表示します
   $(function () {
@@ -58,5 +81,4 @@ $(document).ready(function() {
 
   // iframeにクラスをつける
   $('iframe').addClass('embed-responsive-item');
-  */
 });

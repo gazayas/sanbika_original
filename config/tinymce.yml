@@ -3,6 +3,7 @@ toolbar:
 menubar: false
 selector: 'textarea'
 height: 275
+force_p_newlines : false
 forced_root_block : ""
 setup: function(ed) {
     ed.on('init', function()
