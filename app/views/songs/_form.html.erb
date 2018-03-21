@@ -1,3 +1,4 @@
+<%= tinymce_assets %>
 <% col_size = 50 %>
 
 <%= form_for([@user, song]) do |f| %>
@@ -52,7 +53,8 @@
 
 
   <div class="song_body"><!-- id に変えた方がいいかな -->
-    <%= f.text_area :song_body, rows: 80, cols: 120 %>
+    <%= f.text_area :song_body, class: 'tinymce', rows: 80, cols: 120 %>
+    <%= tinymce %>
   </div>
 
   <table class="song_form">

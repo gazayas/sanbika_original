@@ -13,11 +13,14 @@ function replace_marks(str) {
 $(document).ready(function() {
   var song_body_html = document.getElementById('song_body');
   var song_body = song_body_html.innerHTML.split("\n");
-  var chord_regexp = /([A-G])([a-u]|#|♭|♯)*(\/)?([A-G])?([a-u]?|#|♭|♯)*/g
+  var chord_regexp = /([A-G])([a-u]|#|♭|♯*?)(\/)?([A-G])?([a-u]|#|♭|♯*?)/g
+
+  // TODO: If there is an A but it's part of a sentence, do this check:
+  // Split the line. If it has a bunch of empty strings like this ["", "", ""],
+  // handle it as a chord span
 
   // もし変調の対象となってしまってるけどそうなってほしくない場合（行の最後に*を書く
   // 特に英語のチャートを書く場合はこうなるじゃないかと思う
-  // TODO: 例えばその行にたくさんの小文字が入ってたら、それは歌詞かもしれない
   for(var i = 0; i < song_body.length; i++) {
     // とりあえずこれだけでいい。開発を進むうちにこの正規表現を変えてもいいかもしれない
     if ((chord_regexp).test(song_body[i]) == !(/\*$/).test(song_body[i])) {
