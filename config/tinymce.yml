@@ -4,7 +4,8 @@ menubar: false
 selector: 'textarea'
 height: 275
 force_p_newlines : false
-forced_root_block : ""
+forced_root_block : false # Removes p block?
+entity_encoding: 'named'
 setup: function(ed) {
     ed.on('init', function()
     {
