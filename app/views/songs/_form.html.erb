@@ -1,4 +1,3 @@
-<%# tinymce_assets %>
 <% col_size = 50 %>
 
 <%= form_for([@user, song]) do |f| %>
@@ -43,7 +42,6 @@
     </tr>
   </table>
 
-  <!-- TODO: 空白が全角の場合、半角に変換されますと書いてください -->
   <div class="explanation">
     作曲者の名前を冒頭で書いてください。<br/>
     イタリック（斜体字）されたコードは転調の対象となります。<br/>
@@ -54,7 +52,6 @@
 
   <div class="song_body"><!-- id に変えた方がいいかな -->
     <%= f.text_area :song_body, class: 'not-tinymce', rows: 15, cols: 100, style: 'font-size: 22px;' %>
-    <%# tinymce %>
   </div>
 
   <table class="song_form">
