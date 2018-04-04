@@ -41,23 +41,21 @@
   </div>
 </div>
 
-<% example_user = User.find_by(name: "gazayas") %>
-<% example_song = example_user.songs.where(title: "主の足元に").first %>
 <div id="example_chart" class="container-fluid">
   <div class="example_banner_text_wrapper text-center">
     <h1 id="example_banner_text">変調を試してみてください</h1>
   </div>
   <div class="panel panel-default">
     <div class="panel panel-heading">
-      <h1 id="song_title"><%= example_song[:title] %></h1>
+      <h1 id="song_title"><%= @example_song[:title] %></h1>
       <%= select_tag(
             :key_box,
-            options_for_select(sharp_notes, selected: example_song[:key]),
-            onchange: 'key_change("' +  example_song[:key] + '", null);')
+            options_for_select(sharp_notes, selected: @example_song[:key]),
+            onchange: 'key_change("' +  @example_song[:key] + '", null);')
       %>
     </div>
     <div id="song_body" class="panel panel-body">
-      <%= simple_format(example_song[:song_body]) %>
+      <%= simple_format(@example_song[:song_body]) %>
     </div>
   </div>
 </div>

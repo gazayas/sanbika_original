@@ -71,3 +71,22 @@
 .field_with_errors {
   width: 100%;
 }
+
+/* 端末によって文字の大きさが変わる */
+@media screen and (max-width: 500px) {
+
+  .jumbotron {
+    margin-top: 0px;
+  }
+
+  #song_title {
+    font-size: 18px;
+  }
+
+  #song_body {
+    padding: 0px 15px;
+    p {
+      font-size: 14px;
+    }
+  }
+}
