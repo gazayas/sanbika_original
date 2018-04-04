@@ -1,5 +1,9 @@
 /* songs/show.html.erbで使います */
 
+// TODO: print.html.erbで実装すること
+
+
+// TODO: sharp_or_flat_is_present_in(str)
 function replace_marks(str) {
   if (check_sharp(str)) {
     str = str.replace(/#/g, "♯");
@@ -11,68 +15,45 @@ function replace_marks(str) {
 }
 
 $(document).ready(function() {
+  var song_body_tag = document.getElementById("song_body");
+  var song_body = song_body_tag.innerHTML.split(/\r*\n/);
+  var chord_regexp = /[A-G]{1,1}/;
 
-  var chord_span = [];
+  for(var i = 0; i < song_body.length; i++) {
+    var has_chords;
+    var str_ary = song_body[i].split(/(\s+|　+)/); // zenkakuも含めて
 
-  $("#song_body").find("em").each(function () {
-    $(this).replaceWith('<span class="chords">' + this.innerHTML + '</span>');
-    chord_span.push(this.innerHTML);
-  });
-
-  for(var i = 0; i < chord_span.length; i++) {
-    // &nbsp;がtinymceに表示されてしまうので、普通の空白と入れ替えます
-    chord_span[i] = chord_span[i].replace(/&nbsp;/g, " ");
-    // 全角の空白を半角の空白と入れ替えます(でないと、splitの動作がうまく行けない)
-    chord_span[i] = chord_span[i].replace(/　/g, "  ");
-    // <br/>を統一し、前後に空白を置きます
-    chord_span[i] = chord_span[i].replace(/<br\s?\/?>/, " <br/> ");
-
-    chord_span[i] = chord_span[i].split(" ");
-  }
-
-  var new_innerHTML = [];
-
-  for(var i = 0; i < chord_span.length; i++) {
-
-    var new_str = "";
-
-    for(var x = 0; x < chord_span[i].length; x++) {
-      // chord_span[i].split(" "); で空白がなくなるので、また入れておきます
-      if(chord_span[i][x] == "") {
-        chord_span[i][x] = " ";
+    for(var x = 0; x < str_ary.length; x++) {
+      if(/\s+|　+/.test(str_ary[x]) || str_ary[x] == "") {
+        // 空白だったら分からないからそのままcontinue
+      } else if(!chord_regexp.test(str_ary[x])) {
+        // falseが一回でも出たらbreak
+        has_chords = false
+        x = str_ary.length;
+      } else {
+        has_chords = true;
       }
-      // chordの場合, spanで包む
-      if(chord_span[i][x] != " " && chord_span[i][x] != "<br/>") {
-        chord_span[i][x] = '<span class="chord" name="' + chord_span[i][x] + '">' + chord_span[i][x] + '</span>';
-        // また空白は多分なくなったので、spanの実装をしてから後尾の方につけます
-        chord_span[i].splice((x + 1), 0, " ");
-      }
-      // 「b」が入ってしまうと、replace_marksで♭になってしまうので一時的に「*」と入れ替えます
-      if(chord_span[i][x] == "<br/>"){
-        chord_span[i][x] = chord_span[i][x].replace("<br/>", "*");
-      }
-      new_str += chord_span[i][x];
     }
 
-    // 最後のchord_span[i][x]は空白だったらもう１つ空白が追加されてしまう
-    // new_str.pop()にするなら、配列にしないとダメなので、この方がいいかな。
-    if (/\s$/.test(new_str)) {
-      new_str = new_str.replace(/\s$/, "");
+    if(has_chords) {
+      for(x = 0; x < str_ary.length; x++) {
+        if(/^\w/.test(str_ary[x])) {
+          str_ary[x] = 
+            '<span class="chord" name="' + replace_marks(str_ary[x]) + '">' +
+              replace_marks(str_ary[x]) +
+            '</span>';
+        }
+      }
     }
 
-    new_str = replace_marks(new_str);
-
-    if (/\*/.test(new_str)) {
-      new_str = new_str.replace(/\*/, "<br>");
-    }
-    new_innerHTML.push(new_str);
+    song_body[i] = str_ary.join("");
   }
 
-  var chords = document.getElementsByClassName('chords');
+  // joinして実装
+  song_body = song_body.join("<br>");
+  song_body = song_body.replace(/^<br>\s{2,2}/, ""); // なぜこうなるだろうか分からんけど、<br>と空白が先頭に入るから消す
+  song_body_tag.innerHTML = song_body;
 
-  for(var i = 0; i < chords.length; i++) {
-    chords[i].innerHTML = new_innerHTML[i];
-  }
 
   // song.title_yomikataをtooltipとして表示します
   $(function () {

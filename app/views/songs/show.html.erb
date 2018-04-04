@@ -16,7 +16,7 @@
 %>
 
 <div id="song_body">
-  <%= simple_format(@song.song_body) %>
+  <%= sanitize(@song.song_body) %>
 </div>
 
 

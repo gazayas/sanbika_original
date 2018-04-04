@@ -1,34 +1,7 @@
-<%= tinymce_assets %>
-<% col_size = "50" %>
-
-<!-- TODO: <em></em>をつけるだけ。消してくれない -->
-<!-- Italicのiconを変えれたらいいけど -->
-<!-- script>
-tinymce.init({
-  toolbar: 'music_button',
-  menubar: false,
-  selector: 'textarea',
-  height: 275,
-  forced_root_block: "",
-  setup: function(ed) {
-    ed.on('init', function() {
-      this.getDoc().body.style.fontSize = '16px';
-    });
-    ed.addButton('music_button', {
-      text: '♪',
-      icon: false,
-      onclick: function () {
-        ed.focus();
-        console.log(ed.selection.getContent());
-        ed.selection.setContent('<em>' + ed.selection.getContent() + '</em>');
-      }
-    });
-  }
-});
-</script -->
+<%# tinymce_assets %>
+<% col_size = 50 %>
 
 <%= form_for([@user, song]) do |f| %>
-
   <%# selectedの値の定義 %>
   <% unless song.key == nil %>
     <% key = song.key %>
@@ -70,6 +43,7 @@ tinymce.init({
     </tr>
   </table>
 
+  <!-- TODO: 空白が全角の場合、半角に変換されますと書いてください -->
   <div class="explanation">
     作曲者の名前を冒頭で書いてください。<br/>
     イタリック（斜体字）されたコードは転調の対象となります。<br/>
@@ -79,8 +53,8 @@ tinymce.init({
 
 
   <div class="song_body"><!-- id に変えた方がいいかな -->
-    <%= f.text_area :song_body, class: 'tinymce', rows: 80, cols: 120 %>
-    <%= tinymce %>
+    <%= f.text_area :song_body, class: 'not-tinymce', rows: 15, cols: 100, style: 'font-size: 22px;' %>
+    <%# tinymce %>
   </div>
 
   <table class="song_form">

@@ -22,6 +22,7 @@ h1 {
 
 
 /* show */
+
 #song_body, #print_song_body {
   white-space: pre-wrap;
   margin: 10px auto;
@@ -30,14 +31,21 @@ h1 {
   border: 1px gray solid;
   width: 85%;
 
-  p {
+  font-size: 22px;
+
+  /*p {
     font-size: 22px;
-  }
+  }*/
 
   .chord {
     line-height: 34px;
   }
 }
+
+/*.lyrics {
+  font-size: 20px;
+}*/
+
 
 /* _form */ /* 別のstylesheetとかぶってるやつをapplication.scssに書くこと */
 .panel {
