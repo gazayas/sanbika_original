@@ -55,7 +55,7 @@
       %>
     </div>
     <div id="song_body" class="panel panel-body">
-      <%= simple_format(@example_song[:song_body]) %>
+      <%= sanitize(@example_song[:song_body]) %>
     </div>
   </div>
 </div>
