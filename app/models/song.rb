@@ -17,6 +17,7 @@ class Song < ApplicationRecord
 	private
 
 	# TODO: いらない。英語で書いたらもう、日本語っぽく書かなくてもいいから
+	# ここじゃなくて、controllerで順番にする？データベースに保存するんじゃなくて...
 	def prep_yomikata
 		moji = Nihonjin::Moji.new
 
