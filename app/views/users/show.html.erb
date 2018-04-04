@@ -1,6 +1,11 @@
 <div id="user_container">
   <div id="left_side">
-    <%= image_tag(@user.user_image)  %><br/>
+    <% if @user.user_image.file == nil %>
+      <%= image_tag('user_black_logo.jpg', id: 'user_image') %>
+    <% else %>
+      <%= image_tag(@user.user_image, id: 'user_image') %>
+    <% end %>
+
     <h2><%= @user.name %></h2>
     <%= link_to 'プロファイルの編集', edit_user_path(@user) if current_user == @user %>
   </div>

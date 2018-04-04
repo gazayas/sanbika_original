@@ -3,10 +3,10 @@
     <%= content_tag(:h2, @song.title, id: 'song_title', title: @song.title_yomikata) %>
   </div>
 
-  <% unless @song.artist == nil || @song.artist == "" %>
-    <strong><%= t('activerecord.attributes.song.artist') %></strong>
-    <%= @song.artist %><br/>
-  <% end %>
+  <%# unless @song.artist == nil || @song.artist == "" %>
+    <!--strong--><%# t('activerecord.attributes.song.artist') %><!--/strong-->
+    <%# @song.artist %><!--br/-->
+  <%# end %>
 
 <strong><%= t('activerecord.attributes.song.key') %></strong>
 <%= select_tag(
