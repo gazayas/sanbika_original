@@ -4,7 +4,6 @@ class Song < ApplicationRecord
 
 	belongs_to :user
 
-	# TODO: Hopeのレポジトリにも実装する事
 	VIDEO_REGEXP = /\A(http)?(s)?(:\/\/)?(www\.youtube\.com\/watch\?v=)|(youtu\.be\/)(.*)\z/
 
   validates :title, presence: true, length: { maximum: 50 }
@@ -13,10 +12,11 @@ class Song < ApplicationRecord
 	validates :artist_yomikata, length: { maximum: 70 }
 	validates :key, presence: true, length: { maximum: 2 }
   validates :song_body, presence: true, length: { maximum: 7_000_000 }
-	validates :video, length: { maximum: 300 }, format: { with: VIDEO_REGEXP }
+	validates :video, :check_link, length: { maximum: 300 }
 
 	private
 
+	# TODO: いらない。英語で書いたらもう、日本語っぽく書かなくてもいいから
 	def prep_yomikata
 		moji = Nihonjin::Moji.new
 
@@ -29,5 +29,9 @@ class Song < ApplicationRecord
 		self.artist_yomikata = prep.call(self.artist_yomikata)
 
 		self
+	end
+
+	def check_link
+		errors.add(:video, '動画のリンクは違うよ') unless video == "" || !!video.match(VIDEO_REGEXP)
 	end
 end
