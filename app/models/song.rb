@@ -32,6 +32,7 @@ class Song < ApplicationRecord
 	end
 
 	def check_link
-		errors.add(:video, '動画のリンクは違うよ') unless video == "" || !!video.match(VIDEO_REGEXP)
+		# TODO: エラーメッセージのi81n化
+		errors.add(:video, '不正な値です') unless video == "" || !!video.match(VIDEO_REGEXP)
 	end
 end
