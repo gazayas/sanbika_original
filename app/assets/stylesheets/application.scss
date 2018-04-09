@@ -31,6 +31,10 @@
 
 /*------------------------------------------------------*/
 
+body {
+  background-color: white !important;
+}
+
 /* boostrapのnavbarは50pxだからmarginを入れる */
 #buffer {
   margin-top: 50px;
