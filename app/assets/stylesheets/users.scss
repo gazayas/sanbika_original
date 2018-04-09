@@ -1,24 +1,25 @@
 /* index */
-
 #users_index {
   text-align: left;
 }
 
 /* show */
-#user_container {
-  width: 100%;
-  display: block;
+body {
+  background-color: #f7faff !important;
 }
 
-#left_side {
-  width: 25%;
-  float: left;
-  text-align: left;
+#user_row {
+  margin-top: 30px;
 }
 
-#right_side {
- width: 75%;
- float: left;
+/* TODO: これでいいかな。Paperclipでresizeした方がいいか分からない */
+#user_image {
+  height: 150px;
+  width: 150px;
+}
+
+#new_chart_button {
+  margin-bottom: 7px;
 }
 
 /* edit */
@@ -26,4 +27,3 @@
   margin: 0px auto;
   width: 75%;
 }
-

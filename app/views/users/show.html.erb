@@ -1,41 +1,45 @@
-<!--
-             Account settings
+<div id="user_container" class="container">
+  <div id="user_row" class="row">
+    <div class="col-xs-12 col-md-4 panel panel-default">
+      <div class="panel-body">
+        <div class="text-center">
+          <% if @user.user_image.file == nil %>
+            <%= image_tag('user_black_logo.jpg', id: 'user_image') %>
+          <% else %>
+            <%= image_tag(@user.user_image, id: 'user_image') %>
+          <% end %>
 
-  Photo      Add a new song
-  Name       Songs list
-  Bio
--->
-
-<div id="container">
-  <div id="left_side">
-    <% if @user.user_image.file == nil %>
-      <%= image_tag('user_black_logo.jpg', id: 'user_image') %>
-    <% else %>
-      <%= image_tag(@user.user_image, id: 'user_image') %>
-    <% end %>
-
-    <h2><%= @user.name %></h2>
-    <%= link_to 'プロファイルの編集', edit_user_path(@user) if current_user == @user %>
-  </div>
-
-  <div id="right_side" class="panel panel-default">
-    <div class="panel panel-heading">
-      <h1><%= @user.name %>さんの賛美歌チャート</h1>
-      <% if current_user == @user %>
-        <%= link_to '新規賛美歌チャート', new_user_song_path(@user), class: 'btn btn-primary btn-lg' %><br/>
-      <% end %>
+          <h2><%= @user.name %></h2>
+          <hr>
+          <%= link_to 'プロファイルの編集', edit_user_path(@user) if current_user == @user %><br/>
+          <% if current_user == @user %>
+            <%= link_to 'アカウントの削除', user_path, method: :delete, data: { confirm: '本当に削除しますか？' } %>
+          <% end %>
+        </div>
+      </div>
     </div>
 
-    <% if !@songs.empty? %>
-      <% @songs.each do |song| %>
-        <%= link_to song.title, user_song_path(@user, song) %><br/>
-      <% end %>
-    <% else %>
-      <h2>賛美歌チャートはありません</h2>
-    <% end %>
-  </div>
+    <div class="col-xs-12 col-md-8">
+      <h3><%= current_user.name + 'さんの賛美歌チャート' %></h3>
 
-  <% if current_user == @user %>
-    <%= link_to 'アカウントの削除', user_path, method: :delete, data: { confirm: '本当に削除しますか？' } %>
-  <% end %>
+      <% if current_user == @user %>
+        <%= link_to '<span class="glyphicon glyphicon-pencil"></span> '.html_safe + '新規チャート',
+          new_user_song_path(@user),
+          class: 'btn btn-primary btn-sm',
+          id: 'new_chart_button'
+        %><br/>
+      <% end %>
+
+      <%# TODO: Paginate %>
+      <% if !@songs.empty? %>
+        <ul class="list-group">
+          <% @songs.each do |song| %>
+            <%= link_to song.title, user_song_path(@user, song), class: 'list-group-item' %>
+          <% end %>
+        </ul>
+      <% else %>
+        <h4>賛美歌チャートはありません</h4>
+      <% end %>
+    </div>
+  </div>
 </div>
