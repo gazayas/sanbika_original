@@ -1,4 +1,12 @@
-<div id="user_container">
+<!--
+             Account settings
+
+  Photo      Add a new song
+  Name       Songs list
+  Bio
+-->
+
+<div id="container">
   <div id="left_side">
     <% if @user.user_image.file == nil %>
       <%= image_tag('user_black_logo.jpg', id: 'user_image') %>

@@ -33,6 +33,10 @@
                 <%= link_to '<span class="glyphicon glyphicon-home"></span>'.html_safe + " #{current_user.name}さん", current_user %>
               </li>
               <li>
+                <%# TODO: 設定のページの作成。プロファイルの削除をそこで行いたい %>
+                <%= link_to '<span class="glyphicon glyphicon-cog"></span>'.html_safe + "アカウントの設定", current_user %>
+              </li>
+              <li>
                 <%= link_to '<span class="glyphicon glyphicon-new-window"></span> ログアウト'.html_safe, destroy_user_session_path, method: :delete %>
               </li>
             <% else %>
