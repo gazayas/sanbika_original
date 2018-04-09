@@ -1,21 +1,38 @@
 <% if @users != nil %>
-  <div id="users_index" class="panel panel-default">
-    <div class="panel panel-heading">
-      <h1>ユーザの一覧</h1>
+  <div id="users_index" class="container-fluid">
+    <h1>ユーザの一覧</h1>
+
+    <div class="row">
+      <div class="col-xs-0 col-lg-4"></div>
+
+      <ul class="list-group col-xs-12 col-lg-4">
+        <% @users.each do |user| %>
+          <li class="list-group-item"><%# if user.confirmed? の人だけにするかな %>
+            <% if user.user_image.file == nil %>
+              <%= image_tag('user_black_logo.jpg', id: 'user_image_thumbnail') %>
+            <% else %>
+              <%= image_tag(user.user_image, id: 'user_image_thumbnail') %>
+            <% end %>
+
+            <%= link_to(user.name, user_path(user)) %>
+            <% if current_user && current_user.admin %>
+              <%= link_to '削除', user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+
+      <div class="col-xs-0 col-lg-4"></div>
     </div>
-    <ul class="list-group">
-      <% @users.each do |user| %>
-        <li class="list-group-item"><%# if user.confirmed? の人だけにするかな %>
-          <%= link_to(user.name, user_path(user)) %>
-          <% if current_user && current_user.admin %>
-            <%= link_to '削除', user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+
+    <div class="row">
+      <div class="col-xs-0 col-lg-4"></div>
+
+      <div class="pagination col-xs-12 col-lg-4 text-center">
+        <%= paginate @users %>
+      </div>
+
+      <div class="col-xs-0 col-lg-4"></div>
+    </div>
   </div>
 <% end %>
-
-<div class="pagination">
-  <%= paginate @users %>
-</div>
