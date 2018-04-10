@@ -15,6 +15,10 @@
       onchange: 'key_change("' +  @song.key + '", null);')
 %>
 
+&nbsp;|&nbsp;
+
+<strong>コード：</strong><%= button_tag "非表示", onclick: "toggle_visibility_with(this);", class: 'btn btn-primary' %>
+
 <div id="song_body">
   <%= sanitize(@song.song_body) %>
 </div>
