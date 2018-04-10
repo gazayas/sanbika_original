@@ -17,8 +17,10 @@
       %>
     </h5>
 
-    <div id="song_body">
-      <%= simple_format(@song.song_body) %>
-    </div>
+    <h5 class="text-center">コード：
+      <%= button_tag "非表示", onclick: "toggle_visibility_with(this);", class: "center-inline-block" %>
+    </h5>
+
+    <div id="song_body"><%= sanitize(@song.song_body) %></div>
   </body>
 </html>

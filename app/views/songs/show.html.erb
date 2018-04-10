@@ -1,3 +1,4 @@
+<!-- TODO: このdivはどこで閉じられる？このページで閉じるかここにコメントを入れてください -->
 <div class="panel panel-default">
   <div class="panel panel-heading">
     <%= content_tag(:h2, @song.title, id: 'song_title', title: @song.title_yomikata) %>
@@ -8,48 +9,47 @@
     <%# @song.artist %><!--br/-->
   <%# end %>
 
-<strong><%= t('activerecord.attributes.song.key') %></strong>
-<%= select_tag(
-      :key_box,
-      options_for_select(sharp_notes, selected: @song.key),
-      onchange: 'key_change("' +  @song.key + '", null);')
-%>
+  <strong><%= t('activerecord.attributes.song.key') %></strong>
+  <%= select_tag(
+        :key_box,
+        options_for_select(sharp_notes, selected: @song.key),
+        onchange: 'key_change("' +  @song.key + '", null);')
+  %>
 
-&nbsp;|&nbsp;
+  <!-- TODO: ちょっとね... -->
+  <br/><br/>
 
-<strong>コード：</strong><%= button_tag "非表示", onclick: "toggle_visibility_with(this);", class: 'btn btn-primary' %>
+  <strong>コード：</strong><%= button_tag "非表示", onclick: "toggle_visibility_with(this);", class: 'btn btn-primary' %>
 
-<div id="song_body">
-  <%= sanitize(@song.song_body) %>
-</div>
+  <div id="song_body"><%= sanitize(@song.song_body) %></div>
 
 
-<% if @video_id %>
-  <div id="song_video_container">
-    <div class="embed-responsive embed-responsive-16by9">    
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/<%= @video_id %>"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
+  <% if @video_id %>
+    <div id="song_video_container">
+      <div class="embed-responsive embed-responsive-16by9">    
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/<%= @video_id %>"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<%= link_to '印刷', print_user_song_path %>
+  <%= link_to '印刷', print_user_song_path %>
 
-<!-- TODO: keyの問題が解決できてないためにコメントアウトしてます -->
-<%# link_to 'pdf', print_user_song_path(format: "pdf") %>
+  <!-- TODO: keyの問題が解決できてないためにコメントアウトしてます -->
+  <%# link_to 'pdf', print_user_song_path(format: "pdf") %>
 
-<p>
-  <strong>讃美歌チャートの作成者：</strong>
-  <%= link_to @user.name, @user %>
-</p>
+  <p>
+    <strong>讃美歌チャートの作成者：</strong>
+    <%= link_to @user.name, @user %>
+  </p>
 
-<% if current_user && (@user == current_user || current_user.admin) %>
-  <%= link_to '編集', edit_user_song_path(@user, @song) %> |
-  <%= link_to '戻る', user_path(@user) %>
-  <%= link_to '削除', user_song_path, method: :delete, data: { confirm: "本当に削除しますか？" } %>
-<% end %>
+  <% if current_user && (@user == current_user || current_user.admin) %>
+    <%= link_to '編集', edit_user_song_path(@user, @song) %> |
+    <%= link_to '戻る', user_path(@user) %>
+    <%= link_to '削除', user_song_path, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
