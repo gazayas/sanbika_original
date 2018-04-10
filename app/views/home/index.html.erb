@@ -54,9 +54,7 @@
             onchange: 'key_change("' +  @example_song[:key] + '", null);')
       %>
     </div>
-    <div id="song_body" class="panel panel-body">
-      <%= sanitize(@example_song[:song_body]) %>
-    </div>
+    <div id="song_body" class="panel panel-body"><%= sanitize(@example_song[:song_body]) %></div>
   </div>
 </div>
 
