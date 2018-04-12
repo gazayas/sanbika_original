@@ -1,6 +1,8 @@
 # エラーの実装も考えないといけない
 
 ja:
+  hello: "こんにちは"
+
   errors:
     messages:
       not_saved: 保存されませんでした
