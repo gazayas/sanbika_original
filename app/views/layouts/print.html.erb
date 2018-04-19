@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>賛美歌</title>
+    <title>sanbika</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -10,15 +10,16 @@
 
   <body>
     <h1 id="song_title"><%= @song.title %></h1>
-    <h5 id="print_key">キー
+    <h5 id="print_key"><%= t(:key) %>
       <%= select_tag(:key_box, 
           options_for_select(sharp_notes, selected: @song.key),
           onchange: 'key_change("' +  @song.key + '", false);')
       %>
     </h5>
 
-    <h5 class="text-center">コード：
-      <%= button_tag "非表示", onclick: "toggle_visibility_with(this);", class: "center-inline-block" %>
+    <!-- TODO: I18nに対応するように、jsの方を変える。ヘルパーメソッドを作ったらいいかな -->
+    <h5 class="text-center"><%= t(:chords) %>：
+      <%= button_tag t(:hide), onclick: "toggle_visibility_with(this);", class: "center-inline-block" %>
     </h5>
 
     <div id="song_body"><%= sanitize(@song.song_body) %></div>

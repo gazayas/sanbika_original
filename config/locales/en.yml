@@ -1,4 +1,42 @@
 # TODO: Copy and paste from ar_ja.yml and change
 
 en:
-  hello: "Hello world"
+  # layouts/application.html.erb
+  account_settings: 'Account Settings'
+  logout: 'Logout'
+  login: 'Login'
+  account_reg: 'Account Registration'
+
+  # forms
+  new_chart: 'New chart'
+  edit: 'Edit'
+  delete: 'Delete'
+  back: 'Back'
+  confirm_deletion: 'Do you really want to delete this?'
+
+  # songs
+  chords: 'Chords'
+  show: 'Show'
+  hide: 'Hide'
+  save: 'Save'
+  
+  activerecord:
+    models:
+      user: 'User'
+      song: 'Song'
+    attributes:
+      user:
+        name: 'User name'
+        email: 'E-mail'
+        password: 'Password'
+        remember_me: 'Remember me'
+        password_confirmation: 'Confirm password'
+        current_password: 'Current password'
+      song:
+        title: 'Title'
+        #title_yomikata: 曲名の読み方（ひらがな）
+        artist: 'Artist'
+        #artist_yomikata: 作者の名前の読み方（ひらがな）
+        key: 'Key'
+        song_body: 'Chart'
+        video: 'Video'

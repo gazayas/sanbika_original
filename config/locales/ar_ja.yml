@@ -1,7 +1,24 @@
 # エラーの実装も考えないといけない
 
 ja:
-  hello: "こんにちは"
+  # layouts/application.html.erb
+  account_settings: 'アカウントの設定'
+  logout: 'ログアウト'
+  login: ' ログイン'
+  account_reg: 'アカウントの登録'
+
+  # forms
+  new_chart: '新規チャート'
+  edit: '編集'
+  delete: '削除'
+  back: '戻る'
+  save: '保存'
+  confirm_deletion: '本当に削除しますか？'
+
+  # songs
+  chords: 'コード'
+  show: '表示'
+  hide: '非表示'
 
   errors:
     messages:

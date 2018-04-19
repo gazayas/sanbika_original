@@ -19,7 +19,7 @@
   <!-- TODO: ちょっとね... -->
   <br/><br/>
 
-  <strong>コード：</strong><%= button_tag "非表示", onclick: "toggle_visibility_with(this);", class: 'btn btn-primary' %>
+  <strong><%= t(:chords) %>：</strong><%= button_tag t(:hide), onclick: "toggle_visibility_with(this);", class: 'btn btn-primary' %>
 
   <div id="song_body"><%= sanitize(@song.song_body) %></div>
 
@@ -49,7 +49,7 @@
   </p>
 
   <% if current_user && (@user == current_user || current_user.admin) %>
-    <%= link_to '編集', edit_user_song_path(@user, @song) %> |
-    <%= link_to '戻る', user_path(@user) %>
-    <%= link_to '削除', user_song_path, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    <%= link_to t(:edit), edit_user_song_path(@user, @song) %> |
+    <%= link_to t(:back), user_path(@user) %>
+    <%= link_to t(:delete), user_song_path, method: :delete, data: { confirm: t(:confirm_deletion) } %>
   <% end %>

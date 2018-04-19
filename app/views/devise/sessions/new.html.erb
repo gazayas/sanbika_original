@@ -1,7 +1,7 @@
 <div class="container col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
   <div id="login_panel" class="panel panel-default">
     <div class="panel panel-heading">
-      <h2>ログイン</h2>
+      <h2><%= t(:login) %></h2>
     </div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -13,7 +13,7 @@
             <div class="input-group-addon">
               <span class="glyphicon glyphicon-user"></span>
             </div>
-            <%= f.text_field :name, class: 'form-control', placeholder: 'ユーザ名', autofocus: true %>
+            <%= f.text_field :name, class: 'form-control', placeholder: t('activerecord.attributes.user.name'), autofocus: true %>
           </div>
         </div>
 
@@ -22,7 +22,7 @@
             <div class="input-group-addon">
               <span class="glyphicon glyphicon-lock"></span>
             </div>
-            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'パスワード' %>
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: t('activerecord.attributes.user.password') %>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "ログイン", class: 'btn btn-primary' %>
+        <%= f.submit t(:login), class: 'btn btn-primary' %>
       </div>
     <% end %>
 

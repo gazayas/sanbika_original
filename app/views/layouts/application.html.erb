@@ -36,17 +36,17 @@
               </li>
               <li>
                 <%# TODO: 設定のページの作成。プロファイルの削除をそこで行いたい %>
-                <%= link_to '<span class="glyphicon glyphicon-cog"></span>'.html_safe + "アカウントの設定", current_user %>
+                <%= link_to '<span class="glyphicon glyphicon-cog"></span>'.html_safe + t(:account_settings), current_user %>
               </li>
               <li>
-                <%= link_to '<span class="glyphicon glyphicon-new-window"></span> ログアウト'.html_safe, destroy_user_session_path, method: :delete %>
+                <%= link_to '<span class="glyphicon glyphicon-new-window"></span> '.html_safe + t(:logout), destroy_user_session_path, method: :delete %>
               </li>
             <% else %>
               <li>
-                <%= link_to '<span class="glyphicon glyphicon-user"></span> ログイン'.html_safe, new_user_session_path %>
+                <%= link_to '<span class="glyphicon glyphicon-user"></span> '.html_safe + t(:login), new_user_session_path %>
               </li>
               <li>
-                <%= link_to '<span class="glyphicon glyphicon-pencil"></span> アカウント登録'.html_safe, new_user_registration_path %>
+                <%= link_to '<span class="glyphicon glyphicon-pencil"></span> '.html_safe + t(:account_reg), new_user_registration_path %>
               </li>
             <% end %>
           </ul>
