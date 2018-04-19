@@ -13,6 +13,10 @@ class Song < ApplicationRecord
 
 	private
 
+	# TODO: def check_yomikata ... end を書くこと
+	# validates :title_yomikata, :check_yomikata
+	# validates :artist_yomikata, :check_yomikata
+
 	def check_link
 		# TODO: エラーメッセージのi81n化
 		errors.add(:video, '不正な値です') unless video == "" || !!video.match(VIDEO_REGEXP)
