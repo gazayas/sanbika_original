@@ -49,6 +49,11 @@
                 <%= link_to '<span class="glyphicon glyphicon-pencil"></span> '.html_safe + t(:account_reg), new_user_registration_path %>
               </li>
             <% end %>
+
+            <% lang = I18n.locale == I18n.default_locale ? ["English", :en] : ["日本語", :ja] %>
+            <li>
+              <%= link_to '<i class="fas fa-globe"></i> '.html_safe + lang[0], locale: lang[1] %>
+            </li>
           </ul>
         </div>
       </div>
