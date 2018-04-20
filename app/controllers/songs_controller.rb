@@ -97,6 +97,6 @@ class SongsController < ApplicationController
     end
 
     def song_params
-      params.require(:song).permit(:title, :title_yomikata, :artist, :artist_yomikata, :key, :song_body, :video)
+      params.require(:song).permit(:title, :artist, :key, :song_body, :video)
     end
 end
