@@ -33,20 +33,6 @@ RSpec.describe Song, type: :model do
       end
     end
 
-    describe 'title_yomikata' do
-      let(:song) { FactoryBot.build(:song, user: user, title_yomikata: title_yomikata) }
-
-      context '書いてない場合' do
-        let(:title_yomikata) { '' }
-        it { is_expected.to be_invalid }
-      end
-
-      context '長すぎている場合' do
-        let(:title_yomikata) { 'a' * 71 }
-        it { is_expected.to be_invalid }
-      end
-    end
-
     describe 'artist' do
       let(:song) { FactoryBot.build(:song, user: user, artist: artist) }
 
@@ -57,20 +43,6 @@ RSpec.describe Song, type: :model do
 
       context '長すぎている場合' do
         let(:artist) { 'a' * 51 }
-        it { is_expected.to be_invalid }
-      end
-    end
-
-    describe 'artist_yomikata' do
-      let(:song) { FactoryBot.build(:song, user: user, artist_yomikata: artist_yomikata) }
-
-      context '書いてなくても大丈夫' do
-        let(:artist_yomikata) { '' }
-        it { is_expected.to be_valid }
-      end
-
-      context '長すぎている場合' do
-        let(:artist_yomikata) { 'a' * 71 }
         it { is_expected.to be_invalid }
       end
     end
