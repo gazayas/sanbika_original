@@ -4,7 +4,7 @@
 
 <% if @user == current_user %>
   <div id="new_song">
-    <%= link_to '新規作成', new_user_song_path(@user, @song), class: 'btn btn-primary btn-lg' %>
+    <%= link_to '新規作成', new_user_song_path(@user), class: 'btn btn-primary btn-lg' %>
   </div>
 <% end %>
 
