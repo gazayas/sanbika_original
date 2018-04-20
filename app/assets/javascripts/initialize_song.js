@@ -1,5 +1,4 @@
 /* songs/show.html.erbで使います */
-
 // TODO: print.html.erbで実装すること
 
 
@@ -54,14 +53,6 @@ $(document).ready(function() {
   song_body = song_body.replace(/^<br>\s{2,2}/, ""); // なぜこうなるだろうか分からんけど、<br>と空白が先頭に入るから消す
   song_body_tag.innerHTML = song_body;
 
-
-  // song.title_yomikataをtooltipとして表示します
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
-  // content_tagではdata-toggleなどを定義できないのでjsの方でしています
-  document.getElementById('song_title').setAttribute('data-toggle', 'tooltip');
-  document.getElementById('song_title').setAttribute('data-placement', 'bottom');
 
   // iframeにクラスをつける
   $('iframe').addClass('embed-responsive-item');

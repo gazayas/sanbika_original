@@ -1,7 +1,7 @@
 <!-- TODO: 選択されたキーをここに渡してkey_changeを行う事 -->
 <div class="panel panel-default">
   <div class="panel panel-heading">
-    <%= content_tag(:h2, @song.title, id: 'song_title', title: @song.title_yomikata) %>
+    <%= content_tag(:h2, @song.title, id: 'song_title') %>
   </div>
 
   <% unless @song.artist == nil || @song.artist == "" %>
