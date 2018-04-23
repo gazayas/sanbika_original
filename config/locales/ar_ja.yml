@@ -7,6 +7,17 @@ ja:
   login: ' ログイン'
   account_reg: 'アカウントの登録'
 
+  # home/index
+  welcome: 'sanbikaへようこそ'
+  psalm150_6: '息のあるすべてのものに主をほめたたえさせよ。主をほめたたえよ。'
+  psalm150_6_reference: '詩篇150:6'
+  list_of_charts: 'チャートの一覧'
+  list_of_users: 'ユーザーの一覧'
+  simple_keychange: '変調は簡単'
+  simple_creation: '書き方も簡単'
+  post_videos: '動画も投稿可能'
+  try_it_out: '変調を試してみてください'
+
   # forms
   new_chart: '新規チャート'
   edit: '編集'

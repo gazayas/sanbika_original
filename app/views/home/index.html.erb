@@ -1,13 +1,13 @@
 <header id="sanbikaHeader" class="masthead">
   <div class="container">
     <div class="jumbotron" style="text-align: center; color: black; background-color: rgba(220, 220, 220, 0.9); margin-top: 100px;">
-      <h1>sanbikaへようこそ</h1><br/>
+      <h1><%= t(:welcome) %></h1><br/>
       <p>
-        息のあるすべてのものに主をほめたたえさせよ。主をほめたたえよ。
-        <i class="text-muted">詩篇150:6</i>
+        <%= t(:psalm150_6) %>
+        <i class="text-muted"><%= t(:psalm150_6_ref) %></i>
       </p><br/>
-      <%= link_to 'チャートの一覧', home_songs_path, class: 'btn btn-primary'%>　|　
-      <%= link_to 'ユーザの一覧', users_path, class: 'btn btn-primary' %>
+      <%= link_to t(:list_of_charts), home_songs_path, class: 'btn btn-primary'%>　|　
+      <%= link_to t(:list_of_users), users_path, class: 'btn btn-primary' %>
     </div>
   </div>
 </header>
@@ -16,7 +16,7 @@
   <div class="row">
     <div class="feature col-xl-12 col-lg-4">
       <div class="feature_text_wrapper">
-        <span class="feature_text">変調は簡単</span>
+        <span class="feature_text"><%= t(:simple_keychange) %></span>
       </div>
       <div class="feature_wrapper">
         <span class="glyphicon glyphicon-music"></span>
@@ -24,7 +24,7 @@
     </div>
     <div class="feature col-xl-12 col-lg-4">
       <div class="feature_text_wrapper">
-        <span class="feature_text">書き方も簡単</span>
+        <span class="feature_text"><%= t(:simple_creation) %></span>
       </div>
       <div class="feature_wrapper">
         <span class="glyphicon glyphicon-pencil"></span>
@@ -32,7 +32,7 @@
     </div>
     <div class="feature col-xl-12 col-lg-4">
       <div class="feature_text_wrapper">
-        <span class="feature_text">動画も投稿可能</span>
+        <span class="feature_text"><%= t(:post_videos) %></span>
       </div>
       <div class="feature_wrapper">
         <span class="glyphicon glyphicon-film"></span>
@@ -43,7 +43,7 @@
 
 <div id="example_chart" class="container-fluid">
   <div class="example_banner_text_wrapper text-center">
-    <h1 id="example_banner_text">変調を試してみてください</h1>
+    <h1 id="example_banner_text"><%= t(:try_it_out) %></h1>
   </div>
   <div class="panel panel-default">
     <div class="panel panel-heading">

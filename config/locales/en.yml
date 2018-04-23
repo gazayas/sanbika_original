@@ -7,6 +7,17 @@ en:
   login: 'Login'
   account_reg: 'Account Registration'
 
+  # home/index
+  welcome: 'Welcome to sanbika'
+  psalm150_6: 'Let everything that has breath praise the Lord! Praise the Lord!'
+  psalm150_6_ref: 'Psalms 150:6'
+  list_of_charts: 'List of charts'
+  list_of_users: 'List of users'
+  simple_keychange: 'Changing keys is easy'
+  simple_creation: 'Making charts is simple too'
+  post_videos: 'Post videos from YouTube'
+  try_it_out: 'Try it out'
+
   # forms
   new_chart: 'New chart'
   edit: 'Edit'
