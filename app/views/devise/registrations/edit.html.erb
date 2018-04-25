@@ -1,4 +1,6 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- TODO: ロケールを変えたので動作を確認してください -->
+
+<h2><%= t(:edit) %> <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -13,6 +15,7 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <!-- TODO: ここのロケール -->
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
@@ -37,12 +40,12 @@
   </div>
 -->
   <div class="actions">
-    <%= f.submit "更新" %>
+    <%= f.submit t(:update) %>
   </div>
 <% end %>
 
-<h3>アカウントの削除</h3>
+<h3><%= t(:delete_account)</h3>
 
-<p><%= button_to "アカウントの削除", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete %></p>
+<p><%= button_to t(:delete_account), registration_path(resource_name), data: { confirm: t(:confirm_deletion) }, method: :delete %></p>
 
-<%= link_to "戻る", :back %>
+<%= link_to t(:back), :back %>

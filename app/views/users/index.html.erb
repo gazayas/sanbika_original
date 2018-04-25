@@ -1,6 +1,6 @@
 <% if @users != nil %>
   <div id="users_index" class="container-fluid">
-    <h1>ユーザの一覧</h1>
+    <h1><%= t(:list_of_users) %></h1>
 
     <div class="row">
       <div class="col-xs-0 col-lg-4"></div>
@@ -16,7 +16,7 @@
 
             <%= link_to(user.name, user_path(user)) %>
             <% if current_user && current_user.admin %>
-              <%= link_to '削除', user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+              <%= link_to t(:delete), user_path(user), method: :delete, data: { confirm: t(:confirm_deletion) } %>
             <% end %>
           </li>
         <% end %>

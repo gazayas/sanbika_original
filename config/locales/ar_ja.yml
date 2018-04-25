@@ -21,15 +21,11 @@ ja:
   # forms
   new_chart: '新規チャート'
   edit: '編集'
+  update: '更新'
   delete: '削除'
-  back: '戻る'
   save: '保存'
+  back: '戻る'
   confirm_deletion: '本当に削除しますか？'
-
-  # songs
-  chords: 'コード'
-  show: '表示'
-  hide: '非表示'
 
   # Devise registration - new.html.erb
   user_name_registration: 'ユーザー名（英数字のみ）' # 英数字のことをエラーの方に入れる？
@@ -38,6 +34,20 @@ ja:
   password: 'パスワード'
   password_confirmation: 'パスワード認証'
   register: '登録'
+
+  # Devise registration - edit.html.erb
+  delete_account: 'アカウントの削除'
+
+  # songs
+  chords: 'コード'
+  show: '表示'
+  hide: '非表示'
+
+  # users/show.html.erb
+  edit_profile: 'プロファイルの編集'
+  user_charts: 'さんの賛美歌チャート'
+  new_chart: '新規チャート'
+  no_charts: '賛美歌チャートはありません'
 
   errors:
     messages:

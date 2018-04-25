@@ -21,15 +21,11 @@ en:
   # forms
   new_chart: 'New chart'
   edit: 'Edit'
+  update: 'Update'
   delete: 'Delete'
+  save: 'Save'
   back: 'Back'
   confirm_deletion: 'Do you really want to delete this?'
-
-  # songs
-  chords: 'Chords'
-  show: 'Show'
-  hide: 'Hide'
-  save: 'Save'
 
   # Devise registration - new.html.erb
   user_name_registration: 'User name'
@@ -38,6 +34,20 @@ en:
   password: 'Password'
   password_confirmation: 'Password confirmation'
   register: 'Register'
+
+  # Devise registration - edit.html.erb
+  delete_account: 'Delete account'
+
+  # users/show.html.erb
+  edit_profile: 'Edit profile'
+  user_charts: "\'s charts"
+  new_chart: 'New chart'
+  no_charts: 'This user has no charts'
+
+  # songs
+  chords: 'Chords'
+  show: 'Show'
+  hide: 'Hide'
   
   activerecord:
     models:
