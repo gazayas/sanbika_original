@@ -30,6 +30,14 @@ en:
   show: 'Show'
   hide: 'Hide'
   save: 'Save'
+
+  # Devise registration - new.html.erb
+  user_name_registration: 'User name'
+  email: 'E-mail'
+  or_more: ' characters or more'
+  password: 'Password'
+  password_confirmation: 'Password confirmation'
+  register: 'Register'
   
   activerecord:
     models:
@@ -45,9 +53,7 @@ en:
         current_password: 'Current password'
       song:
         title: 'Title'
-        #title_yomikata: 曲名の読み方（ひらがな）
         artist: 'Artist'
-        #artist_yomikata: 作者の名前の読み方（ひらがな）
         key: 'Key'
         song_body: 'Chart'
         video: 'Video'

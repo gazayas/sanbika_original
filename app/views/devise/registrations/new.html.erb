@@ -3,7 +3,7 @@
 <div class="container col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
   <div id="registration_panel" class="panel panel-default">
     <div class="panel panel-heading">
-      <h2>アカウントの登録</h2>
+      <h2><%= t(:account_reg) %></h2>
     </div>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -15,7 +15,7 @@
               <span class="glyphicon glyphicon-user"></span>
             </div>
             <%= f.text_field :name, class: 'form-control',
-                                    placeholder: 'ユーザー名（英数字のみ）',
+                                    placeholder: t(:user_name_registration),
                                     autofocus: true %>
           </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="input-group-addon">
               <span class="glyphicon glyphicon-envelope"></span>
             </div>
-            <%= f.email_field :email, class: 'form-control', placeholder: 'メール' %>
+            <%= f.email_field :email, class: 'form-control', placeholder: t(:email) %>
           </div>
         </div>
 
@@ -34,9 +34,9 @@
             <div class="input-group-addon">
               <span class="glyphicon glyphicon-lock"></span>
             </div>
-            <% password_placeholder = 'パスワード' %>
+            <% password_placeholder = t(:password) %>
             <% if @minimum_password_length %>
-              <% password_placeholder += '（' + @minimum_password_length.to_s + '字以上）' %>
+              <% password_placeholder += '（' + @minimum_password_length.to_s + t(:or_more) + '）' %>
             <% end %>
             <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: password_placeholder %>
           </div>
@@ -47,13 +47,13 @@
             <div class="input-group-addon">
               <span class="glyphicon glyphicon-lock"></span>
             </div>
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'パスワード確認' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: t(:password_confirmation) %>
           </div>
         </div>
       </div>
 
       <div class="actions">
-        <%= f.submit "登録する", class: 'btn btn-primary' %>
+        <%= f.submit t(:register), class: 'btn btn-primary' %>
       </div>
     <% end %>
 

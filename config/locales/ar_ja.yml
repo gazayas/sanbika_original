@@ -31,6 +31,14 @@ ja:
   show: '表示'
   hide: '非表示'
 
+  # Devise registration - new.html.erb
+  user_name_registration: 'ユーザー名（英数字のみ）' # 英数字のことをエラーの方に入れる？
+  email: 'メール'
+  or_more: '字以上'
+  password: 'パスワード'
+  password_confirmation: 'パスワード認証'
+  register: '登録'
+
   errors:
     messages:
       not_saved: 保存されませんでした
