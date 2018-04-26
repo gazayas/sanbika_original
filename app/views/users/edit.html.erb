@@ -1,11 +1,11 @@
-<p>画像の追加</p>
+<p><%= t(:edit_picture) %></p>
 
 <%= form_for(@user) do |f| %>
 
   <% if @user.errors.any? %>
     <div id="image_error" class="panel panel-default">
       <div class="panel panel-heading">
-        <h2><%= pluralize(@user.errors.count, "つの問題が発生しました") %></h2><!-- この文字列をlocalesに入れた方が言い -->
+        <h2><%= pluralize(@user.errors.count, t(:errors_occurred)) %></h2>
       </div>
 
       <% @user.errors.full_messages.each do |message| %>
@@ -27,4 +27,3 @@
   <%= f.submit class: 'btn btn-primary', value: t(:save), id: 'save_button' %>
 
 <% end %>
-

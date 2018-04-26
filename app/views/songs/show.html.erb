@@ -38,13 +38,13 @@
     </div>
   <% end %>
 
-  <%= link_to '印刷', print_user_song_path %>
+  <%= link_to t(:print), print_user_song_path %>
 
   <!-- TODO: keyの問題が解決できてないためにコメントアウトしてます -->
   <%# link_to 'pdf', print_user_song_path(format: "pdf") %>
 
   <p>
-    <strong>讃美歌チャートの作成者：</strong>
+    <strong><%= t(:chart_made_by) %></strong>
     <%= link_to @user.name, @user %>
   </p>
 

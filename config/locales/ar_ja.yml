@@ -51,6 +51,12 @@ ja:
   user_charts: 'さんの賛美歌チャート'
   new_chart: '新規チャート'
   no_charts: '賛美歌チャートはありません'
+  print: '印刷'
+  chart_made_by: 'チャートの作成者：'
+
+  # users/edit.html.erb
+  edit_picture: 'プロファイルの写真'
+  errors_occurred: 'つの問題が発生しました'
 
   errors:
     messages:

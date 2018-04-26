@@ -1,16 +1,17 @@
-=begin
 song_params = [
   [
     title: '賛美しよう',
-    title_yomikata: 'さんびしよう',
+    artist: '誰か',
     key: 'C',
-    song_body: '<em>C   Am   F   Cb</em><br/>賛美歌の歌詞はここに入ります'
+    song_body: "C   Am   F   Cb \n 賛美歌の歌詞はここに入ります",
+    video: ''
   ],
   [
-    title: 'タイトルです',
-    title_yomikata: 'たいとるです',
+    title: 'Title',
+    artist: 'Someone',
     key: 'C',
-    song_body: '<em>C   Am   F   Cb</em><br/>賛美歌の歌詞はここに入ります'
+    song_body: "C   Am   F   Cb \n Lyrics go here",
+    video: ''
   ]
 ]
 
@@ -18,17 +19,19 @@ song_params = [
   name  = "user#{n}"
   email = "user#{n}@example.com"
   password = "password"
+
   user = User.create!(
     name:  name,
     email: email,
     password:              password,
     password_confirmation: password
     )
+  
   2.times do |n|
     user.songs.create!(song_params[n])
   end
+  
   user.confirmed_at = Time.zone.now
+  
   user
 end
-=end
-

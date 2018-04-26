@@ -41,6 +41,10 @@ en:
   new_chart: 'New chart'
   no_charts: 'This user has no charts'
 
+  # users/edit.html.erb
+  edit_picture: 'Edit profile picture'
+  errors_occurred: 'error(s) occurred'
+
   # songs
   new_chart: 'New chart'
   edit_chart: 'Edit chart'
@@ -49,6 +53,8 @@ en:
   hide: 'Hide'
   explanation: 'Write "#" for sharps and "b" for flats'
   link_to_youtube: 'Link to YouTube video (optional)'
+  print: 'Print'
+  chart_made_by: 'Chart made by: '
 
   activerecord:
     models:
