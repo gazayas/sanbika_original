@@ -12,7 +12,7 @@
     <tr>
       <td>
         <%= f.text_field :title, class: 'form-control',
-        placeholder: t('activerecord.attributes.song.title') + '（必須）', autofocus: true, size: col_size %>
+        placeholder: t('activerecord.attributes.song.title'), autofocus: true, size: col_size %>
       </td>
     </tr>
     <tr>
@@ -31,8 +31,7 @@
   </table>
 
   <div class="explanation">
-    作曲者の名前を冒頭で書いてください。<br/>
-    シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます。<br/>
+    <%= t(:explanation) %><br/>
   </div>
 
 
@@ -43,7 +42,7 @@
   <table class="song_form">
     <tr>
       <td>
-        Youtubeのリンク（必須ではありません）
+        <%= t(:link_to_youtube) %>
         <%= f.text_field :video, class: 'form-control',
         placeholder: t('activerecord.attributes.song.video'), size: col_size %>
       </td>

@@ -1,5 +1,3 @@
-# TODO: Copy and paste from ar_ja.yml and change
-
 en:
   # layouts/application.html.erb
   account_settings: 'Account Settings'
@@ -10,7 +8,7 @@ en:
   # home/index
   welcome: 'Welcome to sanbika'
   psalm150_6: 'Let everything that has breath praise the Lord! Praise the Lord!'
-  psalm150_6_ref: 'Psalms 150:6'
+  psalm150_6_ref: 'Psalm 150:6'
   list_of_charts: 'List of charts'
   list_of_users: 'List of users'
   simple_keychange: 'Changing keys is easy'
@@ -19,13 +17,12 @@ en:
   try_it_out: 'Try it out'
 
   # forms
-  new_chart: 'New chart'
   edit: 'Edit'
   update: 'Update'
   delete: 'Delete'
   save: 'Save'
   back: 'Back'
-  confirm_deletion: 'Do you really want to delete this?'
+  confirm_deletion: 'Confirm'
 
   # Devise registration - new.html.erb
   user_name_registration: 'User name'
@@ -45,10 +42,14 @@ en:
   no_charts: 'This user has no charts'
 
   # songs
+  new_chart: 'New chart'
+  edit_chart: 'Edit chart'
   chords: 'Chords'
   show: 'Show'
   hide: 'Hide'
-  
+  explanation: 'Write "#" for sharps and "b" for flats'
+  link_to_youtube: 'Link to YouTube video (optional)'
+
   activerecord:
     models:
       user: 'User'
@@ -66,4 +67,4 @@ en:
         artist: 'Artist'
         key: 'Key'
         song_body: 'Chart'
-        video: 'Video'
+        video: 'Video link'

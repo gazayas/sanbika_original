@@ -3,10 +3,10 @@
 
 <div class="panel panel-default">
   <div class="panel panel-heading">
-    <h1>讃美歌チャートの編集</h1>
+    <h1><%= t(:edit_chart) %></h1>
   </div>
   <%= render 'form', song: @song %>
 </div>
 
 <%= link_to t(:show), user_song_path(@user, @song) %> |
-<%= link_to '賛美歌の一覧', user_songs_path %>
+<%= link_to t(:list_of_charts), user_songs_path %>

@@ -19,7 +19,6 @@ ja:
   try_it_out: '変調を試してみてください'
 
   # forms
-  new_chart: '新規チャート'
   edit: '編集'
   update: '更新'
   delete: '削除'
@@ -39,9 +38,13 @@ ja:
   delete_account: 'アカウントの削除'
 
   # songs
+  new_chart: '新規チャート'
+  edit_chart: 'チャートの編集'
   chords: 'コード'
   show: '表示'
   hide: '非表示'
+  explanation: 'シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます。'
+  link_to_youtube: 'YouTubeの動画へのリンク（任意）'
 
   # users/show.html.erb
   edit_profile: 'プロファイルの編集'
