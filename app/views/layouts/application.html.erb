@@ -50,9 +50,9 @@
               </li>
             <% end %>
 
-            <% lang = I18n.locale == I18n.default_locale ? ["English", :en] : ["日本語", :ja] %>
+            <% lang = I18n.locale == I18n.default_locale ? { str: "English", locale: :en } : { str: "日本語", locale: :ja } %>
             <li>
-              <%= link_to '<i class="fas fa-globe"></i> '.html_safe + lang[0], locale: lang[1] %>
+              <%= link_to '<i class="fas fa-globe"></i> '.html_safe + lang[:str], locale: lang[:locale] %>
             </li>
           </ul>
         </div>
