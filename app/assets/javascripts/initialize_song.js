@@ -25,7 +25,7 @@ $(document).ready(function() {
     for(var x = 0; x < str_ary.length; x++) {
       if(/\s+|　+/.test(str_ary[x]) || str_ary[x] == "") {
         // 空白だったら分からないからそのままcontinue
-      } else if(!chord_regexp.test(str_ary[x]) || /[Aa]rtist/.test(str_ary[x])) {
+      } else if(!chord_regexp.test(str_ary[x]) || /Chorus|CHORUS|Bridge|BRIDGE/.test(str_ary[x])) {
         // falseが一回でも出たらbreak
         has_chords = false
         x = str_ary.length;
