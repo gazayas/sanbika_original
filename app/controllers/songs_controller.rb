@@ -33,7 +33,7 @@ class SongsController < ApplicationController
 
     respond_to do |format|
       if @song.save
-        format.html { redirect_to ([@user, @song]), notice: '讃美歌チャートは作成されました' }
+        format.html { redirect_to ([@user, @song]), notice: t(:song_created) }
         format.json { render :show, status: :created, location: @song }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class SongsController < ApplicationController
 
     respond_to do |format|
       if @song.update(song_params)
-        format.html { redirect_to ([@user, @song]), notice: '讃美歌チャートは更新されました' }
+        format.html { redirect_to ([@user, @song]), notice: t(:song_updated) }
         format.json { render :show, status: :ok, location: @song }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class SongsController < ApplicationController
     @user = User.find(@song[:user_id])
     @song.destroy
     respond_to do |format|
-      format.html { redirect_to user_path(@user), notice: '讃美歌チャートは削除されました' }
+      format.html { redirect_to user_path(@user), notice: t(:song_deleted) }
       format.json { head :no_content }
     end
   end

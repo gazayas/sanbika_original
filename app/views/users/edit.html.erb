@@ -1,7 +1,6 @@
 <p><%= t(:edit_picture) %></p>
 
 <%= form_for(@user) do |f| %>
-
   <% if @user.errors.any? %>
     <div id="image_error" class="panel panel-default">
       <div class="panel panel-heading">
@@ -25,5 +24,4 @@
   </div>
 
   <%= f.submit class: 'btn btn-primary', value: t(:save), id: 'save_button' %>
-
 <% end %>

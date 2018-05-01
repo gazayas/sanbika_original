@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     end
 
     unless current_user == @user || current_user.admin
-      redirect_to user_path(@user), notice: '他人の情報を編集できません'
+      redirect_to user_path(@user), notice: t(:cant_change_info)
     end
   end
 

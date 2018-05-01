@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to (@user), notice: 'プロファイルが更新されました' }
+        format.html { redirect_to (@user), notice: t(:user_updated) }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_path, notice: 'ユーザは削除されました' }
+      format.html { redirect_to users_path, notice: t(:user_deleted) }
       format.json { head :no_content }
     end
   end
@@ -43,5 +43,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:user_image)
   end
-
 end

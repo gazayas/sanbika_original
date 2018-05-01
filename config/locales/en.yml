@@ -35,6 +35,10 @@ en:
   # Devise registration - edit.html.erb
   delete_account: 'Delete account'
 
+  # users controller
+  user_updated: 'Your profile has been updated successfully'
+  user_deleted: 'Your account has been deleted'
+
   # users/show.html.erb
   edit_profile: 'Edit profile'
   user_charts: "\'s charts"
@@ -44,6 +48,11 @@ en:
   # users/edit.html.erb
   edit_picture: 'Edit profile picture'
   errors_occurred: 'error(s) occurred'
+
+  # songs controller
+  song_created: 'The chart was created successfully'
+  song_updated: 'The chart was updated successfully'
+  song_deleted: 'The charted was deleted successfully'
 
   # songs
   new_chart: 'New chart'
@@ -55,6 +64,9 @@ en:
   link_to_youtube: 'Link to YouTube video (optional)'
   print: 'Print'
   chart_made_by: 'Chart made by: '
+
+  # application controller
+  cant_change_info: "You cannot change other user\'s information"
 
   activerecord:
     models:

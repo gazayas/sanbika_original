@@ -37,6 +37,15 @@ ja:
   # Devise registration - edit.html.erb
   delete_account: 'アカウントの削除'
 
+  # user controller
+  user_updated: 'プロファイルが更新されました'
+  user_deleted: 'ユーザは削除されました'
+
+  # songs controller
+  song_created: '讃美歌チャートは作成されました'
+  song_updated: '讃美歌チャートは更新されました'
+  song_deleted: '讃美歌チャートは削除されました'
+
   # songs
   new_chart: '新規チャート'
   edit_chart: 'チャートの編集'
@@ -57,6 +66,9 @@ ja:
   # users/edit.html.erb
   edit_picture: 'プロファイルの写真'
   errors_occurred: 'つの問題が発生しました'
+
+  # application controller
+  cant_change_info: '他人の情報を編集できません'
 
   errors:
     messages:
