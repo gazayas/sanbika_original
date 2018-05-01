@@ -19,6 +19,7 @@
   <!-- TODO: ちょっとね... -->
   <br/><br/>
 
+  <!-- TODO: Change to checkbox -->
   <strong><%= t(:chords) %>：</strong><%= button_tag t(:hide), onclick: "toggle_visibility_with(this);", class: 'btn btn-primary' %>
 
   <div id="song_body"><%= sanitize(@song.song_body) %></div>
