@@ -1,70 +1,60 @@
 # https://gist.github.com/yhara/606476
-# devise.failure.user.not_found_in_databaseというのを自分で入れた
-# 何が実装されてないって。。。どうしよう
 
 ja:
-  errors:
-    messages:
-      not_found: "は見つかりませんでした"
-#      not_found: "not found"
-      already_confirmed: "は既に登録済みです"
-#      already_confirmed: "was already confirmed"
-      not_locked: "は凍結されていません"
-#      not_locked: "was not locked"
-
   devise:
-    failure:
-      unauthenticated: 'ログインしてください。'
-#      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: '本登録を行ってください。'
-#      unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'あなたのアカウントは凍結されています。'
-#      locked: 'Your account is locked.'
-      invalid: 'ユーザ名またはパスワードが違います。'
-#      invalid: 'Invalid username or password.'
-      invalid_token: '認証キーが不正です。'
-#      invalid_token: 'Invalid authentication token.'
-      timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
-#      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'アカウントがアクティベートされていません。'
-#      inactive: 'Your account was not activated yet.'
-      user:
-        not_found_in_database: ユーザ名は存在していません
-    sessions:
-      signed_in: 'お帰りなさい'
-#      signed_in: 'Signed in successfully.'
-      signed_out: 'ログアウトしました。'
-#      signed_out: 'Signed out successfully.'
-      already_signed_out: 'ログアウトしました。'
-    passwords:
-      send_instructions: 'パスワードのリセット方法を数分以内にメールでご連絡します。'
-#      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
-      updated: 'パスワードを変更しました。'
-#      updated: 'Your password was changed successfully. You are now signed in.'
     confirmations:
-      send_instructions: '登録方法を数分以内にメールでご連絡します。'
-#      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
-      confirmed: 'アカウントを登録しました。'
-#      confirmed: 'Your account was successfully confirmed. You are now signed in.'
-    registrations:
-      signed_up: 'アカウント登録を受け付けました。確認のメールをお送りします。'
-#      signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
-      updated: 'アカウントを更新しました。'
-#      updated: 'You updated your account successfully.'
-      destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
-#      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
-    unlocks:
-      send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
-#      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
-      unlocked: 'アカウントを凍結解除しました。'
-#      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+      confirmed: "アカウントを登録しました。"
+      send_instructions: "登録方法を数分以内にメールでご連絡します。"
+      send_paranoid_instructions: "もしメールがもう既にデータベースにあるなら、数分後のアカウントの確認の仕方をメールで通知いたします"
+    failure:
+      already_authenticated: "もう既にログインしています。"
+      inactive: "アカウントがアクティベートされていません。"
+      invalid: "ユーザ名またはパスワードが違います。"
+      locked: "あなたのアカウントは凍結されています。"
+      last_attempt: "アカウントがロックされる前に、もう一回しかできません"
+      not_found_in_database: "%{authentication_keys}またはパスワードは無効です。"
+      timeout: "セッションがタイムアウトしました。もう一度ログインしてください。"
+      unauthenticated: "ログインしてください。"
+      unconfirmed: "本登録を行ってください。"
+      invalid_token: "認証キーが不正です。"
     mailer:
       confirmation_instructions:
-        subject: 'アカウントの登録方法'
-#        subject: 'Confirmation instructions'
+        subject: "アカウントの登録方法"
       reset_password_instructions:
-        subject: 'パスワードの再設定'
-#        subject: 'Reset password instructions'
+        subject: "パスワードの再設定"
       unlock_instructions:
-        subject: 'アカウントの凍結解除'
-#        subject: 'Unlock Instructions'
+        subject: "アカウントの凍結解除"
+      password_change:
+        subject: "パスワードが変更されました"
+    passwords:
+      no_token: "パスワード・リセットのメールからでしかこのページにアクセスできません。パスワード・リセットのメールに記載しているURLを全部お使いください。"
+      send_instructions: "パスワードのリセット方法を数分以内にメールでご連絡します。"
+      send_paranoid_instructions: "もしあなたのメールがデータベースに入っているなら、数分後にパスワードを知らせるためのメールが届きます。"
+      updated: "パスワードを変更しました。現在はログインしています。"
+      updated_not_active: "パスワードを変更しました。"
+    registrations:
+      destroyed: "アカウントを削除しました。またのご利用をお待ちしております。"
+      signed_up: "ようこそ！アカウント登録を受け付けました。確認のメールをお送りします。"
+      signed_up_but_inactive: "登録はできましたが、アカウントがアクティブでないため、ログインできませんでした。"
+      signed_up_but_locked: "登録はできましたが、アカウントがロックされているため、ログインできませんでした。"
+      signed_up_but_unconfirmed: "アカウントを確認するためにURLがメールで届きます。"
+      update_needs_confirmation : "アカウントを変更できましたが、あなたのアカウントを確認する必要があります。メールで届くURLでご確認ください。"
+      updated: "アカウントを更新しました。"
+    sessions:
+      signed_in: "お帰りなさい"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "ログアウトしました。"
+    unlocks:
+      send_instructions: "アカウントの凍結解除方法を数分以内にメールでご連絡します。"
+      send_paranoid_instructions: "もしあなたのアカウントが存在しているなら、数分後にロックの解除の仕方はメールで届きます。"
+      unlocked: "アカウントを凍結解除しました。"
+  errors:
+    messages:
+      already_confirmed: "は既に登録済みです"
+      confirmation_period_expired: "%{period}の間に確認しないといけませんでした。もう一回リクエストしてください"
+      expired: "は有効期限が切れました。もう一回リクエストしてください"
+      not_found: "は見つかりませんでした"
+      not_locked: "は凍結されていません"
+      not_saved:
+        one: "1つのエラーによって%{resource}が保存されませんでした："
+        other: "%{count}つのエラーによって%{resource}が保存されませんでした："
