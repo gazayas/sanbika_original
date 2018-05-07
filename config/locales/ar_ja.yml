@@ -19,11 +19,25 @@ ja:
   try_it_out: '変調を試してみてください'
   example_chart_title: '主の足元に'
   example_chart_key: 'D'
-
-  # TODO: 完成させてください
   example_chart:
     "
-    主の足元に
+    D         A    G            D\n
+    主の足元に身をかがめて\n
+    \    G           D        Em       A\n
+    ひれ伏し　礼拝ささげます\n
+    D         A         G     D\n
+    香油を注ぎ　涙の髪で\n
+    G         D       Em       A\n
+    拭う愛する主の御足を\n
+    \n
+    \        D     A        G          D/F#\n
+    こころ砕き　栄光脱ぎ捨て\n
+    \       G           D/F#   Em    A7\n
+    ただあなたを求めます\n
+    \       Bm   F#m       G       D/F#\n
+    あなたの御顔　慕い求めます\n
+    \  Em    A         D\n
+    賛美ささげます\n
     "
 
   # forms
