@@ -47,14 +47,14 @@
   </div>
   <div class="panel panel-default">
     <div class="panel panel-heading">
-      <h1 id="song_title"><%= @example_song[:title] %></h1>
+      <h1 id="song_title"><%= t(:example_chart_title) %></h1>
       <%= select_tag(
             :key_box,
-            options_for_select(sharp_notes, selected: @example_song[:key]),
-            onchange: 'key_change("' +  @example_song[:key] + '", null);')
+            options_for_select(sharp_notes, selected: t(:example_chart_key)),
+            onchange: 'key_change("' +  t(:example_chart_key) + '", null);')
       %>
     </div>
-    <div id="song_body" class="panel panel-body"><%= sanitize(@example_song[:song_body]) %></div>
+    <div id="song_body" class="panel panel-body"><%= t(:example_chart) %></div>
   </div>
 </div>
 

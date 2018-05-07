@@ -17,6 +17,14 @@ ja:
   simple_creation: '書き方も簡単'
   post_videos: '動画も投稿可能'
   try_it_out: '変調を試してみてください'
+  example_chart_title: '主の足元に'
+  example_chart_key: 'D'
+
+  # TODO: 完成させてください
+  example_chart:
+    "
+    主の足元に
+    "
 
   # forms
   edit: '編集'
