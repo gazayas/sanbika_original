@@ -94,6 +94,7 @@ en:
   link_to_youtube: 'Link to YouTube video (optional)'
   print: 'Print'
   chart_made_by: 'Chart made by: '
+  invalid_link: 'This link is invalid' # models/song.rb
 
   # application controller
   cant_change_info: "You cannot change other user\'s information"

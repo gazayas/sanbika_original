@@ -62,6 +62,7 @@ ja:
   hide: '非表示'
   explanation: 'シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます。'
   link_to_youtube: 'YouTubeの動画へのリンク（任意）'
+  invalid_link: 'このリンクは使えません' # models/song.rb
 
   # users/show.html.erb
   edit_profile: 'プロファイルの編集'
