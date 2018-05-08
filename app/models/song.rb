@@ -12,6 +12,6 @@ class Song < ApplicationRecord
 	private
 
 	def check_link
-		errors.add(:video, t(:invalid_link)) unless video == "" || !!video.match(VIDEO_REGEXP)
+		errors.add(:video, I18n.t(:invalid_link)) unless video == "" || !!video.match(VIDEO_REGEXP)
 	end
 end
