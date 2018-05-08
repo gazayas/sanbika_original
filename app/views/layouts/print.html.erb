@@ -10,6 +10,13 @@
 
   <body>
     <h1 id="song_title"><%= @song.title %></h1>
+
+    <div id="artist_wrapper" class="text-center">
+      <strong><%= t('activerecord.attributes.song.artist') %></strong>
+      <%= @song.artist %>
+      </div>
+    <br/>
+
     <h5 id="print_key"><%= t(:key) %>
       <%= select_tag(:key_box, 
           options_for_select(sharp_notes, selected: @song.key),
@@ -17,10 +24,12 @@
       %>
     </h5>
 
-    <!-- TODO: I18nに対応するように、jsの方を変える。ヘルパーメソッドを作ったらいいかな -->
-    <h5 class="text-center"><%= t(:chords) %>：
-      <%= button_tag t(:hide), onclick: "toggle_visibility_with(this);", class: "center-inline-block" %>
-    </h5>
+    <div id="checkbox_wrapper" class="text-center">
+      <strong>
+      <%= t(:hide_chords) %>：
+      <%= check_box_tag "hide chords", nil, false, class: 'checkbox', onclick: 'toggle_visibility();', style: 'display: inline-block;' %>
+      </strong>
+    </div>
 
     <div id="song_body"><%= sanitize(@song.song_body) %></div>
   </body>
