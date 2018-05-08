@@ -90,7 +90,7 @@ ja:
   edit_chart: 'チャートの編集'
   chords: 'コード'
   show: '表示'
-  hide: '非表示'
+  hide_chords: 'コードの非表示'
   explanation: 'シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます。'
   link_to_youtube: 'YouTubeの動画へのリンク（任意）'
   invalid_link: 'このリンクは使えません' # models/song.rb

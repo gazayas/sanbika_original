@@ -20,7 +20,10 @@
   <br/><br/>
 
   <!-- TODO: Change to checkbox -->
-  <strong><%= t(:chords) %>：</strong><%= button_tag t(:hide), onclick: "toggle_visibility_with(this);", class: 'btn btn-primary' %>
+  <strong>
+    <%= t(:hide_chords) %>：
+    <%= check_box_tag "hide chords", nil, false, class: 'checkbox', onclick: 'toggle_visibility();', style: 'display: inline-block;' %>
+  </strong>
 
   <div id="song_body"><%= sanitize(@song.song_body) %></div>
 

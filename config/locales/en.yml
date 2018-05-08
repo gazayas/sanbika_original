@@ -106,7 +106,7 @@ en:
   edit_chart: 'Edit chart'
   chords: 'Chords'
   show: 'Show'
-  hide: 'Hide'
+  hide_chords: 'Hide chords'
   explanation: 'Write "#" for sharps and "b" for flats'
   link_to_youtube: 'Link to YouTube video (optional)'
   print: 'Print'
