@@ -1,3 +1,9 @@
+<!-- TODO: Bootstrapで綺麗にしてください -->
+<%= form_tag url_for(controller: 'home', action: 'songs'), method: 'get' do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
 <div class="container-fluid">
   <% if @songs != nil %>
     <div class="panel panel-default" id="songs_index">

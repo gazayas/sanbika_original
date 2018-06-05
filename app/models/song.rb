@@ -9,6 +9,14 @@ class Song < ApplicationRecord
     validates :song_body, presence: true, length: { maximum: 7_000_000 }
 	validates :video, :check_link, length: { maximum: 300 }
 
+	def self.search(search)
+    if search
+      where(['title LIKE ?', "%#{search}%"]) #検索とtitleの部分一致を表示
+    else
+      all #全て表示
+    end
+  end
+
 	private
 
 	def check_link

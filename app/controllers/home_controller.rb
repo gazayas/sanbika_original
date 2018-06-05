@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   end
 
   def songs
-    @songs = Song.page(params[:page]).per(25)
+    @songs = Song.page(params[:page]).search(params[:search]).per(25)
 
     # TODO: gemで漢字をひらながに変換してから順に並べたい
   end
