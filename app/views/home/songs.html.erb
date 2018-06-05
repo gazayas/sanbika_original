@@ -1,12 +1,8 @@
-<!-- TODO: Bootstrapで綺麗にしてください -->
-<!-- TODO: navbarに入れること -->
-<%= form_tag url_for(controller: 'home', action: 'songs'), method: 'get' do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag 'Search', name: nil %>
-<% end %>
-
 <div class="container-fluid">
-  <% if @songs != nil %>
+  <% if @songs.empty? %>
+    <!-- TODO: I18n, Boostrap -->
+    <%= "探している賛美歌は見つかりませんでした" %>
+  <% elsif @songs != nil %>
     <div class="panel panel-default" id="songs_index">
       <div class="panel panel-heading">
         <h1><%= t(:list_of_charts) %></h1>

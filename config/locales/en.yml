@@ -9,6 +9,7 @@ en:
   reg_account_by: ' account registration'
 
   # layouts/application.html.erb
+  search: 'Search for a chart'
   account_settings: 'Account settings'
   login: 'Login'
   logout: 'Logout'

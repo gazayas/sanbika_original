@@ -11,6 +11,7 @@ ja:
   reg_account_by: 'でアカウント登録'
 
   # layouts/application.html.erb
+  search: '賛美歌の検索'
   account_settings: 'アカウントの設定'
   login: ' ログイン'
   logout: 'ログアウト'

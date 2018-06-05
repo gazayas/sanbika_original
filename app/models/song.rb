@@ -9,6 +9,7 @@ class Song < ApplicationRecord
   validates :song_body, presence: true, length: { maximum: 7_000_000 }
 	validates :video, :check_link, length: { maximum: 300 }
 
+	#TODO: Upcaseかdowncase、どちらでも適切にマッチするように
 	def self.search(search)
     if search
       where(['title LIKE ?', "%#{search}%"]) #検索とtitleの部分一致を表示
