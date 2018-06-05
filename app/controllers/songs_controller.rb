@@ -2,13 +2,6 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_current_user, except: [:index, :show, :print]
 
-  def index
-    @user = User.friendly.find(params[:user_id])
-    @songs = @user.songs.all
-    # TODO: 普通は @songs = Song.all だけど、これはどうするかな。
-    # songsだけのindexページがいいかもしれない
-  end
-
   def show
     @user = User.friendly.find(params[:user_id])
 

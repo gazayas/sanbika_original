@@ -1,9 +1,18 @@
 en:
+  honorific: ''
+  submit: 'Submit'
+
+  # devise links
+  i_forgot: 'I forgot my password'
+  no_confirmation_mail: 'Confirmation email has not been sent'
+  send_account_unlock_instructions: 'Send instructions to unlock account'
+  reg_account_by: ' account registration'
+
   # layouts/application.html.erb
-  account_settings: 'Account Settings'
-  logout: 'Logout'
+  account_settings: 'Account settings'
   login: 'Login'
-  account_reg: 'Account Registration'
+  logout: 'Logout'
+  account_reg: 'Account registration'
 
   # home/index
   welcome: 'Welcome to sanbika'
@@ -54,6 +63,11 @@ en:
   back: 'Back'
   confirm_deletion: 'Confirm'
 
+  # Devise passwords - edit.html.erb/new.html.erb
+  new_password: 'New password'
+  characters_or_more: ' characters or more'
+  send_instructions_to_update_password: 'Send instructions to update password'
+
   # Devise registration - new.html.erb
   user_name_registration: 'User name'
   email: 'E-mail'
@@ -64,6 +78,9 @@ en:
 
   # Devise registration - edit.html.erb
   delete_account: 'Delete account'
+
+  # Devise unlocks
+  send_instructions_to_unlock: 'Send instructions to unlock account'
 
   # users controller
   user_updated: 'Your profile has been updated successfully'
@@ -89,7 +106,7 @@ en:
   edit_chart: 'Edit chart'
   chords: 'Chords'
   show: 'Show'
-  hide: 'Hide'
+  hide_chords: 'Hide chords'
   explanation: 'Write "#" for sharps and "b" for flats'
   link_to_youtube: 'Link to YouTube video (optional)'
   print: 'Print'
@@ -99,6 +116,19 @@ en:
   # application controller
   cant_change_info: "You cannot change other user\'s information"
 
+  # Mail
+  mail_greeting: 'Thank you for using sanbika!'
+  confirm_link: 'Please confirm your account by the link below'
+  confirm_account: 'Confirm account'
+  password_has_been_changed: 'We are informing you to let you know that your password has been changed'
+  change_password_by_link: 'Click the link below to change your password'
+  renew_password: 'Renew password'
+  ignore_if_not_you: 'Please ignore this message if you did not request to have your passowrd changed.'
+  follow_instructions_to_renew: 'Your password will not be renewed until you follow the instructions after accessing the link'
+  your_account_has_been_locked: 'Your account has been locked due to an excessive number of unsuccessful sign in attempts.'
+  click_to_unlock_message: 'Click the link below to unlock your account:'
+  click_to_unlock: 'Unlock my account'
+  
   activerecord:
     models:
       user: 'User'

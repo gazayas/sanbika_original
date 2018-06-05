@@ -15,25 +15,9 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-function toggle_visibility_with(button) {
+function toggle_visibility() {
   var chords = document.getElementsByClassName('chord');
-  console.log(chords);
+  var visibility = $('.checkbox:checked').val() ? 'hidden' : 'visible';
 
-  for(var i = 0; i < chords.length; i++) {
-    if(button.innerHTML == '非表示') {
-      chords[i].style.visibility = 'hidden';
-    } else {
-      chords[i].style.visibility = 'visible';
-    }
-  }
-
-  if (button.innerHTML == '非表示') {
-    button.innerHTML = '表示';
-  } else {
-    button.innerHTML = '非表示';
-  }
-
-  // クリックされる時にfocusされないように
-  button.style.outline = 'none';
-  button.blur();
+  for(var i = 0; i < chords.length; i++) { chords[i].style.visibility = visibility; }
 }

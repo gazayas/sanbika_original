@@ -1,4 +1,4 @@
-<h2>更新する手続きの再送信</h2>
+<h2><%= t(:send_confirmation_instructions) %></h2>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
@@ -9,7 +9,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "説明を再び送信する" %>
+    <%= f.submit t(:submit) %>
   </div>
 <% end %>
 

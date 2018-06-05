@@ -4,10 +4,9 @@
     <%= content_tag(:h2, @song.title, id: 'song_title') %>
   </div>
 
-  <%# unless @song.artist == nil || @song.artist == "" %>
-    <!--strong--><%# t('activerecord.attributes.song.artist') %><!--/strong-->
-    <%# @song.artist %><!--br/-->
-  <%# end %>
+  <strong><%= t('activerecord.attributes.song.artist') %></strong>
+  <%= @song.artist %>
+  <br/>
 
   <strong><%= t('activerecord.attributes.song.key') %></strong>
   <%= select_tag(
@@ -20,7 +19,10 @@
   <br/><br/>
 
   <!-- TODO: Change to checkbox -->
-  <strong><%= t(:chords) %>：</strong><%= button_tag t(:hide), onclick: "toggle_visibility_with(this);", class: 'btn btn-primary' %>
+  <strong>
+    <%= t(:hide_chords) %>：
+    <%= check_box_tag "hide chords", nil, false, class: 'checkbox', onclick: 'toggle_visibility();', style: 'display: inline-block;' %>
+  </strong>
 
   <div id="song_body"><%= sanitize(@song.song_body) %></div>
 

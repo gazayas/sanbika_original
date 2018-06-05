@@ -1,5 +1,5 @@
-<p><%= @resource.name %>さん、こんにちは。</p>
+<p><%= @resource.name + t(:honorific) + "\n" + t(:mail_greeting) %></p>
 
-<p>下記のリンクでアカウトを確認してください</p>
+<p><%= t(:confirm_link) %></p>
 
-<p><%= link_to 'アカウントを確認する', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to t(:confirm_account), confirmation_url(@resource, confirmation_token: @token) %></p>

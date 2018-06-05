@@ -1,10 +1,19 @@
 # エラーの実装も考えないといけない
 
 ja:
+  honorific: 'さん'
+  submit: '送信'
+
+  # devise links
+  i_forgot: 'パスワードを忘れた場合'
+  no_confirmation_mail: '確認のメールが届いていない場合'
+  send_account_unlock_instructions: 'ロックされたアカウントの解除の仕方の説明をもらいませんでしたか？'
+  reg_account_by: 'でアカウント登録'
+
   # layouts/application.html.erb
   account_settings: 'アカウントの設定'
-  logout: 'ログアウト'
   login: ' ログイン'
+  logout: 'ログアウト'
   account_reg: 'アカウントの登録'
 
   # home/index
@@ -48,6 +57,11 @@ ja:
   back: '戻る'
   confirm_deletion: '本当に削除しますか？'
 
+  # Devise passwords - edit.html.erb/new.html.erb
+  new_password: '新しいパスワード'
+  characters_or_more: '字以上'
+  send_instructions_to_update_password: 'パスワードを更新する手続きの説明を送信する'
+
   # Devise registration - new.html.erb
   user_name_registration: 'ユーザー名（英数字のみ）' # 英数字のことをエラーの方に入れる？
   email: 'メール'
@@ -58,6 +72,9 @@ ja:
 
   # Devise registration - edit.html.erb
   delete_account: 'アカウントの削除'
+
+  # Devise unlocks
+  send_instructions_to_unlock: 'アカウントのロックの解除の説明を送信する'
 
   # user controller
   user_updated: 'プロファイルが更新されました'
@@ -73,7 +90,7 @@ ja:
   edit_chart: 'チャートの編集'
   chords: 'コード'
   show: '表示'
-  hide: '非表示'
+  hide_chords: 'コードの非表示'
   explanation: 'シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます。'
   link_to_youtube: 'YouTubeの動画へのリンク（任意）'
   invalid_link: 'このリンクは使えません' # models/song.rb
@@ -92,6 +109,19 @@ ja:
 
   # application controller
   cant_change_info: '他人の情報を編集できません'
+
+  # Mail
+  mail_greeting: 'sanbikaをお使いいただき、誠にありがとうとざいます'
+  confirm_link: '下記のリンクでアカウトを確認してください'
+  confirm_account: 'アカウントの確認'
+  password_has_been_changed: 'パスワードが更新されましたので通知いたします。'
+  change_password_by_link: '下記のリンクでパスワードを更新することができます。'
+  renew_password: 'パスワードを更新する'
+  ignore_if_not_you: 'もしパスワードを更新するように頼まれていなければ、このメールを無視してください'
+  follow_instructions_to_renew: '上記のリンクの手続きをするまではパスワードは更新されません。'
+  your_account_has_been_locked: 'あなたのアカウントに何回かログインに失敗したため、アカウントがロックされました。'
+  click_to_unlock_message: '下記のリンクをクリックすることでアカウントのロックが解除されます：'
+  click_to_unlock: 'アカウントを解除する'
 
   errors:
     messages:
