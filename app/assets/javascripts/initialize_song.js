@@ -53,6 +53,11 @@ $(document).ready(function() {
   song_body = song_body.replace(/^<br>\s{2,2}/, ""); // なぜこうなるだろうか分からんけど、<br>と空白が先頭に入るから消す
   song_body_tag.innerHTML = song_body;
 
+  $('.chord').each(function() {
+    //もし太字にするんやったら早い段階でした方がいい
+    //this.style.fontWeight = "bold";
+    this.style.color = "navy";
+  });
 
   // iframeにクラスをつける
   $('iframe').addClass('embed-responsive-item');
