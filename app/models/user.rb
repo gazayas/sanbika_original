@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
+  has_many :ratings, through: :song
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

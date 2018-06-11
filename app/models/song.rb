@@ -1,5 +1,6 @@
 class Song < ApplicationRecord
 	belongs_to :user
+	has_many :ratings, through: :user
 
 	VIDEO_REGEXP = /\A(http)?(s)?(:\/\/)?(www\.youtube\.com\/watch\?v=)|(youtu\.be\/)(.*)\z/
 
