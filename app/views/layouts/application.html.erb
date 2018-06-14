@@ -61,6 +61,7 @@
               <%= link_to '<i class="fas fa-globe"></i> '.html_safe + lang[:str], locale: lang[:locale] %>
             </li>
 
+            <!-- TODO: collapseを開くとtext_fieldが長すぎる。sizeを固定してください -->
             <li>
               <%= text_field_tag :search, "", class: 'form-control hidden-sm hidden-md hidden-lg', placeholder: t(:search) %>
             </li>
