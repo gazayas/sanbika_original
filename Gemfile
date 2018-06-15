@@ -24,18 +24,18 @@ gem 'pdfkit'
 gem 'wkhtmltopdf'
 
 group :development, :test do
-	gem 'rspec-rails'
-	gem 'factory_bot_rails'
-	gem 'shoulda-matchers', '~> 3.1'
-	gem 'byebug', platform: :mri
- 	gem 'pry'
- 	gem 'better_errors'
- 	gem 'binding_of_caller'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'teaspoon-mocha'
 end
 
 group :development do
- 	gem 'web-console'
+  gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
