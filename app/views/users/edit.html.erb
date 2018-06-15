@@ -14,6 +14,7 @@
   <% end %>
 
   <div class="form-group">
+    <%# TODO: Probably unneeded because I added a default picture when signing up %>
     <% if @user.user_image? %>
       <div class="thumbnail">
         <%= image_tag @user.user_image.url %>
