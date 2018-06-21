@@ -95,6 +95,11 @@ RSpec.describe Song, type: :model do
       it { is_expected.to be_valid }
     end
 
+    context 'continue属性がリンクに入っても大丈夫' do
+      let(:video) { 'https://www.youtube.com/watch?time_continue=1&v=6OHEAbjBtlY' }
+      it { is_expected.to be_valid }
+    end
+
     context '正しくない形式' do
       let(:video) { 'https://google.com/' }
       it { is_expected.to be_invalid }

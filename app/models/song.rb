@@ -1,7 +1,7 @@
 class Song < ApplicationRecord
 	belongs_to :user
 
-	VIDEO_REGEXP = /\A(http)?(s)?(:\/\/)?(www\.youtube\.com\/watch\?v=)|(youtu\.be\/)(.*)\z/
+	VIDEO_REGEXP = /\A(http)?(s)?(:\/\/)?(www\.youtube\.com\/watch\?(time_continue=\d+\&)?(v=))|(youtu\.be\/)(.*)\z/
 
   validates :title, presence: true, length: { maximum: 50 }, uniqueness: { scope: :user_id }
 	validates :artist, length: { maximum: 50 }
