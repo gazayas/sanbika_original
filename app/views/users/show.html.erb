@@ -4,16 +4,13 @@
     <div class="col-xs-8 col-md-4 panel panel-default">
       <div class="panel-body">
         <div class="text-center">
-          <%# TODO: Refactor for default pic. 今はめちゃくちゃになってる %>
-          <% if @user.user_image.file %>
-            <% user_image = image_url(@user.user_image) %>
-            <% big_user_image = image_url(@user.user_image.url(:big).to_s) %>
-          <% else %>
-            <% user_image, big_user_image = image_url('user_black_logo.jpg'), image_url('user_black_logo.jpg') %>
-          <% end %>
-
           <%= button_tag class: 'btn btn-link', data: {toggle: "modal", target: '#img_modal'} do %>
-            <%= image_tag(user_image, id: 'user_image') %>
+            <%# ドキュメントによると、@user.user_imageはいつもnil以外に何かを返すので有無を分かるにはfileを参照する %>
+            <% if @user.user_image.file %>
+              <%= image_tag(image_url(@user.user_image), id: 'user_image') %>
+            <% else %>
+              <%= image_tag(image_url('user_black_logo.jpg'), id: 'user_image', width: '200', height: '200') %>
+            <% end %>
           <% end %>
 
           <div class="modal fade" id="img_modal" tabindex="-1" role="dialog" aria-labelledby="img_modal_label" aria-hidden="true">
@@ -23,7 +20,11 @@
                   <button type="button" class="btn btn-secondary pull-right" data-dismiss="modal">×</button>
                 </div>
                 <div class="modal-body">
-                  <%= image_tag(big_user_image, id: 'user_image') %>
+                  <% if @user.user_image.file %>
+                    <%= image_tag(image_url(@user.user_image(:big).to_s), id: 'modal_user_image') %>
+                  <% else %>
+                    <%= image_tag(image_url('user_black_logo.jpg'), id: 'modal_user_image', width: '400', height: '400') %>
+                  <% end %>
                 </div>
               </div>
             </div>
