@@ -4,11 +4,15 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
   process resize_to_limit: [200, 200]
+
+  version :big do
+    process resize_to_fit: [400, 400]
+  end
+
+  version :thumb do
+    process resize_to_fit: [50, 50]
+  end
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
