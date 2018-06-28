@@ -27,8 +27,8 @@ song_params = [
     password_confirmation: password
     )
   
-  2.times do |n|
-    user.songs.create!(song_params[n])
+  30.times do |n|
+    user.songs.create!(song_params[(n % 2) - 1])
   end
   
   user.confirmed_at = Time.zone.now

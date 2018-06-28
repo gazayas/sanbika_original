@@ -59,13 +59,13 @@
           <% end %>
         </div>
 
-        <div>
-          <span style="margin-left: 5px"><%= t('activerecord.attributes.song.title') %></span>
-          <span class="pull-right" style="margin-right: 5px;"><%= t('activerecord.attributes.song.artist') %></span>
-        </div>
-
         <%# TODO: Paginate %>
         <% if !@songs.empty? %>
+          <div>
+            <span style="margin-left: 5px"><%= t('activerecord.attributes.song.title') %></span>
+            <span class="pull-right" style="margin-right: 5px;"><%= t('activerecord.attributes.song.artist') %></span>
+          </div>
+
           <ul class="list-group">
             <% @songs.each do |song| %>
               <%= link_to (
@@ -76,7 +76,11 @@
              <% end %>
           </ul>
         <% else %>
-          <h4><%= t(:no_charts) %></h4>
+          <div class="panel panel-default">
+            <div class="panel-body text-center">
+              <h4><%= t(:no_charts) %></h4>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
