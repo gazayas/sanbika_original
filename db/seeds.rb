@@ -1,19 +1,21 @@
-song_params = [
-  [
-    title: '賛美しよう',
+song_params = []
+15.times do |n|
+  song_params << [
+    title: "賛美しよう #{n}",
     artist: '誰か',
     key: 'C',
     song_body: "C   Am   F   Cb \n 賛美歌の歌詞はここに入ります",
     video: ''
-  ],
-  [
-    title: 'Title',
+  ]
+
+  song_params << [
+    title: "Title #{n}",
     artist: 'Someone',
     key: 'C',
     song_body: "C   Am   F   Cb \n Lyrics go here",
     video: ''
   ]
-]
+end
 
 99.times do |n|
   name  = "user#{n}"
@@ -25,12 +27,10 @@ song_params = [
     email: email,
     password:              password,
     password_confirmation: password
-    )
+  )
   
-  30.times do |n|
-    user.songs.create!(song_params[(n % 2) - 1])
-  end
-  
+  user.songs.create!(song_params)
+
   user.confirmed_at = Time.zone.now
   
   user
