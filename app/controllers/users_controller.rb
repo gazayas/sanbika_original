@@ -7,7 +7,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
-    @songs = @user.songs.all
+
+    # TODO: 開発が進むうちにajaxで読み込みを自動化したい
+    # Issue 66を見てください
+    @songs = @user.songs.page(params[:page]).per(25)
   end
 
   # deviseに#newと#createを任せた
