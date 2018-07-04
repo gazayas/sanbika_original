@@ -40,7 +40,11 @@
     </div>
   <% end %>
 
-  <%= link_to t(:print), print_user_song_path, class: 'hidden-xs' %>
+  <%# link_to t(:print), print_user_song_path, class: 'hidden-xs' %>
+  <%= form_for(@song, url: {action: 'print'}, method: 'POST') do |f|%>
+    <%= f.hidden_field :selectedKey, value: @song.key %>
+    <%= f.submit t(:print) %><!-- make same as <a> tag -->
+  <% end %>
 
   <!-- TODO: keyの問題が解決できてないためにコメントアウトしてます -->
   <%# link_to 'pdf', print_user_song_path(format: "pdf") %>

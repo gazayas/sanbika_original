@@ -17,9 +17,20 @@
       </div>
     <br/>
 
+    <%# printボタンを押したか直接リンクを打ち込んだかによってparamsの有無が決まります %>
+    <%# それでselected_keyを設定し、下の方でkey_change()を呼びます %>
+    <% selected_key = nil %>
+    <% if params[:song] %>
+      <% selected_key = params[:song][:selectedKey] %>
+    <% else %>
+      <% selected_key = @song.key %>
+    <% end %>
+
+    <div id="song_key" style="visibility: hidden;"><%= @song.key %></div>
+
     <h5 id="print_key"><%= t(:key) %>
       <%= select_tag(:key_box, 
-          options_for_select(sharp_notes, selected: @song.key),
+          options_for_select(sharp_notes, selected: selected_key),
           onchange: 'key_change("' +  @song.key + '", false);')
       %>
     </h5>
@@ -32,5 +43,20 @@
     </div>
 
     <div id="song_body"><%= sanitize(@song.song_body) %></div>
+
+    <%= button_tag t(:print), id: 'print_button', onclick: 'printChart()', class: 'btn btn-primary center-block' %>
+
+    <script>
+      var song_key = document.getElementById("song_key").innerHTML
+      $(window).on('load', function() {
+        key_change(song_key, false)
+      })
+
+      function printChart() {
+        $('#print_button').css('visibility','hidden')
+        window.print()
+        $('#print_button').css('visibility','visible')
+      }
+    </script>
   </body>
 </html>

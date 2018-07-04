@@ -48,9 +48,12 @@ function key_change(old_key, slash_chords) {
   var difference;
   var chord_strings = [];
   var new_chords = [];
+  var print_hidden_tag = document.getElementById('song_selectedKey');
 
   console.log(old_key);
   console.log(new_key);
+
+  if(print_hidden_tag) { print_hidden_tag.value = new_key }
 
   if (slash_chords) {
     var chords_html = slash_chords;
