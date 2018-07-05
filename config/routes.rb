@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+
+    # TODO: Change routes to something simple like "home" instead of "home#index"
+    # Change links (paths) accordingly: i.e. - home_songs_path => songs_path
+
     get 'home/index'
     get 'home/songs' => 'home#songs'
     root to: 'home#index'
