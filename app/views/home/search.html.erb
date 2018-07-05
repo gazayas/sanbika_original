@@ -1,1 +1,14 @@
 <h1>Search</h1>
+
+<%= form_tag '/search', method: :post do |f| %>
+	<%# TODO: I18n %>
+	<%= select_tag :search_filter, options_for_select([t(:artist), t(:chart)], "Lyrics") %>
+	<%= text_field_tag :search_contents %>
+
+	<%# TODO: Update t(:search) adequately so it's not 限定されている to search charts only %>
+	<%= submit_tag t(:search) %>
+<% end %>
+
+<% if params[:search_contents] != nil %>
+	<%= @results %>
+<% end %>

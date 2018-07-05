@@ -9,5 +9,11 @@ class HomeController < ApplicationController
   end
 
   def search
+  	if params[:search_contents]
+	  	@results = '入力した文字列：' + params[:search_contents]
+	end
+  	
+  	# TODO: viewの方でselect_tagでアーティストかチャートか歌詞かのどちらかをしらべたいのかを決めて、
+  	# ここで適切なSQLを実行する
   end
 end
