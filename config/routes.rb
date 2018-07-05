@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     get 'home/index'
     get 'home/songs' => 'home#songs'
+    get 'search' => 'home#search'
     root to: 'home#index'
 
     devise_for :users, controllers: {

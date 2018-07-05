@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
     # TODO: gemで漢字をひらながに変換してから順に並べたい
   end
+
+  def search
+  end
 end
