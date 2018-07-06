@@ -1,22 +1,33 @@
 <h1>Search</h1>
 
-<%= form_tag '/search', method: :post do |f| %>
-	<%# TODO: I18n %>
-	<p>Search for a chart</p>
-	<%= select_tag :search_filter, options_for_select(["Artist", "Title", "Lyrics"]) %>
-	<%= text_field_tag :search_contents %>
+<div class="row text-center">
+	<div class="panel panel-default">
+	<div class="panel panel-body">
 
-	<%# TODO: Update t(:search) adequately so it's not 限定されている to search charts only %>
-	<%= submit_tag t(:search) %>
-<% end %>
+	<div class="col-xs-12 col-md-6">
+	<%= form_tag '/search', method: :post do |f| %>
+		<%# TODO: I18n %>
+		<p><%= t(:search_for_a_chart) %></p>
+		<%= select_tag :search_filter, options_for_select([t(:artist), t(:title), t(:lyrics)]) %>
+		<%= text_field_tag :search_contents %>
 
-<%= form_tag '/search', method: :post do |f| %>
-	<p>Search for a user</p>
-	<%= hidden_field_tag :search_filter, "User" %>
-	<%= text_field_tag :search_contents %>
+		<%# TODO: Update t(:search) adequately so it's not 限定されている to search charts only %>
+		<%= submit_tag t(:search), class: 'btn btn-primary' %>
+	<% end %>
+	</div>
 
-	<%= submit_tag "Search" %>
-<% end %>
+	<div class="col-xs-12 col-md-6">
+	<%= form_tag '/search', method: :post do |f| %>
+		<p><%= t(:search_for_a_user) %></p>
+		<%= hidden_field_tag :search_filter, "User" %>
+		<%= text_field_tag :search_contents %>
+
+		<%= submit_tag t(:search), class: 'btn btn-primary' %>
+	<% end %>
+	</div>
+	</div>
+	</div>
+</div>
 
 <div class="panel panel-default" id="songs_index">
 	<div class="panel panel-heading">
