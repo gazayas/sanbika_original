@@ -1,6 +1,6 @@
 <%# TODO: Display artist on right side like user/show.html.erb's songs panel %>
 
-<% @results.each do |res| %>
-	<% user = User.find(res.user_id) %>
-	<%= link_to res.title, user_song_path(user, res) %>
+<% @results.each do |song| %>
+	<% user = User.find(song.user_id) %>
+	<%= link_to song.title, user_song_path(user, song) %>
 <% end %>

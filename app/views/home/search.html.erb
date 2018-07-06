@@ -2,11 +2,20 @@
 
 <%= form_tag '/search', method: :post do |f| %>
 	<%# TODO: I18n %>
-	<%= select_tag :search_filter, options_for_select(["Artist", "Title", "Lyrics", "User"]) %>
+	<p>Search for a chart</p>
+	<%= select_tag :search_filter, options_for_select(["Artist", "Title", "Lyrics"]) %>
 	<%= text_field_tag :search_contents %>
 
 	<%# TODO: Update t(:search) adequately so it's not 限定されている to search charts only %>
 	<%= submit_tag t(:search) %>
+<% end %>
+
+<%= form_tag '/search', method: :post do |f| %>
+	<p>Search for a user</p>
+	<%= hidden_field_tag :search_filter, "User" %>
+	<%= text_field_tag :search_contents %>
+
+	<%= submit_tag "Search" %>
 <% end %>
 
 <%# TODO: Write a user results partial and a chart results partial %>
