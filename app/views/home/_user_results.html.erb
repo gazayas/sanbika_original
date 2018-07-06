@@ -1,0 +1,19 @@
+<%# TODO: user/index.html.erbとほぼ同じ形式がからrefactorした方がいいかもしれない %>
+
+<ul class="list-group col-xs-12 col-lg-4">
+    <% @results.each do |user| %>
+        <li class="list-group-item"><%# TODO: if user.confirmed? の人だけにするかな %>
+            <% if user.user_image.file == nil %>
+             	<%# Hard code height and width for default pic because it's not using carrierwave to resize %>
+            	<%= image_tag('user_black_logo.jpg', id: 'user_image_thumbnail', height: '50', width: '50') %>
+            <% else %>
+            	<%= image_tag(user.user_image.url(:thumb).to_s, id: 'user_image_thumbnail') %>
+            <% end %>
+
+            <%= link_to(user.name, user_path(user)) %>
+            <% if current_user && current_user.admin %>
+            	<%= link_to t(:delete), user_path(user), method: :delete, data: { confirm: t(:confirm_deletion) } %>
+            <% end %>
+        </li>
+    <% end %>
+</ul>

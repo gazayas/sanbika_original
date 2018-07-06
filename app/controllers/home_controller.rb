@@ -17,7 +17,7 @@ class HomeController < ApplicationController
       case params[:search_filter]
       when "Artist"
         @results = Song.page(params[:page]).where(["artist LIKE ?", params[:search_contents]]).per(25)
-      when "Chart"
+      when "Title"
         @results = Song.page(params[:page]).where(["title LIKE ?", params[:search_contents]]).per(25)
       when "User"
         @results = User.page(params[:page]).where(["name LIKE ?", params[:search_contents]]).per(25)

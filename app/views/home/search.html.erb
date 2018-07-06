@@ -2,7 +2,7 @@
 
 <%= form_tag '/search', method: :post do |f| %>
 	<%# TODO: I18n %>
-	<%= select_tag :search_filter, options_for_select(["Artist", "Chart", "User"]) %>
+	<%= select_tag :search_filter, options_for_select(["Artist", "Title", "Lyrics", "User"]) %>
 	<%= text_field_tag :search_contents %>
 
 	<%# TODO: Update t(:search) adequately so it's not 限定されている to search charts only %>
@@ -12,18 +12,22 @@
 <%# TODO: Write a user results partial and a chart results partial %>
 
 <div class="panel panel-default" id="songs_index">
-  <div class="panel panel-heading">
-    <h1>Results</h1>
-  </div>
-  <ul class="list-group">
-  	<% if @results.empty? %>
-  		<p>No results</p>
-  	<% else %>
-	    <% @results.each do |res| %>
-	        <li class="list-group-item"><%= res %></li>
-	    <% end %>
-    <% end %>
-  </ul>
+	<div class="panel panel-heading">
+  	  <h1>Results</h1>
+  	</div>
+  	<div class="panel panel-body">
+		<ul class="list-group">
+	  		<% if @results.empty? %>
+	  			<p>No results</p>
+		  	<% else %>
+				<% if params[:search_filter] == "Title" || params[:search_filter] == "Artist" %>
+					<%= render 'chart_results' %>
+				<% else %>
+					<%= render 'user_results' %>
+				<% end %>
+		    <% end %>
+		  </ul>
+	</div>
 </div>
 
 <div class="pagination_container">
