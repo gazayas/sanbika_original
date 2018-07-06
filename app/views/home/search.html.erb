@@ -2,13 +2,28 @@
 
 <%= form_tag '/search', method: :post do |f| %>
 	<%# TODO: I18n %>
-	<%= select_tag :search_filter, options_for_select([t(:artist), t(:chart)], "Lyrics") %>
+	<%= select_tag :search_filter, options_for_select(["Artist", "Chart", "User"]) %>
 	<%= text_field_tag :search_contents %>
 
 	<%# TODO: Update t(:search) adequately so it's not 限定されている to search charts only %>
 	<%= submit_tag t(:search) %>
 <% end %>
 
-<% if params[:search_contents] != nil %>
-	<%= @results %>
-<% end %>
+<div class="panel panel-default" id="songs_index">
+  <div class="panel panel-heading">
+    <h1>Results</h1>
+  </div>
+  <ul class="list-group">
+  	<% if @results.empty? %>
+  		<p>No results</p>
+  	<% else %>
+	    <% @results.each do |res| %>
+	        <li class="list-group-item"><%= res %></li>
+	    <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="pagination_container">
+  <%= paginate @results unless @results.empty? %>
+</div>

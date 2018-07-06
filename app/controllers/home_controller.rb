@@ -9,11 +9,23 @@ class HomeController < ApplicationController
   end
 
   def search
-  	if params[:search_contents]
-	  	@results = '入力した文字列：' + params[:search_contents]
-	end
+  	#if params[:search_contents]
+	  #	@results = '入力した文字列：' + params[:search_contents]
+    #end
+
+    @results = ""
   	
-  	# TODO: viewの方でselect_tagでアーティストかチャートか歌詞かのどちらかをしらべたいのかを決めて、
-  	# ここで適切なSQLを実行する
+    # TODO: テストも書いた方がいい
+
+    flash[:notice] = params[:search_filter]
+
+    case params[:search_filter]
+    when "Artist"
+      @results = Song.page(params[:page]).where(["artist LIKE ?", params[:search_contents]]).per(25)
+    when "Chart"
+      @results = Song.page(params[:page]).where(["title LIKE ?", params[:search_contents]]).per(25)
+    when "User"
+      @results = User.page(params[:page]).where(["name LIKE ?", params[:search_contents]]).per(25)
+    end
   end
 end
