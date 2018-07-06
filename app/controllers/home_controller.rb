@@ -9,15 +9,7 @@ class HomeController < ApplicationController
   end
 
   def search
-  	#if params[:search_contents]
-	  #	@results = '入力した文字列：' + params[:search_contents]
-    #end
-
     @results = ""
-  	
-    # TODO: テストも書いた方がいい
-
-    flash[:notice] = params[:search_filter]
 
     case params[:search_filter]
     when "Artist"
