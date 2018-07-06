@@ -1,8 +1,5 @@
 <div class="container-fluid">
-  <% if @songs.empty? %>
-    <!-- TODO: application.html.erbの検索はhome/searchに移転するように修正してください -->
-    <%= "探している賛美歌は見つかりませんでした" %>
-  <% elsif @songs != nil %>
+  <% if @songs  %>
     <div class="panel panel-default" id="songs_index">
       <div class="panel panel-heading">
         <h1><%= t(:list_of_charts) %></h1>
@@ -17,6 +14,6 @@
   <% end %>
 
   <div class="pagination_container">
-    <%= paginate @songs %>
+    <%= paginate @songs if @songs %>
   </div>
 </div>

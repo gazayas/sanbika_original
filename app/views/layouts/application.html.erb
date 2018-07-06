@@ -67,7 +67,9 @@
 
             <!-- TODO: collapseを開くとtext_fieldが長すぎる。sizeを固定してください -->
             <li>
-              <%= text_field_tag :search, "", class: 'form-control hidden-sm hidden-md hidden-lg', placeholder: t(:search) %>
+              <%= form_tag('/search', method: :post) do %>
+                <%= text_field_tag :search_contents, "", class: 'form-control hidden-sm hidden-md hidden-lg', placeholder: t(:search) %>
+              <% end %>
             </li>
           </ul>
         </div>
