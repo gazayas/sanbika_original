@@ -11,7 +11,6 @@
 		<%= select_tag :search_filter, options_for_select([t(:artist), t(:title), t(:lyrics)]) %>
 		<%= text_field_tag :search_contents %>
 
-		<%# TODO: Update t(:search) adequately so it's not 限定されている to search charts only %>
 		<%= submit_tag t(:search), class: 'btn btn-primary' %>
 	<% end %>
 	</div>
