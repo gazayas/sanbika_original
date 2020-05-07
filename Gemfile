@@ -19,7 +19,7 @@ gem 'bootstrap-sass'
 gem 'kaminari', '~> 0.17.0'
 gem 'friendly_id', '~> 5.1.0'
 gem 'database_cleaner', '~> 1.5.0'
-gem 'rake', '~> 11.2.2'
+gem 'rake', '~> 12.3.3'
 
 gem 'pdfkit'
 gem 'wkhtmltopdf'
