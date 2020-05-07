@@ -89,7 +89,7 @@ en:
 
   # users/show.html.erb
   edit_profile: 'Edit profile'
-  user_charts: "\'s charts"
+  user_charts: "\u0027s charts" # \u0027 is a single quote
   new_chart: 'New chart'
   no_charts: 'This user has no charts'
 
@@ -115,7 +115,7 @@ en:
   invalid_link: 'This link is invalid' # models/song.rb
 
   # application controller
-  cant_change_info: "You cannot change other user\'s information"
+  cant_change_info: "You cannot change other user\u0027s information"
 
   # Mail
   mail_greeting: 'Thank you for using sanbika!'
@@ -129,7 +129,7 @@ en:
   your_account_has_been_locked: 'Your account has been locked due to an excessive number of unsuccessful sign in attempts.'
   click_to_unlock_message: 'Click the link below to unlock your account:'
   click_to_unlock: 'Unlock my account'
-  
+
   activerecord:
     models:
       user: 'User'
