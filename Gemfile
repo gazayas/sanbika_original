@@ -25,6 +25,8 @@ gem 'rake', '~> 12.3.3'
 gem 'pdfkit'
 gem 'wkhtmltopdf'
 
+gem 'therubyracer'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
