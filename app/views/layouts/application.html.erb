@@ -14,15 +14,21 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- 助かった：https://stackoverflow.com/questions/6483425/prevent-iphone-from-zooming-in-on-select-in-web-app -->
+    <!-- https://stackoverflow.com/questions/6483425/prevent-iphone-from-zooming-in-on-select-in-web-app -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <meta name="description" content="賛美歌のデータベース。賛美歌チャートを検索したり、作成したりすることができます。">
 
-    <meta name="keywords" content="賛美, 賛美歌, ワーシップ, イエス, キリスト, キリスト教, 神, クリスチャン, 歌詞, コード, praise, worship, Jesus, Christ, Christianity, Christian, God, lyrics, chords">
+    <meta
+      name="keywords" content="賛美, 賛美歌, ワーシップ, イエス, キリスト,
+      キリスト教, 神, クリスチャン, 歌詞, コード, praise, worship, Jesus,
+      Christ, Christianity, Christian, God, lyrics, chords"
+    >
   </head>
 
   <body>
+
+    <!-- navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <%= link_to "sanbika", home_index_path, class: "navbar-brand" %>
@@ -74,14 +80,16 @@
       </div>
     </nav>
 
+    <!-- TODO: Delete buffer and implement proper css -->
     <div id="buffer"></div>
 
+    <!-- Notices (User registration complete, etc.) -->
     <!-- TODO: フラッシュ通知をここに入れたいけどindex.html.erbのheaderの上になってしまうから気になる -->
     <div id="notice_container" class="container">
       <% if notice %>
         <p class="alert alert-success alert-dismissable" data-dismiss="alert" aria-label="close">
           <%= notice %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
-        </p><!-- 前は class="notice" でした。RailsのデフォルトのCSSかな-->
+        </p>
       <% elsif alert %>
         <p class="alert alert-danger alert-dismissable" data-dismiss="alert" aria-label="close">
           <span class="glyphicon glyphicon-warning-sign"></span>
@@ -91,5 +99,6 @@
     </div>
 
     <%= yield %>
+
   </body>
 </html>
