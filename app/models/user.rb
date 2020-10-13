@@ -13,13 +13,13 @@ class User < ApplicationRecord
   # carrierwaveで画像
   mount_uploader :user_image, UserImageUploader
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :name, uniqueness: true, length: { minimum: 5, maximum: 40 }
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  # validates :name, uniqueness: true, length: { minimum: 5, maximum: 40 }
+  # validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   # validates :user_image
 
-  def email_required?
-    false
-  end
+  # def email_required?
+  #   false
+  # end
 end
