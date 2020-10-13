@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
     # TODO: Change routes to something simple like "home" instead of "home#index"

@@ -46,7 +46,7 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
+            <% if user_signed_in? %>
               <li>
                 <%= link_to '<span class="glyphicon glyphicon-home"></span> '.html_safe + " #{current_user.name}", current_user %>
               </li>
