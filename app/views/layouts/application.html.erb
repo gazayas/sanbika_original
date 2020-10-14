@@ -38,7 +38,7 @@
           <span class="icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse navHeaderCollapse">
-          
+
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li>
@@ -76,15 +76,6 @@
 
     <!-- TODO: Delete buffer and implement proper css -->
     <div id="buffer"></div>
-
-    <% if user_signed_in? %>
-      <strong><%= link_to current_user.username, pages_show_path %></strong>
-      <%= link_to 'プロフィール変更', edit_user_registration_path %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'サインアップ', new_user_registration_path %>
-      <%= link_to 'ログイン', new_user_session_path %>
-    <% end %>
 
     <!-- Notices (User registration complete, etc.) -->
     <!-- TODO: フラッシュ通知をここに入れたいけどindex.html.erbのheaderの上になってしまうから気になる -->
