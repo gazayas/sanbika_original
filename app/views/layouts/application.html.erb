@@ -38,13 +38,7 @@
           <span class="icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse navHeaderCollapse">
-          <ul class="nav navbar-nav navbar-left">
-            <li style="margin-left: 20px;">
-              <%= form_tag url_for(controller: 'home', action: 'songs'), method: 'get' do %>
-                <%= text_field_tag :search, "", class: 'form-control hidden-xs', placeholder: t(:search), style: 'margin-top: 8px;', size: '35' %>
-              <% end %>
-            </li>
-          </ul>
+          
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li>
