@@ -1,62 +1,29 @@
-<%= devise_error_messages! %>
+<h2>Sign up</h2>
 
-<div class="container col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-  <div id="registration_panel" class="panel panel-default">
-    <div class="panel panel-heading">
-      <h2><%= t(:account_reg) %></h2>
-    </div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-      <div class="input_fields">
-        <div class="field">
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-user"></span>
-            </div>
-            <%= f.text_field :name, class: 'form-control',
-                                    placeholder: t(:user_name_registration),
-                                    autofocus: true %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-envelope"></span>
-            </div>
-            <%= f.email_field :email, class: 'form-control', placeholder: t(:email) %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-lock"></span>
-            </div>
-            <% password_placeholder = t(:password) %>
-            <% if @minimum_password_length %>
-              <% password_placeholder += '（' + @minimum_password_length.to_s + t(:or_more) + '）' %>
-            <% end %>
-            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: password_placeholder %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-lock"></span>
-            </div>
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: t(:password_confirmation) %>
-          </div>
-        </div>
-      </div>
-
-      <div class="actions">
-        <%= f.submit t(:register), class: 'btn btn-primary' %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-</div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
