@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_current_user, except: [:index, :show, :print]
+  before_action :authenticate_user!, except: [:index, :show, :print]
 
   def show
     @user = User.friendly.find(params[:user_id])
