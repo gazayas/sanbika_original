@@ -11,9 +11,11 @@ gem 'coffee-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'jbuilder', github: 'rails/jbuilder', branch: 'master'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
-gem 'omniauth-twitter'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
+
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 gem 'devise'
 gem 'figaro'
