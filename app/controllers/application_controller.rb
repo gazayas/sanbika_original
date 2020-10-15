@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password])
   end
 
+  # "resource" here is the user that signed in
+  # This calls #sign_in_and_redirect on the returned object,
+  # so all we need to do is return the path here
+  def after_sign_in_path_for(resource)
+    user_path(resource)
+  end
+
 =begin
   def authenticate_current_user
     if params[:user_id]
