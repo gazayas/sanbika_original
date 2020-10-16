@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:twitter, :facebook]
+         :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
   has_many :songs, dependent: :destroy
 
@@ -32,6 +32,10 @@ class User < ApplicationRecord
       elsif auth["provider"] == "facebook"
         user.username = auth["info"]["name"]
         user.user_image = auth["info"]["image"].sub("picture","picture?type=large")
+      elsif auth["provider"] == "google_oauth2"
+        user.username = auth["info"]["name"]
+        user.user_image = auth["info"]["image"].sub(/=s\d+/, "=s300")
+        binding.pry
       end
     end
   end

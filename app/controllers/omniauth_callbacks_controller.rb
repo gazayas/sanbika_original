@@ -8,6 +8,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from :twitter
   end
 
+  def google_oauth2
+    callback_from :google_oauth2
+  end
+
   def callback_from provider
     if provider == :twitter
       @user = User.from_omniauth(request.env["omniauth.auth"].except("extra"))
