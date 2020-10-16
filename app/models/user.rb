@@ -35,7 +35,6 @@ class User < ApplicationRecord
       elsif auth["provider"] == "google_oauth2"
         user.username = auth["info"]["name"]
         user.user_image = auth["info"]["image"].sub(/=s\d+/, "=s300")
-        binding.pry
       end
     end
   end
