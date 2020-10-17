@@ -1,29 +1,63 @@
-<h2>Sign up</h2>
+<h2 class="text-center" style="margin-bottom: 30px;">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+<div class="row">
+  <div id="registration_text_holder" class="col-sm-12 col-md-6">
+    <div class="row">
+      <span id="note1" class="music_note col-xs-4" style="margin-top: 90px;">♩</span>
+      <span id="note2" class="music_note col-xs-4" style="margin-top: 70px;">♩</span>
+      <span id="note3" class="music_note col-xs-4" style="margin-top: 115px;">♫</span>
+    </div>
+    <br/>
+    <div id="registration_text" class="text-center" style="padding-top: 25px; font-size: 18px;">
+      <!-- TODO: i18n -->
+      Sign up and confirm your e-mail address<br/>
+      to login with the social media network of your choice.
+    </div>
   </div>
+  <div class="jumbotron text-center col-sm-12 col-md-6" style="margin: 0px auto;">
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form">
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: "form-control registration_fields", autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, class: "form-control registration_fields", autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, class: "form-control registration_fields", autocomplete: "new-password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: 'btn btn-primary', style: "margin-top: 30px;" %>
+        </div>
+      <% end %>
+    </div>
+
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+<div class="text-center" style="padding-top: 20px; margin: 0px auto;">
+  <%= render "devise/shared/links" %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script>
+  window.sr = ScrollReveal();
+  sr.reveal('#note1', { delay: 200 });
+  sr.reveal('#note2', { delay: 300 });
+  sr.reveal('#note3', { delay: 500 });
+</script>

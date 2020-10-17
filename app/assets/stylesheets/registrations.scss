@@ -11,3 +11,19 @@
 .field {
   margin: 10px 0px;
 }
+
+/* Overriding the style above for bootstrap style */
+#registration_text_holder {
+  border-radius: 2%;
+  /* border: 1px black solid; */
+}
+
+.registration_fields {
+   margin: 0px auto;
+   width: 55% !important;
+}
+
+.music_note {
+  font-size: 50px;
+  text-align: center;
+}
