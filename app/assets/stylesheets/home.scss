@@ -22,6 +22,23 @@ header.masthead {
   }
 }
 
+.sns_login_button {
+  margin: 10px 0px;
+  font-size: 20px !important;
+  width: 75%;
+}
+
+.home_jumbotron {
+  text-align: center;
+  color: black;
+  background-color: rgba(220, 220, 220, 0.9) !important;
+}
+
+.jumbotron_inner {
+  text-align: center;
+  color: black;
+  background-color: rgba(200, 200, 200, 0.9);
+}
 
 #features_header {
   width: 100%;
@@ -91,10 +108,10 @@ header.masthead {
 
 #main_footer {
   padding: 20px 0px;
-  
+
   #fontawesome_wrapper {
     display: inline;
-    float: right;    
+    float: right;
     a {
       color: gray;
       text-decoration: none;
@@ -103,7 +120,7 @@ header.masthead {
       color: white;
     }
   }
-  
+
   .footer_link{
     padding: 0px 10px;
   }

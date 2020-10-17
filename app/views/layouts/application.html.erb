@@ -42,21 +42,17 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li>
-                <%= link_to '<span class="glyphicon glyphicon-home"></span> '.html_safe + " #{current_user.name}", current_user %>
+                <%= link_to current_user  do %>
+                  <%= image_tag current_user.user_image, class: "user_thumbnail" %>
+                  <span><%= current_user.username %>
+                <% end %>
               </li>
               <li>
                 <%# TODO: 設定のページの作成。プロファイルの削除をそこで行いたい %>
-                <%= link_to '<span class="glyphicon glyphicon-cog"></span> '.html_safe + t(:account_settings), current_user %>
+                <%#= link_to '<span class="glyphicon glyphicon-cog"></span> '.html_safe + t(:account_settings), current_user %>
               </li>
               <li>
                 <%= link_to '<span class="glyphicon glyphicon-new-window"></span> '.html_safe + t(:logout), destroy_user_session_path, method: :delete %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to '<span class="glyphicon glyphicon-user"></span> '.html_safe + t(:login), new_user_session_path %>
-              </li>
-              <li>
-                <%= link_to '<span class="glyphicon glyphicon-pencil"></span> '.html_safe + t(:account_reg), new_user_registration_path %>
               </li>
             <% end %>
 
@@ -67,7 +63,7 @@
 
             <!-- TODO: collapseを開くとtext_fieldが長すぎる。sizeを固定してください -->
             <li>
-              <%= text_field_tag :search, "", class: 'form-control hidden-sm hidden-md hidden-lg', placeholder: t(:search) %>
+              <%#= text_field_tag :search, "", class: 'form-control hidden-sm hidden-md hidden-lg', placeholder: t(:search) %>
             </li>
           </ul>
         </div>

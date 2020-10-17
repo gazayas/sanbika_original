@@ -10,9 +10,9 @@
           <li class="list-group-item"><%# TODO: if user.confirmed? の人だけにするかな %>
             <% if user.user_image == nil %>
               <%# Hard code height and width for default pic because it's not using carrierwave to resize %>
-              <%= image_tag('user_black_logo.jpg', id: 'user_image_thumbnail', height: '50', width: '50') %>
+              <%= image_tag('user_black_logo.jpg', class: 'user_image_thumbnail', height: '50', width: '50') %>
             <% else %>
-              <%= image_tag(user.user_image, id: 'user_image_thumbnail') %>
+              <%= image_tag(user.user_image, class: 'user_thumbnail', style: 'height: 60px;') %>
             <% end %>
 
             <%= link_to(user.username, user_path(user)) %>

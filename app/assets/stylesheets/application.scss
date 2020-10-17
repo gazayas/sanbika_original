@@ -56,6 +56,12 @@ body {
   }
 }
 
+/* User related style */
+.user_thumbnail {
+  height: 20px;
+  border-radius: 50%;
+}
+
 /* Flash notice */
 .alert {
   -webkit-transition: opacity 1s ease-out;
