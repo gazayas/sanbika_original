@@ -257,7 +257,7 @@ Devise.setup do |config|
     callback_url: 'http://127.0.0.1:3000/users/auth/twitter/callback'
 
   config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'],
-    callback_url: 'http://localhost:3000/users/auth/google_oauth2/callback'
+    callback_url: 'https://localhost:3000/users/auth/google_oauth2/callback'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
