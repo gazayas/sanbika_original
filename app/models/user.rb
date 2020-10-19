@@ -5,20 +5,47 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
   has_many :songs, dependent: :destroy
 
   # carrierwaveで画像
-  mount_uploader :user_image, UserImageUploader
+  # mount_uploader :user_image, UserImageUploader
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :name, uniqueness: true, length: { minimum: 5, maximum: 40 }
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  # validates :user_image
+  # def email_required?
+  #   false
+  # end
 
-  def email_required?
-    false
+  def self.from_omniauth(auth)
+    find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+
+      # The sub logic for the images helps display the size you choose
+      # TODO: Add a thumbnail column to the users and save small pictures to that attribute
+      if auth["provider"] == "twitter"
+        user.username = auth["info"]["nickname"]
+        user.user_image = auth["info"]["image"].sub("_normal", "")
+      elsif auth["provider"] == "facebook"
+        user.username = auth["info"]["name"]
+        user.user_image = auth["info"]["image"].sub("picture","picture?type=large")
+      elsif auth["provider"] == "google_oauth2"
+        user.username = auth["info"]["name"]
+        user.user_image = auth["info"]["image"].sub(/=s\d+/, "=s300")
+      end
+    end
+  end
+
+  def self.new_with_session(params, session)
+    if session["devise.user_attributes"]
+      new(session["devise.user_attributes"]) do |user|
+        user.attributes = params
+      end
+    else
+      super
+    end
   end
 end

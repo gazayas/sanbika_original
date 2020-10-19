@@ -1,14 +1,27 @@
 <header id="sanbikaHeader" class="masthead">
   <div class="container">
-    <div class="jumbotron" style="text-align: center; color: black; background-color: rgba(220, 220, 220, 0.9); margin-top: 100px;">
+    <div class="jumbotron home_jumbotron" style="color: black; margin-top: 50px;">
       <h1><%= t(:welcome) %></h1><br/>
       <p>
         <%= t(:psalm150_6) %>
         <i class="text-muted"><%= t(:psalm150_6_ref) %></i>
-      </p><br/>
-      <%= link_to t(:list_of_charts), home_songs_path, class: 'btn btn-primary'%>　|　
+      </p>
+      <br/>
+      <%= link_to t(:list_of_charts), home_songs_path, class: 'btn btn-primary'%>
       <%= link_to t(:list_of_users), users_path, class: 'btn btn-primary' %>
     </div>
+    <!--div class="jumbotron home_jumbotron">
+      <div class="row">
+
+        <!-- I'd like the links to be here, but the style is wack right now -->
+        <!--div class="col-md-3"></div>
+
+        <div class="jumbotron_inner col-sm-12 col-md-6"-->
+          <%#= render 'devise/shared/links_short_version' %>
+        <!--/div>
+
+        <div class="col-md-3">
+    </div-->
   </div>
 </header>
 

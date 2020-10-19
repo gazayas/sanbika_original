@@ -1,8 +1,24 @@
 /* index */
+#user_image_thumbnail {
+  height: 75px;
+}
 
 /* show */
 body {
   background-color: #f7faff !important;
+}
+
+/* TODO: Look over this sizing code */
+@media (min-width: 500px) {
+    #user_image {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    #user_image {
+        width: 50%;
+    }
 }
 
 #user_row {

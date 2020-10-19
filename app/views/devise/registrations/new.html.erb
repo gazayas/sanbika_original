@@ -1,62 +1,63 @@
-<%= devise_error_messages! %>
+<h2 class="text-center" style="margin-bottom: 30px;">Sign up</h2>
 
-<div class="container col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-  <div id="registration_panel" class="panel panel-default">
-    <div class="panel panel-heading">
-      <h2><%= t(:account_reg) %></h2>
+<div class="container">
+<div class="row" id="sign_up_page">
+  <div id="registration_text_holder" class="col-sm-12 col-md-6">
+    <div class="row">
+      <span id="note1" class="music_note col-xs-4" style="margin-top: 90px;">♩</span>
+      <span id="note2" class="music_note col-xs-4" style="margin-top: 70px;">♩</span>
+      <span id="note3" class="music_note col-xs-4" style="margin-top: 115px;">♫</span>
     </div>
+    <br/>
+    <div id="registration_text" class="text-center" style="padding-top: 25px; font-size: 18px;">
+      <!-- TODO: i18n -->
+      Sign up and confirm your e-mail address<br/>
+      to login with the social media network of your choice.
+    </div>
+  </div>
+  <div class="jumbotron text-center col-sm-12 col-md-6" style="margin: 0px auto;">
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="input_fields">
+      <div class="form">
         <div class="field">
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-user"></span>
-            </div>
-            <%= f.text_field :name, class: 'form-control',
-                                    placeholder: t(:user_name_registration),
-                                    autofocus: true %>
-          </div>
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: "form-control registration_fields", autofocus: true, autocomplete: "email" %>
         </div>
 
         <div class="field">
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-envelope"></span>
-            </div>
-            <%= f.email_field :email, class: 'form-control', placeholder: t(:email) %>
-          </div>
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, class: "form-control registration_fields", autocomplete: "new-password" %>
         </div>
 
         <div class="field">
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-lock"></span>
-            </div>
-            <% password_placeholder = t(:password) %>
-            <% if @minimum_password_length %>
-              <% password_placeholder += '（' + @minimum_password_length.to_s + t(:or_more) + '）' %>
-            <% end %>
-            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: password_placeholder %>
-          </div>
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, class: "form-control registration_fields", autocomplete: "new-password" %>
         </div>
 
-        <div class="field">
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-lock"></span>
-            </div>
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: t(:password_confirmation) %>
-          </div>
+        <div class="actions">
+          <%= f.submit "Sign up", class: 'btn btn-primary', style: "margin-top: 30px;" %>
         </div>
-      </div>
+      <% end %>
+    </div>
 
-      <div class="actions">
-        <%= f.submit t(:register), class: 'btn btn-primary' %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
   </div>
 </div>
+
+<div class="text-center" style="padding-top: 20px; margin: 0px auto;">
+  <%= render "devise/shared/links" %>
+</div>
+
+</div>
+
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script>
+  window.sr = ScrollReveal();
+  sr.reveal('#note1', { delay: 200 });
+  sr.reveal('#note2', { delay: 300 });
+  sr.reveal('#note3', { delay: 500 });
+</script>

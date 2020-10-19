@@ -14,6 +14,10 @@ gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'b
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 gem 'devise'
 gem 'figaro'
 gem 'bootstrap-sass'

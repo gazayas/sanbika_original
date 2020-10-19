@@ -6,9 +6,8 @@
       <div class="panel panel-default col-xs-8 col-md-12">
         <div class="panel-body text-center">
           <%= button_tag class: 'btn btn-link', data: {toggle: "modal", target: '#img_modal'} do %>
-            <%# ドキュメントによると、@user.user_imageはいつもnil以外に何かを返すので有無を分かるにはfileを参照する %>
-            <% if @user.user_image.file %>
-              <%= image_tag(image_url(@user.user_image), id: 'user_image') %>
+            <% if @user.user_image %>
+              <%= image_tag(image_url(@user.user_image), id: 'user_image', alt: 'user image') %>
             <% else %>
               <%= image_tag(image_url('user_black_logo.jpg'), id: 'user_image', width: '200', height: '200') %>
             <% end %>
@@ -21,8 +20,8 @@
                   <button type="button" class="btn btn-secondary pull-right" data-dismiss="modal">×</button>
                 </div>
                 <div class="modal-body">
-                  <% if @user.user_image.file %>
-                    <%= image_tag(image_url(@user.user_image(:big).to_s), id: 'modal_user_image') %>
+                  <% if @user.user_image %>
+                    <%= image_tag(image_url(@user.user_image), id: 'modal_user_image') %>
                   <% else %>
                     <%= image_tag(image_url('user_black_logo.jpg'), id: 'modal_user_image', width: '400', height: '400') %>
                   <% end %>
@@ -31,7 +30,7 @@
             </div>
           </div>
 
-          <h2><%= @user.name %></h2>
+          <h2><%= @user.username %></h2>
           <hr>
           <%= link_to t(:edit_profile), edit_user_path(@user) if current_user == @user %><br/>
           <% if current_user == @user %>
@@ -48,7 +47,7 @@
 
       <div class="col-xs-8 col-md-12">
         <div class="charts_header text-center">
-          <h3><%= @user.name + t(:user_charts) %></h3>
+          <h3><%= @user.username + t(:user_charts) %></h3>
 
           <% if current_user == @user %>
             <%= link_to '<span class="glyphicon glyphicon-pencil"></span> '.html_safe + t(:new_chart),

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks"}
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
     # TODO: Change routes to something simple like "home" instead of "home#index"
@@ -7,11 +10,6 @@ Rails.application.routes.draw do
     get 'home/index'
     get 'home/songs' => 'home#songs'
     root to: 'home#index'
-
-    devise_for :users, controllers: {
-      registrations: 'registrations',
-      sessions: 'sessions'
-    }
 
     # http://blog.takady.net/blog/2015/11/29/rails-routing-with-username-instead-of-id/
     # resources :users, param: :name, path: '/' do
@@ -23,5 +21,6 @@ Rails.application.routes.draw do
         end
       end
     end
+
   end
 end

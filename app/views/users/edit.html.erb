@@ -14,14 +14,18 @@
   <% end %>
 
   <div class="form-group">
-    <%# TODO: Probably unneeded because I added a default picture when signing up %>
     <% if @user.user_image? %>
       <div class="thumbnail">
-        <%= image_tag @user.user_image.url %>
+        <%= image_tag @user.user_image %>
       </div>
     <% end %>
     <%= f.file_field :user_image %>
-    <%= f.hidden_field :user_image_cache %>
+    <%#
+        Had this hidden field when I was using carrierwave.
+        I might still use it so the user can edit their image,
+        so I don't think I'll delete it for now.
+    %>
+    <%# f.hidden_field :user_image_cache %>
   </div>
 
   <%= f.submit class: 'btn btn-primary', value: t(:save), id: 'save_button' %>
