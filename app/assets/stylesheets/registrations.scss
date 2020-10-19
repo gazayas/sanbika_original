@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#sign_up_page {
+    border: 1px solid black;
+    border-radius: 1%;
+}
+
 .input_fields {
   width: 85%;
   margin: 0px auto;

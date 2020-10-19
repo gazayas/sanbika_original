@@ -6,9 +6,8 @@
       <div class="panel panel-default col-xs-8 col-md-12">
         <div class="panel-body text-center">
           <%= button_tag class: 'btn btn-link', data: {toggle: "modal", target: '#img_modal'} do %>
-            <%# ドキュメントによると、@user.user_imageはいつもnil以外に何かを返すので有無を分かるにはfileを参照する %>
             <% if @user.user_image %>
-              <%= image_tag(image_url(@user.user_image), id: 'user_image', style: 'height: 200px;') %>
+              <%= image_tag(image_url(@user.user_image), id: 'user_image', alt: 'user image') %>
             <% else %>
               <%= image_tag(image_url('user_black_logo.jpg'), id: 'user_image', width: '200', height: '200') %>
             <% end %>

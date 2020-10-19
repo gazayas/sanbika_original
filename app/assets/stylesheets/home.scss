@@ -22,10 +22,25 @@ header.masthead {
   }
 }
 
+@media (min-width: 500px) {
+    .sns_login_button {
+      margin: 10px 0px;
+      font-size: 12px !important;
+      width: 90%;
+    }
+}
+
+@media (min-width: 768px) {
+    .sns_login_button {
+      margin: 10px 0px;
+      font-size: 20px !important;
+      width: 90%;
+    }
+}
 .sns_login_button {
   margin: 10px 0px;
-  font-size: 20px !important;
-  width: 75%;
+  // font-size: 20px !important;
+  width: 90%;
 }
 
 .home_jumbotron {
