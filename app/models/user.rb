@@ -9,6 +9,8 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
   has_many :songs, dependent: :destroy
+  has_many :favorites
+  has_one :song, through: :favorites
 
   # carrierwaveで画像
   # mount_uploader :user_image, UserImageUploader

@@ -20,6 +20,11 @@ Rails.application.routes.draw do
           post :print
         end
       end
+
+      # Songs should be like on their respective page,
+      # but it ultimately belongs to the user and
+      # they can remove
+      resources :favorites, only: [:create, :destroy]
     end
 
   end
