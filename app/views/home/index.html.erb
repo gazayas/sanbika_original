@@ -10,20 +10,21 @@
       <%= link_to t(:list_of_charts), home_songs_path, class: 'btn btn-primary'%>
       <%= link_to t(:list_of_users), users_path, class: 'btn btn-primary' %>
     </div>
-    <!--div class="jumbotron home_jumbotron">
-      <div class="row">
-
-        <!-- I'd like the links to be here, but the style is wack right now -->
-        <!--div class="col-md-3"></div>
-
-        <div class="jumbotron_inner col-sm-12 col-md-6"-->
-          <%#= render 'devise/shared/links_short_version' %>
-        <!--/div>
-
-        <div class="col-md-3">
-    </div-->
   </div>
 </header>
+
+<div id="homepage_login_links">
+    <div class="row">
+
+        <div class="col-md-3"></div>
+
+        <div class="jumbotron_inner col-sm-12 col-md-6">
+          <%= render 'devise/shared/links_short_version' %>
+        </div>
+
+        <div class="col-md-3"></div>
+    </div>
+</div>
 
 <div id="features_header">
   <div class="row">

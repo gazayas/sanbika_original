@@ -20,6 +20,16 @@ header.masthead {
   .jumbotron {
     margin-top: 5% !important;
   }
+
+  .home_jumbotron {
+      h1 {
+          font-size: 27px;
+      }
+
+      p {
+          font-size: 20px !important;
+      }
+  }
 }
 
 @media (min-width: 500px) {
@@ -36,7 +46,12 @@ header.masthead {
       font-size: 20px !important;
       width: 90%;
     }
+
+    .jumbotron {
+      margin-top: 10% !important;
+    }
 }
+
 .sns_login_button {
   margin: 10px 0px;
   // font-size: 20px !important;
@@ -53,6 +68,10 @@ header.masthead {
   text-align: center;
   color: black;
   background-color: rgba(200, 200, 200, 0.9);
+}
+
+#homepage_login_links {
+    margin: 30px 0px;
 }
 
 #features_header {
