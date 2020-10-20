@@ -1,6 +1,6 @@
 <header id="sanbikaHeader" class="masthead">
   <div class="container">
-    <div class="jumbotron home_jumbotron" style="color: black; margin-top: 50px;">
+    <div class="jumbotron home_jumbotron" style="color: black;">
       <h1><%= t(:welcome) %></h1><br/>
       <p>
         <%= t(:psalm150_6) %>
@@ -13,16 +13,18 @@
   </div>
 </header>
 
-<div id="homepage_login_links">
-    <div class="row">
+<div class="container">
+    <div id="homepage_login_links">
+        <div class="row">
 
-        <div class="col-md-3"></div>
+            <div class="col-xs-0 col-md-3"></div>
 
-        <div class="jumbotron_inner col-sm-12 col-md-6">
-          <%= render 'devise/shared/links_short_version' %>
+            <div class="jumbotron_inner col-xs-12 col-md-6">
+              <%= render 'devise/shared/links_short_version' %>
+            </div>
+
+            <div class="col-xs-0 col-md-3"></div>
         </div>
-
-        <div class="col-md-3"></div>
     </div>
 </div>
 
