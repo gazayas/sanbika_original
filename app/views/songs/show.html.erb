@@ -15,6 +15,10 @@
         onchange: 'key_change("' +  @song.key + '", null);')
   %>
 
+  <div id="favorite">
+      <%= render 'shared/favorite', song: @song %>
+  </div>
+
   <!-- TODO: ちょっとね... -->
   <br/><br/>
 

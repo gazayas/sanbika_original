@@ -1,0 +1,2 @@
+$('#favorite').html("<%= escape_javascript(render 'shared/favorite', song: @song) %>")
+$('#star').toggleClass('glyphicon-star glyphicon-star-empty')

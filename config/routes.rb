@@ -23,8 +23,8 @@ Rails.application.routes.draw do
 
       # Songs should be like on their respective page,
       # but it ultimately belongs to the user and
-      # they can remove
-      resources :favorites, only: [:create, :destroy]
+      # they can remove it
+      resources :favorites, only: [:index, :new, :create, :post, :destroy]
     end
 
   end

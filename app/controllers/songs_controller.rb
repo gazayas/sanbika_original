@@ -8,6 +8,10 @@ class SongsController < ApplicationController
     if @song.video && !@song.video.empty?
       @video_id = @song.video.gsub(/(.*)(watch\?v=)/, "")
     end
+
+    if current_user_favorite
+      @favorite = current_user_favorite
+    end
   end
 
   def new
@@ -91,5 +95,9 @@ class SongsController < ApplicationController
 
     def song_params
       params.require(:song).permit(:title, :artist, :key, :song_body, :video)
+    end
+
+    def current_user_favorite
+      current_user.favorites.find_by_song_id(@song.id)
     end
 end

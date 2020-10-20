@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :songs, dependent: :destroy
   has_many :favorites
   has_one :song, through: :favorites
+  accepts_nested_attributes_for :favorites
 
   # carrierwaveで画像
   # mount_uploader :user_image, UserImageUploader

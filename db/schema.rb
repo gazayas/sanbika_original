@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_125827) do
+ActiveRecord::Schema.define(version: 2020_10_20_093630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.boolean "value"
+    t.bigint "song_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["song_id"], name: "index_favorites_on_song_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
@@ -72,4 +80,6 @@ ActiveRecord::Schema.define(version: 2020_10_13_125827) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "favorites", "songs"
+  add_foreign_key "favorites", "users"
 end

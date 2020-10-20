@@ -1,7 +1,7 @@
 class Song < ApplicationRecord
 	belongs_to :user
 	has_many :favorites
-	has_one :user, through: :favorites # ":favorite"
+	has_one :user, through: :favorites, dependent: :destroy
 
 	VIDEO_REGEXP = /\A(http)?(s)?(:\/\/)?(www\.youtube\.com\/watch\?(time_continue=\d+\&)?(v=))|(youtu\.be\/)(.*)\z/
 
@@ -13,8 +13,9 @@ class Song < ApplicationRecord
 						  length: { maximum: 2 }
 	validates :song_body, presence: true,
 						  length: { maximum: 7_000_000 }
-	validates :video,	  length: { maximum: 300 },
-						  :check_link
+	validates :video, :check_link,
+										length: { maximum: 300 }
+
 
 	#TODO: Upcaseかdowncase、どちらでも適切にマッチするように
 	def self.search(search)
