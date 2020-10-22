@@ -1,8 +1,4 @@
 class FavoritesController < ApplicationController
-    # Make these both ajax calls on the click of a button
-    def new
-    end
-
     def create
       Favorite.create(favorite_params)
       Favorite.all
@@ -18,9 +14,7 @@ class FavoritesController < ApplicationController
     end
 
     private
-
-    # strong parameters
     def favorite_params
-        params.permit(:value, :user_id, :song_id)
+      params.permit(:value, :user_id, :song_id)
     end
 end

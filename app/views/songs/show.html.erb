@@ -1,4 +1,3 @@
-<!-- TODO: このdivはどこで閉じられる？このページで閉じるかここにコメントを入れてください -->
 <div class="panel panel-default">
   <div class="panel panel-heading">
     <%= content_tag(:h2, @song.title, id: 'song_title') %>
@@ -8,26 +7,31 @@
   <%= @song.artist %>
   <br/>
 
-  <strong><%= t('activerecord.attributes.song.key') %></strong>
-  <%= select_tag(
-        :key_box,
-        options_for_select(sharp_notes, selected: @song.key),
-        onchange: 'key_change("' +  @song.key + '", null);')
-  %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4"></div>
+      <div class="col-xs-4" style="padding-top: 10px;">
+        <strong><%= t('activerecord.attributes.song.key') %></strong>
+        <%= select_tag(
+              :key_box,
+              options_for_select(sharp_notes, selected: @song.key),
+              onchange: 'key_change("' +  @song.key + '", null);')
+        %>
+      </div>
+      <div class="col-xs-1"></div>
+      <div id="favorite" class="col-xs-1">
+            <%= render 'shared/favorite', song: @song %>
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
 
-  <div id="favorite">
-      <%= render 'shared/favorite', song: @song %>
+    <strong>
+      <%= t(:hide_chords) %>
+      <%= check_box_tag "hide chords", nil, false, class: 'checkbox', onclick: 'toggle_visibility();', style: 'display: inline-block;' %>
+    </strong>
+
+    <div id="song_body"><%= sanitize(@song.song_body) %></div>
   </div>
-
-  <!-- TODO: ちょっとね... -->
-  <br/><br/>
-
-  <strong>
-    <%= t(:hide_chords) %>：
-    <%= check_box_tag "hide chords", nil, false, class: 'checkbox', onclick: 'toggle_visibility();', style: 'display: inline-block;' %>
-  </strong>
-
-  <div id="song_body"><%= sanitize(@song.song_body) %></div>
 
 
   <% if @video_id %>
@@ -50,7 +54,6 @@
     <%= f.submit t(:print) %><!-- make same as <a> tag -->
   <% end %>
 
-  <!-- TODO: keyの問題が解決できてないためにコメントアウトしてます -->
   <%# link_to 'pdf', print_user_song_path(format: "pdf") %>
 
   <p>
