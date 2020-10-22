@@ -98,6 +98,6 @@ class SongsController < ApplicationController
     end
 
     def current_user_favorite
-      current_user.favorites.find_by_song_id(@song.id)
+      current_user ? current_user.favorites.find_by_song_id(@song.id) : nil
     end
 end

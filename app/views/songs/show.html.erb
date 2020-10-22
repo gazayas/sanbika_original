@@ -19,9 +19,11 @@
         %>
       </div>
       <div class="col-xs-1"></div>
-      <div id="favorite" class="col-xs-1">
-            <%= render 'shared/favorite', song: @song %>
-      </div>
+      <% if current_user %>
+        <div id="favorite" class="col-xs-1">
+              <%= render 'shared/favorite', song: @song %>
+        </div>
+      <% end %>
       <div class="col-xs-1"></div>
     </div>
 
