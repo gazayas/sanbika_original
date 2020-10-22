@@ -86,6 +86,36 @@
       <div class="song_pagination text-center">
         <%= paginate @songs %>
       </div>
+
+      <div style="margin: 0px auto;">
+        <div class="favorites_header">
+        <h3><%= @user.username + " favorited songs" %></h3>
+
+        <% if !@user.favorites.empty? %>
+          <div>
+            <span style="margin-left: 5px"><%= t('activerecord.attributes.song.title') %></span>
+            <span class="pull-right" style="margin-right: 5px;"><%= t('activerecord.attributes.song.artist') %></span>
+          </div>
+
+          <ul class="list-group">
+            <% @user.favorites.each do |favorite| %>
+              <% song = Song.find(favorite.song_id) %>
+              <%= link_to (
+                            '<span>' + song.title + '</span>' +
+                            '<span class="chart_artist_name pull-right">' + truncate(song.artist) + '</span>'
+                          ).html_safe,
+                user_song_path(@user, song), class: 'list-group-item' %>
+             <% end %>
+          </ul>
+        <% else %>
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <h4>No favorites</h4>
+          </div>
+        </div>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

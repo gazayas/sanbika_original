@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :print]
 
   def show
-    @user = User.friendly.find(params[:user_id])
+    @user = User.find(@song.user_id)
 
     if @song.video && !@song.video.empty?
       @video_id = @song.video.gsub(/(.*)(watch\?v=)/, "")
