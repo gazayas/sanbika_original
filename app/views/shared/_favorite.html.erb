@@ -1,7 +1,21 @@
 <% if user_signed_in? %>
+
+  <!--
+    TODO: Although this works, things most likely
+          shouldn't be handled this way.
+          At least clean it up with a helper method or two.
+  -->
+  <% song_id = nil %>
+  <% if @song == nil %>
+    <% song_id = params[:song_id] %>
+  <% else %>
+    <% song_id = @song.id %>
+  <% end %>
+  <% @favorite = get_favorite current_user.id, song_id %>
+
   <% if @favorite != nil %>
     <!-- delete -->
-    <%= link_to user_favorite_path(@favorite), method: :delete, remote: true do %>
+    <%= link_to user_favorite_path(current_user, @favorite), method: :delete, remote: true do %>
       <i id="star" class="glyphicon glyphicon-star"></i>
     <% end %>
   <% else %>
@@ -9,10 +23,10 @@
     <%= form_for [current_user, @favorite], remote: true do |f| %>
       <%= hidden_field_tag :value, true %>
       <%= hidden_field_tag :user_id, current_user.id %>
-      <%= hidden_field_tag :song_id, params[:id] %>
+      <%= hidden_field_tag :song_id, @song.id %>
 
       <%= button_tag type: 'submit', style: 'border: none; background: none;' do %>
-        <i class="glyphicon glyphicon-star-empty"></i>
+        <i id="star-empty" class="glyphicon glyphicon-star-empty"></i>
       <% end %>
     <% end %>
   <% end %>

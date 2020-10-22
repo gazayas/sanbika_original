@@ -14,4 +14,7 @@ module ApplicationHelper
     devise_mapping.to
   end
 
+  def get_favorite user_id, song_id
+      Favorite.where(user_id: user_id, song_id: song_id).first
+  end
 end

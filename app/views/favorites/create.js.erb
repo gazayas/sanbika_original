@@ -1,3 +1,4 @@
 // TODO: Do the same for delete
 $('#favorite').html("<%= escape_javascript(render 'shared/favorite', song: @song) %>")
-$('#star').toggleClass('glyphicon-star-empty glyphicon-star')
+$('#star').show()
+$('#star-empty').hide()

@@ -9,7 +9,11 @@ class FavoritesController < ApplicationController
     end
 
     def destroy
-      @favorite = Favorite.where(song_id: params[:id], user_id: current_user.id).first
+      @favorite = Favorite.find(params[:id])
+
+      # Song needs to be redifined since the params
+      # get changed during the call to this controller
+      @song = Song.find(@favorite.song_id)
       @favorite.destroy
     end
 
