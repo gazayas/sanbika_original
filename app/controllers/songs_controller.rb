@@ -88,15 +88,16 @@ class SongsController < ApplicationController
   end
 
   private
-    def set_song
+
+  def set_song
       @song = Song.find(params[:id])
-    end
+  end
 
-    def song_params
+  def song_params
       params.require(:song).permit(:title, :artist, :key, :song_body, :video)
-    end
+  end
 
-    def current_user_favorite
+  def current_user_favorite
       current_user ? current_user.favorites.find_by_song_id(@song.id) : nil
-    end
+  end
 end
