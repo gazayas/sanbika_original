@@ -22,7 +22,7 @@ RSpec.describe Song, type: :model do
     describe 'title' do
       let(:song) { FactoryBot.build(:song, user: user, title: title) }
 
-      context '書いてない場合' do # これをshared_contextにする？
+      context '書いてない場合' do
         let(:title) { '' }
         it { is_expected.to be_invalid }
       end
@@ -47,7 +47,6 @@ RSpec.describe Song, type: :model do
       end
     end
 
-    # <select>で決まるからこのテストはあんまりいらないけど、念のために書いています。
     describe 'key' do
       let(:song) { FactoryBot.build(:song, user: user, key: key) }
 

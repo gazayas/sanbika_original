@@ -1,8 +1,7 @@
-/* songs/show.html.erbで使います */
-// TODO: print.html.erbで実装すること
-
+/* The following code is used primarily in songs#show */
 
 // TODO: sharp_or_flat_is_present_in(str)
+
 function replace_marks(str) {
   if (check_sharp(str)) {
     str = str.replace(/#/g, "♯");
@@ -20,13 +19,16 @@ $(document).ready(function() {
 
   for(var i = 0; i < song_body.length; i++) {
     var has_chords;
-    var str_ary = song_body[i].split(/(\s+|　+)/); // zenkakuも含めて
 
+    // The follwing Regular Expression has a Japanese white-space character in it.
+    // TODO: For clarity, it might be better to simply change it a hexidecimal value.
+    var str_ary = song_body[i].split(/(\s+|　+)/);
+
+    // TODO: Refactor this expression, make it into its own function.
     for(var x = 0; x < str_ary.length; x++) {
       if(/\s+|　+/.test(str_ary[x]) || str_ary[x] == "") {
-        // 空白だったら分からないからそのままcontinue
+        // Goes on to the next value if there is a space
       } else if(!chord_regexp.test(str_ary[x]) || /Chorus|CHORUS|Bridge|BRIDGE/.test(str_ary[x])) {
-        // falseが一回でも出たらbreak
         has_chords = false
         x = str_ary.length;
       } else {
@@ -34,10 +36,13 @@ $(document).ready(function() {
       }
     }
 
+    // If the array of strings consists of chords (as opposed to lyrics),
+    // Each one is wrapped in a span with the class .chord,
+    // and all of the flat and sharp flags (b and #) are changed accordingly.
     if(has_chords) {
       for(x = 0; x < str_ary.length; x++) {
         if(/^\w/.test(str_ary[x])) {
-          str_ary[x] = 
+          str_ary[x] =
             '<span class="chord" name="' + replace_marks(str_ary[x]) + '">' +
               replace_marks(str_ary[x]) +
             '</span>';
@@ -48,17 +53,13 @@ $(document).ready(function() {
     song_body[i] = str_ary.join("");
   }
 
-  // joinして実装
+  // Put the song body together again by joining the array of strings
   song_body = song_body.join("<br>");
-  song_body = song_body.replace(/^<br>\s{2,2}/, ""); // なぜこうなるだろうか分からんけど、<br>と空白が先頭に入るから消す
+
+  // TODO: Look into what's going on here and refactor this next line
+  song_body = song_body.replace(/^<br>\s{2,2}/, "");
   song_body_tag.innerHTML = song_body;
 
-  $('.chord').each(function() {
-    //もし太字にするんやったら早い段階でした方がいい
-    //this.style.fontWeight = "bold";
-    this.style.color = "navy";
-  });
-
-  // iframeにクラスをつける
-  $('iframe').addClass('embed-responsive-item');
+  $('.chord').each(function() { this.style.color = "navy"; })
+  $('iframe').addClass('embed-responsive-item')
 });

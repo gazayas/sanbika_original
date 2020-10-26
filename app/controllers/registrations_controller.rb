@@ -1,27 +1,22 @@
-class RegistrationsController < Devise::RegistrationsController	
+class RegistrationsController < Devise::RegistrationsController
+	protected
 
-	# 要らないですかね。tokenをメールで私たら問題はないと思います。	
-	# またmailerについてはMichael Hartlさんが書いたe-bookを見てみたらいいかもしれません。	
-	# before_action :authenticate_current_user, only: [:edit]	
+	def update_resource(resource, params)
+		resource.update_without_password(params)
+	end
 
-	protected	
-	def update_resource(resource, params)	
-		resource.update_without_password(params)	
-	end	
+	# TODO: Let the user sign in with their e-mail and password as well, not just omniauth
+	private
 
-	# http://jacopretorius.net/2014/03/adding-custom-fields-to-your-devise-user-model-in-rails-4.html	
+	def sign_up_params
+		params.require(:user).permit(:email, :password, :password_confirmation)
+	end
 
-	private	
-
-	def sign_up_params	
-		params.require(:user).permit(:email, :password, :password_confirmation)	
-	end	
-
-	def sign_in_params	
+	def sign_in_params
 		params.require(:user).permit(:email, :password)
-	end	
+	end
 
-	def account_update_params	
+	def account_update_params
     	params.require(:user).permit(:email, :password, :password_confirmation)
-	end	
+	end
 end

@@ -99,6 +99,6 @@ config.action_mailer.smtp_settings = {
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Carrierwaveでアップロード画像を表示するために
+  # This is here to display images uploaded with carrierwave
   config.serve_static_assets = true
 end

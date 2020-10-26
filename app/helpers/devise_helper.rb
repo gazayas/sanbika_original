@@ -1,6 +1,3 @@
-# http://qiita.com/inodev/items/d61539b86968f1274ef8
-# 上のリンクからコピペした
-
 module DeviseHelper
   def devise_error_messages!
     return "" if resource.errors.empty?

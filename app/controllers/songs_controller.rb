@@ -66,7 +66,6 @@ class SongsController < ApplicationController
     @user = User.friendly.find(params[:user_id])
     @song = Song.find(params[:id])
 
-    # この記事を参考にしました：http://ruby-rails.hatenadiary.com/entry/20140908/1410176894
     is_pdf = false
 
     respond_to do |format|

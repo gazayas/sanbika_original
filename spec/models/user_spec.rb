@@ -74,30 +74,6 @@ RSpec.describe User, type: :model do
       it "形式が正しいこと" do
         expect(uploader).to be_format('jpeg')
       end
-
-      # 次のテストを実装したい
-      # the small versionはページに表示されて、resizeと違う
-      # 例えばページの画像をクリックしたら、本当の(resizeされた)大きさを表示する
-      #
-      # thumbnailも要るかもしれない
-      # チャートの一覧の左側にthumbnailを表示できたらいいかな
-      # それはまた後で
-
-      # context 'the thumb version' do
-      #  it "scales down a landscape image to be exactly 64 by 64 pixels" do
-      #    expect(uploader.thumb).to have_dimensions(64, 64)
-      #  end
-      # end
-
-      # context 'the small version' do
-      #   it "scales down a landscape image to fit within 200 by 200 pixels" do
-      #     expect(uploader.small).to be_no_larger_than(200, 200)
-      #   end
-      # end
-
-      # it "makes the image readable only to the owner and not executable" do
-      #   expect(uploader).to have_permissions(0600)
-      # end
     end
   end
 end

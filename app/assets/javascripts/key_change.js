@@ -5,7 +5,8 @@ const FLAT_NOTES = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭"
 const ADDITIONS = ["add2", "add9", "dim7", "dim", "sus4", "sus", "maj7", "maj", "m7",
                    "m", "aug", "2", "6", "7", "9", "11"];
 
-// TODO: メソッドの名前 - is_sharpか何かに変えてください
+// TODO: Change the following two method names to
+// is_sharp and is_flat
 function check_sharp(note) {
   if (/#/.test(note) || /♯/.test(note)) {
   return true;
@@ -22,8 +23,7 @@ function check_flat(note) {
   }
 }
 
-// TODO: initialize_song.jsにもあるからどっちかを消してください
-// 「b」が「♭」に、「#」が「♯」に変換されます
+// TODO: This exists in initialize_song.js too.
 function replace_mark(note) {
   if (check_sharp(note)) {
     note = note.replace(/#/, "♯");
@@ -42,8 +42,9 @@ function position_of(note) {
   }
 }
 
-// TODO: old_keyの変わりにoriginal_keyを書いてください
-// songs/show.html.erbではその歌の@song.keyをすーっと参照するから
+// TODO: Write original_key instead of old_key,
+// since this represents the original_key in the database
+// and not the last key that the user chose.
 function key_change(old_key, slash_chords) {
   var new_key = document.getElementById('key_box').value;
   var key_up;

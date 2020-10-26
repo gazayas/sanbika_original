@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-  # I added the follwing three methods to enable
-  # the Devise partial on the home#index page
+  # The follwing three methods have been added to
+  # enable the Devise partial on the home#index page
   def devise_mapping
     Devise.mappings[:user]
   end

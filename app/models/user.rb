@@ -13,15 +13,9 @@ class User < ApplicationRecord
   has_one :song, through: :favorites
   accepts_nested_attributes_for :favorites
 
-  # carrierwaveで画像
+  # TODO: Use carrierwave to edit user images
   # mount_uploader :user_image, UserImageUploader
-
-  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-
-  # def email_required?
-  #   false
-  # end
-
+  
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
       user.provider = auth["provider"]

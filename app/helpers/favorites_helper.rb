@@ -1,8 +1,9 @@
 module FavoritesHelper
 
-  # The song#show page provides params,
-  # but the params change when a call is made
-  # to the favorites controller
+  # songs#show provides it's own parameters, but the parameters
+  # change when the ajax call to the favorites controller is made.
+  # This method helps get the correct parameters for displaying
+  # and saving/deleting the Favorite star.
   def get_song_id_from_params
     case params[:controller]
     when "songs"

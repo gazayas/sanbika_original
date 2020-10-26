@@ -22,7 +22,6 @@ h1 {
 
 
 /* show */
-
 .glyphicon-star, .glyphicon-star-empty {
   font-size: 35px;
   color: #0275d8;
@@ -31,8 +30,6 @@ h1 {
 #song_body, #print_song_body {
   white-space: pre-wrap;
   margin: 10px auto;
-  /*padding: 0px 30px;*/
-  /*text-align: left; */
   border: 1px gray solid;
 
   font-size: 22px;
@@ -42,12 +39,7 @@ h1 {
   }
 }
 
-/*.lyrics {
-  font-size: 20px;
-}*/
-
-
-/* _form */ /* 別のstylesheetとかぶってるやつをapplication.scssに書くこと */
+/* _form */
 .panel {
   text-align: center;
   table {
@@ -83,7 +75,6 @@ h1 {
 }
 
 /* print */
-
 #print_key {
   text-align: center;
 }

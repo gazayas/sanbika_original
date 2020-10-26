@@ -17,12 +17,12 @@ class Song < ApplicationRecord
 										length: { maximum: 300 }
 
 
-	#TODO: Upcaseかdowncase、どちらでも適切にマッチするように
+	# TODO: Change the Regular Expression so it matches with upcase/downcase
+	# Returns all instances if there are no search hits.
 	def self.search(search)
     	if search
-      		where(['title LIKE ?', "%#{search}%"]) #検索とtitleの部分一致を表示
+      		where(['title LIKE ?', "%#{search}%"])
     	else
-			# Returns all results
       		all
     	end
   	end
@@ -33,7 +33,6 @@ class Song < ApplicationRecord
 		errors.add(:video, I18n.t(:invalid_link)) unless video == "" || !!video.match(VIDEO_REGEXP)
 	end
 
-	# There's probably no need for this, so consider deleting it.
 	def self.favorites
 		Favorite.where(song_id: self.id)
 	end

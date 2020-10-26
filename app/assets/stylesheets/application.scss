@@ -81,12 +81,10 @@ body {
   transition: all 1s ease;
 }
 
-/* 外してしまうと、エラーのform-controlのinputが短くなってしまう */
 .field_with_errors {
   width: 100%;
 }
 
-/* 端末によって文字の大きさが変わる */
 @media screen and (max-width: 500px) {
   .jumbotron {
     margin-top: 0px;
