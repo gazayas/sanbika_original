@@ -21,6 +21,8 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :set_lists
+
       # Songs should be like on their respective page,
       # but it ultimately belongs to the user and
       # they can remove it

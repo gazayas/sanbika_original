@@ -9,13 +9,14 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
   has_many :songs, dependent: :destroy
+  has_many :set_lists, dependent: :destroy
   has_many :favorites
   has_one :song, through: :favorites
   accepts_nested_attributes_for :favorites
 
   # TODO: Use carrierwave to edit user images
   # mount_uploader :user_image, UserImageUploader
-  
+
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
       user.provider = auth["provider"]
