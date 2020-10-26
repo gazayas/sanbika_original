@@ -1,7 +1,5 @@
 <% if user_signed_in? %>
-
-  <% song_id = get_song_id_from_params %>
-  <% @favorite = get_favorite current_user.id, song_id %>
+  <% @favorite = get_favorite current_user.id, @song.id %>
 
   <% if @favorite != nil %>
     <%= link_to user_favorite_path(current_user, @favorite), method: :delete, class: 'star_button', remote: true do %>
@@ -12,7 +10,7 @@
     <%= form_for [current_user, @favorite], class: 'star_button', remote: true do |f| %>
       <%= hidden_field_tag :value, true %>
       <%= hidden_field_tag :user_id, current_user.id %>
-      <%= hidden_field_tag :song_id, song.id %>
+      <%= hidden_field_tag :song_id, @song.id %>
 
       <%= button_tag type: 'submit', style: 'border: none; background: none;' do %>
         <i id="star-empty" class="glyphicon glyphicon-star-empty"></i>

@@ -9,9 +9,7 @@ class SongsController < ApplicationController
       @video_id = @song.video.gsub(/(.*)(watch\?v=)/, "")
     end
 
-    if current_user_favorite
-      @favorite = current_user_favorite
-    end
+    @favorite = current_user_favorite
   end
 
   def new
