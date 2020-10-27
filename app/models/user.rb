@@ -10,9 +10,9 @@ class User < ApplicationRecord
 
   has_many :songs, dependent: :destroy
   has_many :set_lists, dependent: :destroy
+  has_many :set_list_songs, through: :set_list, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_one :song, through: :favorites
-  accepts_nested_attributes_for :set_lists
   accepts_nested_attributes_for :favorites
 
   # TODO: Use carrierwave to edit user images

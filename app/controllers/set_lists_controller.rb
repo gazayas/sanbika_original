@@ -25,7 +25,7 @@ class SetListsController < ApplicationController
   # POST /set_lists
   # POST /set_lists.json
   def create
-    @set_list = @user.set_lists.build
+    @set_list = @user.set_lists.build(set_list_params)
 
     respond_to do |format|
       if @set_list.save
