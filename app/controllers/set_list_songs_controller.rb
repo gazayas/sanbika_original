@@ -1,5 +1,6 @@
 class SetListSongsController < ApplicationController
   before_action :get_user
+  before_action :get_set_list, only: [:create]
 
   def index
   end
@@ -9,8 +10,7 @@ class SetListSongsController < ApplicationController
   end
 
   def create
-    @SetListSong = current_user.set_lists.build.set_list_songs.build
-
+    @set_list_song = @set_list.set_list_songs.build(set_list_song_params)
     # The set list song itself doesn't have a show page,
     # so it's redirected to the show action of the
     # set list it belongs to
@@ -36,7 +36,11 @@ class SetListSongsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def get_set_list
+    @set_list = SetList.find(params[:set_list_id])
+  end
+
   def set_list_song_params
-    params.require(:set_list).permit(:set_list_id, :song_id)
+    params.permit(:set_list_id, :song_id, :key, :order)
   end
 end

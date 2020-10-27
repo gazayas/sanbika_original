@@ -1,6 +1,7 @@
 class SetListsController < ApplicationController
   before_action :get_user
   before_action :set_set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_song, only: [:index]
 
   # GET /set_lists
   # GET /set_lists.json
@@ -70,6 +71,10 @@ class SetListsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_set_list
       @set_list = SetList.find(params[:id])
+    end
+
+    def set_song
+      @song = params[:song_id] ? Song.find(params[:song_id]) : nil
     end
 
     # Only allow a list of trusted parameters through.
