@@ -1,8 +1,11 @@
 class SetListSongsController < ApplicationController
   before_action :get_user
-  before_action :get_set_list
 
   def index
+  end
+
+  def new
+      @set_list_song = current_user.set_lists.build.set_list_songs.build
   end
 
   def create
@@ -19,6 +22,7 @@ class SetListSongsController < ApplicationController
         format.html { render :new }
         format.json { render json: @set_list_song.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   # TODO: Delete through the edit page with an ajax call or some other method
@@ -30,10 +34,6 @@ class SetListSongsController < ApplicationController
 
   def get_user
     @user = User.find(params[:user_id])
-  end
-
-  def get_set_list
-    @set_list = SetList.find(params[:set_list_id])
   end
 
   def set_list_song_params

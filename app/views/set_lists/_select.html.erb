@@ -1,0 +1,9 @@
+<% if current_user.set_lists.empty? %>
+    <p>You have no set lists</p>
+<% else %>
+    <p>Choose a set list to add <%= Song.find(params[:song_id]).title %> to</p>
+    <% @set_lists.each do |sl| %>
+        <%# Write a form to submit with the proper fields %>
+        <%= sl.title %><br/>
+    <% end %>
+<% end %>

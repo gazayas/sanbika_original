@@ -35,6 +35,9 @@
     <div id="song_body"><%= sanitize(@song.song_body) %></div>
   </div>
 
+  <% if current_user %>
+    <%= link_to 'Add to Set List', user_set_lists_path(@user, song_id: @song) %>
+  <% end %>
 
   <% if @video_id %>
     <div id="song_video_container">
