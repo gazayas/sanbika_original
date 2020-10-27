@@ -10,7 +10,7 @@
       <%= form_for([current_user, sl, @set_list_song]) do |f| %>
         <%= hidden_field_tag :set_list_id, sl.id %>
         <%= hidden_field_tag :song_id, @song.id %>
-        <%= hidden_field_tag :key, params[:selected_key] %>
+        <%= hidden_field_tag :key, @song.key %>
         <%= hidden_field_tag :order, (sl.set_list_songs.size) %>
         <%= button_tag sl.title, type: 'submit' %>
       <% end %>
