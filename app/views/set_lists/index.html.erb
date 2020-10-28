@@ -16,10 +16,9 @@
       <tbody>
         <% @set_lists.each do |set_list| %>
           <tr>
-            <td><%= set_list.title %></td>
-            <td><%= link_to 'Show', user_set_list_path(@user, set_list) %></td>
-            <td><%= link_to 'Edit', edit_user_set_list_path(@user, set_list) %></td>
-            <td><%= link_to 'Destroy', user_set_list_path(@user, set_list), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to set_list.title, user_set_list_path(@user, set_list) %></td>
+            <td><%= link_to t(:edit), edit_user_set_list_path(@user, set_list) %></td>
+            <td><%= link_to t(:delete), user_set_list_path(@user, set_list), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

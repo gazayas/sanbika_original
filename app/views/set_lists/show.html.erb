@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<!-- TODO: Ajax calls to delete song -->
+<!-- TODO: Make a table with two columns, keys in the second column -->
 <p>
-  <strong>Title:</strong>
-  <%= @set_list.title %>
+  <strong>Title: </strong><%= @set_list.title %>
+
+  <br/><br/>
+
+  <% @set_list.set_list_songs.each do |sls| %>
+    <%= Song.find(sls.song_id).title %><br/>
+    <%= "Key: " + sls.key %><br/>
+    <br/>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_set_list_path(@user, @set_list) %> |
-<%= link_to 'Back', user_set_lists_path %>
+<%= link_to 'Edit', edit_user_set_list_path(@user, @set_list) %><br/>
+<%= link_to 'Set List Author', user_path(@user) %>

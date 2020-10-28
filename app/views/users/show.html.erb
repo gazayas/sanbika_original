@@ -116,8 +116,31 @@
         <% end %>
         </div>
       </div>
-    </div>
 
-    <%= link_to "New Setlist", new_user_set_list_path(@user) %>
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+          <div style="margin: 0px auto;">
+            <div class="set_lists_header">
+            <h3><%= @user.username + " Set Lists" %></h3>
+
+            <% if !@user.set_lists.empty? %>
+              <ul class="list-group">
+                <% @user.set_lists.each do |sl| %>
+                  <%= link_to sl.title, user_set_list_path(@user, sl)%><br/>
+                <% end %>
+              </ul>
+            <% else %>
+            <div class="panel panel-default">
+              <div class="panel-body text-center">
+                <h4>No Set Lists</h4>
+              </div>
+            </div>
+            <% end %>
+            <%= link_to "New Setlist", new_user_set_list_path(@user) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -20,3 +20,14 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<br/>
+
+<!-- Write drag and drop ajax logic here, making sure the order is saved to the database -->
+<% if !set_list.set_list_songs.empty? %>
+  <% set_list.set_list_songs.each do |sls| %>
+    <%= Song.find(sls.song_id).title %><br/>
+  <% end %>
+<% end %>
+
+<br/>
