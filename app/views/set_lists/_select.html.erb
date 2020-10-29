@@ -1,17 +1,18 @@
 <% if current_user.set_lists.empty? %>
     <p>You have no set lists</p>
 <% else %>
-    <!-- Put error logic here -->
     <p>「<%= @song.title %>」を好きなセットリストに追加してください。</p>
-    <p>一旦セットリストに保存しておくと、編集のページで歌のキーも選んで保存することできます。</p>
+    <p> 歌はこのキーで追加されます：<%= params[:selected_key] %></p>
 
     <% @set_lists.each do |sl| %>
       <% @set_list_song = sl.set_list_songs.build %>
       <%= form_for([current_user, sl, @set_list_song]) do |f| %>
-        <%= hidden_field_tag :set_list_id, sl.id %>
-        <%= hidden_field_tag :song_id, @song.id %>
-        <%= hidden_field_tag :key, @song.key %>
-        <%= hidden_field_tag :order, (sl.set_list_songs.size) %>
+        <%= f.hidden_field :set_list_id, value: sl.id %>
+        <%= f.hidden_field :song_id, value: @song.id %>
+        <%= f.hidden_field :order, value: (sl.set_list_songs.size) %>
+        <%= f.hidden_field :key, value: params[:selected_key] %>
+        <br/>
+
         <%= button_tag sl.title, type: 'submit' %>
       <% end %>
     <% end %>

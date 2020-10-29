@@ -36,7 +36,19 @@
   </div>
 
   <% if current_user %>
-    <%= link_to 'Add to Set List', user_set_lists_path(@user, song_id: @song) %>
+    <%# Pass the song id and the selected key to the next form for processing %>
+    <%= form_tag(user_set_lists_path(current_user), method: "GET") do %>
+      <%= hidden_field_tag :song_id, @song.id %>
+      <%= select_tag(:selected_key,
+            options_for_select([
+              sharp_notes[0], sharp_notes[1], sharp_notes[2], sharp_notes[3],
+              sharp_notes[4], sharp_notes[5], sharp_notes[6], sharp_notes[7],
+              sharp_notes[8], sharp_notes[9], sharp_notes[10], sharp_notes[11]
+            ]),
+            selected: @song.key
+      ) %>
+      <%= submit_tag "Add to Set List" %>
+    <% end %>
   <% end %>
 
   <% if @video_id %>

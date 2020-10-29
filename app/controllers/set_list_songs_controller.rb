@@ -19,7 +19,9 @@ class SetListSongsController < ApplicationController
         format.html { redirect_to user_set_list_path(current_user, @set_list), notice: 'Song added to ' + @set_list.title }
         format.json { render :show, status: :created, location: @set_list_song }
       else
-        format.html { render :new }
+        # TODO: i18n
+        error_str = locale == :en ? "This song already exists in this set list" : "この歌はもう既にこのセットリストに存在しています。"
+        format.html { redirect_to user_set_list_path(current_user, @set_list), flash: { alert: error_str } }
         format.json { render json: @set_list_song.errors, status: :unprocessable_entity }
       end
     end
@@ -41,6 +43,6 @@ class SetListSongsController < ApplicationController
   end
 
   def set_list_song_params
-    params.permit(:set_list_id, :song_id, :key, :order)
+    params.require(:set_list_song).permit(:set_list_id, :song_id, :key, :order)
   end
 end
