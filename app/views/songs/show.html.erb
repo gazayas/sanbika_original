@@ -11,12 +11,18 @@
     <div class="row">
       <div class="col-xs-4"></div>
       <div class="col-xs-4" style="padding-top: 10px;">
-        <strong><%= t('activerecord.attributes.song.key') %></strong>
-        <%= select_tag(
-              :key_box,
-              options_for_select(sharp_notes, selected: @song.key),
-              onchange: 'key_change("' +  @song.key + '", null);')
-        %>
+        <% form_path = current_user ? user_set_lists_path(current_user) : user_song_path(@user, @song) %>
+        <%= form_tag(form_path, method: "GET") do %>
+          <%= hidden_field_tag :song_id, @song.id %>
+            <strong><%= t('activerecord.attributes.song.key') %></strong>
+            <%= select_tag(
+                  :selected_key,
+                  options_for_select(sharp_notes, selected: @song.key),
+                  onchange: 'key_change("' +  @song.key + '", null);',
+                  id: 'key_box')
+            %>
+          <%= submit_tag 'Add to Set List' if current_user %>
+        <% end %>
       </div>
       <div class="col-xs-1"></div>
       <% if current_user %>
@@ -34,22 +40,6 @@
 
     <div id="song_body"><%= sanitize(@song.song_body) %></div>
   </div>
-
-  <% if current_user %>
-    <%# Pass the song id and the selected key to the next form for processing %>
-    <%= form_tag(user_set_lists_path(current_user), method: "GET") do %>
-      <%= hidden_field_tag :song_id, @song.id %>
-      <%= select_tag(:selected_key,
-            options_for_select([
-              sharp_notes[0], sharp_notes[1], sharp_notes[2], sharp_notes[3],
-              sharp_notes[4], sharp_notes[5], sharp_notes[6], sharp_notes[7],
-              sharp_notes[8], sharp_notes[9], sharp_notes[10], sharp_notes[11]
-            ]),
-            selected: @song.key
-      ) %>
-      <%= submit_tag "Add to Set List" %>
-    <% end %>
-  <% end %>
 
   <% if @video_id %>
     <div id="song_video_container">
