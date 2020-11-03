@@ -11,6 +11,32 @@ function position_of(note) {
   }
 }
 
+function replace_mark(str) {
+  if (check_sharp(str)) {
+    str = str.replace(/#/g, "♯");
+  }
+  if (check_flat(str)) {
+    str = str.replace(/b/g, "♭");
+  }
+  return str;
+}
+
+function check_sharp(note) {
+  if (/#/.test(note) || /♯/.test(note)) {
+  return true;
+  } else {
+  return false;
+  }
+}
+
+function check_flat(note) {
+  if (/b/.test(note) || /♭/.test(note)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 // TODO: Write original_key instead of old_key,
 // since this represents the original_key in the database
 // and not the last key that the user chose.
@@ -106,3 +132,7 @@ function key_change(old_key, slash_chords) {
     return new_chords;
   }
 }
+
+$(() =>
+  $('#key_box').on('change', () => key_change($('#key_box').attr('class'), null))
+);

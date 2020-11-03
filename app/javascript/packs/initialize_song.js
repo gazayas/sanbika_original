@@ -1,7 +1,6 @@
 /* The following code is used primarily in songs#show */
 
 // TODO: sharp_or_flat_is_present_in(str)
-
 function replace_marks(str) {
   if (check_sharp(str)) {
     str = str.replace(/#/g, "♯");
@@ -28,11 +27,6 @@ function check_flat(note) {
   } else {
     return false;
   }
-}
-
-
-function hello() {
-  console.log("hello");
 }
 
 $(document).ready(function() {
