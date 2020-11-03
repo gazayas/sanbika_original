@@ -2,19 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+$bootstrap-blue: #428bca;
+
 /* index */
+/* TODO: Add this with proper CSS */
+/*
 header.masthead {
   background-image: asset_url('sanbika_front.jpg');
   width: 100%;
   height: 70%;
 }
+*/
 
 @media screen and (max-width: 500px) {
-  .jumbotron {
-    margin-top: 5% !important;
-  }
-
-  .home_jumbotron {
+  #home_jumbotron {
       h1 {
           font-size: 27px;
       }
@@ -37,10 +38,6 @@ header.masthead {
       font-size: 20px !important;
       width: 90%;
     }
-
-    .jumbotron {
-      margin-top: 10% !important;
-    }
 }
 
 .sns_login_button {
@@ -48,7 +45,7 @@ header.masthead {
   width: 90%;
 }
 
-.home_jumbotron {
+#home_jumbotron {
   text-align: center;
   color: black;
   background-color: rgba(220, 220, 220, 0.9) !important;
@@ -64,10 +61,9 @@ header.masthead {
     margin: 30px 0px;
 }
 
-/* TODO: The hex here is Bootstrap blue. Change into a variable. */
 #features_header {
   width: 100%;
-  background-color: #428bca;
+  background-color: $bootstrap-blue;
   text-align: center;
 
   .row {
@@ -89,11 +85,15 @@ header.masthead {
   }
 
   .feature_wrapper {
-
     background-color: white;
     display: inline-block;
-    padding: 20px;
+    padding: 50px;
     border-radius: 50%;
+  }
+
+  .feature_wrapper i {
+    font-size: 50px;
+    color: $bootstrap-blue;
   }
 
 }
@@ -128,30 +128,25 @@ header.masthead {
 }
 
 #main_footer {
-  padding: 20px 0px;
-
-  #fontawesome_wrapper {
-    display: inline;
-    float: right;
-    a {
-      color: gray;
-      text-decoration: none;
-    }
-    a:hover {
-      color: white;
-    }
-  }
-
-  .footer_link{
-    padding: 0px 10px;
-  }
+  padding: 20px;
+  background-color: #222;
 }
 
-/* songs */
+#main_footer a {
+  padding: 20px;
+
+  text-decoration: none;
+  color: white;
+  font-size: 50px;
+}
+
+#main_footer a:hover {
+  text-decoration: none;
+  color: gray;
+  font-size: 50px;
+}
+
+/* Song Example */
 #songs_index {
   text-align: left;
-}
-
-.pagination_container {
-  text-align: center;
 }

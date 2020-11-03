@@ -12,6 +12,29 @@ function replace_marks(str) {
   return str;
 }
 
+// TODO: Change the following two method names to
+// is_sharp and is_flat
+function check_sharp(note) {
+  if (/#/.test(note) || /♯/.test(note)) {
+  return true;
+  } else {
+  return false;
+  }
+}
+
+function check_flat(note) {
+  if (/b/.test(note) || /♭/.test(note)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+function hello() {
+  console.log("hello");
+}
+
 $(document).ready(function() {
   var song_body_tag = document.getElementById("song_body");
   var song_body = song_body_tag.innerHTML.split(/\r*\n/);
@@ -60,6 +83,6 @@ $(document).ready(function() {
   song_body = song_body.replace(/^<br>\s{2,2}/, "");
   song_body_tag.innerHTML = song_body;
 
-  $('.chord').each(function() { this.style.color = "navy"; })
-  $('iframe').addClass('embed-responsive-item')
+  $('.chord').each(function() { this.style.color = "navy"; });
+  $('iframe').addClass('embed-responsive-item');
 });

@@ -1,38 +1,7 @@
-// TODO: Consider translating to coffeescript
-
 const SHARP_NOTES = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯"];
 const FLAT_NOTES = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭"];
 const ADDITIONS = ["add2", "add9", "dim7", "dim", "sus4", "sus", "maj7", "maj", "m7",
                    "m", "aug", "2", "6", "7", "9", "11"];
-
-// TODO: Change the following two method names to
-// is_sharp and is_flat
-function check_sharp(note) {
-  if (/#/.test(note) || /♯/.test(note)) {
-  return true;
-  } else {
-  return false;
-  }
-}
-
-function check_flat(note) {
-  if (/b/.test(note) || /♭/.test(note)) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-// TODO: This exists in initialize_song.js too.
-function replace_mark(note) {
-  if (check_sharp(note)) {
-    note = note.replace(/#/, "♯");
-  }
-  if (check_flat(note)) {
-    note = note.replace(/b/, "♭");
-  }
-  return note;
-}
 
 function position_of(note) {
   if (check_flat(note)) {

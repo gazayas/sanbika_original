@@ -1,6 +1,6 @@
 <header id="sanbikaHeader" class="masthead">
   <div class="container">
-    <div class="jumbotron home_jumbotron" style="color: black;">
+    <div class="jumbotron" id="home_jumbotron" style="color: black;">
       <h1><%= t(:welcome) %></h1><br/>
       <p>
         <%= t(:psalm150_6) %>
@@ -74,22 +74,9 @@
   </div>
 </div>
 
-<% footer_links = Hash.new %>
-<% footer_links = { %>
-  <%# TODO: facebook: "#", %>
-  <% twitter: "https://www.twitter.com/sanbika_jp", %>
-  <% github: "https://www.github.com/gazayas/sanbika" %>
-<% } %>
-<footer id="main_footer" class="footer" style="background-color: #222;">
-  <div class="container">
-    <div id="fontawesome_wrapper">
-      <% footer_links.each do |key, value| %>
-        <%= link_to value, class: "footer_link", target: "_blank" do %>
-          <i class="fa fa-<%= key.to_s %> fa-2x"></i>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+<footer id="main_footer" class="text-right">
+  <%= link_to '<i class="fa fa-twitter"></i>'.html_safe, 'https://www.twitter.com/sanbika_jp' , target: '_blank' %>
+  <%= link_to '<i class="fa fa-github"></i>'.html_safe, 'https://www.github.com/gazayas/sanbika' , target: '_blank' %>
 </footer>
 
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>

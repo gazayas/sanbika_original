@@ -20,69 +20,83 @@
 
  body {
    background-color: white !important;
+   padding-top: 80px;
  }
 
- /* boostrapのnavbarは50pxだからmarginを入れる */
- #buffer {
-   margin-top: 50px;
- }
+.navbar li {
+  margin: 0px 10px;
+}
 
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+#buffer {
+ margin-top: 50px;
+}
+
+.btn {
+ text-transform : none !important;
+}
+
+.btn-primary:visited {
+ color: #FFF;
+}
+
+#songs_index, #users_index {
+ margin: 10px;
  .btn {
-   text-transform : none !important;
+   margin: 10px 0px;
+   width: 70%;
+ }
+}
+
+/* User related style */
+.user_thumbnail {
+ height: 20px;
+ border-radius: 50%;
+}
+
+/* Flash notice */
+.alert {
+ -webkit-transition: opacity 1s ease-out;
+ -moz-transition: opacity 1s ease-out;
+ -ms-transition: opacity 1s ease-out;
+ transition: opacity 1s ease-out;
+
+ margin-top: 25px;
+}
+
+.alert:hover {
+ -webkit-filter: brightness(90%);
+ -webkit-transition: all 1s ease;
+ -moz-transition: all 1s ease;
+ -o-transition: all 1s ease;
+ -ms-transition: all 1s ease;
+ transition: all 1s ease;
+}
+
+.field_with_errors {
+ width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+ .jumbotron {
+   margin-top: 0px;
  }
 
- .btn-primary:visited {
-   color: #FFF;
+ #song_title {
+   font-size: 18px;
  }
 
- #songs_index, #users_index {
-   margin: 10px;
-   .btn {
-     margin: 10px 0px;
-     width: 70%;
-   }
+ #song_body {
+   padding: 0px 10px;
+   font-size: 14px;
  }
-
- /* User related style */
- .user_thumbnail {
-   height: 20px;
-   border-radius: 50%;
- }
-
- /* Flash notice */
- .alert {
-   -webkit-transition: opacity 1s ease-out;
-   -moz-transition: opacity 1s ease-out;
-   -ms-transition: opacity 1s ease-out;
-   transition: opacity 1s ease-out;
-
-   margin-top: 25px;
- }
-
- .alert:hover {
-   -webkit-filter: brightness(90%);
-   -webkit-transition: all 1s ease;
-   -moz-transition: all 1s ease;
-   -o-transition: all 1s ease;
-   -ms-transition: all 1s ease;
-   transition: all 1s ease;
- }
-
- .field_with_errors {
-   width: 100%;
- }
-
- @media screen and (max-width: 500px) {
-   .jumbotron {
-     margin-top: 0px;
-   }
-
-   #song_title {
-     font-size: 18px;
-   }
-
-   #song_body {
-     padding: 0px 10px;
-     font-size: 14px;
-   }
- }
+}
