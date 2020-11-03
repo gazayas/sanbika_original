@@ -3,9 +3,10 @@
   <head>
     <title>sanbika</title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
@@ -27,75 +28,74 @@
   </head>
 
   <body>
+  <!-- navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <%= link_to "sanbika", home_index_path, class: "navbar-brand" %>
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse navHeaderCollapse">
 
-    <!-- navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <%= link_to "sanbika", home_index_path, class: "navbar-brand" %>
-        <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse navHeaderCollapse">
-
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-              <li>
-                <%= link_to current_user  do %>
-                  <%= image_tag current_user.user_image, class: "user_thumbnail" %>
-                  <span><%= current_user.username %>
-                <% end %>
-              </li>
-              <li>
-                <%# TODO: 設定のページの作成。プロファイルの削除をそこで行いたい %>
-                <%#= link_to '<span class="glyphicon glyphicon-cog"></span> '.html_safe + t(:account_settings), current_user %>
-              </li>
-              <li>
-                <%= link_to '<span class="glyphicon glyphicon-new-window"></span> '.html_safe + t(:logout), destroy_user_session_path, method: :delete %>
-              </li>
-            <% else %>
-                <li>
-                    <%= link_to new_user_session_path do %>
-                    <i class="glyphicon glyphicon-pencil"></i>
-                    <%= t(:login) %>
-                </li>
-                <% end %>
-            <% end %>
-
-            <% lang = I18n.locale == I18n.default_locale ? { str: "English", locale: :en } : { str: "日本語", locale: :ja } %>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
             <li>
-              <%= link_to '<i class="fas fa-globe"></i> '.html_safe + lang[:str], locale: lang[:locale] %>
+              <%= link_to current_user  do %>
+                <%= image_tag current_user.user_image, class: "user_thumbnail" %>
+                <span><%= current_user.username %>
+              <% end %>
             </li>
-
-            <!-- TODO: collapseを開くとtext_fieldが長すぎる。sizeを固定してください -->
             <li>
-              <%#= text_field_tag :search, "", class: 'form-control hidden-sm hidden-md hidden-lg', placeholder: t(:search) %>
+              <%# TODO: 設定のページの作成。プロファイルの削除をそこで行いたい %>
+              <%#= link_to '<span class="glyphicon glyphicon-cog"></span> '.html_safe + t(:account_settings), current_user %>
             </li>
-          </ul>
-        </div>
+            <li>
+              <%= link_to '<span class="glyphicon glyphicon-new-window"></span> '.html_safe + t(:logout), destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+              <li>
+                  <%= link_to new_user_session_path do %>
+                  <i class="glyphicon glyphicon-pencil"></i>
+                  <%= t(:login) %>
+              </li>
+              <% end %>
+          <% end %>
+
+          <% lang = I18n.locale == I18n.default_locale ? { str: "English", locale: :en } : { str: "日本語", locale: :ja } %>
+          <li>
+            <%= link_to '<i class="fas fa-globe"></i> '.html_safe + lang[:str], locale: lang[:locale] %>
+          </li>
+
+          <!-- TODO: collapseを開くとtext_fieldが長すぎる。sizeを固定してください -->
+          <li>
+            <%#= text_field_tag :search, "", class: 'form-control hidden-sm hidden-md hidden-lg', placeholder: t(:search) %>
+          </li>
+        </ul>
       </div>
-    </nav>
-
-    <!-- TODO: Delete buffer and implement proper css -->
-    <div id="buffer"></div>
-
-    <!-- Notices (User registration complete, etc.) -->
-    <!-- TODO: フラッシュ通知をここに入れたいけどindex.html.erbのheaderの上になってしまうから気になる -->
-    <div id="notice_container" class="container">
-      <% if notice %>
-        <p class="alert alert-success alert-dismissable" data-dismiss="alert" aria-label="close">
-          <%= notice %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
-        </p>
-      <% elsif alert %>
-        <p class="alert alert-danger alert-dismissable" data-dismiss="alert" aria-label="close">
-          <span class="glyphicon glyphicon-warning-sign"></span>
-          <%= alert %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
-        </p>
-      <% end %>
     </div>
+  </nav>
 
-    <%= yield %>
+  <!-- TODO: Delete buffer and implement proper css -->
+  <div id="buffer"></div>
+
+  <!-- Notices (User registration complete, etc.) -->
+  <!-- TODO: フラッシュ通知をここに入れたいけどindex.html.erbのheaderの上になってしまうから気になる -->
+  <div id="notice_container" class="container">
+    <% if notice %>
+      <p class="alert alert-success alert-dismissable" data-dismiss="alert" aria-label="close">
+        <%= notice %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
+      </p>
+    <% elsif alert %>
+      <p class="alert alert-danger alert-dismissable" data-dismiss="alert" aria-label="close">
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        <%= alert %><span class="pull-right" style="cursor: pointer;" aria-hidden="true">&times;</span>
+      </p>
+    <% end %>
+  </div>
+
+  <%= yield %>
 
   </body>
 </html>
