@@ -1,6 +1,6 @@
 <header id="sanbikaHeader" class="masthead">
   <div class="container">
-    <div class="jumbotron home_jumbotron" style="color: black;">
+    <div class="jumbotron" id="home_jumbotron" style="color: black;">
       <h1><%= t(:welcome) %></h1><br/>
       <p>
         <%= t(:psalm150_6) %>
@@ -35,7 +35,7 @@
         <span class="feature_text"><%= t(:simple_keychange) %></span>
       </div>
       <div class="feature_wrapper">
-        <span class="glyphicon glyphicon-music"></span>
+        <i class="fa fa-music"></i>
       </div>
     </div>
     <div class="feature col-xl-12 col-lg-4">
@@ -43,7 +43,7 @@
         <span class="feature_text"><%= t(:simple_creation) %></span>
       </div>
       <div class="feature_wrapper">
-        <span class="glyphicon glyphicon-pencil"></span>
+        <i class="fa fa-pencil"></i>
       </div>
     </div>
     <div class="feature col-xl-12 col-lg-4">
@@ -51,7 +51,7 @@
         <span class="feature_text"><%= t(:post_videos) %></span>
       </div>
       <div class="feature_wrapper">
-        <span class="glyphicon glyphicon-film"></span>
+        <i class="fa fa-film"></i>
       </div>
     </div>
   </div>
@@ -67,29 +67,17 @@
       <%= select_tag(
             :key_box,
             options_for_select(sharp_notes, selected: t(:example_chart_key)),
-            onchange: 'key_change("' +  t(:example_chart_key) + '", null);')
+            onchange: 'key_change("' +  t(:example_chart_key) + '", null);',
+            class: t(:example_chart_key))
       %>
     </div>
     <div id="song_body" class="panel panel-body"><%= t(:example_chart) %></div>
   </div>
 </div>
 
-<% footer_links = Hash.new %>
-<% footer_links = { %>
-  <%# TODO: facebook: "#", %>
-  <% twitter: "https://www.twitter.com/sanbika_jp", %>
-  <% github: "https://www.github.com/gazayas/sanbika" %>
-<% } %>
-<footer id="main_footer" class="footer" style="background-color: #222;">
-  <div class="container">
-    <div id="fontawesome_wrapper">
-      <% footer_links.each do |key, value| %>
-        <%= link_to value, class: "footer_link", target: "_blank" do %>
-          <i class="fab fa-<%= key.to_s %> fa-2x"></i>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+<footer id="main_footer" class="text-right">
+  <%= link_to '<i class="fa fa-twitter"></i>'.html_safe, 'https://www.twitter.com/sanbika_jp' , target: '_blank' %>
+  <%= link_to '<i class="fa fa-github"></i>'.html_safe, 'https://www.github.com/gazayas/sanbika' , target: '_blank' %>
 </footer>
 
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>

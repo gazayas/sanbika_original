@@ -1,0 +1,36 @@
+<div style="padding: 50px;">
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <% case provider %>
+      <% when :facebook %>
+        <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+          <button type="button"
+                  class="sns_login_button btn btn-fb"
+                  style="background-color: #3B5998; color: white;">
+                  <i class="fa fa-facebook"></i>
+                    &nbsp;&nbsp;&nbsp;Sign in with Facebook
+                  </button>
+        <% end %>
+      <% when :twitter %>
+        <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+        <button type="button"
+                class="sns_login_button btn btn-tw"
+                style="background-color: #55ACEE; color: white;">
+                <i class="fa fa-twitter"></i>
+                  &nbsp;&nbsp;Sign in with Twitter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>
+        <% end %>
+      <% when :google_oauth2 %>
+        <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+        <button type="button"
+                class="sns_login_button btn btn-gplus"
+                style="background-color: #DD4B39; color: white;">
+                <i class="fa fa-google-plus"></i>
+                  &nbsp;&nbsp;Sign in with Google+&nbsp;&nbsp;
+                </button>
+        <% end %>
+      <% end %>
+      <br />
+    <% end %>
+  <% end %>
+</div>

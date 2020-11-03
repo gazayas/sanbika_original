@@ -1,3 +1,6 @@
+# This is rails 6 now, and this file wasn't here upon initializing.
+
+
 # Be sure to restart your server when you modify this file.
 #
 # This file contains migration options to ease your Rails 5.0 upgrade.

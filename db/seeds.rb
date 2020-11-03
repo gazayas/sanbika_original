@@ -1,3 +1,5 @@
+# TODO: Needs some work since the models have changed a bit.
+
 song_params = []
 15.times do |n|
   song_params << [
@@ -28,10 +30,10 @@ end
     password:              password,
     password_confirmation: password
   )
-  
+
   user.songs.create!(song_params)
 
   user.confirmed_at = Time.zone.now
-  
+
   user
 end
