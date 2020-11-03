@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<strong>Title: </strong><%= @set_list.title %>
+
+<br/><br/>
+
+<% @set_list.set_list_songs.each do |sls| %>
+  <% @song = Song.find(sls.song_id) %>
+
+  <div class="panel panel-default">
+    <div class="panel panel-heading">
+      <h2 id="song_title"><%= @song.title %></h2>
+    </div>
+
+    <div class="song_key">
+      <%= "Key: " + sls.key %><br/>
+    </div>
+
+    <br/>
+
+    <!-- TODO: Change this to a class since it's recurring -->
+    <div id="song_body">
+      <%= sanitize @song.song_body %>
+    </div>
+    <br/>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_user_set_list_path(@user, @set_list) %><br/>
+<%= link_to 'Set List Author', user_path(@user) %>

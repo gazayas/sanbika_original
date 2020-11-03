@@ -1,7 +1,7 @@
 class Song < ApplicationRecord
 	belongs_to :user
-	has_many :favorites
-	has_one :user, through: :favorites, dependent: :destroy
+	has_many :set_list_songs, dependent: :destroy
+	has_many :favorites, dependent: :destroy
 
 	VIDEO_REGEXP = /\A(http)?(s)?(:\/\/)?(www\.youtube\.com\/watch\?(time_continue=\d+\&)?(v=))|(youtu\.be\/)(.*)\z/
 

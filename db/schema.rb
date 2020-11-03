@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_093630) do
+ActiveRecord::Schema.define(version: 2020_10_27_013906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,25 @@ ActiveRecord::Schema.define(version: 2020_10_20_093630) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "set_list_songs", force: :cascade do |t|
+    t.string "key"
+    t.bigint "set_list_id", null: false
+    t.bigint "song_id", null: false
+    t.integer "order"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["set_list_id"], name: "index_set_list_songs_on_set_list_id"
+    t.index ["song_id"], name: "index_set_list_songs_on_song_id"
+  end
+
+  create_table "set_lists", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_set_lists_on_user_id"
   end
 
   create_table "songs", id: :serial, force: :cascade do |t|
@@ -82,4 +101,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_093630) do
 
   add_foreign_key "favorites", "songs"
   add_foreign_key "favorites", "users"
+  add_foreign_key "set_list_songs", "set_lists"
+  add_foreign_key "set_list_songs", "songs"
+  add_foreign_key "set_lists", "users"
 end

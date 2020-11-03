@@ -1,0 +1,33 @@
+<%= form_for([@user, set_list]) do |form| %>
+  <% if set_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(set_list.errors.count, "error") %> prohibited this set_list from being saved:</h2>
+
+      <ul>
+        <% set_list.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<br/>
+
+<!-- Write drag and drop ajax logic here, making sure the order is saved to the database -->
+<% if !set_list.set_list_songs.empty? %>
+  <% set_list.set_list_songs.each do |sls| %>
+    <%= Song.find(sls.song_id).title %><br/>
+  <% end %>
+<% end %>
+
+<br/>
