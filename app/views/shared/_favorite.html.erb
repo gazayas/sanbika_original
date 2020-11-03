@@ -3,7 +3,7 @@
 
   <% if @favorite != nil %>
     <%= link_to user_favorite_path(current_user, @favorite), method: :delete, class: 'star_button', remote: true do %>
-      <i id="star" class="glyphicon glyphicon-star"></i>
+      <i id="star" class="fa fa-star"></i>
     <% end %>
   <% else %>
     <% @favorite = Favorite.new %>
@@ -13,7 +13,7 @@
       <%= hidden_field_tag :song_id, @song.id %>
 
       <%= button_tag type: 'submit', style: 'border: none; background: none;' do %>
-        <i id="star-empty" class="glyphicon glyphicon-star-empty"></i>
+        <i id="star-empty" class="fa fa-star-o"></i>
       <% end %>
     <% end %>
   <% end %>

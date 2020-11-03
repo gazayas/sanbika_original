@@ -35,7 +35,7 @@
         <span class="feature_text"><%= t(:simple_keychange) %></span>
       </div>
       <div class="feature_wrapper">
-        <span class="glyphicon glyphicon-music"></span>
+        <i class="fa fa-music"></i>
       </div>
     </div>
     <div class="feature col-xl-12 col-lg-4">
@@ -43,7 +43,7 @@
         <span class="feature_text"><%= t(:simple_creation) %></span>
       </div>
       <div class="feature_wrapper">
-        <span class="glyphicon glyphicon-pencil"></span>
+        <i class="fa fa-pencil"></i>
       </div>
     </div>
     <div class="feature col-xl-12 col-lg-4">
@@ -51,7 +51,7 @@
         <span class="feature_text"><%= t(:post_videos) %></span>
       </div>
       <div class="feature_wrapper">
-        <span class="glyphicon glyphicon-film"></span>
+        <i class="fa fa-film"></i>
       </div>
     </div>
   </div>
@@ -85,7 +85,7 @@
     <div id="fontawesome_wrapper">
       <% footer_links.each do |key, value| %>
         <%= link_to value, class: "footer_link", target: "_blank" do %>
-          <i class="fab fa-<%= key.to_s %> fa-2x"></i>
+          <i class="fa fa-<%= key.to_s %> fa-2x"></i>
         <% end %>
       <% end %>
     </div>

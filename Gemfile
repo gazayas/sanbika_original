@@ -20,7 +20,7 @@ gem 'omniauth-google-oauth2'
 
 gem 'devise'
 gem 'figaro'
-gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 gem 'kaminari', '~> 1.2.1'
 gem 'friendly_id', '~> 5.1.0'
 gem 'database_cleaner', '~> 1.6.0'
