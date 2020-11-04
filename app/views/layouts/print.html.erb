@@ -4,8 +4,10 @@
     <title>sanbika</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'key_change' %>
+    <%= javascript_pack_tag 'initialize_song' %>
   </head>
 
   <body>
@@ -31,14 +33,14 @@
     <h5 id="print_key"><%= t(:key) %>
       <%= select_tag(:key_box,
           options_for_select(sharp_notes, selected: selected_key),
-          onchange: 'key_change("' +  @song.key + '", false);')
+          class: @song.key)
       %>
     </h5>
 
     <div id="checkbox_wrapper" class="text-center">
       <strong>
       <%= t(:hide_chords) %>：
-      <%= check_box_tag "hide chords", nil, false, class: 'checkbox', onclick: 'toggle_visibility();', style: 'display: inline-block;' %>
+      <%= check_box_tag "hide chords", nil, false, class: 'visibility_checkbox', style: 'display: inline-block;' %>
       </strong>
     </div>
 

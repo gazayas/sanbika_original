@@ -21,10 +21,3 @@ document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
-
-function toggle_visibility() {
-  var chords = document.getElementsByClassName('chord');
-  var visibility = $('.checkbox:checked').val() ? 'hidden' : 'visible';
-
-  for(var i = 0; i < chords.length; i++) { chords[i].style.visibility = visibility; }
-}

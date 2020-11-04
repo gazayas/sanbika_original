@@ -80,3 +80,14 @@ $(document).ready(function() {
   $('.chord').each(function() { this.style.color = "navy"; });
   $('iframe').addClass('embed-responsive-item');
 });
+
+function toggle_visibility() {
+  var chords = document.getElementsByClassName('chord');
+  var visibility = $('.visibility_checkbox:checked').val() ? 'hidden' : 'visible';
+
+  for(var i = 0; i < chords.length; i++) { chords[i].style.visibility = visibility; }
+}
+
+$(() =>
+  $('.visibility_checkbox').on('click', () => toggle_visibility())
+);
