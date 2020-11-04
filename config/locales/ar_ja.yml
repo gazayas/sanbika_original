@@ -102,7 +102,7 @@ ja:
   new_chart: '新規チャート'
   no_charts: '賛美歌チャートはありません'
   print: '印刷'
-  chart_made_by: 'チャートの作成者：'
+  chart_made_by: 'チャートの作成者'
 
   # users/edit.html.erb
   edit_picture: 'プロファイルの写真'

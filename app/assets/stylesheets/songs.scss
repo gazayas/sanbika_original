@@ -17,9 +17,34 @@ h1 {
 
 
 /* show */
-.glyphicon-star, .glyphicon-star-empty {
+@media (min-width: 500px) {
+  .song_title {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .song_title {
+    font-size: 28px;
+  }
+}
+
+.song_title {
+  margin-bottom: 30px;
+}
+
+.bookmark_button {
   font-size: 35px;
   color: #0275d8;
+  display: inline;
+}
+
+.new_favorite {
+  display: inline;
+}
+
+#bookmark_empty {
+  display: inline;
 }
 
 #song_body, #print_song_body {
@@ -56,6 +81,10 @@ h1 {
   text-align: left;
 }
 
+.visibility_checkbox {
+  margin: 20px;
+}
+
 .song_body {
   margin: 10px;
 }
@@ -67,6 +96,10 @@ h1 {
 #song_video_container {
   margin: 0px auto;
   width: 60%;
+}
+
+#print_button {
+  margin: 25px;
 }
 
 /* print */
