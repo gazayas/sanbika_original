@@ -91,11 +91,11 @@ class SongsController < ApplicationController
       @song = Song.find(params[:id])
   end
 
-  def song_params
-      params.require(:song).permit(:title, :artist, :key, :song_body, :video)
-  end
-
   def current_user_favorite
       current_user ? current_user.favorites.find_by_song_id(@song.id) : nil
+  end
+
+  def song_params
+      params.require(:song).permit(:title, :artist, :key, :song_body, :video)
   end
 end

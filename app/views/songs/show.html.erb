@@ -3,14 +3,14 @@
 
 <div class="card">
   <div class="card-body">
-    <p class="song_title text-center">
+    <div class="song_title text-center">
       <%= @song.title %>
       <% if current_user %>
         <span id="favorite">
           <%= render 'shared/favorite', song: @song %>
         </span>
       <% end %>
-    </p>
+    </div>
 
     <div class="container text-center">
       <% form_path = current_user ? user_set_lists_path(current_user) : user_song_path(@user, @song) %>
