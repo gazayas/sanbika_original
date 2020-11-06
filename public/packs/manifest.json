@@ -1,0 +1,34 @@
+{
+  "application.js": "/packs/js/application-3c630bbb83c6eb404a75.js",
+  "application.js.map": "/packs/js/application-3c630bbb83c6eb404a75.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-3c630bbb83c6eb404a75.js"
+      ],
+      "js.map": [
+        "/packs/js/application-3c630bbb83c6eb404a75.js.map"
+      ]
+    },
+    "initialize_song": {
+      "js": [
+        "/packs/js/initialize_song-72bc6f80fd2050e9e4ae.js"
+      ],
+      "js.map": [
+        "/packs/js/initialize_song-72bc6f80fd2050e9e4ae.js.map"
+      ]
+    },
+    "key_change": {
+      "js": [
+        "/packs/js/key_change-dea81f86fecd34d0f1be.js"
+      ],
+      "js.map": [
+        "/packs/js/key_change-dea81f86fecd34d0f1be.js.map"
+      ]
+    }
+  },
+  "initialize_song.js": "/packs/js/initialize_song-72bc6f80fd2050e9e4ae.js",
+  "initialize_song.js.map": "/packs/js/initialize_song-72bc6f80fd2050e9e4ae.js.map",
+  "key_change.js": "/packs/js/key_change-dea81f86fecd34d0f1be.js",
+  "key_change.js.map": "/packs/js/key_change-dea81f86fecd34d0f1be.js.map"
+}

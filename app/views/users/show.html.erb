@@ -3,8 +3,8 @@
     <div id="user_info" class="col-xs-12 col-md-4">
       <div class="col-xs-2 hidden-md"></div>
 
-      <div class="panel panel-default col-xs-8 col-md-12">
-        <div class="panel-body text-center">
+      <div class="card col-xs-8 col-md-12">
+        <div class="card-body text-center">
           <%= button_tag class: 'btn btn-link', data: {toggle: "modal", target: '#img_modal'} do %>
             <% if @user.user_image %>
               <%= image_tag(image_url(@user.user_image), id: 'user_image', alt: 'user image') %>
@@ -31,9 +31,10 @@
           </div>
 
           <h2><%= @user.username %></h2>
-          <hr>
-          <%= link_to t(:edit_profile), edit_user_path(@user) if current_user == @user %><br/>
+
           <% if current_user == @user %>
+            <hr>
+            <%= link_to t(:edit_profile), edit_user_path(@user) if current_user == @user %><br/>
             <%= link_to t(:delete_account), user_path, method: :delete, data: { confirm: t(:confirm_deletion) } %>
           <% end %>
         </div>
@@ -46,15 +47,15 @@
       <div class="col-xs-2 hidden-md"></div>
 
       <div class="col-xs-8 col-md-12">
-        <div class="charts_header text-center">
-          <h3><%= @user.username + t(:user_charts) %></h3>
-
+        <div id="charts_header" class="text-center">
           <% if current_user == @user %>
-            <%= link_to '<span class="glyphicon glyphicon-pencil"></span> '.html_safe + t(:new_chart),
+            <%= link_to '<i class="fa fa-pencil"></i> '.html_safe + t(:new_chart),
               new_user_song_path(@user),
               class: 'btn btn-primary btn-sm',
               id: 'new_chart_button'
             %><br/>
+
+            <p><%= @user.username + t(:user_charts) %></p>
           <% end %>
         </div>
 
@@ -62,16 +63,24 @@
         <% if !@songs.empty? %>
           <div>
             <span style="margin-left: 5px"><%= t('activerecord.attributes.song.title') %></span>
-            <span class="pull-right" style="margin-right: 5px;"><%= t('activerecord.attributes.song.artist') %></span>
+            <span class="pull-right" style="margin-right: 5px;"><%= t('activerecord.attributes.song.key') %></span>
           </div>
 
           <ul class="list-group">
             <% @songs.each do |song| %>
-              <%= link_to (
-                '<span>' + song.title + '</span>' +
-                '<span class="chart_artist_name pull-right">' + truncate(song.artist) + '</span>'
-                ).html_safe,
-                user_song_path(@user, song), class: 'list-group-item' %>
+              <% user = User.find(song.user_id) %>
+
+              <%= link_to user_song_path(@user, song), id: 'user_songs', class: 'list-group-item' do %>
+                <span><%= song.title%></span>
+
+                <span class="pull-right">
+                  <%= song.key %>
+                  <%#= image_tag(user.user_image, id: 'user_image_thumbnail', class: 'user_thumbnail') %>
+                  <%#= user.username %>
+                </span>
+              <% end %>
+
+
              <% end %>
           </ul>
         <% else %>
@@ -87,58 +96,58 @@
         <%= paginate @songs %>
       </div>
 
-      <div style="margin: 0px auto;">
-        <div class="favorites_header">
-        <h3><%= @user.username + " favorited songs" %></h3>
+      <div id="favorites_header">
+        <p class="text-center"><%= @user.username + " favorited songs" %></p>
 
         <% if !@user.favorites.empty? %>
           <div>
             <span style="margin-left: 5px"><%= t('activerecord.attributes.song.title') %></span>
-            <span class="pull-right" style="margin-right: 5px;"><%= t('activerecord.attributes.song.artist') %></span>
+            <span class="pull-right" style="margin-right: 5px;"><%= t('activerecord.attributes.song.key') %></span>
           </div>
 
           <ul class="list-group">
             <% @user.favorites.each do |favorite| %>
               <% song = Song.find(favorite.song_id) %>
-              <%= link_to (
-                            '<span>' + song.title + '</span>' +
-                            '<span class="chart_artist_name pull-right">' + truncate(song.artist) + '</span>'
-                          ).html_safe,
-                user_song_path(@user, song), class: 'list-group-item' %>
-             <% end %>
+              <%= link_to user_song_path(@user, song), class: 'list-group-item' do %>
+                <span><%= song.title %></span>
+                <span class="pull-right"><%= song.key %></span>
+              <% end %>
+            <% end %>
           </ul>
         <% else %>
-        <div class="panel panel-default">
-          <div class="panel-body text-center">
-            <h4>No favorites</h4>
+          <div class="panel panel-default">
+            <div class="panel-body text-center">
+              <h4>No favorites</h4>
+            </div>
           </div>
-        </div>
         <% end %>
-        </div>
       </div>
 
-      <div class="panel panel-default">
-        <div class="panel-body text-center">
-          <div style="margin: 0px auto;">
-            <div class="set_lists_header">
-            <h3><%= @user.username + " Set Lists" %></h3>
+      <div id="new_set_list_button_element" class="text-center">
+        <% if current_user == @user %>
+          <%= link_to "New Set List", new_user_set_list_path(@user), class: 'btn btn-primary', id: 'new_set_list_button' %>
+        <% end %>
+      </div>
 
-            <% if !@user.set_lists.empty? %>
-              <ul class="list-group">
-                <% @user.set_lists.each do |sl| %>
-                  <%= link_to sl.title, user_set_list_path(@user, sl)%><br/>
-                <% end %>
-              </ul>
-            <% else %>
+      <div id="set_lists_card" class="card">
+        <div id="set_lists_header" class="card-body">
+          <p class="text-center"><%= @user.username + " Set Lists" %></p>
+
+          <% if !@user.set_lists.empty? %>
+            <ul class="list-group">
+              <% @user.set_lists.each do |sl| %>
+                <%= link_to sl.title, user_set_list_path(@user, sl), class: 'list-group-item text-center' %><br/>
+              <% end %>
+            </ul>
+
+
+          <% else %>
             <div class="panel panel-default">
               <div class="panel-body text-center">
                 <h4>No Set Lists</h4>
               </div>
             </div>
-            <% end %>
-            <%= link_to "New Setlist", new_user_set_list_path(@user) %>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

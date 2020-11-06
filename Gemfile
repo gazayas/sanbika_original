@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
-ruby "2.7.0"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rails', '~> 6.0.3'
-gem 'actionview', '>= 5.2.4.2'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.12'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 5.0'
-gem 'jquery-rails'
-gem 'jbuilder', github: 'rails/jbuilder', branch: 'master'
-gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+ruby '2.7.0'
+
+gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+gem 'pg', '>= 0.18', '< 2.0'
+gem 'puma', '~> 4.1'
+gem 'sass-rails', '>= 6'
+gem 'webpacker', '~> 4.0'
+gem 'turbolinks', '~> 5'
+gem 'jbuilder', '~> 2.7'
+
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 
@@ -20,16 +20,21 @@ gem 'omniauth-google-oauth2'
 
 gem 'devise'
 gem 'figaro'
-gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 gem 'kaminari', '~> 1.2.1'
 gem 'friendly_id', '~> 5.1.0'
 gem 'database_cleaner', '~> 1.6.0'
-gem 'rake', '~> 12.3.3'
 
 gem 'pdfkit'
 gem 'wkhtmltopdf'
 
-gem 'therubyracer'
+# gem 'redis', '~> 4.0'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
+# Use Active Storage variant
+# gem 'image_processing', '~> 1.2'
+
+gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'rspec-rails'
@@ -43,14 +48,18 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'brakeman', require: false
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+group :test do
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+end
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

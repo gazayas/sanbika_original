@@ -1,6 +1,7 @@
 /* index */
 #user_image_thumbnail {
-  height: 75px;
+  height: 25px;
+  width: 25px;
 }
 
 /* show */
@@ -13,11 +14,27 @@ body {
     #user_image {
         width: 90%;
     }
+
+    #charts_header p {
+      font-size: 30px;
+    }
+
+    #favorites_header p, #set_lists_header p {
+      font-size: 30px;
+    }
 }
 
 @media (max-width: 768px) {
     #user_image {
         width: 50%;
+    }
+
+    #charts_header p {
+      font-size: 15px;
+    }
+
+    #favorites_header p, #set_lists_header p {
+      font-size: 15px;
     }
 }
 
@@ -26,7 +43,20 @@ body {
 }
 
 #new_chart_button {
-  margin-bottom: 7px;
+  margin: 20px;
+  padding: 10px;
+}
+
+#favorites_header p {
+  margin-top: 50px;
+}
+
+#set_lists_card {
+  margin-top: 10px;
+}
+
+#new_set_list_button_element {
+  margin-top: 40px;
 }
 
 /* edit */

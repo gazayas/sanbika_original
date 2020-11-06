@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_013906) do
+ActiveRecord::Schema.define(version: 2020_11_03_072106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,13 @@ ActiveRecord::Schema.define(version: 2020_10_27_013906) do
     t.boolean "value"
     t.bigint "song_id", null: false
     t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["song_id"], name: "index_favorites_on_song_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
+  create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -54,18 +56,21 @@ ActiveRecord::Schema.define(version: 2020_10_27_013906) do
     t.index ["user_id"], name: "index_set_lists_on_user_id"
   end
 
-  create_table "songs", id: :serial, force: :cascade do |t|
+  create_table "songs", force: :cascade do |t|
     t.string "title"
+    t.string "title_yomikata"
     t.string "artist"
+    t.string "artist_yomikata"
     t.string "key"
     t.text "song_body"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "video"
+    t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -83,15 +88,15 @@ ActiveRecord::Schema.define(version: 2020_10_27_013906) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "user_image"
-    t.string "slug"
-    t.boolean "admin", default: false
+    t.boolean "admin"
     t.string "provider"
     t.string "uid"
     t.string "username"
+    t.string "slug"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -104,4 +109,5 @@ ActiveRecord::Schema.define(version: 2020_10_27_013906) do
   add_foreign_key "set_list_songs", "set_lists"
   add_foreign_key "set_list_songs", "songs"
   add_foreign_key "set_lists", "users"
+  add_foreign_key "songs", "users"
 end

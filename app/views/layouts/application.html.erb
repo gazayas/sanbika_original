@@ -3,22 +3,17 @@
   <head>
     <title>sanbika</title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-
-    <!-- Font Awesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= favicon_link_tag('onpu.ico') %>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- https://stackoverflow.com/questions/6483425/prevent-iphone-from-zooming-in-on-select-in-web-app -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
     <meta name="description" content="賛美歌のデータベース。賛美歌チャートを検索したり、作成したりすることができます。">
-
     <meta
       name="keywords" content="賛美, 賛美歌, ワーシップ, イエス, キリスト,
       キリスト教, 神, クリスチャン, 歌詞, コード, praise, worship, Jesus,
@@ -27,45 +22,37 @@
   </head>
 
   <body>
-
-    <!-- navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <%= link_to "sanbika", home_index_path, class: "navbar-brand" %>
-        <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navHeaderCollapse" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse navHeaderCollapse">
 
-          <ul class="nav navbar-nav navbar-right">
+        <div class="collapse navbar-collapse" id="navHeaderCollapse">
+          <ul class="nav navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
-                <%= link_to current_user  do %>
+                <%= link_to current_user do %>
                   <%= image_tag current_user.user_image, class: "user_thumbnail" %>
                   <span><%= current_user.username %>
                 <% end %>
               </li>
               <li>
-                <%# TODO: 設定のページの作成。プロファイルの削除をそこで行いたい %>
-                <%#= link_to '<span class="glyphicon glyphicon-cog"></span> '.html_safe + t(:account_settings), current_user %>
-              </li>
-              <li>
-                <%= link_to '<span class="glyphicon glyphicon-new-window"></span> '.html_safe + t(:logout), destroy_user_session_path, method: :delete %>
+                <%= link_to '<i class="fa fa-sign-out fa-rotate-180"></i> '.html_safe + t(:logout), destroy_user_session_path, method: :delete %>
               </li>
             <% else %>
-                <li>
-                    <%= link_to new_user_session_path do %>
-                    <i class="glyphicon glyphicon-pencil"></i>
+              <li>
+                  <%= link_to new_user_session_path do %>
+                    <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
                     <%= t(:login) %>
-                </li>
-                <% end %>
+                  <% end %>
+              </li>
             <% end %>
 
             <% lang = I18n.locale == I18n.default_locale ? { str: "English", locale: :en } : { str: "日本語", locale: :ja } %>
             <li>
-              <%= link_to '<i class="fas fa-globe"></i> '.html_safe + lang[:str], locale: lang[:locale] %>
+              <%= link_to '<i class="fa fa-globe"></i> '.html_safe + lang[:str], locale: lang[:locale] %>
             </li>
 
             <!-- TODO: collapseを開くとtext_fieldが長すぎる。sizeを固定してください -->
@@ -76,9 +63,6 @@
         </div>
       </div>
     </nav>
-
-    <!-- TODO: Delete buffer and implement proper css -->
-    <div id="buffer"></div>
 
     <!-- Notices (User registration complete, etc.) -->
     <!-- TODO: フラッシュ通知をここに入れたいけどindex.html.erbのheaderの上になってしまうから気になる -->

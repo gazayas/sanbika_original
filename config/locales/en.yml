@@ -111,7 +111,7 @@ en:
   explanation: 'Write "#" for sharps and "b" for flats'
   link_to_youtube: 'Link to YouTube video (optional)'
   print: 'Print'
-  chart_made_by: 'Chart made by: '
+  chart_made_by: 'Chart made by '
   invalid_link: 'This link is invalid' # models/song.rb
 
   # application controller

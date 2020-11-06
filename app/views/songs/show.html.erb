@@ -1,75 +1,76 @@
-<div class="panel panel-default">
-  <div class="panel panel-heading">
-    <%= content_tag(:h2, @song.title, id: 'song_title') %>
-  </div>
+<%= javascript_pack_tag 'key_change' %>
+<%= javascript_pack_tag 'initialize_song' %>
 
-  <strong><%= t('activerecord.attributes.song.artist') %></strong>
-  <%= @song.artist %>
-  <br/>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4"></div>
-      <div class="col-xs-4" style="padding-top: 10px;">
-        <% form_path = current_user ? user_set_lists_path(current_user) : user_song_path(@user, @song) %>
-        <%= form_tag(form_path, method: "GET") do %>
-          <%= hidden_field_tag :song_id, @song.id %>
-            <strong><%= t('activerecord.attributes.song.key') %></strong>
-            <%= select_tag(
-                  :selected_key,
-                  options_for_select(sharp_notes, selected: @song.key),
-                  onchange: 'key_change("' +  @song.key + '", null);',
-                  id: 'key_box')
-            %>
-          <%= submit_tag 'Add to Set List' if current_user %>
-        <% end %>
-      </div>
-      <div class="col-xs-1"></div>
+<div class="card">
+  <div class="card-body">
+    <div class="song_title text-center">
+      <%= @song.title %>
       <% if current_user %>
-        <div id="favorite" class="col-xs-1">
-              <%= render 'shared/favorite', song: @song %>
-        </div>
+        <span id="favorite">
+          <%= render 'shared/favorite', song: @song %>
+        </span>
       <% end %>
-      <div class="col-xs-1"></div>
     </div>
 
-    <strong>
-      <%= t(:hide_chords) %>
-      <%= check_box_tag "hide chords", nil, false, class: 'checkbox', onclick: 'toggle_visibility();', style: 'display: inline-block;' %>
-    </strong>
+    <div class="container text-center">
+      <% form_path = current_user ? user_set_lists_path(current_user) : user_song_path(@user, @song) %>
+      <%= form_tag(form_path, method: "GET") do %>
+        <%= hidden_field_tag :song_id, @song.id %>
+          <strong><%= t('activerecord.attributes.song.key') %></strong>
+          <%= select_tag(
+                :selected_key,
+                options_for_select(sharp_notes, selected: @song.key),
+                id: 'key_box',
+                class: @song.key)
+          %>
+        <%= submit_tag('Add to Set List', class: 'btn btn-primary') if current_user %>
+      <% end %>
 
-    <div id="song_body"><%= sanitize(@song.song_body) %></div>
-  </div>
+      <strong>
+        <%= t(:hide_chords) %>
+        <%= check_box_tag "hide chords", nil, false, class: 'visibility_checkbox', style: 'display: inline-block;' %>
+      </strong>
 
-  <% if @video_id %>
-    <div id="song_video_container">
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/<%= @video_id %>"
-          frameborder="0"
-          allowfullscreen>
-        </iframe>
+      <div id="song_body"><%= sanitize(@song.song_body) %></div>
+    </div>
+
+    <% if @video_id %>
+      <div id="song_video_container">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/<%= @video_id %>"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <%# link_to t(:print), print_user_song_path, class: 'hidden-xs' %>
-  <%= form_for(@song, url: {action: 'print'}, method: 'POST') do |f|%>
-    <%= f.hidden_field :selectedKey, value: @song.key %>
-    <%= f.submit t(:print) %><!-- make same as <a> tag -->
-  <% end %>
+    <%# link_to t(:print), print_user_song_path, class: 'hidden-xs' %>
+    <div class="text-center">
+      <%= form_for(@song, url: {action: 'print'}, method: 'POST') do |f|%>
+        <%= f.hidden_field :selectedKey, value: @song.key %>
+        <%= f.submit t(:print), class: 'btn btn-secondary', id: 'print_button' %>
+      <% end %>
 
-  <%# link_to 'pdf', print_user_song_path(format: "pdf") %>
+      <%# link_to 'pdf', print_user_song_path(format: "pdf") %>
 
-  <p>
-    <strong><%= t(:chart_made_by) %></strong>
-    <%= link_to @user.username, @user %>
-  </p>
+      <div style="margin: 10px;">
+        <strong><%= t(:chart_made_by) %></strong>
+        <br/>
+        <%= image_tag(@user.user_image, id: 'user_image_thumbnail', class: 'user_thumbnail') %>
+        <%= link_to @user.username, @user %>
+      </div>
 
-  <% if current_user && (@user == current_user || current_user.admin) %>
-    <%= link_to t(:edit), edit_user_song_path(@user, @song) %> |
-    <%= link_to t(:back), user_path(@user) %>
-    <%= link_to t(:delete), user_song_path, method: :delete, data: { confirm: t(:confirm_deletion) } %>
-  <% end %>
+      <br/>
+
+      <% if current_user && (@user == current_user || current_user.admin) %>
+        <%= link_to t(:edit), edit_user_song_path(@user, @song), class: 'btn btn-secondary' %>
+        <%= link_to t(:back), user_path(@user), class: 'btn btn-secondary' %>
+        <%= link_to t(:delete), user_song_path, class: 'btn btn-danger', method: :delete, data: { confirm: t(:confirm_deletion) } %>
+      <% end %>
+      </div>
+  </div>
+</div>
