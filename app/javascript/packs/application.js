@@ -15,6 +15,11 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+// These were added because the Ajax calls in song#show
+// didn't have $ defined.
+window.jQuery = $;
+window.$ = $;
+
 import "bootstrap";
 import "../stylesheets/application"
 document.addEventListener("turbolinks:load", () => {

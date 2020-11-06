@@ -59,6 +59,7 @@
 
       <div style="margin: 10px;">
         <strong><%= t(:chart_made_by) %></strong>
+        <br/>
         <%= image_tag(@user.user_image, id: 'user_image_thumbnail', class: 'user_thumbnail') %>
         <%= link_to @user.username, @user %>
       </div>
