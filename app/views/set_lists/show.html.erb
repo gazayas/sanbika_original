@@ -1,30 +1,39 @@
-<p id="notice"><%= notice %></p>
+<!-- TODO: song_body needs to be changed to a class and the code needs to be adjusted -->
+<%= javascript_pack_tag 'key_change' %>
+<%= javascript_pack_tag 'initialize_song' %>
 
-<strong>Title: </strong><%= @set_list.title %>
-
-<br/><br/>
+<div id="set_list_title" class="text-center">
+  <%= @set_list.title %>
+</div>
 
 <% @set_list.set_list_songs.each do |sls| %>
-    <% @song = Song.find(sls.song_id) %>
+  <% @song = Song.find(sls.song_id) %>
 
-    <div class="panel panel-default">
-      <div class="panel panel-heading">
-        <h2 id="song_title"><%= @song.title %></h2>
-      </div>
-
-      <div class="song_key">
-        <%= "Key: " + sls.key %><br/>
-      </div>
-
-      <br/>
-
-      <!-- TODO: Change this to a class since it's recurring -->
-      <div id="song_body">
-        <%= sanitize @song.song_body %>
-      </div>
-      <br/>
+  <div class="panel panel-default">
+    <div class="panel panel-heading">
+      <h2 id="song_title"><%= @song.title %></h2>
     </div>
+
+    <div class="song_key">
+      <%= t('activerecord.attributes.song.key') + ": " + sls.key %><br/>
+    </div>
+
+    <div id="song_body">
+      <%= sanitize @song.song_body %>
+    </div>
+    <br/>
+  </div>
 <% end %>
 
-<%= link_to 'Edit', edit_user_set_list_path(@user, @set_list) %><br/>
-<%= link_to 'Set List Author', user_path(@user) %>
+<div class="set_list_links text-center">
+  <% if current_user == @user %>
+    <%= link_to t(:edit), edit_user_set_list_path(@user, @set_list), class: 'btn btn-secondary' %>
+    <br/>
+  <% end %>
+
+  <strong><%= t(:set_list_made_by) %></strong>
+  <%= link_to user_path(@user) do %>
+    <%= image_tag @user.user_image, class: 'user_thumbnail' %>
+    <%= @user.username %>
+  <% end %>
+</div>

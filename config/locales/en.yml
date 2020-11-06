@@ -114,6 +114,9 @@ en:
   chart_made_by: 'Chart made by '
   invalid_link: 'This link is invalid' # models/song.rb
 
+  # set_list/show.html.erb
+  set_list_made_by: 'This set list was made by '
+
   # application controller
   cant_change_info: "You cannot change other user\u0027s information"
 
