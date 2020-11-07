@@ -28,6 +28,7 @@
 <div class="set_list_links text-center">
   <% if current_user == @user %>
     <%= link_to t(:edit), edit_user_set_list_path(@user, @set_list), class: 'btn btn-secondary' %>
+      <%= link_to t(:delete), user_set_list_path(current_user, @set_list), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
     <br/>
   <% end %>
 

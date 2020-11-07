@@ -16,13 +16,13 @@
   <%= form.hidden_field :order, value: @set_list_song.order %>
 
   <div class="field text-center">
-    <strong>This song belongs to <%= @set_list.title %></strong>
+    <h1>This song belongs to <%= @set_list.title %></h1>
     <br/>
-    <%= Song.find(@set_list_song.song_id).title %>
-    <%= form.select(:key, options_for_select(sharp_notes, selected: @set_list_song.key), class: 'form-control') %>
+    <span class="song_title"><%= Song.find(@set_list_song.song_id).title %></span>
+    <%= form.select(:key, options_for_select(sharp_notes, selected: @set_list_song.key), style: 'display: inline;') %>
   </div>
 
   <div class="actions text-center">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary', value: t(:save) %>
   </div>
 <% end %>

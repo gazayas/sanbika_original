@@ -22,13 +22,19 @@
   <div class="set_list_songs text-center">
     <% if !set_list.set_list_songs.empty? %>
       <% set_list.set_list_songs.each do |sls| %>
-        <h3><%= link_to Song.find(sls.song_id).title, edit_user_set_list_set_list_song_path(@user, set_list, sls) %></h3>
+        <% song = Song.find(sls.song_id) %>
+        <h3>
+          <%= link_to edit_user_set_list_set_list_song_path(@user, set_list, sls) do %>
+            <%= song.title + '(' + sls.key + ')' %>
+          <% end %>
+        </h3>
         <br/>
       <% end %>
     <% end %>
   </div>
 
-  <div class="actions text-center">
-    <%= form.submit %>
+  <div class="set_list_links text-center">
+    <%= form.submit class: 'btn btn-primary', value: t(:save) %>
+    <%= link_to t(:show), user_set_list_path(@user, @set_list), class: 'btn btn-secondary' %>
   </div>
 <% end %>
