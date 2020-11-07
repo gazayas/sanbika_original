@@ -1,0 +1,28 @@
+<%= form_for([@user, @set_list, @set_list_song]) do |form| %>
+  <% if @set_list_song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(set_list_song.errors.count, "error") %> prohibited this set list song from being saved:</h2>
+
+      <ul>
+        <% @set_list_song.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :set_list_id, value: @set_list.id %>
+  <%= form.hidden_field :song_id, value: @set_list_song.song_id %>
+  <%= form.hidden_field :order, value: @set_list_song.order %>
+
+  <div class="field text-center">
+    <strong>This song belongs to <%= @set_list.title %></strong>
+    <br/>
+    <%= Song.find(@set_list_song.song_id).title %>
+    <%= form.select(:key, options_for_select(sharp_notes, selected: @set_list_song.key), class: 'form-control') %>
+  </div>
+
+  <div class="actions text-center">
+    <%= form.submit %>
+  </div>
+<% end %>

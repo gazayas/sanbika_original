@@ -65,21 +65,21 @@ class SetListsController < ApplicationController
 
   private
 
-    def get_user
-      @user = User.find(params[:user_id])
-    end
-    
-    # Use callbacks to share common setup or constraints between actions.
-    def set_set_list
-      @set_list = SetList.find(params[:id])
-    end
+  def get_user
+    @user = User.find(params[:user_id])
+  end
 
-    def set_song
-      @song = params[:song_id] ? Song.find(params[:song_id]) : nil
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_set_list
+    @set_list = SetList.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def set_list_params
-      params.require(:set_list).permit(:title, :user_id)
-    end
+  def set_song
+    @song = params[:song_id] ? Song.find(params[:song_id]) : nil
+  end
+
+  # Only allow a list of trusted parameters through.
+  def set_list_params
+    params.require(:set_list).permit(:title, :user_id)
+  end
 end

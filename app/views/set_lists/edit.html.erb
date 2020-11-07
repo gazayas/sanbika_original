@@ -1,6 +1,9 @@
 <h1>Editing Set List</h1>
 
+<hr>
+
 <%= render 'form', set_list: @set_list %>
 
-<%= link_to 'Show', user_set_list_path(@user, @set_list) %>
-<%= link_to 'Back', user_set_lists_path %>
+<div class="set_list_links text-center">
+  <%= link_to t(:show), user_set_list_path(@user, @set_list), class: 'btn btn-secondary' %>
+</div>

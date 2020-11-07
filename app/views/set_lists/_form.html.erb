@@ -11,23 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field text-center">
+    <strong>Set List Title</strong>
+    <%= form.text_field :title, style: 'font-size: 20px; text-decoration: none;' %>
   </div>
 
-  <div class="actions">
+  <!-- Write drag and drop ajax logic here, making sure the order is saved to the database -->
+  <!-- link to the set list song itself where the user can change its key and delete it -->
+  <!-- Then redirect it back to this page -->
+  <div class="set_list_songs text-center">
+    <% if !set_list.set_list_songs.empty? %>
+      <% set_list.set_list_songs.each do |sls| %>
+        <h3><%= link_to Song.find(sls.song_id).title, edit_user_set_list_set_list_song_path(@user, set_list, sls) %></h3>
+        <br/>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="actions text-center">
     <%= form.submit %>
   </div>
 <% end %>
-
-<br/>
-
-<!-- Write drag and drop ajax logic here, making sure the order is saved to the database -->
-<% if !set_list.set_list_songs.empty? %>
-  <% set_list.set_list_songs.each do |sls| %>
-    <%= Song.find(sls.song_id).title %><br/>
-  <% end %>
-<% end %>
-
-<br/>
