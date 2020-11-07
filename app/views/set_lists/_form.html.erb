@@ -16,20 +16,20 @@
     <%= form.text_field :title, style: 'font-size: 20px; text-decoration: none;' %>
   </div>
 
-  <!-- Write drag and drop ajax logic here, making sure the order is saved to the database -->
-  <!-- link to the set list song itself where the user can change its key and delete it -->
-  <!-- Then redirect it back to this page -->
+  <p class="text-center">歌をドラッグして順番を変えることができます。</p>
+
   <div class="set_list_songs text-center">
     <% if !set_list.set_list_songs.empty? %>
-      <% set_list.set_list_songs.each do |sls| %>
-        <% song = Song.find(sls.song_id) %>
-        <h3>
-          <%= link_to edit_user_set_list_set_list_song_path(@user, set_list, sls) do %>
-            <%= song.title + '(' + sls.key + ')' %>
-          <% end %>
-        </h3>
-        <br/>
-      <% end %>
+      <div data-controller="drag" data-drag-url="set_list_songs/:id/move">
+        <% set_list.set_list_songs.each do |sls| %>
+          <% song = Song.find(sls.song_id) %>
+          <div data-id="<%= sls.id %>" class="card card-body mb-4">
+            <%= link_to edit_user_set_list_set_list_song_path(@user, set_list, sls) do %>
+              <%= song.title + '(' + sls.key + ')' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 

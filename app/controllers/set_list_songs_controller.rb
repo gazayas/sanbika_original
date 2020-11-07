@@ -1,7 +1,7 @@
 class SetListSongsController < ApplicationController
   before_action :get_user
-  before_action :set_set_list_song, only: [:edit, :update]
-  before_action :get_set_list, only: [:create, :edit, :update]
+  before_action :set_set_list_song, only: [:edit, :update, :destroy, :move]
+  before_action :get_set_list, only: [:create, :edit, :update, :destroy]
 
   def index
   end
@@ -46,6 +46,15 @@ class SetListSongsController < ApplicationController
   # TODO: Delete through the edit page with an ajax call or some other method
   def destroy
     @set_list_song.destroy
+    respond_to do |format|
+      format.html { redirect_to edit_user_set_list_path(@user, @set_list), notice: 'Set list song was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def move
+    @set_list_song.insert_at(params[:position].to_i)
+    head :ok
   end
 
   private
@@ -63,6 +72,6 @@ class SetListSongsController < ApplicationController
   end
 
   def set_list_song_params
-    params.require(:set_list_song).permit(:set_list_id, :song_id, :key, :order)
+    params.require(:set_list_song).permit(:set_list_id, :song_id, :key, :position)
   end
 end

@@ -22,7 +22,11 @@ Rails.application.routes.draw do
       end
 
       resources :set_lists do
-        resources :set_list_songs
+        resources :set_list_songs do
+          member do
+            patch :move
+          end
+        end
       end
 
       # Songs should be like on their respective page,

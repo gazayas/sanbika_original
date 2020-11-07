@@ -44,7 +44,7 @@ class SetListsController < ApplicationController
   def update
     respond_to do |format|
       if @set_list.update(set_list_params)
-        format.html { redirect_to user_set_lists_path(@user), notice: 'Set list was successfully updated.' }
+        format.html { redirect_to user_set_list_path(@user, @set_list), notice: 'Set list was successfully updated.' }
         format.json { render :show, status: :ok, location: @set_list }
       else
         format.html { render :edit }

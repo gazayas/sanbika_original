@@ -25,6 +25,8 @@ gem 'kaminari', '~> 1.2.1'
 gem 'friendly_id', '~> 5.1.0'
 gem 'database_cleaner', '~> 1.6.0'
 
+gem "acts_as_list", "~> 1.0"
+
 gem 'pdfkit'
 gem 'wkhtmltopdf'
 
