@@ -1,0 +1,9 @@
+/* line 1, app/assets/stylesheets/sessions.scss */
+#registration_panel, #login_panel {
+  margin-top: 30px;
+}
+
+/* line 5, app/assets/stylesheets/sessions.scss */
+.fields {
+  margin: 10px 0px;
+}

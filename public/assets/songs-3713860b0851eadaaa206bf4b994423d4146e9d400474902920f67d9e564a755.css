@@ -1,0 +1,132 @@
+/* index */
+/* line 2, app/assets/stylesheets/songs.scss */
+#new_song {
+  text-align: center;
+}
+
+/* line 6, app/assets/stylesheets/songs.scss */
+h1 {
+  text-align: center;
+}
+
+/* line 10, app/assets/stylesheets/songs.scss */
+#song_list {
+  text-align: left;
+}
+
+/* line 14, app/assets/stylesheets/songs.scss */
+#no_songs {
+  text-align: center;
+}
+
+/* show */
+@media (min-width: 500px) {
+  /* line 21, app/assets/stylesheets/songs.scss */
+  .song_title {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* line 27, app/assets/stylesheets/songs.scss */
+  .song_title {
+    font-size: 28px;
+  }
+}
+
+/* line 32, app/assets/stylesheets/songs.scss */
+.song_title {
+  margin-bottom: 30px;
+}
+
+/* line 36, app/assets/stylesheets/songs.scss */
+.bookmark_button {
+  font-size: 35px;
+  color: #0275d8;
+  display: inline;
+}
+
+/* line 42, app/assets/stylesheets/songs.scss */
+.new_favorite {
+  display: inline;
+}
+
+/* line 46, app/assets/stylesheets/songs.scss */
+#bookmark_empty {
+  display: inline;
+}
+
+/* line 50, app/assets/stylesheets/songs.scss */
+#song_body, #print_song_body {
+  white-space: pre-wrap;
+  margin: 10px auto;
+  border: 1px gray solid;
+  font-size: 22px;
+}
+
+/* line 57, app/assets/stylesheets/songs.scss */
+#song_body .chord, #print_song_body .chord {
+  line-height: 34px;
+}
+
+/* _form */
+/* line 63, app/assets/stylesheets/songs.scss */
+.panel {
+  text-align: center;
+}
+
+/* line 65, app/assets/stylesheets/songs.scss */
+.panel table {
+  margin: 0px auto;
+}
+
+/* line 68, app/assets/stylesheets/songs.scss */
+.panel #song_key, .panel #key_text {
+  float: left;
+}
+
+/* line 71, app/assets/stylesheets/songs.scss */
+.panel td {
+  padding: 10px;
+}
+
+/* line 76, app/assets/stylesheets/songs.scss */
+.explanation {
+  border: 1px solid #d3d3d3;
+  margin: 0px auto;
+  padding: 5px;
+  width: 50%;
+  text-align: left;
+}
+
+/* line 84, app/assets/stylesheets/songs.scss */
+.visibility_checkbox {
+  margin: 20px;
+}
+
+/* line 88, app/assets/stylesheets/songs.scss */
+.song_body {
+  margin: 10px;
+}
+
+/* line 92, app/assets/stylesheets/songs.scss */
+#save_button {
+  margin: 10px;
+}
+
+/* line 96, app/assets/stylesheets/songs.scss */
+#song_video_container {
+  margin: 0px auto;
+  width: 60%;
+}
+
+/* line 101, app/assets/stylesheets/songs.scss */
+#print_button {
+  margin: 25px;
+}
+
+/* print */
+/* line 106, app/assets/stylesheets/songs.scss */
+#print_key {
+  text-align: center;
+}

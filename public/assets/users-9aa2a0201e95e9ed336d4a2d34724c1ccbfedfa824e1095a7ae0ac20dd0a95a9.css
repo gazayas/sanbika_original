@@ -1,0 +1,76 @@
+/* index */
+/* line 2, app/assets/stylesheets/users.scss */
+#user_image_thumbnail {
+  height: 25px;
+  width: 25px;
+}
+
+/* show */
+/* line 8, app/assets/stylesheets/users.scss */
+body {
+  background-color: #f7faff !important;
+}
+
+/* TODO: Look over this sizing code */
+@media (min-width: 500px) {
+  /* line 14, app/assets/stylesheets/users.scss */
+  #user_image {
+    width: 90%;
+  }
+  /* line 18, app/assets/stylesheets/users.scss */
+  #charts_header p {
+    font-size: 30px;
+  }
+  /* line 22, app/assets/stylesheets/users.scss */
+  #favorites_header p, #set_lists_header p {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* line 28, app/assets/stylesheets/users.scss */
+  #user_image {
+    width: 50%;
+  }
+  /* line 32, app/assets/stylesheets/users.scss */
+  #charts_header p {
+    font-size: 15px;
+  }
+  /* line 36, app/assets/stylesheets/users.scss */
+  #favorites_header p, #set_lists_header p {
+    font-size: 15px;
+  }
+}
+
+/* line 41, app/assets/stylesheets/users.scss */
+#user_row {
+  margin-top: 30px;
+}
+
+/* line 45, app/assets/stylesheets/users.scss */
+#new_chart_button {
+  margin: 20px;
+  padding: 10px;
+}
+
+/* line 50, app/assets/stylesheets/users.scss */
+#favorites_header p {
+  margin-top: 50px;
+}
+
+/* line 54, app/assets/stylesheets/users.scss */
+#set_lists_card {
+  margin-top: 10px;
+}
+
+/* line 58, app/assets/stylesheets/users.scss */
+#new_set_list_button_element {
+  margin-top: 40px;
+}
+
+/* edit */
+/* line 63, app/assets/stylesheets/users.scss */
+.image_error_details {
+  margin: 0px auto;
+  width: 75%;
+}

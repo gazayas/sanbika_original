@@ -1,0 +1,7 @@
+/* line 1, app/assets/stylesheets/set_list_songs.scss */
+.song_key {
+  margin: 0px auto;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}

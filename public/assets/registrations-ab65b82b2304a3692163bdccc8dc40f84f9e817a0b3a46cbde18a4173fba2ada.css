@@ -1,0 +1,35 @@
+/* line 1, app/assets/stylesheets/registrations.scss */
+#sign_up_page {
+  border: 1px solid black;
+  border-radius: 1%;
+}
+
+/* line 6, app/assets/stylesheets/registrations.scss */
+.input_fields {
+  width: 85%;
+  margin: 0px auto;
+  text-align: center;
+}
+
+/* line 12, app/assets/stylesheets/registrations.scss */
+.field {
+  margin: 10px 0px;
+}
+
+/* Overriding the style above for bootstrap style */
+/* line 17, app/assets/stylesheets/registrations.scss */
+#registration_text_holder {
+  border-radius: 2%;
+}
+
+/* line 21, app/assets/stylesheets/registrations.scss */
+.registration_fields {
+  margin: 0px auto;
+  width: 55% !important;
+}
+
+/* line 26, app/assets/stylesheets/registrations.scss */
+.music_note {
+  font-size: 50px;
+  text-align: center;
+}
