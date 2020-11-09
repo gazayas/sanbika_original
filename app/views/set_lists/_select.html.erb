@@ -9,11 +9,10 @@
       <%= form_for([current_user, sl, @set_list_song]) do |f| %>
         <%= f.hidden_field :set_list_id, value: sl.id %>
         <%= f.hidden_field :song_id, value: @song.id %>
-        <%= f.hidden_field :order, value: (sl.set_list_songs.size) %>
         <%= f.hidden_field :key, value: params[:selected_key] %>
         <br/>
 
-        <%= button_tag sl.title, type: 'submit' %>
+        <%= button_tag sl.title, type: 'submit', class: 'btn btn-primary' %>
       <% end %>
     <% end %>
 <% end %>
