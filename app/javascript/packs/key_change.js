@@ -43,16 +43,15 @@ function check_flat(note) {
 // TODO: Write original_key instead of old_key,
 // since this represents the original_key in the database
 // and not the last key that the user chose.
-function key_change(old_key, slash_chords) {
-  var new_key = document.getElementById('key_box').value;
+function key_change(old_key, slash_chords, new_key = null, song_body) {
+    if(new_key == null) {
+        var new_key = document.getElementById('key_box').value;
+    }
   var key_up;
   var difference;
   var chord_strings = [];
   var new_chords = [];
   var print_hidden_tag = document.getElementById('song_selectedKey');
-
-  console.log(old_key);
-  console.log(new_key);
 
   if(print_hidden_tag) { print_hidden_tag.value = new_key }
 
@@ -60,7 +59,7 @@ function key_change(old_key, slash_chords) {
     var chords_html = slash_chords;
     chord_strings = chords_html;
   } else {
-    var chords_html = document.getElementsByClassName('chord');
+    var chords_html = song_body.children;
     for (var i = 0; i < chords_html.length; i++) {
       chord_strings.push(chords_html[i].getAttribute('name'));
     }
@@ -89,7 +88,7 @@ function key_change(old_key, slash_chords) {
 
     if (/\//.test(chord_strings[i])) {
       slash_chord_array = chord_strings[i].split("/");
-      var new_array = key_change(old_key, slash_chord_array);
+      var new_array = key_change(old_key, slash_chord_array, new_key, song_body);
       chord_strings[i] = new_array[0] + "/" + new_array[1];
       new_chords.push(chord_strings[i]);
       chords_html[i].innerHTML = new_chords[i];
@@ -136,6 +135,28 @@ function key_change(old_key, slash_chords) {
   }
 }
 
-$(() =>
-  $('#key_box').on('change', () => key_change($('#key_box').attr('class'), null))
-);
+// Decipher whether it's song#show or set_list#show
+var set_list_songs = document.getElementsByClassName("set_list_song");
+if(set_list_songs.length == 0) {
+    var song_body = document.getElementsByClassName("song_body")[0];
+    $(() =>
+      $('#key_box').on(
+          'change',
+            () => key_change($('#key_box').attr('class'), null, null, song_body)
+      )
+    );
+} else {
+    $('.song_body').each(function() {
+        var keys = this.getAttribute('value');
+        keys = keys.split("/");
+        var original_key = keys[0];
+        var new_key = keys[1];
+
+        $(() =>
+          $('.set_list_song').on(
+              'load',
+              key_change(original_key, null, new_key, this)
+          )
+        );
+    })
+}

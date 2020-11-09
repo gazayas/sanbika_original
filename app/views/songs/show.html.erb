@@ -31,7 +31,7 @@
         <%= check_box_tag "hide chords", nil, false, class: 'visibility_checkbox', style: 'display: inline-block;' %>
       </strong>
 
-      <div id="song_body"><%= sanitize(@song.song_body) %></div>
+      <div class="song_body"><%= sanitize(@song.song_body) %></div>
     </div>
 
     <% if @video_id %>

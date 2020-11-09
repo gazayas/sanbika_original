@@ -1,5 +1,3 @@
-<!-- TODO: song_body needs to be changed to a class and the code needs to be adjusted -->
-<%= javascript_pack_tag 'key_change' %>
 <%= javascript_pack_tag 'initialize_song' %>
 
 <div id="set_list_title" class="text-center">
@@ -18,7 +16,7 @@
       <%= t('activerecord.attributes.song.key') + ": " + sls.key %><br/>
     </div>
 
-    <div id="song_body">
+    <div class="song_body set_list_song" value="<%= @song.key + "/" + sls.key %>">
       <%= sanitize @song.song_body %>
     </div>
     <br/>
@@ -38,3 +36,5 @@
     <%= @user.username %>
   <% end %>
 </div>
+
+<%= javascript_pack_tag 'key_change' %>

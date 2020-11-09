@@ -110,17 +110,13 @@ header.masthead {
   padding: 40px 30px;
 }
 
-#song_body, #print_song_body {
+.song_body, #print_song_body {
   white-space: pre-wrap;
-  margin: 10px auto;
-  padding: 0px 30px;
+  padding: 20px;
   text-align: left;
   border: 1px gray solid;
-  width: 85%;
 
-  p {
-    font-size: 22px;
-  }
+  font-size: 22px;
 
   .chord {
     line-height: 34px;

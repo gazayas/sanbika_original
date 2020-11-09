@@ -35,6 +35,8 @@
 
   <div class="set_list_links text-center">
     <%= form.submit class: 'btn btn-primary', value: t(:save) %>
-    <%= link_to t(:show), user_set_list_path(@user, @set_list), class: 'btn btn-secondary' %>
+    <%# TODO: only show this if the set list actually exists %>
+    <%# difference between new and show actions %>
+    <%#= link_to t(:show), user_set_list_path(@user, @set_list), class: 'btn btn-secondary' %>
   </div>
 <% end %>
