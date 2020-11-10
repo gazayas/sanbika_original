@@ -23,7 +23,7 @@ window.jQuery = $;
 window.$ = $;
 
 import "bootstrap";
-import "../stylesheets/application"
+import "../stylesheets/style"
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
