@@ -107,6 +107,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
     erubi (1.9.0)
+    execjs (2.7.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.1.0)
@@ -302,6 +303,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.0.4)
@@ -366,6 +369,7 @@ DEPENDENCIES
   teaspoon-mocha
   turbolinks (~> 5)
   tzinfo-data
+  uglifier
   web-console (>= 3.3.0)
   webdrivers
   webpacker
