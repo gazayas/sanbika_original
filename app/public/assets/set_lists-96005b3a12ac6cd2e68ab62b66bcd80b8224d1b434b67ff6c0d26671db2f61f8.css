@@ -1,0 +1,30 @@
+/* show */
+/* line 2, app/assets/stylesheets/set_lists.scss */
+#set_list_title {
+  margin-bottom: 30px;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  /* line 8, app/assets/stylesheets/set_lists.scss */
+  #set_list_title {
+    font-size: 27.5px;
+  }
+}
+
+@media (min-width: 500px) {
+  /* line 14, app/assets/stylesheets/set_lists.scss */
+  #set_list_title {
+    font-size: 45px;
+  }
+}
+
+/* line 19, app/assets/stylesheets/set_lists.scss */
+.set_list_links a {
+  margin: 25px 0px;
+}
+
+/* line 23, app/assets/stylesheets/set_lists.scss */
+.set_list_links {
+  margin-bottom: 70px;
+}
