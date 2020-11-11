@@ -1,18 +1,20 @@
-<% if current_user.set_lists.empty? %>
+<div class="text-center">
+  <% if current_user.set_lists.empty? %>
     <p>You have no set lists</p>
-<% else %>
-    <p>「<%= @song.title %>」を好きなセットリストに追加してください。</p>
-    <p> 歌はこのキーで追加されます：<%= params[:selected_key] %></p>
+  <% else %>
+      <p>「<%= @song.title %>」を好きなセットリストに追加してください。</p>
+      <p> 歌はこのキーで追加されます：<%= params[:selected_key] %></p>
 
-    <% @set_lists.each do |sl| %>
-      <% @set_list_song = sl.set_list_songs.build %>
-      <%= form_for([current_user, sl, @set_list_song]) do |f| %>
-        <%= f.hidden_field :set_list_id, value: sl.id %>
-        <%= f.hidden_field :song_id, value: @song.id %>
-        <%= f.hidden_field :key, value: params[:selected_key] %>
-        <br/>
+      <% @set_lists.each do |sl| %>
+        <% @set_list_song = sl.set_list_songs.build %>
+        <%= form_for([current_user, sl, @set_list_song]) do |f| %>
+          <%= f.hidden_field :set_list_id, value: sl.id %>
+          <%= f.hidden_field :song_id, value: @song.id %>
+          <%= f.hidden_field :key, value: params[:selected_key] %>
+          <br/>
 
-        <%= button_tag sl.title, type: 'submit', class: 'btn btn-primary' %>
+          <%= button_tag sl.title, type: 'submit', class: 'btn btn-primary' %>
+        <% end %>
       <% end %>
-    <% end %>
-<% end %>
+  <% end %>
+</div>

@@ -30,7 +30,7 @@ class SetListsController < ApplicationController
 
     respond_to do |format|
       if @set_list.save
-        format.html { redirect_to user_set_lists_path(@user), notice: 'Set list was successfully created.' }
+        format.html { redirect_to user_path(@user), notice: 'Set list was successfully created. Add a new song and try it out' }
         format.json { render :show, status: :created, location: @set_list }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class SetListsController < ApplicationController
   def destroy
     @set_list.destroy
     respond_to do |format|
-      format.html { redirect_to user_set_lists_path(@user), notice: 'Set list was successfully destroyed.' }
+      format.html { redirect_to user_path(@user), notice: 'Set list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
