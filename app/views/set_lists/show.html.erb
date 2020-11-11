@@ -7,8 +7,8 @@
 <% @set_list.set_list_songs.each do |sls| %>
   <% @song = Song.find(sls.song_id) %>
 
-  <div class="panel panel-default">
-    <div class="panel panel-heading">
+  <div>
+    <div class="text-center">
       <h2 id="song_title"><%= @song.title %></h2>
     </div>
 
