@@ -60,17 +60,15 @@ h1 {
 }
 
 /* _form */
-.panel {
-  text-align: center;
-  table {
-    margin: 0px auto;
-  }
-  #song_key, #key_text {
-    float: left;
-  }
-  td {
-    padding: 10px;
-  }
+.song_form_song_body {
+  width: 95%;
+  height: 400px;  
+}
+
+.song_form {
+  margin: 0px auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .explanation {
@@ -83,10 +81,6 @@ h1 {
 
 .visibility_checkbox {
   margin: 20px;
-}
-
-.song_body {
-  margin: 10px;
 }
 
 #save_button {

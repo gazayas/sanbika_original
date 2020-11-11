@@ -1,12 +1,13 @@
 <!-- 変数名をmodel_instanceとして定義し、部分テンプレートで使う -->
 <%= render partial: "shared/error_partial", locals: { model_instance: @song } %>
 
-<div class="panel panel-default">
-  <div class="panel panel-heading">
+<div class="card">
+  <div class="card-body">
     <h1><%= t(:edit_chart) %></h1>
   </div>
   <%= render 'form', song: @song %>
 </div>
 
-<%= link_to t(:show), user_song_path(@user, @song) %> |
-<%= link_to t(:list_of_charts), user_songs_path %>
+<div class="text-center">
+	<%= link_to t(:show), user_song_path(@user, @song) %>	
+</div>

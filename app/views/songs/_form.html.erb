@@ -8,7 +8,7 @@
     <% key = "C" %>
   <% end %>
 
-  <table class="song_form">
+  <table class="song_form" style="margin: 0px auto;">
     <tr>
       <td>
         <%= f.text_field :title, class: 'form-control',
@@ -23,20 +23,19 @@
     </tr>
     <tr>
       <td>
-        <div id="key_text"><%= t('activerecord.attributes.song.key') %></div>
+        <%= t('activerecord.attributes.song.key') %>
         <%= f.select(:key, options_for_select(sharp_notes, selected: key),
         class: 'form-control', size: col_size) %>
       </td>
     </tr>
   </table>
 
-  <div class="explanation">
+  <div class="song_form explanation">
     <%= t(:explanation) %><br/>
   </div>
 
-
-  <div class="song_body"><!-- id に変えた方がいいかな -->
-    <%= f.text_area :song_body, class: 'not-tinymce', rows: 15, cols: 100, style: 'font-size: 22px;' %>
+  <div class="song_form song_body">
+    <%= f.text_area :song_body, class: 'song_form_song_body' %>
   </div>
 
   <table class="song_form">
@@ -49,5 +48,7 @@
     </tr>
   </table>
 
-  <%= f.submit class: 'btn btn-primary', value: t(:save), id: 'save_button' %>
+  <div class="text-center">
+    <%= f.submit class: 'btn btn-primary', value: t(:save), id: 'save_button' %>  
+  </div>
 <% end %>
