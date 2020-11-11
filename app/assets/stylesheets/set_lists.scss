@@ -8,11 +8,19 @@
   #set_list_title {
     font-size: 27.5px;
   }
+
+  .set_list_songs a {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 500px) {
   #set_list_title {
     font-size: 45px;
+  }
+
+  .set_list_songs a {
+    font-size: 22px;
   }
 }
 

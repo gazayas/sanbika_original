@@ -16,7 +16,10 @@
     <%= form.text_field :title, style: 'font-size: 20px; text-decoration: none;' %>
   </div>
 
-  <p class="text-center">歌をドラッグして順番を変えることができます。</p>
+  <p class="text-center">
+    歌をドラッグして順番を変えることができます。<br/>
+    歌をクリックしてキーを編集することもできます。
+  </p>
 
   <div class="set_list_songs text-center">
     <% if !set_list.set_list_songs.empty? %>
