@@ -66,12 +66,15 @@
   <div class="panel panel-default">
     <div class="panel panel-heading">
       <h1 id="song_title"><%= t(:example_chart_title) %></h1>
-      <%= select_tag(
+      <div class="text-center">
+        <%= t('activerecord.attributes.song.key') %>
+        <%= select_tag(
             :key_box,
             options_for_select(sharp_notes, selected: t(:example_chart_key)),
             onchange: 'key_change("' +  t(:example_chart_key) + '", null);',
             class: t(:example_chart_key))
-      %>
+        %>
+      </div>
     </div>
     <div class="song_body" class="panel panel-body"><%= t(:example_chart) %></div>
   </div>
