@@ -18,6 +18,8 @@ class User < ApplicationRecord
   # TODO: Use carrierwave to edit user images
   # mount_uploader :user_image, UserImageUploader
 
+  validates :username, presence: true, length: { minimum: 5 }
+
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
       user.provider = auth["provider"]

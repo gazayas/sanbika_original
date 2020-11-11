@@ -1,32 +1,36 @@
-<p><%= t(:edit_picture) %></p>
+<div class="text-center">
+  <p><%= t(:edit_picture) %></p>
 
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="image_error" class="panel panel-default">
-      <div class="panel panel-heading">
-        <h2><%= pluralize(@user.errors.count, t(:errors_occurred)) %></h2>
-      </div>
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="image_error" class="card">
+        <div class="card-body">
+          <h2><%= pluralize(@user.errors.count, t(:errors_occurred)) %></h2>
+        </div>
 
-      <% @user.errors.full_messages.each do |message| %>
-        <p class="alert alert-danger image_error_details"><%= message %></p>
-      <% end %>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <% if @user.user_image? %>
-      <div class="thumbnail">
-        <%= image_tag @user.user_image %>
+        <% @user.errors.full_messages.each do |message| %>
+          <p class="alert alert-danger image_error_details"><%= message %></p>
+        <% end %>
       </div>
     <% end %>
-    <%= f.file_field :user_image %>
-    <%#
-        Had this hidden field when I was using carrierwave.
-        I might still use it so the user can edit their image,
-        so I don't think I'll delete it for now.
-    %>
-    <%# f.hidden_field :user_image_cache %>
-  </div>
 
-  <%= f.submit class: 'btn btn-primary', value: t(:save), id: 'save_button' %>
-<% end %>
+    <div class="form-group">
+      <% if @user.user_image? %>
+        <div class="thumbnail">
+          <%= image_tag @user.user_image %>
+        </div>
+      <% end %>
+      <%#= f.file_field :user_image %>
+      <%#
+          Had this hidden field when I was using carrierwave.
+          I might still use it so the user can edit their image,
+          so I don't think I'll delete it for now.
+      %>
+      <%# f.hidden_field :user_image_cache %>
+    </div>
+
+    <%= f.text_field :username %><br/>
+
+    <%= f.submit class: 'btn btn-primary', value: t(:save), id: 'save_button' %>
+  <% end %>
+</div>
