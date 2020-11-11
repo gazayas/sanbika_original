@@ -28,31 +28,20 @@ en:
   example_chart_title: 'How Great Is Our God'
   example_chart_key: 'G'
   example_chart:
-    "\          G\n
-    The splendor of the King\n
-    Em7\n
-    Clothed in majesty\n
-    \                            C\n
-    Let all the earth rejoice\n
-    \                       D\n
-    All the earth rejoice\n
-    \       G\n
-    He wraps Himself in light\n
-    \         Em7\n
-    And darkness tries to hide\n
-    \                                 C\n
-    And trembles at His voice\n
-    \                                 D\n
-    And trembles at His voice\n
+    "\          G                                   Em7\n
+    The splendor of the King clothed in majesty\n
+    \        C                                    D\n
+    Let all the earth rejoice, all the earth rejoice\n
+    \       G                                               Em7\n
+    He wraps Himself in light and darkness tries to hide\n
+    \                                 C                                           D\n
+    And trembles at His voice, trembles at His voice\n
     \n
-    \          G\n
-    How great is our God\n
-    D/F#\n
-    Sing with me\n
-    \          Em7\n
-    How great is our God\n
-    \                        C\n
-    All will see how great\n
+    \          G                              D/F#\n
+    How great is our God, sing with me\n
+    
+    \          Em7                                   C\n
+    How great is our God, and all will see how great\n
     \           D              G\n
     How great is our God\n"
 

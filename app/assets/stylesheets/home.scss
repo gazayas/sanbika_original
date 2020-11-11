@@ -30,6 +30,10 @@ header.masthead {
     font-size: 12px !important;
     width: 100%;
   }
+
+  .song_body {
+    font-size: 12px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -37,6 +41,10 @@ header.masthead {
       margin: 10px 0px;
       font-size: 20px !important;
       width: 90%;
+    }
+
+    .song_body {
+      font-size: 22px;
     }
 }
 
@@ -115,8 +123,6 @@ header.masthead {
   padding: 20px;
   text-align: left;
   border: 1px gray solid;
-
-  font-size: 22px;
 
   .chord {
     line-height: 34px;
