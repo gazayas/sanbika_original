@@ -1,34 +1,34 @@
 {
-  "application.js": "/packs/js/application-096882861186f8372a41.js",
-  "application.js.map": "/packs/js/application-096882861186f8372a41.js.map",
+  "application.js": "/packs/js/application-94778df274083b983075.js",
+  "application.js.map": "/packs/js/application-94778df274083b983075.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-096882861186f8372a41.js"
+        "/packs/js/application-94778df274083b983075.js"
       ],
       "js.map": [
-        "/packs/js/application-096882861186f8372a41.js.map"
+        "/packs/js/application-94778df274083b983075.js.map"
       ]
     },
     "initialize_song": {
       "js": [
-        "/packs/js/initialize_song-51fd67291fd675cd3b95.js"
+        "/packs/js/initialize_song-441aa38b85b55cfa9ca6.js"
       ],
       "js.map": [
-        "/packs/js/initialize_song-51fd67291fd675cd3b95.js.map"
+        "/packs/js/initialize_song-441aa38b85b55cfa9ca6.js.map"
       ]
     },
     "key_change": {
       "js": [
-        "/packs/js/key_change-8e7ea155761c2eba654d.js"
+        "/packs/js/key_change-7109e0f42c09e9340fad.js"
       ],
       "js.map": [
-        "/packs/js/key_change-8e7ea155761c2eba654d.js.map"
+        "/packs/js/key_change-7109e0f42c09e9340fad.js.map"
       ]
     }
   },
-  "initialize_song.js": "/packs/js/initialize_song-51fd67291fd675cd3b95.js",
-  "initialize_song.js.map": "/packs/js/initialize_song-51fd67291fd675cd3b95.js.map",
-  "key_change.js": "/packs/js/key_change-8e7ea155761c2eba654d.js",
-  "key_change.js.map": "/packs/js/key_change-8e7ea155761c2eba654d.js.map"
+  "initialize_song.js": "/packs/js/initialize_song-441aa38b85b55cfa9ca6.js",
+  "initialize_song.js.map": "/packs/js/initialize_song-441aa38b85b55cfa9ca6.js.map",
+  "key_change.js": "/packs/js/key_change-7109e0f42c09e9340fad.js",
+  "key_change.js.map": "/packs/js/key_change-7109e0f42c09e9340fad.js.map"
 }
