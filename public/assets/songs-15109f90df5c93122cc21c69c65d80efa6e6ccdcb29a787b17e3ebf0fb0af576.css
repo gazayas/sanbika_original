@@ -1,0 +1,155 @@
+/* index */
+/* line 2, app/assets/stylesheets/songs.scss */
+#new_song {
+  text-align: center;
+}
+
+/* line 6, app/assets/stylesheets/songs.scss */
+h1 {
+  text-align: center;
+}
+
+/* line 10, app/assets/stylesheets/songs.scss */
+#song_list {
+  text-align: left;
+}
+
+/* line 14, app/assets/stylesheets/songs.scss */
+#no_songs {
+  text-align: center;
+}
+
+/* show */
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+  /* line 21, app/assets/stylesheets/songs.scss */
+  .song_title {
+    font-size: 28px;
+  }
+  /* line 25, app/assets/stylesheets/songs.scss */
+  .explanation {
+    width: 90% !important;
+    font-size: 12px;
+  }
+  /* line 30, app/assets/stylesheets/songs.scss */
+  .song_body {
+    font-size: 13px;
+    margin: 0px auto;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* line 37, app/assets/stylesheets/songs.scss */
+  .song_title {
+    font-size: 50px;
+  }
+  /* line 41, app/assets/stylesheets/songs.scss */
+  .explanation {
+    font-size: 18px;
+  }
+  /* line 45, app/assets/stylesheets/songs.scss */
+  .song_body {
+    font-size: 22px;
+    margin: 10px auto;
+  }
+}
+
+/* line 51, app/assets/stylesheets/songs.scss */
+.show_container {
+  padding-bottom: 20px;
+}
+
+/* line 55, app/assets/stylesheets/songs.scss */
+.song_title {
+  margin-bottom: 30px;
+}
+
+/* line 59, app/assets/stylesheets/songs.scss */
+.bookmark_button {
+  font-size: 35px;
+  color: #0275d8;
+  display: inline;
+}
+
+/* line 65, app/assets/stylesheets/songs.scss */
+.new_favorite {
+  display: inline;
+}
+
+/* line 69, app/assets/stylesheets/songs.scss */
+#bookmark_empty {
+  display: inline;
+}
+
+/* line 73, app/assets/stylesheets/songs.scss */
+.song_body, #print_song_body {
+  white-space: pre-wrap;
+  border: 1px gray solid;
+}
+
+/* line 77, app/assets/stylesheets/songs.scss */
+.song_body .chord, #print_song_body .chord {
+  line-height: 34px;
+}
+
+/* _form */
+@media (min-width: 500px) {
+  /* line 84, app/assets/stylesheets/songs.scss */
+  .song_form_song_body {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* line 90, app/assets/stylesheets/songs.scss */
+  .song_form_song_body {
+    height: 400px;
+  }
+}
+
+/* line 95, app/assets/stylesheets/songs.scss */
+.song_form_song_body {
+  width: 95%;
+}
+
+/* line 99, app/assets/stylesheets/songs.scss */
+.song_form {
+  margin: 0px auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* line 105, app/assets/stylesheets/songs.scss */
+.explanation {
+  border: 1px solid #d3d3d3;
+  margin: 0px auto;
+  padding: 5px;
+  width: 50%;
+  text-align: left;
+}
+
+/* line 113, app/assets/stylesheets/songs.scss */
+.visibility_checkbox {
+  margin: 20px;
+}
+
+/* line 117, app/assets/stylesheets/songs.scss */
+#save_button {
+  margin: 10px;
+}
+
+/* line 121, app/assets/stylesheets/songs.scss */
+#song_video_container {
+  margin: 0px auto;
+  width: 60%;
+}
+
+/* line 126, app/assets/stylesheets/songs.scss */
+#print_button {
+  margin: 25px;
+}
+
+/* print */
+/* line 131, app/assets/stylesheets/songs.scss */
+#print_key {
+  text-align: center;
+}
