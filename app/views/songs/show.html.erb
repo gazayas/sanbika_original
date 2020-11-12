@@ -1,7 +1,6 @@
 <%= javascript_pack_tag 'initialize_song' %>
 
-<div class="card">
-  <div class="card-body">
+<div class="show_container">
     <div class="song_title text-center">
       <%= @song.title %>
       <% if current_user %>
@@ -71,7 +70,6 @@
         <%= link_to t(:delete), user_song_path, class: 'btn btn-danger', method: :delete, data: { confirm: t(:confirm_deletion) } %>
       <% end %>
       </div>
-  </div>
 </div>
 
 <%= javascript_pack_tag 'key_change' %>

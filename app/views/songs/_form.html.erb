@@ -1,7 +1,6 @@
 <% col_size = 50 %>
 
 <%= form_for([@user, song]) do |f| %>
-  <%# selectedの値の定義 %>
   <% unless song.key == nil %>
     <% key = song.key %>
   <% else %>
@@ -23,9 +22,11 @@
     </tr>
     <tr>
       <td>
-        <%= t('activerecord.attributes.song.key') %>
-        <%= f.select(:key, options_for_select(sharp_notes, selected: key),
-        class: 'form-control', size: col_size) %>
+         <div class="text-center">
+             <%= t('activerecord.attributes.song.key') %>
+             <%= f.select(:key, options_for_select(sharp_notes, selected: key),
+             class: 'form-control', size: col_size) %>
+         </div>
       </td>
     </tr>
   </table>
@@ -49,6 +50,6 @@
   </table>
 
   <div class="text-center">
-    <%= f.submit class: 'btn btn-primary', value: t(:save), id: 'save_button' %>  
+    <%= f.submit class: 'btn btn-primary', value: t(:save), id: 'save_button' %>
   </div>
 <% end %>

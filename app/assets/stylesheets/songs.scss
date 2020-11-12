@@ -21,12 +21,35 @@ h1 {
   .song_title {
     font-size: 50px;
   }
+
+  .explanation {
+      font-size: 18px;
+  }
+
+  .song_body {
+    font-size: 22px;
+    margin: 10px auto;
+  }
 }
 
 @media (max-width: 768px) {
   .song_title {
     font-size: 28px;
   }
+
+  .explanation {
+      width: 90% !important;
+      font-size: 12px;
+  }
+
+  .song_body {
+    font-size: 11px;
+    margin: 0px auto;
+  }
+}
+
+.show_container {
+  padding-bottom: 20px;
 }
 
 .song_title {
@@ -47,12 +70,9 @@ h1 {
   display: inline;
 }
 
-#song_body, #print_song_body {
+.song_body, #print_song_body {
   white-space: pre-wrap;
-  margin: 10px auto;
   border: 1px gray solid;
-
-  font-size: 22px;
 
   .chord {
     line-height: 34px;
@@ -60,9 +80,20 @@ h1 {
 }
 
 /* _form */
+@media (min-width: 500px) {
+    .song_form_song_body {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .song_form_song_body {
+        height: 400px;
+    }
+}
+
 .song_form_song_body {
-  width: 95%;
-  height: 400px;  
+    width: 95%;
 }
 
 .song_form {
