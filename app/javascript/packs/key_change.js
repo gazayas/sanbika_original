@@ -135,17 +135,11 @@ function key_change(old_key, slash_chords, new_key = null, song_body) {
   }
 }
 
-// Decipher whether it's song#show or set_list#show
+// SetList#show and the print layout load the key change function automatically.
+// Song#show let's the user change they key at will
 var set_list_songs = document.getElementsByClassName("set_list_song");
-if(set_list_songs.length == 0) {
-    var song_body = document.getElementsByClassName("song_body")[0];
-    $(() =>
-      $('#key_box').on(
-          'change',
-            () => key_change($('#key_box').attr('class'), null, null, song_body)
-      )
-    );
-} else {
+var print_song_body = document.getElementsByClassName("print_song_body");
+if (print_song_body.length == 1 || set_list_songs.length >= 1){
     $('.song_body').each(function() {
         var keys = this.getAttribute('value');
         keys = keys.split("/");
@@ -159,4 +153,12 @@ if(set_list_songs.length == 0) {
           )
         );
     })
+} else if(set_list_songs.length == 0) {
+    var song_body = document.getElementsByClassName("song_body")[0];
+    $(() =>
+      $('#key_box').on(
+          'change',
+            () => key_change($('#key_box').attr('class'), null, null, song_body)
+      )
+    );
 }

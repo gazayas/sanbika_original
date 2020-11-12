@@ -6,21 +6,12 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'key_change' %>
     <%= javascript_pack_tag 'initialize_song' %>
   </head>
 
   <body>
     <h1 id="song_title"><%= @song.title %></h1>
 
-    <div id="artist_wrapper" class="text-center">
-      <strong><%= t('activerecord.attributes.song.artist') %></strong>
-      <%= @song.artist %>
-      </div>
-    <br/>
-
-    <%# printボタンを押したか直接リンクを打ち込んだかによってparamsの有無が決まります %>
-    <%# それでselected_keyを設定し、下の方でkey_change()を呼びます %>
     <% selected_key = nil %>
     <% if params[:song] %>
       <% selected_key = params[:song][:selectedKey] %>
@@ -28,37 +19,20 @@
       <% selected_key = @song.key %>
     <% end %>
 
-    <div id="song_key" style="visibility: hidden;"><%= @song.key %></div>
+    <div class="song_body print_song_body" value="<%= @song.key%>/<%= selected_key %>"><%= sanitize(@song.song_body) %></div>
 
-    <h5 id="print_key"><%= t(:key) %>
-      <%= select_tag(:key_box,
-          options_for_select(sharp_notes, selected: selected_key),
-          class: @song.key)
-      %>
-    </h5>
-
-    <div id="checkbox_wrapper" class="text-center">
-      <strong>
-      <%= t(:hide_chords) %>：
-      <%= check_box_tag "hide chords", nil, false, class: 'visibility_checkbox', style: 'display: inline-block;' %>
-      </strong>
+    <div class="text-center">
+        <%= button_tag t(:print), id: 'print_button', onclick: 'printChart()', class: 'btn btn-primary' %>
     </div>
-
-    <div id="song_body"><%= sanitize(@song.song_body) %></div>
-
-    <%= button_tag t(:print), id: 'print_button', onclick: 'printChart()', class: 'btn btn-primary center-block' %>
-
+    
     <script>
-      var song_key = document.getElementById("song_key").innerHTML
-      $(window).on('load', function() {
-        key_change(song_key, false)
-      })
-
       function printChart() {
         $('#print_button').css('visibility','hidden')
         window.print()
         $('#print_button').css('visibility','visible')
       }
     </script>
+
+    <%= javascript_pack_tag 'key_change' %>
   </body>
 </html>
