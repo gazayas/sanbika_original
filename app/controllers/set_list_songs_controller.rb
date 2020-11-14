@@ -19,7 +19,11 @@ class SetListSongsController < ApplicationController
     # so it's redirected to the show action of the
     # set list it belongs to
     respond_to do |format|
-      if @set_list_song.save
+      if @set_list.set_list_songs.length > 10
+        error_str = locale == :en ? "You cannot have more than 10 songs in a set list" : "セットリストの曲の制限は１０曲までです。"
+        format.html { redirect_to user_set_list_path(current_user, @set_list), flash: { alert: error_str } }
+        format.json { render json: @set_list_song.errors, status: :unprocessable_entity }
+      elsif @set_list_song.save
         format.html { redirect_to user_set_list_path(current_user, @set_list), notice: 'Song added to ' + @set_list.title }
         format.json { render :show, status: :created, location: @set_list_song }
       else

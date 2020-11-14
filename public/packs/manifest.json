@@ -1,13 +1,13 @@
 {
-  "application.js": "/packs/js/application-096882861186f8372a41.js",
-  "application.js.map": "/packs/js/application-096882861186f8372a41.js.map",
+  "application.js": "/packs/js/application-9c72eb5a1321c246617e.js",
+  "application.js.map": "/packs/js/application-9c72eb5a1321c246617e.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-096882861186f8372a41.js"
+        "/packs/js/application-9c72eb5a1321c246617e.js"
       ],
       "js.map": [
-        "/packs/js/application-096882861186f8372a41.js.map"
+        "/packs/js/application-9c72eb5a1321c246617e.js.map"
       ]
     },
     "initialize_song": {
