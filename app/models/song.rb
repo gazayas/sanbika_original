@@ -23,6 +23,8 @@ class Song < ApplicationRecord
 
 	private
 
+	# TODO: There is also "format" in Rails validations.
+	# Check and see if that is a better option
 	def check_link
 		errors.add(:video, I18n.t(:invalid_link)) unless video == "" || !!video.match(VIDEO_REGEXP)
 	end

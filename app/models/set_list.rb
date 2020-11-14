@@ -4,6 +4,8 @@ class SetList < ApplicationRecord
 
   validates :title, presence: true, length: { minimum: 3, maximum: 25 }
 
-  # TODO: Write limit: 10 for this validation
+  # It may be a better practice to add limit: 10 to this,
+  # but since the set list songs are being saved in their own controller,
+  # the create function handles the logic there.
   accepts_nested_attributes_for :set_list_songs
 end
