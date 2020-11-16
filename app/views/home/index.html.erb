@@ -71,7 +71,6 @@
         <%= select_tag(
             :key_box,
             options_for_select(sharp_notes, selected: t(:example_chart_key)),
-            onchange: 'key_change("' +  t(:example_chart_key) + '", null);',
             class: t(:example_chart_key))
         %>
       </div>
