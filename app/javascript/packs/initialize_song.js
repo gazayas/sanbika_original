@@ -1,85 +1,77 @@
 /* The following code is used primarily in songs#show */
 
-// TODO: sharp_or_flat_is_present_in(str)
+// The follwing Regular Expression has a Japanese white-space character in it.
+// TODO: For clarity, it might be better to simply change it a hexidecimal value.
+// The value may change depending on the encoding.
+var WHITE_SPACE_REGEXP = /(\s+|　+)/;
+var CHORD_REGEXP = /[A-G]{1,1}/;
+
 function replace_marks(str) {
-  if (check_sharp(str)) {
+  if (is_sharp(str)){
     str = str.replace(/#/g, "♯");
-  }
-  if (check_flat(str)) {
+  } else if (is_flat(str)) {
     str = str.replace(/b/g, "♭");
   }
   return str;
 }
 
-// TODO: Change the following two method names to
-// is_sharp and is_flat
-function check_sharp(note) {
-  if (/#/.test(note) || /♯/.test(note)) {
-  return true;
-  } else {
+function is_sharp(note) {
+  if (/#|♯/.test(note)) { return true; }
   return false;
+}
+
+function is_flat(note) {
+  if(/b|♭/.test(note)) { return true; }
+  return false;
+}
+
+function has_chords(ary) {
+  for(var i = 0; i < ary.length; i++) {
+    if(WHITE_SPACE_REGEXP.test(ary[i]) || ary[i] == "") {
+      // String is empty, go to next value
+    } else if(!CHORD_REGEXP.test(ary[i]) || /Chorus|CHORUS|Bridge|BRIDGE/.test(ary[i])) {
+      // Has lyrics or something else which isn't a chord
+      return false;
+    } else {
+      return true;
+    }
   }
 }
 
-function check_flat(note) {
-  if (/b/.test(note) || /♭/.test(note)) {
-    return true;
-  } else {
-    return false;
+// The chords are wrapped with a span and given a class
+// so it can work with the key_change function.
+// The Regular Expression here checks if there is a word
+// (or chord, as opposed to white space) at the beginning of the string.
+function wrap_chords_with_span(ary) {
+  for(i = 0; i < ary.length; i++) {
+    if(/^\w/.test(ary[i])) {
+      ary[i] =
+        '<span class="chord" name="' + replace_marks(ary[i]) + '">' +
+          replace_marks(ary[i]) +
+        '</span>';
+    }
   }
+  return ary;
 }
 
+// Take each song body on the page and wrap each chord it has in a span.
 $(document).ready(function() {
   var song_bodies = document.getElementsByClassName("song_body");
 
-  for(var z = 0; z < song_bodies.length; z++) {
-      var song_body = song_bodies[z].innerHTML.split(/\r*\n/);
-      var chord_regexp = /[A-G]{1,1}/;
+  // Break down the song_body line by line and
+  // determine if the line has chords or not.
+  // Then put the song body back together.
+  $.each(song_bodies, function(i) {
+      var song_body_lines = song_bodies[i].innerHTML.split(/\r*\n/);
+      $.each(song_body_lines, function(j) {
+        var str_ary = song_body_lines[j].split(WHITE_SPACE_REGEXP);
+        if(has_chords(str_ary)) { str_ary = wrap_chords_with_span(str_ary); }
+        song_body_lines[j] = str_ary.join("");
+      });
 
-
-      for(var i = 0; i < song_body.length; i++) {
-        var has_chords;
-
-        // The follwing Regular Expression has a Japanese white-space character in it.
-        // TODO: For clarity, it might be better to simply change it a hexidecimal value.
-        var str_ary = song_body[i].split(/(\s+|　+)/);
-
-        // TODO: Refactor this expression, make it into its own function.
-        for(var x = 0; x < str_ary.length; x++) {
-          if(/\s+|　+/.test(str_ary[x]) || str_ary[x] == "") {
-            // Goes on to the next value if there is a space
-          } else if(!chord_regexp.test(str_ary[x]) || /Chorus|CHORUS|Bridge|BRIDGE/.test(str_ary[x])) {
-            has_chords = false
-            x = str_ary.length;
-          } else {
-            has_chords = true;
-          }
-        }
-
-        // If the array of strings consists of chords (as opposed to lyrics),
-        // Each one is wrapped in a span with the class .chord,
-        // and all of the flat and sharp flags (b and #) are changed accordingly.
-        if(has_chords) {
-          for(x = 0; x < str_ary.length; x++) {
-            if(/^\w/.test(str_ary[x])) {
-              str_ary[x] =
-                '<span class="chord" name="' + replace_marks(str_ary[x]) + '">' +
-                  replace_marks(str_ary[x]) +
-                '</span>';
-            }
-          }
-        }
-
-        song_body[i] = str_ary.join("");
-      }
-
-      // Put the song body together again by joining the array of strings
-      song_body = song_body.join("<br>");
-
-      // TODO: Look into what's going on here and refactor this next line
-      song_body = song_body.replace(/^<br>\s{2,2}/, "");
-      song_bodies[z].innerHTML = song_body;
-  }
+      var song_body = song_body_lines.join("<br>");
+      song_bodies[i].innerHTML = song_body;
+  });
 
   $('.chord').each(function() { this.style.color = "navy"; });
   $('iframe').addClass('embed-responsive-item');

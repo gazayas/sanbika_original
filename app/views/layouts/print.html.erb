@@ -12,19 +12,22 @@
   <body>
     <h1 id="song_title"><%= @song.title %></h1>
 
-    <% selected_key = nil %>
-    <% if params[:song] %>
-      <% selected_key = params[:song][:selectedKey] %>
-    <% else %>
-      <% selected_key = @song.key %>
-    <% end %>
+    <div class="text-center">
+      <strong><%= t('activerecord.attributes.song.key') %></strong>
+      <%= select_tag(
+            :selected_key,
+            options_for_select(sharp_notes, selected: @song.key),
+            id: 'key_box',
+            class: @song.key)
+      %>
+    </div>
 
-    <div class="song_body print_song_body" value="<%= @song.key%>/<%= selected_key %>"><%= sanitize(@song.song_body) %></div>
+    <div class="song_body print_song_body" value="<%= @song.key%>/<%= params[:song][:selectedKey] %>"><%= sanitize(@song.song_body) %></div>
 
     <div class="text-center">
         <%= button_tag t(:print), id: 'print_button', onclick: 'printChart()', class: 'btn btn-primary' %>
     </div>
-    
+
     <script>
       function printChart() {
         $('#print_button').css('visibility','hidden')
