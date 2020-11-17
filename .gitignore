@@ -31,12 +31,7 @@
 /todo.txt
 
 /public/packs-test
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
-
-/public/packs-test
+/public/packs/js/
 /node_modules
 /yarn-error.log
 yarn-debug.log*
