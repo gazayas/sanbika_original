@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

@@ -3,7 +3,7 @@
     <%- resource_class.omniauth_providers.each do |provider| %>
       <% case provider %>
       <% when :facebook %>
-        <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+        <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
           <button type="button"
                   class="sns_login_button btn btn-fb"
                   style="background-color: #3B5998; color: white;">
@@ -12,7 +12,7 @@
                   </button>
         <% end %>
       <% when :twitter %>
-        <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+        <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
         <button type="button"
                 class="sns_login_button btn btn-tw"
                 style="background-color: #55ACEE; color: white;">
@@ -21,7 +21,7 @@
                 </button>
         <% end %>
       <% when :google_oauth2 %>
-        <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+        <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
         <button type="button"
                 class="sns_login_button btn btn-gplus"
                 style="background-color: #DD4B39; color: white;">
