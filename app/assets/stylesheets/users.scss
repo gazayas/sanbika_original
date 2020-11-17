@@ -19,7 +19,7 @@ body {
       font-size: 30px;
     }
 
-    #favorites_header p, #set_lists_header p {
+    .favorites_header p, .set_lists_header p {
       font-size: 30px;
     }
 
@@ -37,7 +37,7 @@ body {
       font-size: 15px;
     }
 
-    #favorites_header p, #set_lists_header p {
+    .favorites_header p, .set_lists_header p {
       font-size: 15px;
     }
 
@@ -55,7 +55,7 @@ body {
   padding: 10px;
 }
 
-#favorites_header p {
+.favorites_header p {
   margin-top: 50px;
 }
 
@@ -63,7 +63,7 @@ body {
   margin-top: 10px;
 }
 
-#new_set_list_button_element {
+.new_set_list_button_div {
   margin-top: 40px;
 }
 

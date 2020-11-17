@@ -1,0 +1,41 @@
+<div id="charts_header" class="text-center">
+  <% if current_user == @user %>
+    <%= link_to '<i class="fa fa-pencil"></i> '.html_safe + t(:new_chart),
+      new_user_song_path(@user),
+      class: 'btn btn-primary btn-sm',
+      id: 'new_chart_button'
+    %><br/>
+  <% end %>
+
+  <p><%= @user.username + t(:user_charts) %></p>
+</div>
+
+<div class="charts">
+  <% if !@songs.empty? %>
+    <div>
+      <span style="margin-left: 5px"><%= t('activerecord.attributes.song.title') %></span>
+      <span class="pull-right" style="margin-right: 5px;"><%= t('activerecord.attributes.song.key') %></span>
+    </div>
+
+    <ul class="list-group">
+      <% @songs.each do |song| %>
+        <% user = User.find(song.user_id) %>
+        <%= link_to user_song_path(@user, song), id: 'user_songs', class: 'list-group-item' do %>
+          <span><%= song.title%></span>
+
+          <span class="pull-right">
+            <%= song.key %>
+          </span>
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class="card card-body text-center">
+      <h4><%= t(:no_charts) %></h4>
+    </div>
+  <% end %>
+
+  <!--div class="song_pagination text-center"-->
+    <%#= paginate @songs %>
+  <!--/div-->
+</div>

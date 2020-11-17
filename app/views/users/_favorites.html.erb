@@ -1,0 +1,31 @@
+<div class="favorites_header">
+  <p class="text-center">
+    <%= @user.username + " favorited songs" %>
+  </p>
+</div>
+
+<div class="favorites">
+  <% if !@user.favorites.empty? %>
+    <div>
+      <span style="margin-left: 5px"><%= t('activerecord.attributes.song.title') %></span>
+      <span class="pull-right" style="margin-right: 5px;"><%= t(:chart_made_by) %></span>
+    </div>
+
+    <ul class="list-group">
+      <% @user.favorites.each do |favorite| %>
+        <% song = Song.find(favorite.song_id) %>
+        <% song_user = User.find(song.user_id) %>
+
+        <%= link_to user_song_path(@user, song), class: 'list-group-item' do %>
+          <span><%= song.title %></span>
+          <span class="pull-right">
+            <%= image_tag song_user.user_image, class: 'user_thumbnail user_image_thumbnail' %>
+            <%= song_user.username %>
+          </span>
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <h4 class="text-center">No favorites</h4>
+  <% end %>
+</div>

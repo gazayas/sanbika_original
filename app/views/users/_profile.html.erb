@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-xs-2 hidden-md"></div>
+
+  <div class="card col-xs-8 col-md-12">
+    <div class="card-body text-center">
+      <%= button_tag class: 'btn btn-link', data: {toggle: "modal", target: '#img_modal'} do %>
+        <%= image_tag(image_url(get_image), id: 'user_image', alt: 'user image') %>
+      <% end %>
+
+      <div class="modal fade" id="img_modal" tabindex="-1" role="dialog" aria-labelledby="img_modal_label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn btn-secondary pull-right" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+              <%= image_tag(image_url(get_image), id: 'modal_user_image', width: '400', height: '400') %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2><%= @user.username %></h2>
+
+      <% if current_user == @user %>
+        <hr>
+        <%= link_to t(:edit_profile), edit_user_path(@user) %><br/>
+        <%= link_to t(:delete_account), user_path, method: :delete, data: { confirm: t(:confirm_deletion) } %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-xs-2 hidden-md"></div>
+</div>
