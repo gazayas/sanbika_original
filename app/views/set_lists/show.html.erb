@@ -16,9 +16,7 @@
       <%= t('activerecord.attributes.song.key') + ": " + sls.key %><br/>
     </div>
 
-    <div class="song_body set_list_song" value="<%= @song.key + "/" + sls.key %>">
-      <%= sanitize @song.song_body %>
-    </div>
+    <div class="song_body set_list_song" value="<%= @song.key + "/" + sls.key %>"><%= sanitize @song.song_body %></div>
     <br/>
   </div>
 <% end %>
