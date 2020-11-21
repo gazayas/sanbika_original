@@ -33,20 +33,6 @@ RSpec.describe Song, type: :model do
       end
     end
 
-    describe 'artist' do
-      let(:song) { FactoryBot.build(:song, user: user, artist: artist) }
-
-      context '書いてなくても大丈夫' do
-        let(:artist) { '' }
-        it { is_expected.to be_valid }
-      end
-
-      context '長すぎている場合' do
-        let(:artist) { 'a' * 51 }
-        it { is_expected.to be_invalid }
-      end
-    end
-
     describe 'key' do
       let(:song) { FactoryBot.build(:song, user: user, key: key) }
 

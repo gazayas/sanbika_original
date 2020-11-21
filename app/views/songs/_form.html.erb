@@ -16,12 +16,6 @@
     </tr>
     <tr>
       <td>
-        <%= f.text_field :artist, class: 'form-control',
-        placeholder: t('activerecord.attributes.song.artist'), autofocus: true, size: col_size %>
-      </td>
-    </tr>
-    <tr>
-      <td>
          <div class="text-center">
              <%= t('activerecord.attributes.song.key') %>
              <%= f.select(:key, options_for_select(sharp_notes, selected: key),

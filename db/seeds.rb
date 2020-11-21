@@ -4,7 +4,6 @@ song_params = []
 15.times do |n|
   song_params << [
     title: "賛美しよう #{n}",
-    artist: '誰か',
     key: 'C',
     song_body: "C   Am   F   Cb \n 賛美歌の歌詞はここに入ります",
     video: ''
@@ -12,7 +11,6 @@ song_params = []
 
   song_params << [
     title: "Title #{n}",
-    artist: 'Someone',
     key: 'C',
     song_body: "C   Am   F   Cb \n Lyrics go here",
     video: ''

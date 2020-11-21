@@ -136,7 +136,6 @@ en:
         current_password: 'Current password'
       song:
         title: 'Title'
-        artist: 'Artist'
         key: 'Key'
         song_body: 'Chart'
         video: 'Video link'

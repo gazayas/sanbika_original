@@ -3,11 +3,6 @@
   <div class="panel panel-heading">
     <%= content_tag(:h2, @song.title, id: 'song_title') %>
   </div>
-
-  <% unless @song.artist == nil || @song.artist == "" %>
-    <strong><%= t('activerecord.attributes.song.artist') %></strong>
-    <%= @song.artist %><br/>
-  <% end %>
 </div>
 
 <div id="song_body">

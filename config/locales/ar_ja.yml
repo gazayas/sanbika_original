@@ -148,7 +148,6 @@ ja:
         current_password: 現在のパスワード
       song:
         title: 曲名
-        artist: 作者
         key: キー
         song_body: 賛美歌チャート
         video: 動画のリンク
