@@ -95,14 +95,14 @@ ja:
   explanation: 'シャープ記号を書くには「#」、フラット記号を書くには「b」を書きます。'
   link_to_youtube: 'YouTubeの動画へのリンク（任意）'
   invalid_link: 'このリンクは使えません' # models/song.rb
+  print: '印刷'
+  chart_made_by: 'チャートの作成者'
 
   # users/show.html.erb
   edit_profile: 'プロファイルの編集'
   user_charts: 'さんの賛美歌チャート'
   new_chart: '新規チャート'
   no_charts: '賛美歌チャートはありません'
-  print: '印刷'
-  chart_made_by: 'チャートの作成者'
 
   # users/edit.html.erb
   edit_picture: 'プロファイルの写真'
