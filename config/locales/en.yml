@@ -1,5 +1,6 @@
 en:
   honorific: ''
+  possessive: "'s "
   submit: 'Submit'
 
   # devise links
@@ -81,6 +82,11 @@ en:
   user_charts: "\u0027s charts" # \u0027 is a single quote
   new_chart: 'New chart'
   no_charts: 'This user has no charts'
+  favorited_songs: "favorited songs"
+  no_favorites: 'No favorites'
+  new_set_list: 'New Set List'
+  set_lists: 'Set Lists'
+  no_set_lists: 'No Set Lists'
 
   # users/edit.html.erb
   edit_picture: 'Edit profile picture'

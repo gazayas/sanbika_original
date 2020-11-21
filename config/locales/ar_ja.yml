@@ -2,6 +2,7 @@
 
 ja:
   honorific: 'さん'
+  possessive: 'の'
   submit: '送信'
 
   # devise links
@@ -103,6 +104,11 @@ ja:
   user_charts: 'さんの賛美歌チャート'
   new_chart: '新規チャート'
   no_charts: '賛美歌チャートはありません'
+  favorited_songs: 'お気に入りの曲'
+  no_favorites: 'お気に入りの曲はありません'
+  new_set_list: '新しいセットリスト'
+  set_lists: 'セットリスト'
+  no_set_lists: 'セットリストはありません'
 
   # users/edit.html.erb
   edit_picture: 'プロファイルの写真'

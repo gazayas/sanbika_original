@@ -1,6 +1,6 @@
 <div class="favorites_header">
   <p class="text-center">
-    <%= @user.username + " favorited songs" %>
+    <%= @user.username + t(:honorific) + t(:possessive) + t(:favorited_songs) %>
   </p>
 </div>
 
@@ -26,6 +26,6 @@
       <% end %>
     </ul>
   <% else %>
-    <h4 class="text-center">No favorites</h4>
+    <h4 class="text-center"><%= t(:no_favorites) %></h4>
   <% end %>
 </div>
