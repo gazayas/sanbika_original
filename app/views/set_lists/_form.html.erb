@@ -12,13 +12,12 @@
   <% end %>
 
   <div class="field text-center">
-    <strong>Set List Title</strong>
+    <strong><%= t(:set_list_title) %></strong><br/>
     <%= form.text_field :title, style: 'font-size: 20px; text-decoration: none;' %>
   </div>
 
   <p class="text-center">
-    歌をドラッグして順番を変えることができます。<br/>
-    歌をクリックしてキーを編集することもできます。
+    <%= t(:set_list_explanation).html_safe %>
   </p>
 
   <div class="set_list_songs text-center">

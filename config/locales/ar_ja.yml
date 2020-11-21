@@ -87,6 +87,11 @@ ja:
   song_updated: '讃美歌チャートは更新されました'
   song_deleted: '讃美歌チャートは削除されました'
 
+  # set_lists controller
+  set_list_created: 'セットリストは作成されました'
+  set_list_updated: 'セットリストは更新されました'
+  set_list_deleted: 'セットリストは削除されました'
+
   # songs
   new_chart: '新規チャート'
   edit_chart: 'チャートの編集'
@@ -113,6 +118,26 @@ ja:
   # users/edit.html.erb
   edit_picture: 'プロファイルの写真'
   errors_occurred: 'つのエラーが発生しました'
+
+  # set_lists form
+  set_list_title: 'セットリストのタイトル'
+  set_list_explanation:
+    '
+    セットリストでは、好きな曲を好きなキーで１つのページに表示することができます。<br/>
+    礼拝の際に一緒に演奏する人とリンクを共有したりして、簡単に歌の管理をすることができます<br/>
+    <br/>
+    ドラッグアンドドロップで曲の順番を自由に変え、好きなセットリストを作りましょう。
+    <br/>
+    １セットリストにつき、１０曲を追加することができます。
+    '
+
+  # set_lists select
+  you_have_no_set_lists:
+    '
+    セットリストはありません。<br/>
+    セットリストを作ってから、またお試しください。
+    '
+
 
   # set_list/show.html.erb
   set_list_made_by: 'セットリストの作成者'

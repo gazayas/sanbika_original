@@ -52,7 +52,7 @@ en:
   delete: 'Delete'
   save: 'Save'
   back: 'Back'
-  confirm_deletion: 'Confirm'
+  confirm_deletion: 'Are you sure?'
 
   # Devise passwords - edit.html.erb/new.html.erb
   new_password: 'New password'
@@ -77,6 +77,16 @@ en:
   user_updated: 'Your profile has been updated successfully'
   user_deleted: 'Your account has been deleted'
 
+  # songs controller
+  song_created: 'The chart was created successfully'
+  song_updated: 'The chart was updated successfully'
+  song_deleted: 'The charted was deleted successfully'
+
+  # set_lists controller
+  set_list_created: 'The set list was created successfully'
+  set_list_updated: 'The set list was updated successfully'
+  set_list_deleted: 'The set list was deleted successfully'
+
   # users/show.html.erb
   edit_profile: 'Edit profile'
   user_charts: "\u0027s charts" # \u0027 is a single quote
@@ -92,11 +102,6 @@ en:
   edit_picture: 'Edit profile picture'
   errors_occurred: 'error(s) occurred'
 
-  # songs controller
-  song_created: 'The chart was created successfully'
-  song_updated: 'The chart was updated successfully'
-  song_deleted: 'The charted was deleted successfully'
-
   # songs
   new_chart: 'New chart'
   edit_chart: 'Edit chart'
@@ -108,6 +113,27 @@ en:
   print: 'Print'
   chart_made_by: 'Chart made by '
   invalid_link: 'This link is invalid' # models/song.rb
+
+  # set_lists form
+  set_list_title: 'Set List Title'
+  set_list_explanation:
+    '
+    You can display multiple songs on one page in whichever key you like by making a set list.<br/>
+    Set lists make it easy to maintain songs, and you can share the link with whomever you will lead worship with.<br/>
+    <br/>
+    After adding some songs, you can change the order by dragging and dropping them.<br/>
+    If you want to change the key, just click on the song and select the key you want to use.
+    <br/>
+    <br/>
+    You can add up to 10 songs per set list.
+    '
+
+  # set_lists select
+  you_have_no_set_lists:
+    '
+    You currently do not have any set lists.<br/>
+    Try making a set list first and then adding a song.
+    '
 
   # set_list/show.html.erb
   set_list_made_by: 'This set list was made by '
