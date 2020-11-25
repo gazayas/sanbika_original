@@ -1,6 +1,6 @@
 <div class="text-center">
   <% if current_user.set_lists.empty? %>
-    <p>You have no set lists</p>
+    <p><%= t(:you_have_no_set_lists).html_safe %></p>
   <% else %>
       <p>「<%= @song.title %>」を好きなセットリストに追加してください。</p>
       <p> 歌はこのキーで追加されます：<%= params[:selected_key] %></p>

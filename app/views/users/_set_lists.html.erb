@@ -1,11 +1,16 @@
 <div class="new_set_list_button_div text-center">
   <% if current_user == @user %>
-    <%= link_to "New Set List", new_user_set_list_path(@user), class: 'btn btn-primary', id: 'new_set_list_button' %>
+    <!-- TODO: Same CSS as new_chart_button -->
+    <%= link_to '<i class="fa fa-pencil"></i> '.html_safe + t(:new_set_list),
+      new_user_set_list_path(@user),
+      class: 'btn btn-primary btn-sm',
+      id: 'new_set_list_button'
+    %>
   <% end %>
 </div>
 
 <div class="set_lists_header text-center">
-  <p><%= @user.username + " Set Lists" %></p>
+  <p><%= @user.username + t(:honorific) + t(:possessive) + t(:set_lists) %></p>
 </div>
 
 <div class="set_lists">
@@ -16,6 +21,6 @@
       <% end %>
     </ul>
   <% else %>
-    <h4 class="text-center">No Set Lists</h4>
+    <h4 class="text-center"><%= t(:no_set_lists) %></h4>
   <% end %>
 </div>

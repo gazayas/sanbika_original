@@ -1,5 +1,6 @@
 en:
   honorific: ''
+  possessive: "'s "
   submit: 'Submit'
 
   # devise links
@@ -39,7 +40,7 @@ en:
     \n
     \          G                              D/F#\n
     How great is our God, sing with me\n
-    
+
     \          Em7                                   C\n
     How great is our God, and all will see how great\n
     \           D              G\n
@@ -51,7 +52,7 @@ en:
   delete: 'Delete'
   save: 'Save'
   back: 'Back'
-  confirm_deletion: 'Confirm'
+  confirm_deletion: 'Are you sure?'
 
   # Devise passwords - edit.html.erb/new.html.erb
   new_password: 'New password'
@@ -76,20 +77,37 @@ en:
   user_updated: 'Your profile has been updated successfully'
   user_deleted: 'Your account has been deleted'
 
+  # songs controller
+  song_created: 'The chart was created successfully'
+  song_updated: 'The chart was updated successfully'
+  song_deleted: 'The charted was deleted successfully'
+
+  # set_lists controller
+  set_list_created: 'The set list was created successfully'
+  set_list_updated: 'The set list was updated successfully'
+  set_list_deleted: 'The set list was deleted successfully'
+
+  # set_list_songs controller
+  set_list_songs_created: 'The song has been added to this set list'
+  set_list_songs_updated: 'The song was updated successfully'
+  set_list_songs_deleted: 'The song has been successfully deleted from the set list'
+  no_more_than_10_songs: 'You cannot have more than 10 songs in a set list'
+  no_duplicate_songs: 'This song already exists in this set list'
+
   # users/show.html.erb
   edit_profile: 'Edit profile'
   user_charts: "\u0027s charts" # \u0027 is a single quote
   new_chart: 'New chart'
   no_charts: 'This user has no charts'
+  favorited_songs: "favorited songs"
+  no_favorites: 'No favorites'
+  new_set_list: 'New Set List'
+  set_lists: 'Set Lists'
+  no_set_lists: 'No Set Lists'
 
   # users/edit.html.erb
   edit_picture: 'Edit profile picture'
   errors_occurred: 'error(s) occurred'
-
-  # songs controller
-  song_created: 'The chart was created successfully'
-  song_updated: 'The chart was updated successfully'
-  song_deleted: 'The charted was deleted successfully'
 
   # songs
   new_chart: 'New chart'
@@ -103,8 +121,35 @@ en:
   chart_made_by: 'Chart made by '
   invalid_link: 'This link is invalid' # models/song.rb
 
+  # set_lists/edit.html.erb
+  edit_set_list: 'Editing Set List'
+
+  # set_lists form
+  set_list_title: 'Set List Title'
+  set_list_explanation:
+    '
+    You can display multiple songs on one page in whichever key you like by making a set list.<br/>
+    Set lists make it easy to maintain songs, and you can share the link with whomever you will lead worship with.<br/>
+    <br/>
+    After adding some songs, you can change the order by dragging and dropping them.<br/>
+    If you want to change the key, just click on the song and select the key you want to use.
+    <br/>
+    <br/>
+    You can add up to 10 songs per set list.
+    '
+
+  # set_lists select
+  you_have_no_set_lists:
+    '
+    You currently do not have any set lists.<br/>
+    Try making a set list first and then adding a song.
+    '
+
   # set_list/show.html.erb
   set_list_made_by: 'This set list was made by '
+
+  # set_list_songs/edit.html.erb
+  set_list_song_belongs_to: 'This song belongs to this set list: '
 
   # application controller
   cant_change_info: "You cannot change other user\u0027s information"

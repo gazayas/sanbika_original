@@ -1,24 +1,15 @@
 <%= form_for([@user, set_list]) do |form| %>
   <% if set_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(set_list.errors.count, "error") %> prohibited this set_list from being saved:</h2>
-
-      <ul>
-        <% set_list.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render partial: "shared/error_partial", locals: { model_instance: @set_list } %>
   <% end %>
 
   <div class="field text-center">
-    <strong>Set List Title</strong>
+    <strong><%= t(:set_list_title) %></strong><br/>
     <%= form.text_field :title, style: 'font-size: 20px; text-decoration: none;' %>
   </div>
 
   <p class="text-center">
-    歌をドラッグして順番を変えることができます。<br/>
-    歌をクリックしてキーを編集することもできます。
+    <%= t(:set_list_explanation).html_safe %>
   </p>
 
   <div class="set_list_songs text-center">
