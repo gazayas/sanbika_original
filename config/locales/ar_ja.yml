@@ -92,6 +92,13 @@ ja:
   set_list_updated: 'セットリストは更新されました'
   set_list_deleted: 'セットリストは削除されました'
 
+  # set_list_songs controller
+  set_list_songs_created: '曲がセットリストに追加されました'
+  set_list_songs_updated: '曲は更新されました'
+  set_list_songs_deleted: '曲はセットリストから削除されました'
+  no_more_than_10_songs: 'セットリストの曲の制限は１０曲までです'
+  no_duplicate_songs: 'この歌はもう既にこのセットリストに存在しています'
+
   # songs
   new_chart: '新規チャート'
   edit_chart: 'チャートの編集'
@@ -119,6 +126,9 @@ ja:
   edit_picture: 'プロファイルの写真'
   errors_occurred: 'つのエラーが発生しました'
 
+  # set_lists/edit.html.erb
+  edit_set_list: 'セットリストの編集'
+
   # set_lists form
   set_list_title: 'セットリストのタイトル'
   set_list_explanation:
@@ -138,9 +148,11 @@ ja:
     セットリストを作ってから、またお試しください。
     '
 
-
   # set_list/show.html.erb
   set_list_made_by: 'セットリストの作成者'
+
+  # set_list_songs/edit.html.erb
+  set_list_song_belongs_to: 'この曲はのセットリスト：'
 
   # application controller
   cant_change_info: '他人の情報を編集できません'

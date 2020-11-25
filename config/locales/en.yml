@@ -40,7 +40,7 @@ en:
     \n
     \          G                              D/F#\n
     How great is our God, sing with me\n
-    
+
     \          Em7                                   C\n
     How great is our God, and all will see how great\n
     \           D              G\n
@@ -87,6 +87,13 @@ en:
   set_list_updated: 'The set list was updated successfully'
   set_list_deleted: 'The set list was deleted successfully'
 
+  # set_list_songs controller
+  set_list_songs_created: 'The song has been added to this set list'
+  set_list_songs_updated: 'The song was updated successfully'
+  set_list_songs_deleted: 'The song has been successfully deleted from the set list'
+  no_more_than_10_songs: 'You cannot have more than 10 songs in a set list'
+  no_duplicate_songs: 'This song already exists in this set list'
+
   # users/show.html.erb
   edit_profile: 'Edit profile'
   user_charts: "\u0027s charts" # \u0027 is a single quote
@@ -114,6 +121,9 @@ en:
   chart_made_by: 'Chart made by '
   invalid_link: 'This link is invalid' # models/song.rb
 
+  # set_lists/edit.html.erb
+  edit_set_list: 'Editing Set List'
+
   # set_lists form
   set_list_title: 'Set List Title'
   set_list_explanation:
@@ -137,6 +147,9 @@ en:
 
   # set_list/show.html.erb
   set_list_made_by: 'This set list was made by '
+
+  # set_list_songs/edit.html.erb
+  set_list_song_belongs_to: 'This song belongs to this set list: '
 
   # application controller
   cant_change_info: "You cannot change other user\u0027s information"
