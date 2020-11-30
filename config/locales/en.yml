@@ -128,20 +128,20 @@ en:
   set_list_title: 'Set List Title'
   set_list_explanation:
     '
-    You can display multiple songs on one page in whichever key you like by making a set list.<br/>
-    Set lists make it easy to maintain songs, and you can share the link with whomever you will lead worship with.<br/>
-    <br/>
-    After adding some songs, you can change the order by dragging and dropping them.<br/>
+    You can display multiple songs on one page in whichever key you like by making a set list.<br />
+    Set lists make it easy to maintain songs, and you can share the link with whomever you will lead worship with.<br />
+    <br />
+    After adding some songs, you can change the order by dragging and dropping them.<br />
     If you want to change the key, just click on the song and select the key you want to use.
-    <br/>
-    <br/>
+    <br />
+    <br />
     You can add up to 10 songs per set list.
     '
 
   # set_lists select
   you_have_no_set_lists:
     '
-    You currently do not have any set lists.<br/>
+    You currently do not have any set lists.<br />
     Try making a set list first and then adding a song.
     '
 

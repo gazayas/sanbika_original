@@ -13,11 +13,11 @@
     </div>
 
     <div class="song_key">
-      <%= t('activerecord.attributes.song.key') + ": " + sls.key %><br/>
+      <%= t('activerecord.attributes.song.key') + ": " + sls.key %><br />
     </div>
 
     <div class="song_body set_list_song" value="<%= @song.key + "/" + sls.key %>"><%= sanitize @song.song_body %></div>
-    <br/>
+    <br />
   </div>
 <% end %>
 
@@ -25,7 +25,7 @@
   <% if current_user == @user %>
     <%= link_to t(:edit), edit_user_set_list_path(@user, @set_list), class: 'btn btn-secondary' %>
       <%= link_to t(:delete), user_set_list_path(current_user, @set_list), method: :delete, data: { confirm: t(:confirm_deletion) }, class: 'btn btn-danger' %>
-    <br/>
+    <br />
   <% end %>
 
   <strong><%= t(:set_list_made_by) %></strong>

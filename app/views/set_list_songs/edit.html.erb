@@ -9,7 +9,7 @@
 
   <div class="field text-center">
     <h1><%= t(:set_list_song_belongs_to) + @set_list.title %></h1>
-    <br/>
+    <br />
     <span class="song_title"><%= Song.find(@set_list_song.song_id).title %></span>
     <%= form.select(:key, options_for_select(sharp_notes, selected: @set_list_song.key), style: 'display: inline;') %>
   </div>

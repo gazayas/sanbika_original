@@ -17,7 +17,7 @@
   <% if !@user.set_lists.empty? %>
     <ul class="list-group">
       <% @user.set_lists.each do |sl| %>
-        <%= link_to sl.title, user_set_list_path(@user, sl), class: 'list-group-item text-center' %><br/>
+        <%= link_to sl.title, user_set_list_path(@user, sl), class: 'list-group-item text-center' %><br />
       <% end %>
     </ul>
   <% else %>

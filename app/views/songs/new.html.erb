@@ -1,7 +1,8 @@
 <!-- エラーの部分はedit.html.erbの方とかぶっているのでpartialを書いた方がいいかもしれない -->
 <%= render partial: "shared/error_partial", locals: { model_instance: @song } %>
 
-  <div class="card-body">
+<div class="card-body">
     <h1><%= t(:new_chart) %></h1>
-  </div>
-  <%= render 'form', song: @song %>
+</div>
+
+<%= render 'form', song: @song %>
