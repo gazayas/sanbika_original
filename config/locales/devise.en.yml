@@ -5,6 +5,7 @@ en:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      resend_instructions: "Resend confirmation instructions"
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
       already_authenticated: "You are already signed in."
@@ -16,6 +17,13 @@ en:
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
+    email:
+      welcome_intro: Welcome to sanbika, %{user}!
+      welcome_body: "You can confirm your account email through the link below:"
+      greeting: "Hello, %{user}!"
+      email_will_change_message: "We're contacting you to notify you that your email is being changed to %{email}."
+      email_has_changed_message: "We're contacting you to notify you that your email has been changed to %{email}."
+      password_has_changed_message: "We're contacting you to notify you that your password has been changed."
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
@@ -36,7 +44,9 @@ en:
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
+      forgot_password: "Forgot your password?"
     registrations:
+      sign_up: "Sign up"
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -45,7 +55,11 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
+      didnt_receive_confirmation: "Didn't receive confirmation instructions?"
+      didnt_receive_unlock_instructions: "Didn't receive unlock instructions?"
+      confirm_account: "Confirm my account"
     sessions:
+      log_in: "Log in"
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
