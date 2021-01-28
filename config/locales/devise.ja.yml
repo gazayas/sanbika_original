@@ -25,6 +25,14 @@ ja:
       email_has_changed_message: "ご登録のメールが%{email}に変わりました。"
       email_will_change_message: "ご登録のメールが%{email}に変わります。"
       password_has_changed_message: "ご登録のパスワードが変わりました。"
+      change_my_password: "パスワードの変更"
+      confirm_new_password: "もう一度パスワードを入力してください"
+      password_change_request_message_1: "誰かがパスワードを変更するように頼みました。下記のリンクで変更を行うことができます。"
+      please_ignore: "パスワードを変更するように頼まなかった場合、何もする必要がありません。"
+      access_link_to_create_new_password: "上記のリンクにアクセスしない限り、パスワードの変更を行うことができません。"
+      locked_because_of_too_many_log_in_attempts: "ログインを行ってみたが、失敗回数が多すぎるため、アカウントがロックされました。"
+      click_below_to_unlock: "下記のリンクでアカウントのロックを解除してください。"
+      unlock_my_account: "ロック解除"
     mailer:
       confirmation_instructions:
         subject: "アカウントの登録方法"
@@ -37,10 +45,14 @@ ja:
     passwords:
       no_token: "パスワード・リセットのメールからでしかこのページにアクセスできません。パスワード・リセットのメールに記載しているURLを全部お使いください。"
       send_instructions: "パスワードのリセット方法を数分以内にメールでご連絡します。"
+      send_reset_instructions: "パスワードの再設定用のメールを送ってください"
       send_paranoid_instructions: "もしあなたのメールがデータベースに入っているなら、数分後にパスワードを知らせるためのメールが届きます。"
       updated: "パスワードを変更しました。現在はログインしています。"
       updated_not_active: "パスワードを変更しました。"
       forgot_password: "パスワードを忘れました"
+      new_password: "新しいパスワード"
+      change_your_password: "パスワードの変更"
+      minimum_length: "%{length}字以上"
     registrations:
       sign_up: "アカウント登録"
       destroyed: "アカウントを削除しました。またのご利用をお待ちしております。"
