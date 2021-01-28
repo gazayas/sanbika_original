@@ -5,6 +5,7 @@ ja:
     confirmations:
       confirmed: "アカウントを登録しました。"
       send_instructions: "登録方法を数分以内にメールでご連絡します。"
+      resend_instructions: "確認用のメールを再度送ります"
       send_paranoid_instructions: "もしメールがもう既にデータベースにあるなら、数分後のアカウントの確認の仕方をメールで通知いたします"
     failure:
       already_authenticated: "もう既にログインしています。"
@@ -17,6 +18,21 @@ ja:
       unauthenticated: "ログインしてください。"
       unconfirmed: "本登録を行ってください。"
       invalid_token: "認証キーが不正です。"
+    email:
+      welcome_intro: "%{user}さん、\nsanbikaへようこそ！"
+      welcome_body: "下記のリンクで登録したアカウントを確認いただけます："
+      greeting: "%{user}さん、"
+      email_has_changed_message: "ご登録のメールが%{email}に変わりました。"
+      email_will_change_message: "ご登録のメールが%{email}に変わります。"
+      password_has_changed_message: "ご登録のパスワードが変わりました。"
+      change_my_password: "パスワードの変更"
+      confirm_new_password: "もう一度パスワードを入力してください"
+      password_change_request_message_1: "誰かがパスワードを変更するように頼みました。下記のリンクで変更を行うことができます。"
+      please_ignore: "パスワードを変更するように頼まなかった場合、何もする必要がありません。"
+      access_link_to_create_new_password: "上記のリンクにアクセスしない限り、パスワードの変更を行うことができません。"
+      locked_because_of_too_many_log_in_attempts: "ログインを行ってみたが、失敗回数が多すぎるため、アカウントがロックされました。"
+      click_below_to_unlock: "下記のリンクでアカウントのロックを解除してください。"
+      unlock_my_account: "ロック解除"
     mailer:
       confirmation_instructions:
         subject: "アカウントの登録方法"
@@ -29,10 +45,17 @@ ja:
     passwords:
       no_token: "パスワード・リセットのメールからでしかこのページにアクセスできません。パスワード・リセットのメールに記載しているURLを全部お使いください。"
       send_instructions: "パスワードのリセット方法を数分以内にメールでご連絡します。"
+      send_reset_instructions: "パスワードの再設定用のメールを送ってください"
       send_paranoid_instructions: "もしあなたのメールがデータベースに入っているなら、数分後にパスワードを知らせるためのメールが届きます。"
       updated: "パスワードを変更しました。現在はログインしています。"
       updated_not_active: "パスワードを変更しました。"
+      forgot_password: "パスワードを忘れました"
+      new_password: "新しいパスワード"
+      change_your_password: "パスワードの変更"
+      minimum_length: "%{length}字以上"
     registrations:
+      sign_up: "アカウント登録"
+      sign_up_and_write_charts: "アカウントを登録して、賛美のチャートを作りましょう！"
       destroyed: "アカウントを削除しました。またのご利用をお待ちしております。"
       signed_up: "ようこそ！アカウント登録を受け付けました。確認のメールをお送りします。"
       signed_up_but_inactive: "登録はできましたが、アカウントがアクティブでないため、ログインできませんでした。"
@@ -40,7 +63,17 @@ ja:
       signed_up_but_unconfirmed: "アカウントを確認するためにURLがメールで届きます。"
       update_needs_confirmation : "アカウントを変更できましたが、あなたのアカウントを確認する必要があります。メールで届くURLでご確認ください。"
       updated: "アカウントを更新しました。"
+      didnt_receive_confirmation: "アカウント登録確認用のメールは届いていません"
+      didnt_receive_unlock_instructions: "アカウントのロックを解除するためのメールは届いていません"
+      confirm_account: "アカウントを確認する"
+      edit_resource: "%{resource}の編集"
+      waiting_on_confirmation: "メールが確認待ちです：%{email}"
+      leave_blank_if_dont_want_to_change: "（変えたくない場合は空白のままにしてください）"
+      current_password_needed: "（変更を保存するには、現在のパスワードが必要です）"
+      cancel_my_account: "アカウントの削除"
+      resend_unlock_instructions: "アカウントのロックを解除するための手続きを再び送信"
     sessions:
+      log_in: "ログイン"
       signed_in: "お帰りなさい"
       signed_out: "ログアウトしました。"
       already_signed_out: "ログアウトしました。"
@@ -58,3 +91,7 @@ ja:
       not_saved:
         one: "1つのエラーによって%{resource}が保存されませんでした："
         other: "%{count}つのエラーによって%{resource}が保存されませんでした："
+  social_media:
+    facebook_login: "Facebookでログイン"
+    twitter_login: "Twitterでログイン"
+    google_plus_login: "Google+でログイン"

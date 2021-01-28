@@ -1,4 +1,4 @@
-<h2 class="text-center" style="margin-bottom: 30px;">Sign up</h2>
+<h2 class="text-center" style="margin-bottom: 30px;"><%= t('devise.registrations.sign_up') %></h2>
 
 <div class="container">
 <div class="row" id="sign_up_page">
@@ -10,8 +10,7 @@
     </div>
     <br />
     <div id="registration_text" class="text-center" style="padding-top: 25px; font-size: 18px;">
-      Sign up and confirm your e-mail address<br />
-      to login with the social media network of your choice.
+      <%= t('devise.registrations.sign_up_and_write_charts') %>
     </div>
   </div>
   <div class="jumbotron text-center col-sm-12 col-md-6" style="margin: 0px auto;">
@@ -28,7 +27,7 @@
         <div class="field">
           <%= f.label :password %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em><%= t('devise.passwords.minimum_length', length: @minimum_password_length) %></em>
           <% end %><br />
           <%= f.password_field :password, class: "form-control registration_fields", autocomplete: "new-password" %>
         </div>
