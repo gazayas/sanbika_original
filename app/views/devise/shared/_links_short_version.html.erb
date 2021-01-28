@@ -10,7 +10,7 @@
                   class="sns_login_button btn btn-fb"
                   style="background-color: #3B5998; color: white;">
                   <i class="fa fa-facebook"></i>
-                    &nbsp;&nbsp;&nbsp;Sign in with Facebook
+                    &nbsp;&nbsp;&nbsp;<%= t('devise.social_media.facebook_login') %>
                   </button>
         <% end %>
       <% when :twitter %>
@@ -19,7 +19,7 @@
                 class="sns_login_button btn btn-tw"
                 style="background-color: #55ACEE; color: white;">
                 <i class="fa fa-twitter"></i>
-                  &nbsp;&nbsp;Sign in with Twitter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;<%= t('devise.social_media.twitter_login') %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </button>
         <% end %>
       <% when :google_oauth2 %>
@@ -28,7 +28,7 @@
                 class="sns_login_button btn btn-gplus"
                 style="background-color: #DD4B39; color: white;">
                 <i class="fa fa-google-plus"></i>
-                  &nbsp;&nbsp;Sign in with Google+&nbsp;&nbsp;
+                  &nbsp;&nbsp;<%= t('devise.social_media.google_plus_login') %>&nbsp;&nbsp;
                 </button>
         <% end %>
       <% end %>

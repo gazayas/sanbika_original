@@ -55,6 +55,7 @@ ja:
       minimum_length: "%{length}字以上"
     registrations:
       sign_up: "アカウント登録"
+      sign_up_and_write_charts: "アカウントを登録して、賛美のチャートを作りましょう！"
       destroyed: "アカウントを削除しました。またのご利用をお待ちしております。"
       signed_up: "ようこそ！アカウント登録を受け付けました。確認のメールをお送りします。"
       signed_up_but_inactive: "登録はできましたが、アカウントがアクティブでないため、ログインできませんでした。"
@@ -65,6 +66,11 @@ ja:
       didnt_receive_confirmation: "アカウント登録確認用のメールは届いていません"
       didnt_receive_unlock_instructions: "アカウントのロックを解除するためのメールは届いていません"
       confirm_account: "アカウントを確認する"
+      edit_resource: "%{resource}の編集"
+      waiting_on_confirmation: "メールが確認待ちです：%{email}"
+      leave_blank_if_dont_want_to_change: "（変えたくない場合は空白のままにしてください）"
+      current_password_needed: "（変更を保存するには、現在のパスワードが必要です）"
+      cancel_my_account: "アカウントの削除"
     sessions:
       log_in: "ログイン"
       signed_in: "お帰りなさい"
@@ -84,3 +90,7 @@ ja:
       not_saved:
         one: "1つのエラーによって%{resource}が保存されませんでした："
         other: "%{count}つのエラーによって%{resource}が保存されませんでした："
+  social_media:
+    facebook_login: "Facebookでログイン"
+    twitter_login: "Twitterでログイン"
+    google_plus_login: "Google+でログイン"
