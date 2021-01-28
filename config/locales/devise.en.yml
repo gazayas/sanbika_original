@@ -76,6 +76,7 @@ en:
       leave_blank_if_dont_want_to_change: "(leave blank if you don't want to change it)"
       current_password_needed: "(we need your current password to confirm your changes)"
       cancel_my_account: "Cancel my account"
+      resend_unlock_instructions: "Resend unlock instructions"
     sessions:
       log_in: "Log in"
       signed_in: "Signed in successfully."

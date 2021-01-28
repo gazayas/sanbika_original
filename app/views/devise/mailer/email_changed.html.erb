@@ -1,4 +1,5 @@
-<p><%= t('devise.email.greeting', user: @user.username) %></p>
+<% user = User.find_by(email: @email) %>
+<p><%= t('devise.email.greeting', user: user.username) %></p>
 
 <% if @resource.try(:unconfirmed_email?) %>
   <p><%= t('devise.email.email_will_change_message', email: @resource.unconfirmed_email) %></p>

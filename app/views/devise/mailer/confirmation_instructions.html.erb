@@ -1,4 +1,5 @@
-<p><%= t('devise.email.welcome_intro', user: @user.username) %></p>
+<% user = User.find_by(email: @email) %>
+<p><%= t('devise.email.welcome_intro', user: user.username %></p>
 
 <p><%= t('devise.email.welcome_body') %></p>
 
