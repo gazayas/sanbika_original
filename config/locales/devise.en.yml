@@ -79,6 +79,7 @@ en:
       resend_unlock_instructions: "Resend unlock instructions"
     sessions:
       log_in: "Log in"
+      email_or_user_name: 'Email or user name'
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."

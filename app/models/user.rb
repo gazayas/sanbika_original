@@ -1,12 +1,15 @@
 class User < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
+  attr_accessor :login
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
+         :confirmable, :lockable, :timeoutable,
+         :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2],
+         :authentication_keys => [:login]
 
   has_many :songs, dependent: :destroy
   has_many :set_lists, dependent: :destroy
@@ -47,6 +50,15 @@ class User < ApplicationRecord
       end
     else
       super
+    end
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
+    else
+      where(condition).first
     end
   end
 end
