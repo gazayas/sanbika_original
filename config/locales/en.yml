@@ -173,8 +173,9 @@ en:
       song: 'Song'
     attributes:
       user:
+        login: 'Email, user name'
         name: 'User name'
-        email: 'E-mail'
+        email: 'Email'
         password: 'Password'
         remember_me: 'Remember me'
         password_confirmation: 'Confirm password'

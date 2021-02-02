@@ -74,6 +74,7 @@ ja:
       resend_unlock_instructions: "アカウントのロックを解除するための手続きを再び送信"
     sessions:
       log_in: "ログイン"
+      email_or_user_name: 'メールまたはユーザー名'
       signed_in: "お帰りなさい"
       signed_out: "ログアウトしました。"
       already_signed_out: "ログアウトしました。"
