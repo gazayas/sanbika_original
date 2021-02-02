@@ -32,10 +32,9 @@ function has_chords(ary) {
     } else if(!CHORD_REGEXP.test(ary[i]) || /Chorus|CHORUS|Bridge|BRIDGE/.test(ary[i])) {
       // Has lyrics or something else which isn't a chord
       return false;
-    } else {
-      return true;
     }
   }
+  return true;
 }
 
 // The chords are wrapped with a span and given a class
