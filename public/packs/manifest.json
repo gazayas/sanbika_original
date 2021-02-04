@@ -12,10 +12,10 @@
     },
     "initialize_song": {
       "js": [
-        "/packs/js/initialize_song-13d5bfc10e5d04e4c04b.js"
+        "/packs/js/initialize_song-6328d1a8157971c59189.js"
       ],
       "js.map": [
-        "/packs/js/initialize_song-13d5bfc10e5d04e4c04b.js.map"
+        "/packs/js/initialize_song-6328d1a8157971c59189.js.map"
       ]
     },
     "key_change": {
@@ -27,8 +27,8 @@
       ]
     }
   },
-  "initialize_song.js": "/packs/js/initialize_song-13d5bfc10e5d04e4c04b.js",
-  "initialize_song.js.map": "/packs/js/initialize_song-13d5bfc10e5d04e4c04b.js.map",
+  "initialize_song.js": "/packs/js/initialize_song-6328d1a8157971c59189.js",
+  "initialize_song.js.map": "/packs/js/initialize_song-6328d1a8157971c59189.js.map",
   "key_change.js": "/packs/js/key_change-dc03d558aadb7e5493c3.js",
   "key_change.js.map": "/packs/js/key_change-dc03d558aadb7e5493c3.js.map"
 }
