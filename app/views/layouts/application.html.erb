@@ -33,7 +33,9 @@
             <% if user_signed_in? %>
               <li>
                 <%= link_to current_user do %>
-                  <%= image_tag current_user.user_image, class: "user_thumbnail" %>
+                  <% user_img = current_user.user_image %>
+                  <% user_img ||= 'user_black_logo.jpg' %>
+                  <%= image_tag user_img, class: "user_thumbnail" %>
                   <span><%= current_user.username %>
                 <% end %>
               </li>
