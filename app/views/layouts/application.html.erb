@@ -44,8 +44,14 @@
               </li>
             <% else %>
               <li>
+                <%= link_to new_user_registration_path do %>
+                  <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+                  <%= t(:sign_up) %>
+                <% end %>
+              </li>
+              <li>
                   <%= link_to new_user_session_path do %>
-                    <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
+                    <i class="fa fa-sign-in fa-fw" aria-hidden="true"></i>
                     <%= t(:login) %>
                   <% end %>
               </li>
