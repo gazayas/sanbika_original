@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
   #TODO: There are still some attributes in this model that should be tested/resolved
   subject { user }
 
-  describe 'should have many songs' do
+  describe 'associations' do
     let(:user) { FactoryBot.create(:user) }
     it { is_expected.to have_many(:songs) }
   end
