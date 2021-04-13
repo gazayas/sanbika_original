@@ -4,32 +4,34 @@ require 'carrierwave/test/matchers'
 RSpec.describe User, type: :model do
   include CarrierWave::Test::Matchers
 
+
+  #TODO: There are still some attributes in this model that should be tested/resolved
   subject { user }
 
-  describe '他モデルとの関連' do
+  describe 'should have many songs' do
     let(:user) { FactoryBot.create(:user) }
     it { is_expected.to have_many(:songs) }
   end
 
-  describe '有効のパラメーター' do
+  describe 'valid parameters' do
     let(:user) { FactoryBot.create(:user) }
 
-    context 'UserのFactoryをそのまま作成する場合' do
+    context 'the factory produces a valid user' do
       it { is_expected.to be_valid }
     end
   end
 
-  describe '無効のパラメーター' do
-    describe 'name' do
-      let(:user) { FactoryBot.build(:user, name: name) }
+  describe 'invalid parameters' do
+    describe 'username' do
+      let(:user) { FactoryBot.build(:user, username: username) }
 
-      context 'nameは短い' do
-        let(:name) { "name" }
+      context 'is too short' do
+        let(:username) { 'foo' }
         it { is_expected.to be_invalid }
       end
 
-      context 'nameは長い' do
-        let(:name) { "a" * 41 }
+      context 'is too long' do
+        let(:username) { 'a' * 31 }
         it { is_expected.to be_invalid }
       end
     end
@@ -37,13 +39,13 @@ RSpec.describe User, type: :model do
     describe 'password' do
       let(:user) { FactoryBot.build(:user, password: password) }
 
-      context 'passwordは短い' do
-        let(:password) { "pass" }
+      context 'is too short' do
+        let(:password) { "123" }
         it { is_expected.to be_invalid }
       end
 
-      context 'passwordは長い' do
-        let(:password) { "A" * 101 }
+      context 'is too long' do
+        let(:password) { "A" * 50 }
         it { is_expected.to be_invalid }
       end
     end
@@ -51,12 +53,13 @@ RSpec.describe User, type: :model do
     describe 'email' do
       let(:user) { FactoryBot.build(:user, email: email) }
 
-      context '「＠」は抜いている場合' do
+      context 'is invalid if there is no @' do
         let(:email) { "not_valid.com" }
         it { is_expected.to be_invalid }
       end
     end
 
+    # TODO: Put this in the valid parameters block at the top
     describe 'user_image' do
       let(:user) { FactoryBot.build(:user) }
       let(:uploader) { UserImageUploader.new(user, :avatar) }
@@ -71,7 +74,7 @@ RSpec.describe User, type: :model do
         uploader.remove!
       end
 
-      it "形式が正しいこと" do
+      it 'uses the correct format' do
         expect(uploader).to be_format('jpeg')
       end
     end
