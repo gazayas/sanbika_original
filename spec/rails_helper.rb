@@ -31,6 +31,12 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
+  config.include Devise::TestHelpers, type: :controller
+  config.include Warden::Test::Helpers
+
   #FactoryBot.definition_file_paths = [File.expand_path('../factories', __FILE__)]
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

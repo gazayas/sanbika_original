@@ -1,5 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe SetList, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # Write tests here
 end
