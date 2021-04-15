@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :song do
-    title  { '歌のタイトル' }
-    key { 'C' }
-    song_body { '歌詞はここに入ります' }
+    sequence(:title) {|i| "タイトル#{i}" }
+    key { ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'].sample }
+    sequence(:song_body) {|i| "歌詞#{i}" }
     video { 'https://youtu.be/itdgtFALCpo' }
   end
 end
