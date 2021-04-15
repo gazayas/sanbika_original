@@ -11,6 +11,9 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     let(:user) { FactoryBot.create(:user) }
     it { is_expected.to have_many(:songs) }
+    it { is_expected.to have_many(:set_lists) }
+    it { is_expected.to have_many(:set_list_songs).through(:set_lists) }
+    it { is_expected.to have_many(:favorites).through(:songs) }
   end
 
   describe 'valid parameters' do
@@ -36,6 +39,7 @@ RSpec.describe User, type: :model do
       end
     end
 
+    # Length is defined by config.password_length in the devise initializer
     describe 'password' do
       let(:user) { FactoryBot.build(:user, password: password) }
 
@@ -45,7 +49,7 @@ RSpec.describe User, type: :model do
       end
 
       context 'is too long' do
-        let(:password) { "A" * 50 }
+        let(:password) { "A" * 129 }
         it { is_expected.to be_invalid }
       end
     end
