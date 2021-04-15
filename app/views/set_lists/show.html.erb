@@ -30,7 +30,7 @@
 
   <strong><%= t(:set_list_made_by) %></strong>
   <%= link_to user_path(@user) do %>
-    <%= image_tag @user.user_image, class: 'user_thumbnail' %>
+    <%= image_tag get_user_image, class: 'user_thumbnail' %>
     <%= @user.username %>
   <% end %>
 </div>
