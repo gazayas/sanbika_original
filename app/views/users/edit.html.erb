@@ -17,7 +17,7 @@
     <div class="form-group">
       <% if @user.user_image? %>
         <div class="thumbnail">
-          <%= image_tag @user.user_image %>
+          <%= image_tag get_user_image %>
         </div>
       <% end %>
       <%#= f.file_field :user_image %>
