@@ -4,6 +4,13 @@ GIT
   specs:
     bcrypt (3.1.16)
 
+GIT
+  remote: https://github.com/mimemagicrb/mimemagic.git
+  revision: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
+  ref: 01f92d86d15d85cfd0f20dabd025dcbd36a8a60f
+  specs:
+    mimemagic (0.3.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -160,7 +167,6 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
-    mimemagic (0.3.5)
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
@@ -358,6 +364,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari (~> 1.2.1)
   listen (~> 3.2)
+  mimemagic!
   mini_magick
   omniauth-facebook
   omniauth-google-oauth2
