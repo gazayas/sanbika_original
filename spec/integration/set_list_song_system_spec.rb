@@ -36,6 +36,12 @@ feature 'Create, edit, delete Set Lists' do
     expect(page).to have_content("#{new_key}\n歌詞")
   end
 
+  # TODO
+  # scenario 'save a new key and confirm the song body is displayed properly' do
+  # end
+
+  # TODO: Test the drag and drop function in edit_user_set_list_path(...)
+
   scenario 'Delete a Set List', js: true do
     login_as user
     visit user_set_list_path(id: user.set_lists.first, user_id: user)
@@ -43,6 +49,4 @@ feature 'Create, edit, delete Set Lists' do
     page.driver.browser.switch_to.alert.accept
     expect(page).to have_content('セットリストは削除されました')
   end
-
-  # TODO: Test the drag and drop function in edit_user_set_list_path(...)
 end

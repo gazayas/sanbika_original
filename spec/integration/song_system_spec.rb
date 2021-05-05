@@ -63,10 +63,6 @@ feature 'Create, use, edit and delete a song' do
     expect(all('.chord')[2].text).to eq('E')
   end
 
-  # TODO: This is for Set List, not Song
-  # scenario 'save a new key and confirm the song body is displayed properly' do
-  # end
-
   let(:user_with_song) { FactoryBot.create(:user_with_song) }
   scenario 'delete the song', js: true do
     login_as user
