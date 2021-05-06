@@ -28,6 +28,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'database_cleaner', '~> 1.6.0'
 gem 'uglifier'
 
+gem 'email_validator'
 gem "acts_as_list", "~> 1.0"
 
 gem 'pdfkit'
