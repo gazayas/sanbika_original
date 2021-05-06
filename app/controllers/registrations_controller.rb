@@ -5,7 +5,6 @@ class RegistrationsController < Devise::RegistrationsController
 		resource.update_without_password(params)
 	end
 
-	# TODO: Let the user sign in with their e-mail and password as well, not just omniauth
 	private
 
 	def sign_up_params

@@ -36,7 +36,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.timestamps null: false
     end
 
-    add_index :users, :email,                unique: true
+    # We make sure the email index is not unique here because
+    # oauth doesn't save the user's email to the database.
+    add_index :users, :email,                unique: false
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
     add_index :users, :unlock_token,         unique: true
