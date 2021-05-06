@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable,
          :confirmable, :lockable, :timeoutable,
          :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2],
          :authentication_keys => [:login]
@@ -20,7 +20,11 @@ class User < ApplicationRecord
   # TODO: Use carrierwave to edit user images
   # mount_uploader :user_image, UserImageUploader
 
-  validates :username, presence: true, length: { minimum: 5, maximum: 30 }
+  # TODO: Test multiple blank email users,
+  # We allow blank here because oauth doesn't save the user's email to the database.
+  validates :email, presence: true, email: true, unless: :omniauth_user?
+  validates :username, presence: true, length: { minimum: 5, maximum: 30 }, unless: :omniauth_user?
+  validates :password, presence: true, length: { minimum: 6, maximum: 30 }, unless: :omniauth_user?, if: :password_required?
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
@@ -34,12 +38,16 @@ class User < ApplicationRecord
         user.user_image = auth["info"]["image"].sub("_normal", "")
       elsif auth["provider"] == "facebook"
         user.username = auth["info"]["name"]
-        user.user_image = auth["info"]["image"].sub("picture","picture?type=large")
+        user.user_image = auth["info"]["image"] + "&type=large"
       elsif auth["provider"] == "google_oauth2"
         user.username = auth["info"]["name"]
         user.user_image = auth["info"]["image"].sub(/=s\d+/, "=s300")
       end
     end
+  end
+
+  def omniauth_user?
+    self.provider.present?
   end
 
   def self.new_with_session(params, session)
@@ -59,5 +67,11 @@ class User < ApplicationRecord
     else
       where(condition).first
     end
+  end
+
+  # Since :validatable has been removed, we don't need password validation when
+  # updating the user's information on user#edit view. This method allows us to skip the validation.
+  def password_required?
+    !persisted? || !password.nil? || !password_confirmation.nil?
   end
 end
